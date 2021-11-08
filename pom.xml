@@ -15,6 +15,10 @@
     <packaging>atlassian-plugin</packaging>
     <repositories>
         <repository>
+            <id>atlassian2</id>
+            <url>https://packages.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>
+        <repository>
             <id>maven-central</id>
             <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
@@ -25,10 +29,6 @@
         <repository>
             <id>atlassian</id>
             <url>https://maven.atlassian.com/repository/public</url>
-        </repository>
-        <repository>
-            <id>ICM</id>
-            <url>http://maven.icm.edu.pl/artifactory/repo/</url>
         </repository>
     </repositories>
     <dependencies>
@@ -167,8 +167,8 @@
         <plugins>
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-jira-plugin</artifactId>
-                <version>6.3.6</version>
+                <artifactId>jira-maven-plugin</artifactId>
+                <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
