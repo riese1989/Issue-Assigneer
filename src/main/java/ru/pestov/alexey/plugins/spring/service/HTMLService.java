@@ -39,10 +39,11 @@ public class HTMLService {
         FileInputStream fis;
         Properties property = new Properties();
         try {
-            fis = new FileInputStream("/Users/usser/issue-assigneer/src/main/resources/issue-assigneer.properties");
+            fis = new FileInputStream("C:\\Users\\alexey.pestov\\Desktop\\Issue-Assigneer\\src\\main\\resources\\issue-assigneer.properties");
             property.load(fis);
             System.out.println(property.getProperty("file.cab.path"));
-            return property.getProperty("file.cab.path");
+           // return property.getProperty("file.cab.path");
+            return "C:\\Users\\alexey.pestov\\Desktop\\Issue-Assigneer\\src\\main\\resources\\supportFiles\\CAB_approval.json";
         }
         catch (IOException e) {
             System.err.println("ОШИБКА: Файл свойств отсуствует!");
