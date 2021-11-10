@@ -1,0 +1,12 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 09 14:02:45 MSK 2021
+https\://maven.atlassian.com/repository/public/.lastUpdated=1636454320227
+@default-maven-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1636454320523
+https\://www.datanucleus.org/downloads/maven2/.lastUpdated=1636454321452
+https\://repo.maven.apache.org/maven2/.lastUpdated=1636455765204
+https\://packages.atlassian.com/content/repositories/atlassian-public/.error=
+file\://C\:\\Applications\\Atlassian\\atlassian-plugin-sdk-8.2.7/repository/.lastUpdated=1636454320241
+https\://repo.maven.apache.org/maven2/.error=
+file\://C\:\\Applications\\Atlassian\\atlassian-plugin-sdk-8.2.7/repository/.error=
+https\://maven.atlassian.com/repository/public/.error=
+https\://packages.atlassian.com/content/repositories/atlassian-public/.lastUpdated=1636454320506

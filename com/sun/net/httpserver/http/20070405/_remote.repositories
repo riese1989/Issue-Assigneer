@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 09 14:02:45 MSK 2021
+http-20070405.jar>central=
+http-20070405.pom>central=
+http-20070405.pom>atlassian-public=
+http-20070405.jar>atlassian-public=
