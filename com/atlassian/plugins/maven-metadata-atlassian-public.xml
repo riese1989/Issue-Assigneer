@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <plugins>
+    <plugin>
+      <name>Maven AMPS Dispatcher Plugin</name>
+      <prefix>amps-dispatcher</prefix>
+      <artifactId>maven-amps-dispatcher-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Bitbucket Maven Plugin</name>
+      <prefix>bitbucket</prefix>
+      <artifactId>bitbucket-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Bamboo Plugin</name>
+      <prefix>bamboo</prefix>
+      <artifactId>maven-bamboo-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven FishEye/Crucible Plugin</name>
+      <prefix>fecru</prefix>
+      <artifactId>maven-fecru-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven JIRA Plugin</name>
+      <prefix>jira</prefix>
+      <artifactId>maven-jira-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Crowd Plugin</name>
+      <prefix>crowd</prefix>
+      <artifactId>maven-crowd-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Crowd Maven Plugin</name>
+      <prefix>crowd</prefix>
+      <artifactId>crowd-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Confluence Plugin</name>
+      <prefix>confluence</prefix>
+      <artifactId>maven-confluence-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven AMPS Plugin</name>
+      <prefix>amps</prefix>
+      <artifactId>maven-amps-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>AMPS Maven Plugin</name>
+      <prefix>amps</prefix>
+      <artifactId>amps-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>AMPS Dispatcher Maven Plugin</name>
+      <prefix>amps-dispatcher</prefix>
+      <artifactId>amps-dispatcher-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>FishEye/Crucible Maven Plugin</name>
+      <prefix>fecru</prefix>
+      <artifactId>fecru-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:opup-maven-plugin:maven-plugin:[inherited]</name>
+      <prefix>opup</prefix>
+      <artifactId>opup-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Confluence Maven Plugin</name>
+      <prefix>confluence</prefix>
+      <artifactId>confluence-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Refapp Plugin</name>
+      <prefix>refapp</prefix>
+      <artifactId>maven-refapp-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Refapp Maven Plugin</name>
+      <prefix>refapp</prefix>
+      <artifactId>refapp-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Stash Plugin</name>
+      <prefix>stash</prefix>
+      <artifactId>maven-stash-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>JIRA Maven Plugin</name>
+      <prefix>jira</prefix>
+      <artifactId>jira-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Bamboo Maven Plugin</name>
+      <prefix>bamboo</prefix>
+      <artifactId>bamboo-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Static Security Check Maven Plugin</name>
+      <prefix>seccheck</prefix>
+      <artifactId>seccheck-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Atlassian Source Distribution Plugin</name>
+      <prefix>atlassian-source-distribution</prefix>
+      <artifactId>maven-atlassian-source-distribution-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian License Maven Plugin</name>
+      <prefix>license</prefix>
+      <artifactId>license-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Maven Dependency Tracker Plugin</name>
+      <prefix>dependency-tracker</prefix>
+      <artifactId>maven-dependency-tracker-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Atlassian Source Distribution Plugin</name>
+      <prefix>atlassian-source-distribution</prefix>
+      <artifactId>atlassian-source-distribution-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:banned-packages-maven-plugin:maven-plugin:1.0.2</name>
+      <prefix>banned-packages</prefix>
+      <artifactId>banned-packages-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Clover Plugin</name>
+      <prefix>clover</prefix>
+      <artifactId>maven-clover-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Studio Maven Plugin</name>
+      <prefix>studio</prefix>
+      <artifactId>studio</artifactId>
+    </plugin>
+    <plugin>
+      <name>clirr-rules-maven-plugin Maven Mojo</name>
+      <prefix>clirr-rules</prefix>
+      <artifactId>clirr-rules-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:soy-to-html-maven-plugin:maven-plugin:[inherited]</name>
+      <prefix>soy-to-html</prefix>
+      <artifactId>soy-to-html-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Maven Versions plugin</name>
+      <prefix>atlassian-versions</prefix>
+      <artifactId>atlassian-versions-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Maven Sandbox Plugin</name>
+      <prefix>sandbox</prefix>
+      <artifactId>sandbox-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Amazon Web Services Plug-in</name>
+      <prefix>aws</prefix>
+      <artifactId>maven-aws-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>JarJar Maven Plugin</name>
+      <prefix>jarjar</prefix>
+      <artifactId>jarjar-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>AUI Component</name>
+      <prefix>auicomponent</prefix>
+      <artifactId>maven-auicomponent-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>api-compat-maven-plugin Maven Mojo</name>
+      <prefix>api-compat</prefix>
+      <artifactId>api-compat-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Clover Plugin</name>
+      <prefix>clover2</prefix>
+      <artifactId>maven-clover2-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Plugin Developer Kit</name>
+      <prefix>atlassian-pdk</prefix>
+      <artifactId>atlassian-pdk</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Maven Source Routes Plugin</name>
+      <prefix>source-routes</prefix>
+      <artifactId>maven-source-routes-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>qunit-maven-plugin Maven Mojo</name>
+      <prefix>qunit</prefix>
+      <artifactId>qunit-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Maven Plugin</name>
+      <prefix>atlassian</prefix>
+      <artifactId>atlassian-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Simple Javadoc Plugin</name>
+      <prefix>simple-javadoc</prefix>
+      <artifactId>maven-simple-javadoc-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>assc-maven-plugin Maven Plugin</name>
+      <prefix>assc</prefix>
+      <artifactId>assc-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Archetype Plugin</name>
+      <prefix>atlassian-archetype</prefix>
+      <artifactId>maven-atlassian-archetype-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian I18n UpsideDown Text Maven Plugin</name>
+      <prefix>atlassian-i18n-upsidedown-text</prefix>
+      <artifactId>atlassian-i18n-upsidedown-text-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Distribution Maven Plugin</name>
+      <prefix>atlassian-distribution</prefix>
+      <artifactId>atlassian-distribution-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Smartpackage Maven Plugin</name>
+      <prefix>smartpackage</prefix>
+      <artifactId>smartpackage</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Modz Detector - Maven Plugin</name>
+      <prefix>modz-detector</prefix>
+      <artifactId>modz-detector-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian :: Licensing Bom Processor Maven Plugin</name>
+      <prefix>licensing-bom-processor</prefix>
+      <artifactId>maven-licensing-bom-processor-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Maven Install4J Plugin</name>
+      <prefix>install4j</prefix>
+      <artifactId>maven-install4j-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:soy-to-js-maven-plugin:maven-plugin:[inherited]</name>
+      <prefix>soy-to-js</prefix>
+      <artifactId>soy-to-js-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Pseudo Localisation Maven2 Plugin</name>
+      <prefix>pseudo-loc</prefix>
+      <artifactId>pseudo-loc-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Licenses Plugin</name>
+      <prefix>licenses</prefix>
+      <artifactId>maven-licenses-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>testjar-plugin Maven Plugin</name>
+      <prefix>unpack-testjar</prefix>
+      <artifactId>unpack-testjar</artifactId>
+    </plugin>
+    <plugin>
+      <name>Bower Maven Plugin</name>
+      <prefix>bower</prefix>
+      <artifactId>bower-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>S3 upload maven plugin</name>
+      <prefix>s3-upload</prefix>
+      <artifactId>s3-upload-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Generates BuildUtil.java files for Atlassian Products</name>
+      <prefix>atlassian-buildutils</prefix>
+      <artifactId>maven-atlassian-buildutils-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven 2 Atlassian IDEA Plugin</name>
+      <prefix>atlassian-idea</prefix>
+      <artifactId>maven-atlassian-idea-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian IDE Maven Plugin</name>
+      <prefix>atlassian-ide</prefix>
+      <artifactId>atlassian-ide-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Applicaiton Manager Confluence Maven Plugin</name>
+      <prefix>aam</prefix>
+      <artifactId>maven-aam-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven 2 System Properties Initialiser</name>
+      <prefix>properties-initialiser</prefix>
+      <artifactId>maven-properties-initialiser-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian DocsVersion Plugin</name>
+      <prefix>docsversion</prefix>
+      <artifactId>docsversion-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>TCP Level Load Balancer</name>
+      <prefix>load-balancer</prefix>
+      <artifactId>load-balancer-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Application Plugin</name>
+      <prefix>atlassian-application</prefix>
+      <artifactId>maven-atlassian-application-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Repository Bundle</name>
+      <prefix>repository-bundle</prefix>
+      <artifactId>maven-repository-bundle-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Bundled Plugins Maven Plugin</name>
+      <prefix>atlassian-bundleds</prefix>
+      <artifactId>atlassian-bundled-plugins-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven upload plugin</name>
+      <prefix>upload</prefix>
+      <artifactId>maven-upload-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian Install4J Maven Plugin</name>
+      <prefix>atlassian-install4j</prefix>
+      <artifactId>atlassian-install4j-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Artifactory Staging Maven Plugin</name>
+      <prefix>artifactory-staging</prefix>
+      <artifactId>artifactory-staging-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Smart Assembly Plugin</name>
+      <prefix>smartass</prefix>
+      <artifactId>smartass-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>AWS Integration Test Plugin</name>
+      <prefix>aws-integration-test</prefix>
+      <artifactId>aws-integration-test-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>JIRA DB Maven Plugin</name>
+      <prefix>jiradb</prefix>
+      <artifactId>jiradb-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:megawatt-maven-plugin:maven-plugin:0.22.1-9095044</name>
+      <prefix>megawatt</prefix>
+      <artifactId>megawatt-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Bamboo Security Classlist Generator Maven Plugin</name>
+      <prefix>bamboo-classlist-generator</prefix>
+      <artifactId>bamboo-classlist-generator-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Confluence Tools Maven Mojo</name>
+      <prefix>atlassian-dependency</prefix>
+      <artifactId>atlassian-dependency-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>dep-graph-maven-plugin Maven Mojo</name>
+      <prefix>dep-graph</prefix>
+      <artifactId>dep-graph-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:roz-maven-plugin:maven-plugin:2.0.3</name>
+      <prefix>roz</prefix>
+      <artifactId>roz-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>AO to Query DSL Maven Plugin</name>
+      <prefix>ao-querydsl</prefix>
+      <artifactId>ao-querydsl-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - com.atlassian.maven.plugins:checkdeps-maven-plugin:maven-plugin:1.0.1</name>
+      <prefix>checkdeps</prefix>
+      <artifactId>checkdeps-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Atlassian account (AID) TestKit Maven Plugin</name>
+      <prefix>aid-testkit</prefix>
+      <artifactId>aid-testkit-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven plugin for installing files into the local repo from a repo backup</name>
+      <prefix>install-files</prefix>
+      <artifactId>install-files-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - [inherited]:maven-functest-backup-files-validator-plugin:maven-plugin:1.1.0</name>
+      <prefix>functest-backup-files-validator</prefix>
+      <artifactId>maven-functest-backup-files-validator-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>easy-checkout-maven-plugin Maven Plugin</name>
+      <prefix>easy-checkout</prefix>
+      <artifactId>easy-checkout-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Unnamed - [inherited]:maven-backup-files-validator-plugin:maven-plugin:1.0.0</name>
+      <prefix>backup-files-validator</prefix>
+      <artifactId>maven-backup-files-validator-plugin</artifactId>
+    </plugin>
+  </plugins>
+</metadata>

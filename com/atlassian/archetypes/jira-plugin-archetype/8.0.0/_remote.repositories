@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Nov 08 14:30:21 MSK 2021
+jira-plugin-archetype-8.0.0.jar>atlassian-public=
+jira-plugin-archetype-8.0.0.pom>atlassian-public=
