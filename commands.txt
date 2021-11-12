@@ -1,0 +1,17 @@
+netstat -ano | findstr :2990
+
+taskkill /PID 14464 /F
+cd C:\Users\alexey.pestov\Desktop\Issue-Assigneer
+atlas-run -X
+
+
+atlas-mvn install:install-file -Dfile=C:\Users\alexey.pestov\Downloads\jira-maven-plugin-8.0.0.jar -DgroupId=com.atlassian.maven.plugins -DartifactId=maven-jira-plugin -Dversion=8.0.0 -Dpackaging=jar
+
+atlas-mvn clean
+
+Если в гит не загружается
+ssh-add C:/Users/alexey.pestov/.ssh/github
+cd C:/Users/alexey.pestov/Desktop/Issue-Assigneer
+git push origin Dev
+
+
