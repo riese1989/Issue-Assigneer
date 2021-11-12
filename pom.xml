@@ -15,6 +15,10 @@
     <packaging>atlassian-plugin</packaging>
     <repositories>
         <repository>
+            <id>MyRepo</id>
+            <url>https://github.com/riese1989/Issue-Assigneer/tree/Repository</url>
+        </repository>
+        <repository>
             <id>JarDownloads</id>
             <url>https://jar-download.com/artifacts/</url>
         </repository>
