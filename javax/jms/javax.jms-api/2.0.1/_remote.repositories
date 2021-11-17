@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:07:25 MSK 2021
+javax.jms-api-2.0.1.jar>atlassian-public=
+javax.jms-api-2.0.1.pom>atlassian-public=

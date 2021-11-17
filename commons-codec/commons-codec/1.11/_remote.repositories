@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 12:45:52 MSK 2021
+commons-codec-1.11.jar>atlassian-public=
+commons-codec-1.11.pom>atlassian-public=

@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.atlassian.pom</groupId>
+        <artifactId>base-pom</artifactId>
+        <version>3.0.89</version>
+        <relativePath>../base-pom</relativePath>
+    </parent>
+
+    <artifactId>central-pom</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Atlassian Central POM</name>
+
+    <distributionManagement>
+        <repository>
+            <id>atlassian-central</id>
+            <name>Atlassian Central Repository</name>
+            <url>https://maven.atlassian.com/central-staging</url>
+        </repository>
+        <snapshotRepository>
+            <id>atlassian-central-snapshot</id>
+            <name>Atlassian Central Repository Snapshots</name>
+            <url>https://maven.atlassian.com/central-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://jira.atlassian.com/browse/APUBPOM</url>
+    </issueManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <skipStaging>false</skipStaging>
+                    <autoReleaseAfterClose>${staging.automatic.release}</autoReleaseAfterClose>
+                    <serverId>atlassian-central</serverId>
+                    <nexusUrl>http://nexus-atlassian-central.buildeng.atlassian.com:8081/</nexusUrl>
+                    <stagingProfileId>atlassian-central-staging</stagingProfileId>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <!-- 
+                    From https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin
+                    It's not supported to have deferred (default for snapshot) and 
+                    staging (default for releses) strategies in the same reactor. 
+                    So during the release of the parent poms, we disabled the deferred ones. 
+
+                    As we have nexus staging working for central, we want to call deploy instead of deploy:deploy -->
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- this plugin is required to ensure Central Repository's requirements are met -->
+                    <!-- https://docs.sonatype.org/display/Repository/Central+Sync+Requirements -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <properties>
+        <staging.automatic.release>true</staging.automatic.release>
+    </properties>
+</project>

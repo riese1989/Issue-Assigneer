@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:31:51 MSK 2021
+alt-jdk1.3-0.07.pom>atlassian-public=
+alt-jdk1.3-0.07.pom>maven-central=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:30:58 MSK 2021
+xml-apis-1.0.b2.jar>atlassian-public=
+xml-apis-1.0.b2.pom>maven-central=
+xml-apis-1.0.b2.pom>atlassian-public=

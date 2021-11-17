@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:28 MSK 2021
+hibernate-commons-annotations-5.1.2.Final.jar>atlassian-public=
+hibernate-commons-annotations-5.1.2.Final.pom>maven-central=
+hibernate-commons-annotations-5.1.2.Final.pom>atlassian-public=

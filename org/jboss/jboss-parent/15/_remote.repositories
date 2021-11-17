@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:30 MSK 2021
+jboss-parent-15.pom>maven-central=
+jboss-parent-15.pom>atlassian-public=

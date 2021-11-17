@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:54 MSK 2021
+mimepull-1.4.jar>atlassian-public=
+mimepull-1.4.pom>atlassian-public=
+mimepull-1.4.pom>maven-central=

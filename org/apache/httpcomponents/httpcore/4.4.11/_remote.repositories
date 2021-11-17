@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 12:48:53 MSK 2021
+httpcore-4.4.11.jar>atlassian-public=
+httpcore-4.4.11.pom>atlassian-public=

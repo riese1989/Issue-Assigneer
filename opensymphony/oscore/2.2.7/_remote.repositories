@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:31:49 MSK 2021
+oscore-2.2.7.jar>atlassian-public=
+oscore-2.2.7.pom>atlassian-public=
+oscore-2.2.7.pom>atlassian=

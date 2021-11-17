@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:32:34 MSK 2021
+atlassian-event-2.3.2.jar>atlassian-public=
+atlassian-event-2.3.2.pom>atlassian=
+atlassian-event-2.3.2.pom>atlassian-public=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:10 MSK 2021
+bndlib-1.43.0-atlassian-1.pom>atlassian-public=
+bndlib-1.43.0-atlassian-1.pom>atlassian=
+bndlib-1.43.0-atlassian-1.jar>atlassian-public=

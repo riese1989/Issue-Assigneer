@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 12:45:51 MSK 2021
+guice-4.2.0-no_aop.jar>atlassian-public=
+guice-4.2.0.pom>atlassian-public=

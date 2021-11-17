@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:30:12 MSK 2021
+jira-api-7.5.0.pom>atlassian-public=
+jira-api-7.5.0.pom>atlassian=
+jira-api-7.5.0.jar>atlassian-public=

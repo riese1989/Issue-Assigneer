@@ -1,5 +1,5 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Wed Nov 10 17:28:18 MSK 2021
+#Wed Nov 17 13:07:25 MSK 2021
 javax.mail-1.5.6.pom>atlassian-public=
 javax.mail-1.5.6.jar>atlassian-public=
 javax.mail-1.5.6.pom>maven-central=

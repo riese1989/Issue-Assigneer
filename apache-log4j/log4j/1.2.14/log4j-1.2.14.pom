@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>apache-log4j</groupId>
+  <artifactId>log4j</artifactId>
+  <name>log4j</name>
+  <version>1.2.14</version>
+  <url>http://logging.apache.org/</url>
+  <description>Java logging framework</description>
+  <licenses>
+   <license>
+     <name>apache-2.0</name>
+     <url>http://apache.org/licenses/LICENSE-2.0.txt</url>
+   </license>
+  </licenses>    
+</project>

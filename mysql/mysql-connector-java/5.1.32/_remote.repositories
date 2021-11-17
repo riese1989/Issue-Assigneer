@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:03 MSK 2021
+mysql-connector-java-5.1.32.jar>atlassian-public=
+mysql-connector-java-5.1.32.pom>Jahia=
+mysql-connector-java-5.1.32.pom>atlassian-public=

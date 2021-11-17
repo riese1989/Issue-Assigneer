@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:07:38 MSK 2021
+xmlparser-2.0.pom>datanucleus=
+xmlparser-2.0.jar>datanucleus=

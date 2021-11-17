@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:33 MSK 2021
+junit-4.10.jar>atlassian-public=
+junit-4.10.pom>atlassian-public=
+junit-4.10.pom>maven-central=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:44 MSK 2021
+maven-aether-provider-3.2.1.pom>atlassian-public=
+maven-aether-provider-3.2.1.pom>maven-central=
+maven-aether-provider-3.2.1.jar>atlassian-public=

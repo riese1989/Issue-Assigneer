@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:38:35 MSK 2021
+commons-lang-2.1.jar>atlassian-public=
+commons-lang-2.1.pom>atlassian-public=
+commons-lang-2.1.pom>maven-central=

@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:12:44 MSK 2021
+maven-surefire-plugin-3.0.0-M5.jar>atlassian-public=
+maven-surefire-plugin-3.0.0-M5.pom>atlassian-public=

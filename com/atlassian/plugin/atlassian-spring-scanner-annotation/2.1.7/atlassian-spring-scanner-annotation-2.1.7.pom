@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>atlassian-spring-scanner-parent</artifactId>
+        <groupId>com.atlassian.plugin</groupId>
+        <version>2.1.7</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>atlassian-spring-scanner-annotation</artifactId>
+    <name>Atlassian Spring Scanner Annotations</name>
+    <packaging>atlassian-plugin</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-amps-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Atlassian-Plugin-Key>${project.groupId}.${project.artifactId}</Atlassian-Plugin-Key>
+                        <Import-Package>
+                            *
+                        </Import-Package>
+                        <Export-Package>
+                            com.atlassian.plugin.spring.scanner,
+                            com.atlassian.plugin.spring.scanner.annotation.component,
+                            com.atlassian.plugin.spring.scanner.annotation.export,
+                            com.atlassian.plugin.spring.scanner.annotation.imports,
+                            com.atlassian.plugin.spring.scanner.annotation,
+                            <!-- CommonConstants is not meant as API, but I don't want to add another module
+                                 just to share this one class between build-time scanners and runtime -->
+                            com.atlassian.plugin.spring.scanner.util
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

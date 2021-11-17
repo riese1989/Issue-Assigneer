@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:07:25 MSK 2021
+jboss-as-j2se-5.1.0.GA.jar>atlassian-public=
+jboss-as-j2se-5.1.0.GA.pom>atlassian-public=
+jboss-as-j2se-5.1.0.GA-tests.jar>atlassian-public=

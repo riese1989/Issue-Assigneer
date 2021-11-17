@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:39:24 MSK 2021
+guava-osgi-10.0.1.jar>atlassian-public=
+guava-osgi-10.0.1.pom>atlassian-public=
+guava-osgi-10.0.1.pom>maven-central=

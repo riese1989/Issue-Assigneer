@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:58 MSK 2021
+jettison-1.1.pom>atlassian-public=
+jettison-1.1.jar>atlassian-public=
+jettison-1.1.pom>maven-central=

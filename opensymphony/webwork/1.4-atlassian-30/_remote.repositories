@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:30:41 MSK 2021
+webwork-1.4-atlassian-30.jar>atlassian-public=
+webwork-1.4-atlassian-30.pom>atlassian=
+webwork-1.4-atlassian-30.pom>atlassian-public=

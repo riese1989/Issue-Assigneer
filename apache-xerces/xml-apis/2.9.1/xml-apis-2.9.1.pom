@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>apache-xerces</groupId>
+    <artifactId>xml-apis</artifactId>
+    <version>2.9.1</version>
+    <distributionManagement>
+        <relocation>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.3.04</version>
+            <message>https://extranet.atlassian.com/jira/browse/BUILDENG-4281</message>
+        </relocation>
+    </distributionManagement>
+</project>

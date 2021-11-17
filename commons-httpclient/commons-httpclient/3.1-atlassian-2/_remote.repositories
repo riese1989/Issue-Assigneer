@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:35:44 MSK 2021
+commons-httpclient-3.1-atlassian-2.jar>atlassian-public=
+commons-httpclient-3.1-atlassian-2.pom>atlassian-public=
+commons-httpclient-3.1-atlassian-2.pom>atlassian=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:32:00 MSK 2021
+osworkflow-2.9.0-atlassian-1.pom>atlassian=
+osworkflow-2.9.0-atlassian-1.jar>atlassian-public=
+osworkflow-2.9.0-atlassian-1.pom>atlassian-public=

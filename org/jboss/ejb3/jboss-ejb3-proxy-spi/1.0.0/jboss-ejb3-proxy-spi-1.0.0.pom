@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- Define Parent -->
+  <parent>
+    <groupId>org.jboss.ejb3</groupId>
+    <artifactId>jboss-ejb3-build</artifactId>
+    <version>1.0.3</version>
+    <relativePath>../build/pom.xml</relativePath>
+  </parent>
+
+  <!-- Maven POM Model Version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Artifact Information -->
+  <groupId>org.jboss.ejb3</groupId>
+  <artifactId>jboss-ejb3-proxy-spi</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>JBoss EJB 3.x Proxy SPI</name>
+  <description>SPI for Proxy Implementations in JBoss EJB 3.x</description>
+
+  <!-- Build Configuration -->
+  <build>
+  
+    <plugins>
+
+      <!-- Assembly Plugin (Proxy SPI Client) -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2-beta-1</version>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptors>
+            <descriptor>jboss-ejb3-proxy-spi-client.xml</descriptor>
+          </descriptors>
+          <attach>true</attach>
+        </configuration>
+        <inherited>false</inherited>
+      </plugin>
+    
+    </plugins>
+    
+  </build>
+  
+  <properties>
+  
+    <!-- Versioning -->
+    <version.org.jboss.ejb3_jboss.ejb3.common>1.0.0</version.org.jboss.ejb3_jboss.ejb3.common>
+    <version.org.jboss.aop_jboss.aop>2.0.1.GA</version.org.jboss.aop_jboss.aop>
+  </properties>
+
+  <dependencies>
+  
+    <!-- 
+    Dependencies: org.jboss.ejb3 
+    -->
+    
+    <dependency>
+      <groupId>org.jboss.ejb3</groupId>
+      <artifactId>jboss-ejb3-common</artifactId>
+      <version>${version.org.jboss.ejb3_jboss.ejb3.common}</version>
+      <optional>true</optional>
+    </dependency>
+    
+    <!-- 
+    Dependencies: External to EJB3 
+    -->
+    
+    <dependency>
+      <groupId>org.jboss.aop</groupId>
+      <artifactId>jboss-aop</artifactId>
+      <version>${version.org.jboss.aop_jboss.aop}</version>
+      <optional>true</optional>
+    </dependency>
+
+  </dependencies>
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-proxy-spi-1.0.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-proxy-spi-1.0.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-proxy-spi-1.0.0</url>
+  </scm>
+</project>

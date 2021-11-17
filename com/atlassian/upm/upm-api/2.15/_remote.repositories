@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:36:48 MSK 2021
+upm-api-2.15.jar>atlassian-public=
+upm-api-2.15.pom>atlassian-public=
+upm-api-2.15.pom>atlassian=

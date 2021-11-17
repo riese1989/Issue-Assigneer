@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:04 MSK 2021
+jtds-1.2.4.jar>atlassian-public=
+jtds-1.2.4.pom>atlassian-public=
+jtds-1.2.4.pom>maven-central=

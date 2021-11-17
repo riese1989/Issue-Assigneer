@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:30:01 MSK 2021
+activation-1.1.pom>maven-central=
+activation-1.1.pom>atlassian-public=
+activation-1.1.jar>atlassian-public=

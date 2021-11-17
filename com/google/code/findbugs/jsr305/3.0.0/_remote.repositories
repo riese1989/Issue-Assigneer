@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:30:31 MSK 2021
+jsr305-3.0.0.jar>atlassian-public=
+jsr305-3.0.0.pom>maven-central=
+jsr305-3.0.0.pom>atlassian-public=

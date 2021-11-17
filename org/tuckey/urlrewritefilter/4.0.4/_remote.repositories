@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:35:21 MSK 2021
+urlrewritefilter-4.0.4.pom>atlassian-public=
+urlrewritefilter-4.0.4.jar>atlassian-public=
+urlrewritefilter-4.0.4.pom>maven-central=

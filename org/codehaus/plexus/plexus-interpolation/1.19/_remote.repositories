@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:21 MSK 2021
+plexus-interpolation-1.19.pom>atlassian-public=
+plexus-interpolation-1.19.pom>maven-central=
+plexus-interpolation-1.19.jar>atlassian-public=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:36:12 MSK 2021
+validation-api-1.1.0.Final.pom>maven-central=
+validation-api-1.1.0.Final.jar>atlassian-public=
+validation-api-1.1.0.Final.pom>atlassian-public=

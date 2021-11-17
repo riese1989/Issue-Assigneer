@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:33:08 MSK 2021
+fugue-2.6.0.jar>atlassian-public=
+fugue-2.6.0.pom>atlassian=
+fugue-2.6.0.pom>atlassian-public=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:31 MSK 2021
+org.eclipse.sisu.plexus-0.0.0.M5.pom>atlassian-public=
+org.eclipse.sisu.plexus-0.0.0.M5.pom>maven-central=
+org.eclipse.sisu.plexus-0.0.0.M5.jar>atlassian-public=

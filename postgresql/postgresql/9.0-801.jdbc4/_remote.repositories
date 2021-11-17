@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:03 MSK 2021
+postgresql-9.0-801.jdbc4.jar>atlassian-public=
+postgresql-9.0-801.jdbc4.pom>atlassian-public=
+postgresql-9.0-801.jdbc4.pom>maven-central=

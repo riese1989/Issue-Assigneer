@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:38:40 MSK 2021
+plugin-module-codegen-engine-5.0.18.pom>maven-central=
+plugin-module-codegen-engine-5.0.18.pom>atlassian-public=
+plugin-module-codegen-engine-5.0.18.jar>atlassian-public=

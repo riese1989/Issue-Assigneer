@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>org.jboss</groupId>
+    <artifactId>jboss-parent</artifactId>
+    <version>4</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.jboss.security</groupId>
+  <artifactId>jboss-xacml-project</artifactId>
+  <version>2.0.3</version>
+  <packaging>pom</packaging>
+  <name>JBoss XACML Build</name>
+  <url>http://www.jboss.com</url>
+  <description>
+    The JBoss XACML Project
+  </description>
+   <scm>
+      <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/security/security-xacml/tags/2.0.3</connection>
+      <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/security/security-xacml/tags/2.0.3</developerConnection>
+   </scm>
+  <build>
+    <plugins>
+       <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <configuration>
+            <tagBase>https://svn.jboss.org/repos/jbossas/projects/security/security-xacml/tags</tagBase>
+          </configuration>
+        </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>jboss</id>
+      <name>JBoss Repository</name>
+      <layout>default</layout>
+      <url>http://anonsvn.jboss.org/repos/repository.jboss.org/maven2</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+</project>

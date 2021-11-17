@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:32:07 MSK 2021
+atlassian-util-concurrent-0.0.12.jar>atlassian-public=
+atlassian-util-concurrent-0.0.12.pom>atlassian=
+atlassian-util-concurrent-0.0.12.pom>atlassian-public=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:51 MSK 2021
+wagon-provider-api-2.6.pom>atlassian-public=
+wagon-provider-api-2.6.jar>atlassian-public=
+wagon-provider-api-2.6.pom>maven-central=

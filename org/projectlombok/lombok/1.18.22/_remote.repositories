@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:32 MSK 2021
+lombok-1.18.22.pom>atlassian-public=
+lombok-1.18.22.jar>atlassian-public=
+lombok-1.18.22.pom>maven-central=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:36:14 MSK 2021
+spring-core-4.2.5.RELEASE.jar>atlassian-public=
+spring-core-4.2.5.RELEASE.pom>maven-central=
+spring-core-4.2.5.RELEASE.pom>atlassian-public=

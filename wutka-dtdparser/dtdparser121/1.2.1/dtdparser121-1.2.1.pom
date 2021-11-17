@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>wutka-dtdparser</groupId>
+    <artifactId>dtdparser121</artifactId>
+    <version>1.2.1</version>
+    <distributionManagement>
+        <relocation>
+            <groupId>com.wutka</groupId>
+            <artifactId>dtdparser</artifactId>
+            <version>1.21</version>
+            <message>https://extranet.atlassian.com/jira/browse/BUILDENG-4293</message>
+        </relocation>
+    </distributionManagement>
+</project>

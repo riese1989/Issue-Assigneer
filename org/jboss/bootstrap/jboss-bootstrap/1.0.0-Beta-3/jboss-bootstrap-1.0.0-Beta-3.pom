@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss</groupId>
+    <artifactId>jboss-parent</artifactId>
+    <version>4</version>
+  </parent>
+
+  <!-- Model Version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Artifact Configuration -->
+  <groupId>org.jboss.bootstrap</groupId>
+  <artifactId>jboss-bootstrap</artifactId>
+  <name>JBossAS Bootstrap</name>
+  <version>1.0.0-Beta-3</version>
+  <description>Common Bootstrap for Distributions of JBossAS</description>
+  
+  <!-- Properties -->
+  <properties>
+  
+    <!-- Versioning -->
+    <version.org.jboss_jboss.vfs>2.0.1.GA</version.org.jboss_jboss.vfs>
+    <version.org.jboss.man_jboss.managed>2.0.0.GA</version.org.jboss.man_jboss.managed>
+    <version.org.jboss.microcontainer_jboss.kernel>2.0.4.GA</version.org.jboss.microcontainer_jboss.kernel>
+    <version.junit_junit>4.5</version.junit_junit>
+  
+  </properties>
+
+  <!-- SCM -->
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/bootstrap/tags/jboss-bootstrap-1.0.0-Beta-3</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/bootstrap/tags/jboss-bootstrap-1.0.0-Beta-3</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/bootstrap/tags/jboss-bootstrap-1.0.0-Beta-3</url>
+  </scm>
+
+  <!-- Issues -->
+  <issueManagement>
+    <system>jira</system>
+    <url>https://jira.jboss.org/jira/browse/JBBOOT</url>
+  </issueManagement>
+
+  <!-- Build -->
+  <build>
+    <plugins>
+
+      <!-- Surefire (Tests) Plugin -->
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <printSummary>true</printSummary>
+          <!-- To allow override from the command line, see SUREFIRE-319 -->
+          <testFailureIgnore>${maven.test.failure.ignore}</testFailureIgnore>
+          <includes>
+            <include>**/*TestCase.java</include>
+            <include>**/*TestSuite.java</include>
+          </includes>
+          <forkMode>always</forkMode>
+          <argLine>-ea</argLine>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+  
+  <!-- Dependencies -->
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>jboss-logging-log4j</artifactId>
+      <version>2.0.5.GA</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- org.jboss.man:jboss-managed -->
+    <dependency>
+      <groupId>org.jboss.man</groupId>
+      <artifactId>jboss-managed</artifactId>
+      <version>${version.org.jboss.man_jboss.managed}</version>
+    </dependency>
+    
+    <!-- org.jboss.microcontainer:jboss-kernel -->
+    <dependency>
+      <groupId>org.jboss.microcontainer</groupId>
+      <artifactId>jboss-kernel</artifactId>
+      <version>${version.org.jboss.microcontainer_jboss.kernel}</version>
+    </dependency>
+    
+    <!-- junit:junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit_junit}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+  
+</project>

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:32:14 MSK 2021
+atlassian-instrumentation-core-2.2.2.jar>atlassian-public=
+atlassian-instrumentation-core-2.2.2.pom>atlassian=
+atlassian-instrumentation-core-2.2.2.pom>atlassian-public=

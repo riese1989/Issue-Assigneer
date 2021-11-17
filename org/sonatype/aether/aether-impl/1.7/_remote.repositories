@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:39:15 MSK 2021
+aether-impl-1.7.jar>atlassian-public=
+aether-impl-1.7.pom>atlassian-public=
+aether-impl-1.7.pom>maven-central=

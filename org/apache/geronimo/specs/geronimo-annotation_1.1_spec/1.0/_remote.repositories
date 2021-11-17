@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:36:43 MSK 2021
+geronimo-annotation_1.1_spec-1.0.jar>atlassian-public=
+geronimo-annotation_1.1_spec-1.0.pom>atlassian-public=
+geronimo-annotation_1.1_spec-1.0.pom>maven-central=

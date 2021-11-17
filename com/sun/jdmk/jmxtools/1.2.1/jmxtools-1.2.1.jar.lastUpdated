@@ -1,12 +1,9 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Tue Nov 09 14:02:45 MSK 2021
-https\://maven.atlassian.com/repository/public/.lastUpdated=1636454320227
-@default-maven-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1636454320523
-https\://www.datanucleus.org/downloads/maven2/.lastUpdated=1636454321452
-https\://repo.maven.apache.org/maven2/.lastUpdated=1636455765204
-https\://packages.atlassian.com/content/repositories/atlassian-public/.error=
-file\://C\:\\Applications\\Atlassian\\atlassian-plugin-sdk-8.2.7/repository/.lastUpdated=1636454320241
-https\://repo.maven.apache.org/maven2/.error=
-file\://C\:\\Applications\\Atlassian\\atlassian-plugin-sdk-8.2.7/repository/.error=
+#Wed Nov 17 13:16:47 MSK 2021
+https\://github.com/riese1989/Issue-Assigneer/tree/Repository/.lastUpdated=1637144207626
+https\://maven.atlassian.com/repository/public/.lastUpdated=1637144205664
+file\:///Applications/Atlassian/atlassian-plugin-sdk-8.2.7/repository/.lastUpdated=1637144205669
+file\:///Applications/Atlassian/atlassian-plugin-sdk-8.2.7/repository/.error=
+https\://maven.jahia.org/maven2/.lastUpdated=1637144205957
+https\://maven.jahia.org/maven2/.error=
 https\://maven.atlassian.com/repository/public/.error=
-https\://packages.atlassian.com/content/repositories/atlassian-public/.lastUpdated=1636454320506

@@ -1,0 +1,169 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>org.jboss.aop</groupId>
+    <artifactId>jboss-aop-parent</artifactId>
+    <version>2.1.1.GA</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>jboss-aop-asintegration-mc</artifactId>
+  <packaging>jar</packaging>
+  <name>JBoss AOP AS Integration MC</name>
+  <description>JBoss AOP AS Integration MC</description>
+  
+  <build>
+    <finalName>${artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>test-jar</id>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludes>
+            <exclude>org/jboss/aop/junit/**</exclude>
+            <exclude>org/jboss/test/aop/classpool/jbosscl/support/excluded/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.4.3</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+          <forkMode>always</forkMode>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <includes>
+            <include>org/jboss/test/**/*TestCase.class</include>
+          </includes>
+          <excludes>
+            <exclude>org/jboss/test/aop/integration/complex/test/ComplexImportMultipleVersionsUnitTestCase.class</exclude>
+          </excludes>
+          <systemProperties>
+            <property>
+              <name>build.testlog</name>
+              <value>target/surefire-reports/tests.log</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-surefire-report-plugin</artifactId>
+       <version>2.4.3</version>
+       <executions>
+         <execution>
+           <id>surefire-report</id>
+           <goals>
+             <goal>report-only</goal>
+           </goals>
+           <phase>package</phase>
+         </execution>
+       </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>create-test-jars</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>process-test-classes</phase>
+            <configuration>
+              <tasks>
+                <property name="test.jar.suffix" value="-test-classpool-" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}a1.jar" basedir="${project.build.testOutputDirectory}" includes="org/jboss/test/aop/classpool/jbosscl/support/excluded/a/*.class" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}a2.jar" basedir="${project.build.testOutputDirectory}" includes="org/jboss/test/aop/classpool/jbosscl/support/excluded/a/*.class" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}b1.jar" basedir="${project.build.testOutputDirectory}" includes="org/jboss/test/aop/classpool/jbosscl/support/excluded/b/*.class" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}b2.jar" basedir="${project.build.testOutputDirectory}" includes="org/jboss/test/aop/classpool/jbosscl/support/excluded/b/*.class" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}c1.jar" basedir="${project.build.testOutputDirectory}" includes="org/jboss/test/aop/classpool/jbosscl/support/excluded/c/*.class" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}c2.jar" basedir="${project.build.testOutputDirectory}" includes="org/jboss/test/aop/classpool/jbosscl/support/excluded/c/*.class" />
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}replacereferences-parent.jar">
+                  <fileset dir="${project.build.testOutputDirectory}">
+                     <include name="org/jboss/test/aop/classpool/jbosscl/support/excluded/replacereferences/**" />
+                     <exclude name="org/jboss/test/aop/classpool/jbosscl/support/excluded/replacereferences/child/*.class" />
+                  </fileset>
+                </jar>
+                <jar destfile="${project.build.directory}/${artifactId}${test.jar.suffix}replacereferences-child.jar">
+                  <fileset dir="${project.build.testOutputDirectory}">
+                     <include name="org/jboss/test/aop/classpool/jbosscl/support/excluded/replacereferences/**" />
+                     <exclude name="org/jboss/test/aop/classpool/jbosscl/support/excluded/replacereferences/parent/ParentCaller.class" />
+                  </fileset>
+                </jar>
+                <delete dir="${project.build.testOutputDirectory}/org/jboss/test/aop/classpool/jbosscl/support/excluded" />
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>    
+    </plugins>
+  </build>
+  
+  <dependencies>
+    <dependency>
+      <groupId>javassist</groupId>
+      <artifactId>javassist</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.aop</groupId>
+      <artifactId>jboss-aop</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.aop</groupId>
+      <artifactId>pluggable-instrumentor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.aop</groupId>
+      <artifactId>jboss-aop-asintegration-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-common-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>jboss-logging-spi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.cl</groupId>
+      <artifactId>jboss-classloader</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-mdr</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.microcontainer</groupId>
+      <artifactId>jboss-dependency</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jboss</groupId>
+      <artifactId>jboss-test</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  
+</project>

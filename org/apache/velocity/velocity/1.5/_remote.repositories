@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:33:46 MSK 2021
+velocity-1.5.jar>atlassian-public=
+velocity-1.5.pom>atlassian-public=
+velocity-1.5.pom>maven-central=

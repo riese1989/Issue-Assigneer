@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:36:40 MSK 2021
+jaxb-api-2.2.pom>maven-central=
+jaxb-api-2.2.jar>atlassian-public=
+jaxb-api-2.2.pom>atlassian-public=

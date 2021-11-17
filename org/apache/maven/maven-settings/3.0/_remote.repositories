@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:38:52 MSK 2021
+maven-settings-3.0.pom>maven-central=
+maven-settings-3.0.pom>atlassian-public=
+maven-settings-3.0.jar>atlassian-public=

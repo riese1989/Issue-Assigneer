@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss</groupId>
+    <artifactId>jboss-parent</artifactId>
+    <version>3</version>
+  </parent>
+
+  <!-- Model -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Artifact Information -->
+  <groupId>org.jboss.jbossas</groupId>
+  <artifactId>jboss-server-manager</artifactId>
+  <version>0.1.0.GA</version>
+  <name>JBossAS Server Manager</name>
+  <description />
+
+  <!-- SCM -->
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/server-manager/tags/0.1.0.GA</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/server-manager/tags/0.1.0.GA</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/maven/jbossas/projects/server-manager/tags/0.1.0.GA</url>
+  </scm>
+
+  <!-- Properties -->
+  <properties />
+
+  <!-- Build Configuration -->
+  <build />
+
+</project>

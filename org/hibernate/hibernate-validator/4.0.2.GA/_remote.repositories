@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:40:06 MSK 2021
+hibernate-validator-4.0.2.GA.pom>atlassian-public=
+hibernate-validator-4.0.2.GA.pom>maven-central=
+hibernate-validator-4.0.2.GA.jar>atlassian-public=

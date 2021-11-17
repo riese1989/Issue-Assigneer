@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:33:21 MSK 2021
+commons-digester-1.4.1.pom>maven-central=
+commons-digester-1.4.1.pom>atlassian-public=
+commons-digester-1.4.1.jar>atlassian-public=

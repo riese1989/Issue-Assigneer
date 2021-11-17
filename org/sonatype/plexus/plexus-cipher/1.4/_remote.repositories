@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:37:28 MSK 2021
+plexus-cipher-1.4.pom>maven-central=
+plexus-cipher-1.4.pom>atlassian-public=
+plexus-cipher-1.4.jar>atlassian-public=

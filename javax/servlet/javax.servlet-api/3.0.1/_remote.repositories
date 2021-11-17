@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:35:57 MSK 2021
+javax.servlet-api-3.0.1.pom>maven-central=
+javax.servlet-api-3.0.1.pom>atlassian-public=
+javax.servlet-api-3.0.1.jar>atlassian-public=

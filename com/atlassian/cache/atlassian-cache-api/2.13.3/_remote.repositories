@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:32:03 MSK 2021
+atlassian-cache-api-2.13.3.jar>atlassian-public=
+atlassian-cache-api-2.13.3.pom>atlassian-public=
+atlassian-cache-api-2.13.3.pom>atlassian=

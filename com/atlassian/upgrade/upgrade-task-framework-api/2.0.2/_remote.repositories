@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:32:45 MSK 2021
+upgrade-task-framework-api-2.0.2.pom>atlassian-public=
+upgrade-task-framework-api-2.0.2.jar>atlassian-public=
+upgrade-task-framework-api-2.0.2.pom>atlassian=

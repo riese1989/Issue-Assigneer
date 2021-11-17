@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:38:35 MSK 2021
+commons-validator-1.2.0.jar>atlassian-public=
+commons-validator-1.2.0.pom>maven-central=
+commons-validator-1.2.0.pom>atlassian-public=

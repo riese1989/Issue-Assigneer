@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:29:48 MSK 2021
+jira-rest-java-client-1.0.pom>atlassian=
+jira-rest-java-client-1.0.pom>atlassian-public=
+jira-rest-java-client-1.0.jar>atlassian-public=

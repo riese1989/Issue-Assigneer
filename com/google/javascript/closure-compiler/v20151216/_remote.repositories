@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 13:33:41 MSK 2021
+closure-compiler-v20151216.jar>atlassian-public=
+closure-compiler-v20151216.pom>maven-central=
+closure-compiler-v20151216.pom>atlassian-public=
