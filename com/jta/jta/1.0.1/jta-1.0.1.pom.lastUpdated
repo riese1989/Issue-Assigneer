@@ -1,0 +1,19 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Nov 17 09:43:30 MSK 2021
+https\://maven.atlassian.com/repository/public/.lastUpdated=1637097387182
+https\://maven.jahia.org/maven2/.lastUpdated=1637131204276
+https\://github.com/riese1989/Issue-Assigneer/tree/Repository/.lastUpdated=1637097385678
+http\://download.java.net/maven/2/.error=
+https\://jar-download.com/artifacts/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1637097386209
+https\://www.datanucleus.org/downloads/maven2/.lastUpdated=1637097386748
+file\:///Applications/Atlassian/atlassian-plugin-sdk-8.2.7/repository/.lastUpdated=1636540101437
+https\://packages.atlassian.com/content/repositories/atlassian-public/.error=
+http\://download.java.net/maven/2/.lastUpdated=1637131410167
+https\://github.com/riese1989/Issue-Assigneer/tree/Repository/.error=
+https\://maven.jahia.org/maven2/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://jar-download.com/artifacts/.lastUpdated=1637097385893
+https\://www.datanucleus.org/downloads/maven2/.error=
+https\://maven.atlassian.com/repository/public/.error=
+https\://packages.atlassian.com/content/repositories/atlassian-public/.lastUpdated=1637097386147
