@@ -5,13 +5,28 @@ cd C:\Users\alexey.pestov\Desktop\Issue-Assigneer
 atlas-run -X
 
 
-atlas-mvn install:install-file -Dfile=C:\Users\alexey.pestov\Downloads\jira-maven-plugin-8.0.0.jar -DgroupId=com.atlassian.maven.plugins -DartifactId=maven-jira-plugin -Dversion=8.0.0 -Dpackaging=jar
+atlas-mvn install:install-file -Dfile=/Users/usser/Downloads/jta-1.0.1.jar -DgroupId=jta -DartifactId=jta -Dversion=1.0.1 -Dpackaging=jar
 
 atlas-mvn clean
 
-Если в гит не загружается
+пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 ssh-add C:/Users/alexey.pestov/.ssh/github
 cd C:/Users/alexey.pestov/Desktop/Issue-Assigneer
 git push origin Dev
+
+
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:06 min
+[INFO] Finished at: 2021-11-12T17:35:25+03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.atlassian.maven.plugins:jira-maven-plugin:8.0.0:generate-manifest (default-generate-manifest) on project issue-assigneer: Error(s) found in manifest configuration -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
 
 
