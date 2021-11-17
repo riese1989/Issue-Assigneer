@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <plugins>
+    <plugin>
+      <name>Artifactory Staging Maven Plugin</name>
+      <prefix>artifactory-staging</prefix>
+      <artifactId>artifactory-staging-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven Clover Plugin</name>
+      <prefix>clover2</prefix>
+      <artifactId>maven-clover2-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>Maven JGitFlow Plugin</name>
+      <prefix>jgitflow</prefix>
+      <artifactId>maven-jgitflow-plugin</artifactId>
+    </plugin>
+  </plugins>
+</metadata>
