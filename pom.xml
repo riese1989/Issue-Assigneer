@@ -342,6 +342,11 @@
             <version>2.Final</version>
         </dependency>
         <dependency>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven3-plugin</artifactId>
+            <version>1.9.8</version>
+        </dependency>
+        <dependency>
             <groupId>org.glassfish.corba</groupId>
             <artifactId>rmic</artifactId>
             <version>4.0.2-b005</version>
@@ -352,11 +357,10 @@
             <version>1.0.1.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>jta</groupId>
+            <groupId>com.jta</groupId>
             <artifactId>jta</artifactId>
             <version>1.0.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
@@ -373,87 +377,96 @@
             <artifactId>jboss-logging</artifactId>
             <version>3.1.4.GA</version>
         </dependency>
+        <dependency>
+            <groupId>com.atlassian.maven.archetypes</groupId>
+            <artifactId>jira-plugin-archetype</artifactId>
+            <version>5.0.18</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>2.22.0</version>
-                    <!-- I don't specify version at all (Spring Boot can autoconfigure plugin version) -->
-                    <executions>
-                        <execution>
-                            <!-- changed <id> to <phase>, but I don't know whether it's important or not. -->
-                            <phase>integration-test</phase>
-                            <!-- ... no changes here: the same as in the question ... -->
-                        </execution>
-                    </executions>
-                </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven.failsafe.plugin.version}</version>
+                <!-- I don't specify version at all (Spring Boot can autoconfigure plugin version) -->
+                <executions>
+                    <execution>
+                        <!-- changed <id> to <phase>, but I don't know whether it's important or not. -->
+                        <phase>integration-test</phase>
+                        <!-- ... no changes here: the same as in the question ... -->
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
                     <fork>true</fork>
-                    <meminitial>8192m</meminitial>
-                     <maxmem>8192m</maxmem>
-                     <source>7</source>
-                     <target>7</target>
-                 </configuration>
-             </plugin>
-             <plugin>
-                 <groupId>org.apache.maven.plugins</groupId>
-                 <artifactId>maven-surefire-plugin</artifactId>
-                 <version>3.0.0-M5</version>
-                 <configuration>
-                     <testFailureIgnore>true</testFailureIgnore>
-                 </configuration>
-             </plugin>
-             <plugin>
-                 <groupId>org.codehaus.cargo</groupId>
-                 <artifactId>cargo-maven3-plugin</artifactId>
-                 <version>1.9.8</version>
-                 <executions>
-                     <execution>
-                         <id>start</id>
-                         <phase>pre-integration-test</phase>
-                         <goals>
-                             <goal>start</goal>
-                         </goals>
-                         <configuration>
-                             <container>
-                                 <timeout>600000</timeout>
-                             </container>
-                         </configuration>
-                     </execution>
-                     <execution>
-                         <id>stop</id>
-                         <phase>post-integration-test</phase>
-                         <goals>
-                             <goal>stop</goal>
-                         </goals>
-                         <configuration>
-                             <container>
-                                 <timeout>100000</timeout>
-                             </container>
-                         </configuration>
-                     </execution>
-                 </executions>
-             </plugin>
-             <plugin>
-                 <groupId>com.atlassian.maven.plugins</groupId>
-                 <artifactId>jira-maven-plugin</artifactId>
-                 <version>8.0.0</version>
-                 <extensions>true</extensions>
-                 <configuration>
-                     <productVersion>${jira.version}</productVersion>
-                     <productDataVersion>${jira.version}</productDataVersion>
-                     <enableQuickReload>true</enableQuickReload>
-                     <!-- See here for an explanation of default instructions: -->
+                    <!--                    <meminitial>8192m</meminitial>-->
+                    <!--                     <maxmem>8192m</maxmem>-->
+                    <source>10</source>
+                    <target>10</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <forkCount>2</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <!--                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>start</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <container>
+                                <timeout>600000</timeout>
+                            </container>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <configuration>
+                            <container>
+                                <timeout>100000</timeout>
+                            </container>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>jira-maven-plugin</artifactId>
+                <version>8.0.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <productVersion>${jira.version}</productVersion>
+                    <productDataVersion>${jira.version}</productDataVersion>
+                    <enableQuickReload>true</enableQuickReload>
+                    <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
                     <instructions>
                         <Bundle-ClassPath>.,{maven-dependencies},jdom-1.0-fixed.jar</Bundle-ClassPath>
-                        <Include-Resource>{maven-resources},{maven-dependencies},${project.build.directory}/jdom-1.0-fixed.jar</Include-Resource>
+                        <Include-Resource>
+                            {maven-resources},{maven-dependencies},${project.build.directory}/jdom-1.0-fixed.jar
+                        </Include-Resource>
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
                         <!-- Add package to export here -->
                         <Export-Package>ru.pestov.alexey.plugins.spring.api,</Export-Package>
@@ -545,8 +558,10 @@
     </build>
     <properties>
         <jira.version>7.5.0</jira.version>
-        <amps.version>8.0.0</amps.version>
+        <jira.maven.version>8.0.0</jira.maven.version>
         <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
+        <maven.failsafe.plugin.version>2.22.0</maven.failsafe.plugin.version>
+        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
         <atlassian.spring.scanner.version>2.1.7</atlassian.spring.scanner.version>
         <!-- This key is used to keep the consistency between the key in atlassian-plugin.xml and the key to generate bundle. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
