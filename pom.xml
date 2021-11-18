@@ -15,6 +15,14 @@
     <packaging>atlassian-plugin</packaging>
     <repositories>
         <repository>
+            <id>Atl</id>
+            <url>https://packages.atlassian.com/mvn/maven-atlassian-external/</url>
+        </repository>
+        <repository>
+            <id>Mulesoft</id>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+        </repository>
+        <repository>
             <id>Jahia</id>
             <url>https://maven.jahia.org/maven2/</url>
         </repository>
@@ -170,8 +178,8 @@
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.8.5</version>
+            <artifactId>mockito-core</artifactId>
+            <version>3.2.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -179,11 +187,11 @@
             <artifactId>maven-amps-plugin</artifactId>
             <version>5.0.18</version>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.cargo</groupId>
-            <artifactId>cargo-maven3-plugin</artifactId>
-            <version>1.9.8</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.codehaus.cargo</groupId>-->
+<!--            <artifactId>cargo-maven3-plugin</artifactId>-->
+<!--            <version>1.9.8</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.googlecode.jtype</groupId>
             <artifactId>jtype</artifactId>
@@ -224,11 +232,11 @@
             <artifactId>werken-xpath</artifactId>
             <version>0.9.4</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>maven-bundle-plugin</artifactId>
-            <version>3.5.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.felix</groupId>-->
+<!--            <artifactId>maven-bundle-plugin</artifactId>-->
+<!--            <version>3.5.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>exml</groupId>
             <artifactId>exml</artifactId>
@@ -342,11 +350,6 @@
             <version>2.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.cargo</groupId>
-            <artifactId>cargo-maven3-plugin</artifactId>
-            <version>1.9.8</version>
-        </dependency>
-        <dependency>
             <groupId>org.glassfish.corba</groupId>
             <artifactId>rmic</artifactId>
             <version>4.0.2-b005</version>
@@ -370,7 +373,7 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
+            <version>${maven.compiler.plugin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.logging</groupId>
@@ -402,7 +405,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <fork>true</fork>
                     <!--                    <meminitial>8192m</meminitial>-->
@@ -421,40 +424,40 @@
                     <!--                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven3-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>start</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                        <configuration>
-                            <container>
-                                <timeout>600000</timeout>
-                            </container>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>stop</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                        <configuration>
-                            <container>
-                                <timeout>100000</timeout>
-                            </container>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.cargo</groupId>-->
+<!--                <artifactId>cargo-maven3-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>start</id>-->
+<!--                        <phase>pre-integration-test</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>start</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <container>-->
+<!--                                <timeout>600000</timeout>-->
+<!--                            </container>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>stop</id>-->
+<!--                        <phase>post-integration-test</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>stop</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <container>-->
+<!--                                <timeout>100000</timeout>-->
+<!--                            </container>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>jira-maven-plugin</artifactId>
-                <version>8.0.0</version>
+                <version>8.0.2</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
@@ -463,18 +466,12 @@
                     <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
                     <instructions>
-                        <Bundle-ClassPath>.,{maven-dependencies},jdom-1.0-fixed.jar</Bundle-ClassPath>
-                        <Include-Resource>
-                            {maven-resources},{maven-dependencies},${project.build.directory}/jdom-1.0-fixed.jar
-                        </Include-Resource>
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
                         <!-- Add package to export here -->
                         <Export-Package>ru.pestov.alexey.plugins.spring.api,</Export-Package>
                         <!-- Add package import here -->
                         <Import-Package>
-                            org.springframework.osgi.*;resolution:="optional",
-                            org.eclipse.gemini.blueprint.*;resolution:="optional",
-                            *
+                            *;resolution:=optional
                         </Import-Package>
                         <!-- Ensure plugin is spring powered -->
                         <DynamicImport-Package>*</DynamicImport-Package>
@@ -505,55 +502,6 @@
                     <verbose>false</verbose>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>unpack-jdom</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>jdom</groupId>
-                                    <artifactId>jdom</artifactId>
-                                    <version>1.0</version>
-                                    <outputDirectory>
-                                        ${project.build.directory}/jdom
-                                    </outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <!-- Remove classes from the root package and re jar -->
-                        <id>fix-jdom</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <delete>
-                                    <fileset dir="${project.build.directory}/jdom" includes="*.class"/>
-                                </delete>
-                                <jar destfile="${project.build.directory}/jdom-1.0-fixed.jar">
-                                    <fileset dir="${project.build.directory}/jdom"/>
-                                </jar>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <properties>
@@ -563,6 +511,7 @@
         <maven.failsafe.plugin.version>2.22.0</maven.failsafe.plugin.version>
         <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
         <atlassian.spring.scanner.version>2.1.7</atlassian.spring.scanner.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <!-- This key is used to keep the consistency between the key in atlassian-plugin.xml and the key to generate bundle. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <!-- TestKit version 6.x for JIRA 6.x -->
