@@ -187,11 +187,11 @@
             <artifactId>maven-amps-plugin</artifactId>
             <version>5.0.18</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.codehaus.cargo</groupId>-->
-<!--            <artifactId>cargo-maven3-plugin</artifactId>-->
-<!--            <version>1.9.8</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven3-plugin</artifactId>
+            <version>1.9.8</version>
+        </dependency>
         <dependency>
             <groupId>com.googlecode.jtype</groupId>
             <artifactId>jtype</artifactId>
@@ -232,11 +232,11 @@
             <artifactId>werken-xpath</artifactId>
             <version>0.9.4</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.felix</groupId>-->
-<!--            <artifactId>maven-bundle-plugin</artifactId>-->
-<!--            <version>3.5.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <version>3.5.0</version>
+        </dependency>
         <dependency>
             <groupId>exml</groupId>
             <artifactId>exml</artifactId>
@@ -386,9 +386,64 @@
             <version>5.0.18</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.atlassian.maven.plugins</groupId>
+            <artifactId>jira-maven-plugin</artifactId>
+            <version>${jira.maven.plugin.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-jdom</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>jdom</groupId>
+                                    <artifactId>jdom</artifactId>
+                                    <version>1.0</version>
+                                    <outputDirectory>
+                                        ${project.build.directory}/jdom
+                                    </outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <!-- Remove classes from the root package and re jar -->
+                        <id>fix-jdom</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <delete>
+                                    <fileset dir="${project.build.directory}/jdom" includes="*.class"/>
+                                </delete>
+                                <jar destfile="${project.build.directory}/jdom-1.0-fixed.jar">
+                                    <fileset dir="${project.build.directory}/jdom"/>
+                                </jar>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -424,40 +479,41 @@
                     <!--                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.cargo</groupId>-->
-<!--                <artifactId>cargo-maven3-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>start</id>-->
-<!--                        <phase>pre-integration-test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>start</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <container>-->
-<!--                                <timeout>600000</timeout>-->
-<!--                            </container>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>stop</id>-->
-<!--                        <phase>post-integration-test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>stop</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <container>-->
-<!--                                <timeout>100000</timeout>-->
-<!--                            </container>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <version>1.9.8</version>
+                <executions>
+                    <execution>
+                        <id>start</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <container>
+                                <timeout>600000</timeout>
+                            </container>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <configuration>
+                            <container>
+                                <timeout>100000</timeout>
+                            </container>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>jira-maven-plugin</artifactId>
-                <version>8.0.2</version>
+                <version>${jira.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
@@ -470,10 +526,15 @@
                         <!-- Add package to export here -->
                         <Export-Package>ru.pestov.alexey.plugins.spring.api,</Export-Package>
                         <!-- Add package import here -->
-                        <Import-Package>
-                            *;resolution:=optional
+                        <Import-Package>org.springframework.osgi.*;resolution:="optional",
+                            org.eclipse.gemini.blueprint.*;resolution:="optional",
+                            oracle*;resolution:="optional",
+                            org.jaxen*;resolution:="optional",
+                            *
                         </Import-Package>
                         <!-- Ensure plugin is spring powered -->
+                        <Bundle-ClassPath>.,{maven-dependencies},jdom-1.0-fixed.jar</Bundle-ClassPath>
+                        <Include-Resource>{maven-resources},{maven-dependencies},${project.build.directory}/jdom-1.0-fixed.jar</Include-Resource>
                         <DynamicImport-Package>*</DynamicImport-Package>
                         <Spring-Context>*</Spring-Context>
                         <enableFastdev>false</enableFastdev>
@@ -505,6 +566,7 @@
         </plugins>
     </build>
     <properties>
+        <jira.maven.plugin.version>8.0.2</jira.maven.plugin.version>
         <jira.version>7.5.0</jira.version>
         <jira.maven.version>8.0.0</jira.maven.version>
         <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
