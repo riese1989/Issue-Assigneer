@@ -28,7 +28,7 @@
   <web-item name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer-webitem" section="system.top.navigation.bar" weight="1000"> 
     <description key="issue-assigneer-webitem">The Issue Assigneer Plugin</description>  
     <label key="issue-assigneer.label"/>  
-    <link linkId="issue-assigneer-link">/secure/admin/IssueAssigneerWebworkAction.jspa</link>
+    <link linkId="issue-assigneer-link">/secure/IssueAssigneerWebworkAction.jspa</link>
   </web-item>  
   <webwork1 key="issue-assigneerwebwork" name="Issue Assigneer webwork" i18n-name-key="issue-assigneerwebwork.name"> 
     <description key="issue-assigneerwebwork.description">The Issue Assigneer webwork Plugin</description>  

@@ -1,0 +1,38 @@
+<form class="aui" method="POST" action="IssueAssigneerWebworkAction!save.jspa">
+    <div class="field-group">
+        <label for="system">System</label>
+        <select class="select" id="system" name="system">
+            <option>Select</option>
+            <option>a</option>
+            <option>b</option>
+            <option>c</option>
+            <option>d</option>
+        </select>
+    </div>
+    <div class="field-group">
+        <label for="system">Type change</label>
+        <select class="select" id="system" name="system">
+            <option>Select</option>
+            <option>Bugfix</option>
+            <option>Внерелиз</option>
+        </select>
+    </div>
+    <div class="field-group">
+        <label for="step1">Step1</label>
+        <input class="text medium-field" type="text" id="step1" name="step1" value="$!{step1}">
+    </div>
+    <div class="field-group">
+        <label for="step2">Step2</label>
+        <input class="text medium-field" type="text" id="step2" name="step2" value="$!{step2}">
+    </div>
+    <div class="field-group">
+        <label for="step3">Step3</label>
+        <input class="text medium-field" type="text" id="step3" name="step3" value="$!{step3}">
+    </div>
+    <div class="buttons-container">
+        <div class="buttons">
+            <input class="button submit" type="submit" value="Save" id="comment-save-button">
+            <a class="cancel" href="#">Cancel</a>
+        </div>
+    </div>
+</form>
