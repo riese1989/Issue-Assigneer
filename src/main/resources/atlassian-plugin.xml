@@ -11,12 +11,17 @@
   <resource type="i18n" name="i18n" location="issue-assigneer"/>  
   <!-- add our web resources -->  
   <web-resource key="issue-assigneer-resources" name="issue-assigneer Web Resources"> 
-    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>  
-    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>  
+    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
     <resource type="download" name="images/" location="/images"/>  
-    <context>issue-assigneer</context> 
-  </web-resource>  
+    <context>issueassigner</context>
+  </web-resource>
+  <web-resource key="selects-resources" name="issue-assigneer Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="system.js" location="/js/system.js"/>
+    <context>selects</context>
+  </web-resource>
   <!--  <servlet name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer" class="ru.pestov.alexey.plugins.spring.servlet.IssueAssigneer">-->  
   <!--    <description key="issue-assigneer.description">The Issue Assigneer Plugin</description>-->  
   <!--    <url-pattern>/issueassigneer</url-pattern>-->  

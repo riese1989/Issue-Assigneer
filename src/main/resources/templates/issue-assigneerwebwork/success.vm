@@ -1,20 +1,28 @@
+<html>
+<head>
+</head>
+<body>
 <form class="aui" method="POST" action="IssueAssigneerWebworkAction!save.jspa">
     <div class="field-group">
         <label for="system">System</label>
         <select class="select" id="system" name="system">
-            <option>Select</option>
-            <option>a</option>
-            <option>b</option>
-            <option>c</option>
-            <option>d</option>
         </select>
     </div>
     <div class="field-group">
-        <label for="system">Type change</label>
-        <select class="select" id="system" name="system">
+        <label for="typechange">Type change</label>
+        <select class="select" id="typechange" name="typechange">
             <option>Select</option>
-            <option>Bugfix</option>
-            <option>Внерелиз</option>
+            <option value="$!{typeChange}">Bugfix</option>
+            <option value="$!{typeChange}">Активация настроек</option>
+            <option value="$!{typeChange}">Внерелиз</option>
+            <option value="$!{typeChange}">Дефект</option>
+            <option value="$!{typeChange}">Внерелиз</option>
+            <option value="$!{typeChange}">Изменение настроек</option>
+            <option value="$!{typeChange}">Массовая выгрузка</option>
+            <option value="$!{typeChange}">Предсогласованное изменение</option>
+            <option value="$!{typeChange}">Релиз</option>
+            <option value="$!{typeChange}">Спринт</option>
+            <option value="$!{typeChange}">Фоновое задание</option>
         </select>
     </div>
     <div class="field-group">
@@ -36,3 +44,6 @@
         </div>
     </div>
 </form>
+    $webResourceManager.requireResource("ru.pestov.alexey.plugins.spring.issue-assigneer:selects-resources")
+</body>
+</html>
