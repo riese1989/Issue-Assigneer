@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import lombok.extern.slf4j.Slf4j;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
+import ru.pestov.alexey.plugins.spring.service.HTTPService;
 
 import javax.inject.Inject;
 import java.util.Arrays;
@@ -40,7 +41,7 @@ public class IssueAssigneerWebworkAction extends JiraWebActionSupport
 
     @Override
     public String doExecute() throws Exception {
-
+        HTTPService.doPost();
         return SUCCESS; //returns SUCCESS
     }
     public String doSave() {

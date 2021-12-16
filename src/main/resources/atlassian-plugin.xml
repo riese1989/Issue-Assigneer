@@ -45,4 +45,5 @@
       </action> 
     </actions> 
   </webwork1>
+  <rest key= "system-rest" path="/cab" version="1.0"/>
 </atlassian-plugin>
