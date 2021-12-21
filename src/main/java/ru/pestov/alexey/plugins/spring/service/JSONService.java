@@ -1,5 +1,6 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import javax.inject.Named;
 import lombok.Data;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+@Named
 @Data
 public class JSONService {
     private JSONObject jsonObject = getJSONObjectFromFile();
