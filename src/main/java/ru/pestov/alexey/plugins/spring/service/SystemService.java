@@ -102,7 +102,27 @@ public class SystemService {
     for (TypeChange typeChange : typeChanges) {
       if (typeChange.getName().equals(nameTypeChange))  {
         //todo дописать обновление стадий
+        List<Stage> stages = typeChange.getStages();
+        for (Stage stage : stages)  {
+          if (stage.getName().equals("stage1")) {
+            stage.setAssignees(step1);
+            continue;
+          }
+          if (stage.getName().equals("stage21")) {
+            stage.setAssignees(step2);
+            continue;
+          }
+          if (stage.getName().equals("stage3")) {
+            stage.setAssignees(step3);
+            continue;
+          }
+          else  {
+            stage.setAssignees("");
+          }
+        }
       }
     }
   }
+
+  private JSONObject convertSystemsToJson()
 }

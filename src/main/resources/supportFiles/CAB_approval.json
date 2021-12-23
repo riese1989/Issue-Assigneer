@@ -26,27 +26,30 @@
     "system_active":true
   },
   "Платформа магазин ИНФА ТС5 ТСК ТСХ HD":{
-    "Bugfix":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Активация настроек":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Внерелиз":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Дефект":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Изменение настроек":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Массовая выгрузка":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Релиз":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Спринт":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
-    "Фоновое задание":{"stage1":["Sergey.Korneenkov", "Gennady.Erofeev", "Alexey.Gorelov", "A.Savkin", "Nikolay.Gorshkov", "Artem.Mikherya", "Boris.Chikharev", "Viktor.Sheremet"],"stage21":["And.Matveev", "Aleksey.Guba", "Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Bugfix":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Активация настроек":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Внерелиз":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Дефект":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Изменение настроек":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Массовая выгрузка":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Релиз":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Спринт":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
+    "Фоновое задание":{"stage1":["Sergey.Korneenkov","Gennady.Erofeev","Alexey.Gorelov","A.Savkin","Nikolay.Gorshkov","Artem.Mikherya","Boris.Chikharev","Viktor.Sheremet"],"stage21":["And.Matveev","Aleksey.Guba","Vladimir.Timofeev"],"stage22":[],"stage23":["Al.Dolgov","Sergey.Zharkov","Alexey.Hvostov"],"stage3":["Sergey.Korneenkov"],"authorize":["Sergey.Korneenkov"]},
     "system_active":true
   },
   "X5ID":{
-    "Bugfix":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
+    "Bugfix":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma
+      .AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Активация настроек":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Внерелиз":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
-    "Дефект":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
+    "Дефект":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma
+        .AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Изменение настроек":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Массовая выгрузка":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Предсогласованное изменение":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Релиз":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
-    "Спринт":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
+    "Спринт":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma
+          .AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "Фоновое задание":{"stage1":["Al.Drozdov"],"stage21":[],"stage22":[],"stage23":["Ma.AndrianovaDeyneka","Chachin German","I.Iakovlev","Pavel.Baby"],"stage3":[],"authorize":["R.Akhmedov"]},
     "system_active":true
   },
@@ -148,9 +151,12 @@
     "Дефект":{"stage1":["Sergey.Zharkov"],"stage21":["N.Fateeva"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Изменение настроек":{"stage1":["Sergey.Zharkov"],"stage21":["N.Fateeva"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Sergey.Zharkov"],"stage21":["N.Fateeva"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":["Sergey.Zharkov"],"stage21":["N.Fateeva"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
-    "Релиз":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Kirill.Katkov"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
-    "Спринт":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Kirill.Katkov"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":["Sergey.Zharkov"],"stage21":["N.Fateeva"],
+      "stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
+    "Релиз":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Kirill
+      .Katkov"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
+    "Спринт":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Kirill
+        .Katkov"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Фоновое задание":{"stage1":["Sergey.Zharkov"],"stage21":["N.Fateeva"],"stage22":["Marat.Romashev"],"stage23":["Boris.Osechinskiy"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "system_active":true
   },
@@ -174,23 +180,27 @@
     "Дефект":{"stage1":["Danila.Yudin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Zharkov"],"stage23":["Yury.Fiskin"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":["Petr.Sitnik"]},
     "Изменение настроек":{"stage1":["Danila.Yudin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Zharkov"],"stage23":["Yury.Fiskin"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":["Petr.Sitnik"]},
     "Массовая выгрузка":{"stage1":["Danila.Yudin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Zharkov"],"stage23":["Yury.Fiskin"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":["Petr.Sitnik"]},
-    "Предсогласованное изменение":{"stage1":["Danila.Yudin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Zharkov"],"stage23":["Yury.Fiskin"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":["Petr.Sitnik"]},
+    "Предсогласованное изменение":{"stage1":["Danila.Yudin"],"stage21":["Petr.Sitnik"],
+      "stage22":["Sergey.Zharkov"],"stage23":["Yury.Fiskin"],"stage3":["Al.Dolgov","Danila
+        .Yudin"],"authorize":["Petr.Sitnik"]},
     "Релиз":{"stage1":["Sergey.Zharkov","Yury.Fiskin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Borozdin"],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":["Petr.Sitnik"]},
     "Спринт":{"stage1":["Sergey.Zharkov","Yury.Fiskin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Borozdin"],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":["Petr.Sitnik"]},
     "Фоновое задание":{"stage1":["Danila.Yudin"],"stage21":["Petr.Sitnik"],"stage22":["Sergey.Zharkov"],"stage23":["Yury.Fiskin"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":["Petr.Sitnik"]},
     "system_active":true
   },
   "GKC SM WEB":{
-    "Bugfix":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Активация настроек":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Внерелиз":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov", "Sergey.Korneenkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev", "Yury.Fiskin"],"stage3":["Danila.Yudin", "Dmitry.Rebrov"],"authorize":["Petr.Sitnik"]},
-    "Дефект":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Изменение настроек":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Массовая выгрузка":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Предсогласованное изменение":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Релиз":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov", "Sergey.Korneenkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Спринт":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov", "Sergey.Korneenkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]},
-    "Фоновое задание":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov", "Vasily.Golubev"],"stage3":["Danila.Yudin", "Al.Dolgov"],"authorize":["Petr.Sitnik"]}
+    "Bugfix":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Активация настроек":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],
+      "stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Внерелиз":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov","Sergey.Korneenkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev","Yury.Fiskin"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":["Petr.Sitnik"]},
+    "Дефект":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Изменение настроек":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],
+      "stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Массовая выгрузка":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Предсогласованное изменение":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Релиз":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov","Sergey.Korneenkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Спринт":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov","Sergey.Korneenkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]},
+    "Фоновое задание":{"stage1":["Artem.Firstov"],"stage21":["Anastasiya.Firstova"],"stage22":["Sergey.Zharkov"],"stage23":["Alexey.Hvostov","Vasily.Golubev"],"stage3":["Danila.Yudin","Al.Dolgov"],"authorize":["Petr.Sitnik"]}
   },
   "HANA":{
     "Bugfix":{"stage1":["TeamLeaders_SAPBW"],"stage21":[],"stage22":["Alexey.Bespelyukhin"],"stage23":[],"stage3":["Evgeniy.Toreykin"],"authorize":[]},
@@ -210,24 +220,30 @@
     "Активация настроек":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":["Darya.Danilchenko"],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Внерелиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Дефект":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Предсогласованное изменение":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],
+      "stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Спринт":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Фоновое задание":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Roman.Muminov"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "system_active":true
   },
   "ITSM":{
-    "Bugfix":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
+    "Bugfix":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al
+      .Strunevskiy"],"stage3":[],"authorize":[]},
     "Активация настроек":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
     "Внерелиз":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
-    "Дефект":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
+    "Дефект":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al
+        .Strunevskiy"],"stage3":[],"authorize":[]},
     "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
     "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
-    "Спринт":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
+    "Спринт":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al
+          .Strunevskiy"],"stage3":[],"authorize":[]},
     "Фоновое задание":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":["Al.Strunevskiy"],"stage3":[],"authorize":[]},
     "system_active":true
   },
@@ -284,27 +300,32 @@
     "system_active":true
   },
   "JDA D&F":{
-    "Bugfix":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
+    "Bugfix":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],
+      "stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "Активация настроек":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "Внерелиз":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
-    "Дефект":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
+    "Дефект":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],
+      "stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "Изменение настроек":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["IMuraveva"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["IMuraveva"],"authorize":[]},
-    "Релиз":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
+    "Релиз":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey
+      .Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "Спринт":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "Фоновое задание":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Imuraveva"],"authorize":[]},
     "system_active":true
   },
   "JDA F&R":{
-    "Bugfix":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
+    "Bugfix":{"stage1":["Oksana.Golovko"],"stage21":[],"stage22":["Sergey.Kultuklu"],
+      "stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Активация настроек":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Внерелиз":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Дефект":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Изменение настроек":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
-    "Релиз":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
+    "Релиз":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey
+      .Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Спринт":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "Фоновое задание":{"stage1":["Oksana.Golovko"],"stage21":["Dmitry.Grekov"],"stage22":["Sergey.Kultuklu"],"stage23":[],"stage3":["Sergey.Borozdin"],"authorize":[]},
     "system_active":true
@@ -351,7 +372,8 @@
   "NQ-Exceed":{
     "Bugfix":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],"stage23":["Anastasia.Senchenko"],"stage3":["Radnir.Khayrov"],"authorize":["Dmitry.Grekov"]},
     "Активация настроек":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],"stage23":["Anastasia.Senchenko"],"stage3":["Radnir.Khayrov"],"authorize":["Dmitry.Grekov"]},
-    "Внерелиз":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],"stage23":["Radnir.Khayrov"],"stage3":["Dmitry.Rebrov"],"authorize":["Dmitry.Grekov"]},
+    "Внерелиз":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],
+      "stage23":["Radnir.Khayrov"],"stage3":["Dmitry.Rebrov"],"authorize":["Dmitry.Grekov"]},
     "Дефект":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],"stage23":["Anastasia.Senchenko"],"stage3":["Radnir.Khayrov"],"authorize":["Dmitry.Grekov"]},
     "Изменение настроек":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],"stage23":["Anastasia.Senchenko"],"stage3":["Radnir.Khayrov"],"authorize":["Dmitry.Grekov"]},
     "Массовая выгрузка":{"stage1":["Sergey.Kimelfeld"],"stage21":["Dmitry.Grekov"],"stage22":[],"stage23":["Anastasia.Senchenko"],"stage3":["Radnir.Khayrov"],"authorize":["Dmitry.Grekov"]},
@@ -368,7 +390,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T
+      .Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -381,7 +404,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T
+      .Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -394,7 +418,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T
+      .Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -407,21 +432,27 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Alexey.Bespelyukhin"]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Alexey.Bespelyukhin"]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Alexey.Bespelyukhin"]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Alexey.Bespelyukhin"]},
-    "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":["QV_Team"],"authorize":["Alexey.Bespelyukhin"]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],
+      "stage3":[],"authorize":["Alexey.Bespelyukhin"]},
+    "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":["QV_Team"],
+      "authorize":["Alexey.Bespelyukhin"]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Alexey.Bespelyukhin"]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Alexey.Bespelyukhin"]},
     "system_active":true
   },
   "Remedy":{
     "Bugfix":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":["Darya.Danilchenko"],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Активация настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Активация настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Внерелиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Дефект":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Предсогласованное изменение":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],
+      "stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Спринт":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Фоновое задание":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Evgeniya.Tatulova"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "system_active":true
@@ -440,12 +471,16 @@
     "system_active":true
   },
   "SAP ERP":{
-    "Bugfix":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],"stage23":["Imuraveva"],"stage3":["Oleg.Andreenkov"],"authorize":[]},
-    "Активация настроек":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],"stage23":[],"stage3":["Oleg.Andreenkov"],"authorize":[]},
+    "Bugfix":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],
+      "stage23":["Imuraveva"],"stage3":["Oleg.Andreenkov"],"authorize":[]},
+    "Активация настроек":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],
+      "stage23":[],"stage3":["Oleg.Andreenkov"],"authorize":[]},
     "Внерелиз":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],"stage23":["Alexey.Zaiko","Aleksander.Volkov","Natalia.Bulgakova","Sergey.Kolchanov","Maksim.Shiporin"],"stage3":["Oleg.Andreenkov","Sergey.Borozdin","AnAndreeva"],"authorize":[]},
     "Дефект":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":["Alexey.Zaiko"],"stage23":["Imuraveva"],"stage3":["Oleg.Andreenkov"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],"stage23":[],"stage3":["Oleg.Andreenkov"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":["Alexey.Zaiko"],"stage23":["Imuraveva"],"stage3":["Oleg.Andreenkov"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],
+      "stage23":[],"stage3":["Oleg.Andreenkov"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":["Alexey
+      .Zaiko"],"stage23":["Imuraveva"],"stage3":["Oleg.Andreenkov"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":["Alexey.Zaiko"],"stage23":["Imuraveva"],"stage3":["Oleg.Andreenkov"],"authorize":[]},
     "Релиз":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],"stage23":["Alexey.Zaiko","Aleksander.Volkov","Natalia.Bulgakova","Sergey.Kolchanov","Maksim.Shiporin"],"stage3":["Oleg.Andreenkov","Sergey.Borozdin","AnAndreeva"],"authorize":[]},
     "Спринт":{"stage1":["Evgeniya.Borovchenko"],"stage21":[],"stage22":[],"stage23":["Alexey.Zaiko","Aleksander.Volkov","Natalia.Bulgakova","Sergey.Kolchanov","Maksim.Shiporin"],"stage3":["Oleg.Andreenkov","Sergey.Borozdin","AnAndreeva"],"authorize":[]},
@@ -453,106 +488,138 @@
     "system_active":true
   },
   "SAP ERP FK":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK Качество":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK Материальные потоки":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK Производство":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK Сбыт":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK ТОРО":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK Управленческий учет":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
   "SAP ERP FK Финансы":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
@@ -575,7 +642,8 @@
     "Внерелиз":{"stage1":["Anna.Sabadakh"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Дефект":{"stage1":["Anna.Sabadakh"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Изменение настроек":{"stage1":["Anna.Sabadakh"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":[],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
-    "Массовая выгрузка":{"stage1":["Anna.Sabadakh"],"stage21":["Evgeniya.Borovchenko"],"stage22":["A.Shakhverdov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
+    "Массовая выгрузка":{"stage1":["Anna.Sabadakh"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":["A.Shakhverdov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Предсогласованное изменение":{"stage1":["Anna.Sabadakh"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Релиз":{"stage1":["Anna.Sabadakh"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Спринт":{"stage1":["Anna.Sabadakh"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Natalia.Bulgakova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
@@ -583,10 +651,12 @@
     "system_active":true
   },
   "SAP ERP Некоммерческие закупки. Транспорт":{
-    "Bugfix":{"stage1":["A.Putnenko"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
+    "Bugfix":{"stage1":["A.Putnenko"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria
+      .Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Активация настроек":{"stage1":["A.Putnenko"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Ruslan.Rusinov"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Внерелиз":{"stage1":["A.Putnenko"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
-    "Дефект":{"stage1":["A.Putnenko"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
+    "Дефект":{"stage1":["A.Putnenko"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria
+        .Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Изменение настроек":{"stage1":["A.Putnenko"],"stage21":[],"stage22":["Tatiana.Sarycheva","Maria.Chupina","Andrey.Ustinov","Artur.Synbulatov"],"stage23":[],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Массовая выгрузка":{"stage1":["A.Putnenko"],"stage21":["Evgeniya.Borovchenko"],"stage22":["A.Shakhverdov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
     "Предсогласованное изменение":{"stage1":["A.Putnenko"],"stage21":["Evgeniya.Borovchenko"],"stage22":["A.Shakhverdov"],"stage23":["Maria.Kungurova"],"stage3":["Tamara.Litvak"],"authorize":["Evgeniya.Borovchenko"]},
@@ -666,7 +736,9 @@
     "Внерелиз":{"stage1":["Maria.Chupina"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Sergey.Borozdin"],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
     "Дефект":{"stage1":["Maria.Chupina"],"stage21":[],"stage22":["Artur.Synbulatov","Andrey.Ustinov","Tatiana.Sarycheva"],"stage23":["Sergey.Borozdin"],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
     "Изменение настроек":{"stage1":["Maria.Chupina"],"stage21":[],"stage22":["Tatiana.Sarycheva","Andrey.Ustinov","Artur.Synbulatov"],"stage23":[],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
-    "Массовая выгрузка":{"stage1":["Maria.Chupina"],"stage21":["Evgeniya.Borovchenko"],"stage22":["A.Shakhverdov"],"stage23":["Imuraveva"],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
+    "Массовая выгрузка":{"stage1":["Maria.Chupina"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":["A.Shakhverdov"],"stage23":["Imuraveva"],"stage3":["Maria.Chupina"],
+      "authorize":["Evgeniya.Borovchenko"]},
     "Предсогласованное изменение":{"stage1":["Maria.Chupina"],"stage21":[],"stage22":[],"stage23":["Aleksander.Volkov"],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
     "Релиз":{"stage1":["Maria.Chupina"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Sergey.Borozdin"],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
     "Спринт":{"stage1":["Maria.Chupina"],"stage21":["Evgeniya.Borovchenko"],"stage22":["Tatiana.Sarycheva","Artur.Synbulatov","Andrey.Ustinov"],"stage23":["Sergey.Borozdin"],"stage3":["Maria.Chupina"],"authorize":["Evgeniya.Borovchenko"]},
@@ -674,15 +746,19 @@
     "system_active":true
   },
   "SAP EWM Фабрика кухни":{
-    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Bugfix":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+      .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Активация настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Внерелиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Дефект":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+        .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Изменение настроек":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Массовая выгрузка":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Предсогласованное изменение":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
-    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Релиз":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+          .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
+    "Спринт":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid
+            .Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "Фоновое задание":{"stage1":["Valeriy.Izvekov"],"stage21":[],"stage22":[],"stage23":["Rashid.Kornetov"],"stage3":["Anton.Kryuchkov"],"authorize":["Alexey.Emelin"]},
     "system_active":true
   },
@@ -706,10 +782,12 @@
     "Дефект":{"stage1":["Yaroslav.Prudnikov"],"stage21":[],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Изменение настроек":{"stage1":["Yaroslav.Prudnikov"],"stage21":[],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Массовая выгрузка":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana.Polyushko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
-    "Предсогласованное изменение":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana.Polyushko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
+    "Предсогласованное изменение":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana
+      .Polyushko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Релиз":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana.Polyushko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Спринт":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana.Polyushko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
-    "Фоновое задание":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana.Polyushko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
+    "Фоновое задание":{"stage1":["Yaroslav.Prudnikov"],"stage21":["Tatiana.Polyushko"],
+        "stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "system_active":true
   },
   "SAP IFRS":{
@@ -744,11 +822,13 @@
     "Внерелиз":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
     "Дефект":{"stage1":["Pavel.Danilov"],"stage21":[],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":[]},
     "Изменение настроек":{"stage1":["Pavel.Danilov"],"stage21":[],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
-    "Массовая выгрузка":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
+    "Массовая выгрузка":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
     "Предсогласованное изменение":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
     "Релиз":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
     "Спринт":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
-    "Фоновое задание":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
+    "Фоновое задание":{"stage1":["Pavel.Danilov"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":[],"stage23":["Pavel.Danilov"],"stage3":["Pavel.Danilov"],"authorize":["Evgeniya.Borovchenko"]},
     "system_active":true
   },
   "SAP Аналитические отчеты: BW":{
@@ -771,29 +851,38 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["An.Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["An.Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["An.Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["An.Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["An
+      .Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Релиз":{"stage1":["Yaroslav.Prudnikov","An.Voronina","Andrey.Ustinov","Pavel.Danilov","Alexey.Zaiko","Stanislav.Petryakov"],"stage21":["Tatiana.Polyushko"],"stage22":[],"stage23":["Ekaterina.Berkutova"],"stage3":["Oleg.Andreenkov"],"authorize":["Tatiana.Polyushko"]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["An.Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":["A.Shakhverdov"],"stage23":["An.Voronina"],"stage3":["Yaroslav.Prudnikov"],"authorize":["Tatiana.Polyushko"]},
     "system_active":true
   },
   "SAP Управление решением SAP Solution Manager":{
-    "Bugfix":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
-    "Активация настроек":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Bugfix":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],
+      "stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Активация настроек":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
     "Внерелиз":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
-    "Дефект":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
-    "Изменение настроек":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
-    "Массовая выгрузка":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Дефект":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],
+      "stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Изменение настроек":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Массовая выгрузка":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],
+      "stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
     "Предсогласованное изменение":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
-    "Релиз":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
-    "Спринт":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Релиз":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],
+      "stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
+    "Спринт":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],
+      "stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
     "Фоновое задание":{"stage1":["M.Kurbatova"],"stage21":["Evgeniya.Borovchenko"],"stage22":[],"stage23":[],"stage3":["M.Kurbatova"],"authorize":["Evgeniya.Borovchenko"]},
     "system_active":true
   },
   "SAP: Opentext СЭД":{
     "Bugfix":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],"stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
     "Активация настроек":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],"stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
-    "Внерелиз":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],"stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
+    "Внерелиз":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],
+      "stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
     "Дефект":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],"stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
     "Изменение настроек":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],"stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
     "Массовая выгрузка":{"stage1":["Sergey.Lyamzin"],"stage21":["Yuliy.Novikova4"],"stage22":[],"stage23":["Ildus.Nuretdinov"],"stage3":["Yuliy.Novikova4"],"authorize":["Yuliy.Novikova4"]},
@@ -804,15 +893,20 @@
     "system_active":true
   },
   "SAS":{
-    "Bugfix":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
+    "Bugfix":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara
+      .Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "Активация настроек":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "Внерелиз":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
-    "Дефект":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
+    "Дефект":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara
+        .Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "Изменение настроек":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "Массовая выгрузка":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "Предсогласованное изменение":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
-    "Релиз":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
-    "Спринт":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
+    "Релиз":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara
+          .Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
+
+    "Спринт":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara
+            .Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "Фоновое задание":{"stage1":["Dmitry.Palkin"],"stage21":["Yuliy.Novikova4"],"stage22":["Tamara.Litvak"],"stage23":["AnAndreeva"],"stage3":["Andrey.Ivanov"],"authorize":["I.Sheveleva"]},
     "system_active":true
   },
@@ -844,10 +938,12 @@
   },
   "TMS ORD ТС5":{
     "Bugfix":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill.Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
-    "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill.Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
+    "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill
+      .Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Внерелиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Kirill.Panferov"],"stage22":["Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Дефект":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill.Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
-    "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill.Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
+    "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill
+        .Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Массовая выгрузка":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill.Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Предсогласованное изменение":{"stage1":["Dmitriy.Shushman"],"stage21":[],"stage22":["Kirill.Panferov","Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Релиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Kirill.Panferov"],"stage22":["Aleksandra.Tobotras"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
@@ -869,15 +965,19 @@
     "system_active":true
   },
   "TMS ORD ТСХ":{
-    "Bugfix":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
+    "Bugfix":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey
+      .Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Внерелиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
-    "Дефект":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
+    "Дефект":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey
+        .Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Массовая выгрузка":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Предсогласованное изменение":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
-    "Релиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
-    "Спринт":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
+    "Релиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey
+          .Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
+    "Спринт":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey
+            .Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "Фоновое задание":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin"],"stage22":["Aleksey.Guba"],"stage23":["Radnir.Khayrov"],"stage3":[],"authorize":["Dmitriy.Shushman"]},
     "system_active":true
   },
@@ -914,7 +1014,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T
+      .Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -969,7 +1070,8 @@
     "Предсогласованное изменение":{"stage1":["Dmitry.Glashchenkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "Релиз":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
     "Спринт":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
-    "Фоновое задание":{"stage1":["Dmitry.Glashchenkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
+    "Фоновое задание":{"stage1":["Dmitry.Glashchenkov"],"stage21":[],"stage22":["Maksim
+      .Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "system_active":true
   },
   "ГИС ArcGis":{
@@ -979,10 +1081,12 @@
     "Дефект":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
     "Изменение настроек":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
     "Массовая выгрузка":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
-    "Предсогласованное изменение":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
+    "Предсогласованное изменение":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D
+      .Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
     "Релиз":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
     "Спринт":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
-    "Фоновое задание":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],"stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
+    "Фоновое задание":{"stage1":["Evgeniy.Vedmin","Buchenkov"],"stage21":["D.Drozdov"],
+        "stage22":[],"stage23":[],"stage3":["Natalia.Belaya"],"authorize":["Natalia.Belaya"]},
     "system_active":true
   },
   "ГИС poisk2.0":{
@@ -1032,15 +1136,19 @@
     "system_active":true
   },
   "Кадуцей":{
-    "Bugfix":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
+    "Bugfix":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],
+      "stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "Активация настроек":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "Внерелиз":{"stage1":["Andrey.Korobkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
-    "Дефект":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
+    "Дефект":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],
+      "stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "Изменение настроек":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "Массовая выгрузка":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "Предсогласованное изменение":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
-    "Релиз":{"stage1":["Andrey.Korobkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
-    "Спринт":{"stage1":["Andrey.Korobkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
+    "Релиз":{"stage1":["Andrey.Korobkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim
+      .Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
+    "Спринт":{"stage1":["Andrey.Korobkov"],"stage21":["Stepan.Panov"],"stage22":["Maksim
+        .Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev","K.Mironov"],"authorize":["Stepan.Panov"]},
     "Фоновое задание":{"stage1":["Andrey.Korobkov"],"stage21":[],"stage22":["Maksim.Bolisov"],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":["Stepan.Panov"]},
     "system_active":true
   },
@@ -1155,7 +1263,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T
+      .Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -1167,11 +1276,14 @@
     "Внерелиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
-    "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
+    "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],
+      "stage3":[],"authorize":["Oksana.Mishchenko"]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I
+      .Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
-    "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],"stage3":[],"authorize":["Oksana.Mishchenko"]},
+    "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["I.Iakovlev"],
+        "stage3":[],"authorize":["Oksana.Mishchenko"]},
     "system_active":true
   },
   "МП ЛК 5-ка":{
@@ -1266,15 +1378,19 @@
     "system_active":true
   },
   "Платформа РЦРО ТС5":{
-    "Bugfix":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
+    "Bugfix":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey
+      .Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "Активация настроек":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "Внерелиз":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
-    "Дефект":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
+    "Дефект":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey
+        .Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "Изменение настроек":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
-    "Релиз":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
-    "Спринт":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
+    "Релиз":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey
+          .Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
+    "Спринт":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey
+            .Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "Фоновое задание":{"stage1":["Anton.Bogdanov"],"stage21":[],"stage22":["Sergey.Bokarev","Andrey.Kitov"],"stage23":[],"stage3":["Anton.Bogdanov"],"authorize":[]},
     "system_active":true
   },
@@ -1397,13 +1513,17 @@
   },
   "Портал поддержки":{
     "Bugfix":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Активация настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Активация настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Внерелиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Дефект":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
-    "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Изменение настроек":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Массовая выгрузка":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],
+      "stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Предсогласованное изменение":{"stage1":["Saodat.Bernaeva"],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":["Darya.Danilchenko"]},
-    "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
+    "Релиз":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],
+      "stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Спринт":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "Фоновое задание":{"stage1":["Saodat.Bernaeva"],"stage21":["Darya.Danilchenko"],"stage22":[],"stage23":["Grigoriy.Shiporin"],"stage3":["Saodat.Bernaeva"],"authorize":["Darya.Danilchenko"]},
     "system_active":true
@@ -1480,7 +1600,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T
+      .Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":["T.Safiullin"],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -1539,15 +1660,22 @@
     "system_active":true
   },
   "Система организации грузоперевозок X5.Грузы (gocargo.x5.ru)":{
-    "Bugfix":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
-    "Активация настроек":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
+    "Bugfix":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],
+      "stage23":[],"stage3":[],"authorize":[]},
+    "Активация настроек":{"stage1":["Tatiana.Goryanina"],"stage21":[],
+      "stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
     "Внерелиз":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
-    "Дефект":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
-    "Изменение настроек":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
+    "Дефект":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],
+      "stage23":[],"stage3":[],"authorize":[]},
+    "Изменение настроек":{"stage1":["Tatiana.Goryanina"],"stage21":[],
+      "stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Tatiana.Goryanina"],"stage21":[],
+      "stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
-    "Релиз":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
-    "Спринт":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
+    "Релиз":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],
+      "stage23":[],"stage3":[],"authorize":[]},
+    "Спринт":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],
+      "stage23":[],"stage3":[],"authorize":[]},
     "Фоновое задание":{"stage1":["Tatiana.Goryanina"],"stage21":[],"stage22":["EkatKuznetsova"],"stage23":[],"stage3":[],"authorize":[]},
     "system_active":true
   },
@@ -1684,7 +1812,8 @@
   "Эквайринг (NQ)":{
     "Bugfix":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Anastasia.Merkulova","Sergey.Kaufman"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Активация настроек":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Anastasia.Merkulova","Sergey.Kaufman"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
-    "Внерелиз":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Sergey.Kaufman","Anastasia.Merkulova"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
+    "Внерелиз":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Sergey
+      .Kaufman","Anastasia.Merkulova"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Дефект":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Anastasia.Merkulova","Sergey.Kaufman"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Изменение настроек":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Anastasia.Merkulova","Sergey.Kaufman"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Ivan.Shendrik"],"stage21":["Irina.Panova"],"stage22":["Sergey.Kaufman","Anastasia.Merkulova"],"stage23":["Ma.AndrianovaDeyneka"],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
@@ -1701,7 +1830,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],
+      "stage3":[],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
@@ -1714,7 +1844,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],
+      "stage3":[],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
@@ -1727,7 +1858,8 @@
     "Дефект":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],
+      "stage3":[],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":[],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
@@ -1806,17 +1938,20 @@
     "Изменение настроек":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat.Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat.Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat.Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
-    "Релиз":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat.Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
+    "Релиз":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat
+      .Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Спринт":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat.Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "Фоновое задание":{"stage1":["Alexey.Gorelov","N.Fateeva","Sergey.Zharkov"],"stage21":["Marat.Romashev","Boris.Osechinskiy"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","Danila.Yudin"],"authorize":[]},
     "system_active":false
   },
   "GK POS":{
     "Bugfix":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
-    "Активация настроек":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
+    "Активация настроек":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],
+      "stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Внерелиз":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Дефект":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],
+      "stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
     "Релиз":{"stage1":["Artem.Firstov","Sergey.Zharkov","German.Chachin"],"stage21":["Petr.Sitnik","Sergey.Borozdin"],"stage22":[],"stage23":[],"stage3":["Danila.Yudin","Dmitry.Rebrov"],"authorize":[]},
@@ -1877,28 +2012,42 @@
     "system_active":false
   },
   "LaserCAD":{
-    "Bugfix":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Активация настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Bugfix":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Активация настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim
+      .Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "Внерелиз":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Дефект":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Дефект":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim
+      .Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim
+      .Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Релиз":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Спринт":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Релиз":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Спринт":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "Фоновое задание":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "system_active":false
   },
   "Matomo":{
-    "Bugfix":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Активация настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Bugfix":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Активация настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim
+      .Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "Внерелиз":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Дефект":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Дефект":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim
+      .Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim
+      .Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Релиз":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
-    "Спринт":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Релиз":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
+    "Спринт":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],
+      "stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "Фоновое задание":{"stage1":["Alexander.Klykov"],"stage21":["A.Samsonov","Maxim.Chuprunov"],"stage22":[],"stage23":[],"stage3":["Yaroslav.Prudnikov"],"authorize":[]},
     "system_active":false
   },
@@ -1908,11 +2057,13 @@
     "Внерелиз":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Дефект":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Изменение настроек":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],
+      "stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Релиз":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Спринт":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Фоновое задание":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Фоновое задание":{"stage1":["Alex.Sharychenko"],"stage21":["Inna.Podorozhnaya"],
+      "stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "system_active":false
   },
   "Ortec OTD":{
@@ -1922,7 +2073,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -1935,7 +2087,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -1973,11 +2126,13 @@
     "Внерелиз":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Дефект":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Изменение настроек":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],
+      "stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Релиз":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Спринт":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],
+      "stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "system_active":false
   },
   "TMS LTL":{
@@ -1986,19 +2141,23 @@
     "Внерелиз":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Дефект":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Изменение настроек":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],
+      "stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Релиз":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "Спринт":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],"stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Vitaly.Smirnov"],"stage21":["Ekaterina.Berkutova"],
+      "stage22":[],"stage23":[],"stage3":["Yury.Pchelin"],"authorize":[]},
     "system_active":false
   },
   "TMS-X":{
     "Bugfix":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey
+      .Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Внерелиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Дефект":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey
+      .Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Релиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
@@ -2008,10 +2167,12 @@
   },
   "TPOS":{
     "Bugfix":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Активация настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey
+      .Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Внерелиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Дефект":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
-    "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
+    "Изменение настроек":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey
+      .Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Предсогласованное изменение":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
     "Релиз":{"stage1":["Dmitriy.Shushman"],"stage21":["Pavel.Kokorin","Aleksey.Guba","Radnir.Khayrov"],"stage22":[],"stage23":[],"stage3":[],"authorize":[]},
@@ -2087,7 +2248,8 @@
   "База знаний Идеальный магазин (tc5.x5.ruidealstore":{
     "Bugfix":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],"stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
     "Активация настроек":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],"stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
-    "Внерелиз":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],"stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
+    "Внерелиз":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],
+      "stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
     "Дефект":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],"stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
     "Изменение настроек":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],"stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Artur.Manukyan"],"stage21":["L.Sukhareva","Denis.Tarasov"],"stage22":[],"stage23":[],"stage3":["Sergey.Kolchanov"],"authorize":[]},
@@ -2104,10 +2266,12 @@
     "Дефект":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
     "Изменение настроек":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
     "Массовая выгрузка":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey
+      .Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
     "Релиз":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
     "Спринт":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],"stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Dmitry.Glashchenkov"],"stage21":["Alexey.Beznosov"],
+      "stage22":[],"stage23":[],"stage3":["Dmitry.Mikheev"],"authorize":[]},
     "system_active":false
   },
   "Маркус":{
@@ -2130,7 +2294,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2143,7 +2308,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2156,7 +2322,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2169,7 +2336,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2182,7 +2350,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2325,7 +2494,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2338,7 +2508,8 @@
     "Дефект":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Изменение настроек":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Массовая выгрузка":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],
+      "stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Релиз":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Спринт":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
     "Фоновое задание":{"stage1":[],"stage21":["T.Safiullin"],"stage22":[],"stage23":[],"stage3":["Stanislav.Petryakov"],"authorize":[]},
@@ -2397,52 +2568,57 @@
     "system_active":false
   },
   "Эквайринг ТС5":{
-    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev", "Gennady.Erofeev", "A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
+    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Gennady.Erofeev","Gennady.Erofeev","A.Savkin"],"stage22":[],"stage23":[],"stage3":["And.Matveev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
     "system_active":true
   },
-    "Эквайринг ТСХ":{
-    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
+  "Эквайринг ТСХ":{
+    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],
+      "stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],
+      "stage22":[],"stage23":[],"stage3":["Aleksandr.Filippov","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
     "system_active":true
   },
-    "Эквайринг ТСК":{
-    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev", "Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
+  "Эквайринг ТСК":{
+    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],
+      "stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],"stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Alexey.Gorelov"],
+      "stage22":[],"stage23":[],"stage3":["Vladimir.Timofeev","Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
     "system_active":true
   },
-    "Эквайринг HD":{
-    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
-    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov", "alexey.hvostov", "Sergey.Zharkov", "Ivan.Shendrik"],"authorize":[]},
+  "Эквайринг HD":{
+    "Bugfix":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Активация настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Внерелиз":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Дефект":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Изменение настроек":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Массовая выгрузка":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Предсогласованное изменение":{"stage1":["Alexander.Avramenko"],"stage21":["Boris
+      .Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Спринт":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],"stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
+    "Фоновое задание":{"stage1":["Alexander.Avramenko"],"stage21":["Boris.Chikharev"],
+      "stage22":[],"stage23":[],"stage3":["Al.Dolgov","alexey.hvostov","Sergey.Zharkov","Ivan.Shendrik"],"authorize":[]},
     "system_active":true
   }
-
 }

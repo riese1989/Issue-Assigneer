@@ -11,11 +11,12 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.JSONObject;
 
 @Data
 @RequiredArgsConstructor
 @XmlRootElement
-public class TypeChange {
+public class TypeChange implements GeneralClass {
     @NonNull
     @XmlElement
     private String name;
@@ -29,5 +30,16 @@ public class TypeChange {
 
     public void addStage(Stage stage)   {
         stages.add(stage);
+    }
+
+    @Override
+    public JSONObject toJson() {
+       JSONObject jsonObject = new JSONObject();
+       JSONObject stagesJson = new JSONObject();
+       for (Stage stage : stages)   {
+           stagesJson.put(stage.getName(), stage.toJson());
+       }
+       jsonObject.put(this.getName(), stagesJson);
+       return jsonObject;
     }
 }

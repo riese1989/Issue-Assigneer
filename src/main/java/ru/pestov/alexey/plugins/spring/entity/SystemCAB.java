@@ -8,12 +8,13 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.codehaus.jackson.map.annotate.JsonRootName;
+import org.json.simple.JSONObject;
 
 
 @Data
 @RequiredArgsConstructor
 @XmlRootElement
-public class SystemCAB {
+public class SystemCAB implements GeneralClass {
 
     @NonNull
     @XmlElement
@@ -28,5 +29,16 @@ public class SystemCAB {
 
     public void addType(TypeChange typeChange)  {
         typeChanges.add(typeChange);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+        JSONObject typeChangesJSON = new JSONObject();
+        for (TypeChange typeChange : typeChanges)   {
+            typeChangesJSON.put(typeChange.getName(), typeChange.toJson());
+        }
+        jsonObject.put(this.name, typeChangesJSON);
+        return null;
     }
 }
