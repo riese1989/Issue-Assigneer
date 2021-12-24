@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<form class="aui" method="POST" action="IssueAssigneerWebworkAction!save.jspa">
+<form class="aui" method="POST" action="/rest/cab/1.0/systems/post">
     <div class="field-group">
         <label for="system">System</label>
         <select class="select" id="system" name="system">

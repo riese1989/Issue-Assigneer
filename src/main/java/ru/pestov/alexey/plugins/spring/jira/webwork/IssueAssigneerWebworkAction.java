@@ -41,7 +41,7 @@ public class IssueAssigneerWebworkAction extends JiraWebActionSupport
 
     @Override
     public String doExecute() throws Exception {
-        HTTPService.doPost();
+        //HTTPService.doPost();
         return SUCCESS; //returns SUCCESS
     }
     public String doSave() {

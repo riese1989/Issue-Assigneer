@@ -1,15 +1,23 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import com.atlassian.plugin.spring.scanner.annotation.component.JiraComponent;
+import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import javax.inject.Named;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 @Data
+@Named
+@ExportAsService
 public class JSONService {
     private JSONObject jsonObject = getJSONObjectFromFile();
 
@@ -38,8 +46,18 @@ public class JSONService {
         }
     }
 
-    public String countSystems(){
-        JSONObject jsonObject = getJSONObjectFromFile();
-        return jsonObject.toString();
+    public List<String> getSystems()    {
+        List<String> systems = new ArrayList<>();
+        Iterator<String> keys = jsonObject.keySet().iterator();
+
+        while(keys.hasNext()) {
+            String key = keys.next();
+            systems.add(key);
+        }
+        return systems;
+    }
+
+    public JSONObject getSystem(String nameSystem)   {
+        return  (JSONObject) jsonObject.get(nameSystem.replaceAll("_", " "));
     }
 }
