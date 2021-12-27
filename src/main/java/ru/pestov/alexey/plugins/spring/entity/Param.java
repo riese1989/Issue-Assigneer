@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.xml.bind.annotation.XmlElement;
 
 @Data
-public class FormParam {
+public class Param {
     @XmlElement
     private String system;
 
@@ -20,5 +20,4 @@ public class FormParam {
 
     @XmlElement
     private String step3;
-
 }

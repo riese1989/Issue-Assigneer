@@ -2,14 +2,14 @@
 <head>
 </head>
 <body>
-<form class="aui" method="POST" action="/rest/cab/1.0/systems/post">
+<form class="aui" method="POST" action="/jira/rest/cab/1.0/systems/post" enctype="application/json">
     <div class="field-group">
-        <label for="system">System</label>
+        <label for="system">Система</label>
         <select class="select" id="system" name="system">
         </select>
     </div>
     <div class="field-group">
-        <label for="typechange">Type change</label>
+        <label for="typechange">Тип измения</label>
         <select class="select" id="typechange" name="typechange">
             <option>Select</option>
             <option value="$!{typeChange}">Bugfix</option>
@@ -26,16 +26,28 @@
         </select>
     </div>
     <div class="field-group">
-        <label for="step1">Step1</label>
+        <label for="step1">Стадия 1</label>
         <input class="text medium-field" type="text" id="step1" name="step1" value="$!{step1}">
     </div>
     <div class="field-group">
-        <label for="step2">Step2</label>
+        <label for="step2">Стадия 2</label>
         <input class="text medium-field" type="text" id="step2" name="step2" value="$!{step2}">
     </div>
     <div class="field-group">
-        <label for="step3">Step3</label>
+        <label for="step3">Стадия 3</label>
         <input class="text medium-field" type="text" id="step3" name="step3" value="$!{step3}">
+    </div>
+    <div class="field-group">
+        <label for="autorize">Авторизующий</label>
+        <input class="text medium-field" type="text" id="autorize" name="autorize" value="$!{autorize}">
+    </div>
+    <div class="field-group">
+        <label for="active">Система активна?</label>
+        <select class="select" id="active" name="active">
+            <option>Select</option>
+            <option value="$!{active}">Да</option>
+            <option value="$!{active}">Нет</option>
+        </select>
     </div>
     <div class="buttons-container">
         <div class="buttons">
