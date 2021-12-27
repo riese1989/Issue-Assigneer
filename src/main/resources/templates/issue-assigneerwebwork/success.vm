@@ -6,23 +6,24 @@
     <div class="field-group">
         <label for="system">Система</label>
         <select class="select" id="system" name="system">
+            <option value="JDA - планограммы ТСХ">JDA - планограммы ТСХ</option>
         </select>
     </div>
     <div class="field-group">
         <label for="typechange">Тип измения</label>
         <select class="select" id="typechange" name="typechange">
             <option>Select</option>
-            <option value="$!{typeChange}">Bugfix</option>
-            <option value="$!{typeChange}">Активация настроек</option>
-            <option value="$!{typeChange}">Внерелиз</option>
-            <option value="$!{typeChange}">Дефект</option>
-            <option value="$!{typeChange}">Внерелиз</option>
-            <option value="$!{typeChange}">Изменение настроек</option>
-            <option value="$!{typeChange}">Массовая выгрузка</option>
-            <option value="$!{typeChange}">Предсогласованное изменение</option>
-            <option value="$!{typeChange}">Релиз</option>
-            <option value="$!{typeChange}">Спринт</option>
-            <option value="$!{typeChange}">Фоновое задание</option>
+            <option value="Bugfix">Bugfix</option>
+            <option value="Активация настроек">Активация настроек</option>
+            <option value="Внерелиз">Внерелиз</option>
+            <option value="Дефект">Дефект</option>
+            <option value="Внерелиз">Внерелиз</option>
+            <option value="Изменение настроек">Изменение настроек</option>
+            <option value="Массовая выгрузка">Массовая выгрузка</option>
+            <option value="Предсогласованное изменение">Предсогласованное изменение</option>
+            <option value="Релиз">Релиз</option>
+            <option value="Спринт">Спринт</option>
+            <option value="Фоновое задание">Фоновое задание</option>
         </select>
     </div>
     <div class="field-group">
@@ -30,8 +31,16 @@
         <input class="text medium-field" type="text" id="step1" name="step1" value="$!{step1}">
     </div>
     <div class="field-group">
-        <label for="step2">Стадия 2</label>
-        <input class="text medium-field" type="text" id="step2" name="step2" value="$!{step2}">
+        <label for="step2">Стадия 21</label>
+        <input class="text medium-field" type="text" id="step21" name="step21" value="$!{step21}">
+    </div>
+    <div class="field-group">
+        <label for="step2">Стадия 22</label>
+        <input class="text medium-field" type="text" id="step22" name="step22" value="$!{step22}">
+    </div>
+    <div class="field-group">
+        <label for="step2">Стадия 23</label>
+        <input class="text medium-field" type="text" id="step23" name="step23" value="$!{step23}">
     </div>
     <div class="field-group">
         <label for="step3">Стадия 3</label>
@@ -45,8 +54,8 @@
         <label for="active">Система активна?</label>
         <select class="select" id="active" name="active">
             <option>Select</option>
-            <option value="$!{active}">Да</option>
-            <option value="$!{active}">Нет</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
         </select>
     </div>
     <div class="buttons-container">

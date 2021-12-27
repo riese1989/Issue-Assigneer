@@ -2,6 +2,7 @@ package ru.pestov.alexey.plugins.spring.rest;
 
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
+import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
 import ru.pestov.alexey.plugins.spring.service.JSONService;
 
 import javax.inject.Inject;
@@ -45,11 +46,22 @@ public class SystemRest {
 
     @POST
     @Path("/post")
-    @Consumes({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response post(Param param)  {
-        //todo не работает
-        return Response.ok(param.getStep1()).build();
+    public Response post(@FormParam("system") String system,
+                         @FormParam("typechange") String typeChange,
+                         @FormParam("step1") String step1,
+                         @FormParam("step21") String step21,
+                         @FormParam("step22") String step22,
+                         @FormParam("step23") String step23,
+                         @FormParam("step3") String step3,
+                         @FormParam("autorize") String autorize,
+                         @FormParam("active") String active)  {
+        Param param = new Param(system, typeChange, step1, step21, step22, step23, step3, autorize, active);
+        jsonService.updateJsonObject(param);
+        //todo сделать вызов формы заново
+        //new IssueAssigneerWebworkAction().doExecute();
+        return Response.ok().build();
     }
 
     @POST

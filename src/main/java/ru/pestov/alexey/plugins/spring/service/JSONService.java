@@ -3,23 +3,30 @@ package ru.pestov.alexey.plugins.spring.service;
 import com.atlassian.plugin.spring.scanner.annotation.component.JiraComponent;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
+import lombok.SneakyThrows;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import ru.pestov.alexey.plugins.spring.entity.Param;
 
 import javax.inject.Named;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @Data
 @Named
 @ExportAsService
 public class JSONService {
-    private JSONObject jsonObject = getJSONObjectFromFile();
+    private JSONObject jsonObject;
+    private String pathJson;
+
+    public JSONService() {
+        pathJson = getPathJSON();
+        jsonObject = getJSONObjectFromFile();
+    }
 
     private String getPathJSON() {
         FileInputStream fis;
@@ -38,7 +45,7 @@ public class JSONService {
     private JSONObject getJSONObjectFromFile() {
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new InputStreamReader(new FileInputStream(getPathJSON())));
+            Object obj = parser.parse(new InputStreamReader(new FileInputStream(pathJson)));
             return (JSONObject) obj;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -55,6 +62,37 @@ public class JSONService {
             systems.add(key);
         }
         return systems;
+    }
+
+    public void updateJsonObject(Param param)   {
+        JSONObject jsonSystem = (JSONObject) jsonObject.get(param.getSystem());
+        jsonSystem.put("system_active", Boolean.valueOf(param.getActive()));
+        JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(param.getTypeChange());
+        jsonTypeChange.put("stage1", createJsonArray(param.getStep1()));
+        jsonTypeChange.put("stage21", createJsonArray(param.getStep21()));
+        jsonTypeChange.put("stage22", createJsonArray(param.getStep22()));
+        jsonTypeChange.put("stage23", createJsonArray(param.getStep23()));
+        jsonTypeChange.put("stage3", createJsonArray(param.getStep3()));
+        jsonTypeChange.put("authorize", createJsonArray(param.getAutorize()));
+        jsonSystem.put(param.getTypeChange(), jsonTypeChange);
+        writeToFile();
+    }
+
+    private void writeToFile()  {
+        try {
+            FileWriter file = new FileWriter(pathJson);
+            file.write(jsonObject.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private JSONArray createJsonArray(String assigneesString)    {
+        String regex = ";";
+        JSONArray jsonArray = new JSONArray();
+        List<String> assignees = Arrays.asList(assigneesString.split(regex));
+        jsonArray.addAll(assignees);
+        return jsonArray;
     }
 
     public JSONObject getSystem(String nameSystem)   {

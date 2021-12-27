@@ -1,23 +1,28 @@
 package ru.pestov.alexey.plugins.spring.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.xml.bind.annotation.XmlElement;
 
 @Data
+@AllArgsConstructor
 public class Param {
-    @XmlElement
     private String system;
 
-    @XmlElement
-    private String typechange;
+    private String typeChange;
 
-    @XmlElement
     private String step1;
 
-    @XmlElement
-    private String step2;
+    private String step21;
 
-    @XmlElement
+    private String step22;
+
+    private String step23;
+
     private String step3;
+
+    private String autorize;
+
+    private String active;
 }
