@@ -1,5 +1,7 @@
 package ru.pestov.alexey.plugins.spring.rest;
 
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
@@ -18,10 +20,13 @@ import javax.ws.rs.core.Response;
 public class SystemRest {
 
     private final JSONService jsonService;
+    private final IssueAssigneerWebworkAction issueAssigneerWebworkAction;
+
 
     @Inject
-    public SystemRest(final JSONService jsonService) {
+    public SystemRest(final JSONService jsonService, IssueAssigneerWebworkAction issueAssigneerWebworkAction) {
         this.jsonService = jsonService;
+        this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
     }
 
     @GET
@@ -56,12 +61,11 @@ public class SystemRest {
                          @FormParam("step23") String step23,
                          @FormParam("step3") String step3,
                          @FormParam("autorize") String autorize,
-                         @FormParam("active") String active)  {
+                         @FormParam("active") String active) throws Exception {
         Param param = new Param(system, typeChange, step1, step21, step22, step23, step3, autorize, active);
         jsonService.updateJsonObject(param);
-        //todo сделать вызов формы заново
-        //new IssueAssigneerWebworkAction().doExecute();
-        return Response.ok().build();
+        issueAssigneerWebworkAction.setParams(param);
+        return Response.ok(issueAssigneerWebworkAction.doSave()).build();
     }
 
     @POST

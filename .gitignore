@@ -3,3 +3,4 @@
 *.iml
 LICENSE
 /out
+src/main/resources/supportFiles/CAB_approval.json
