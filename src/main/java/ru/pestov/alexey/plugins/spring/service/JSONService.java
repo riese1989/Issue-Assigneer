@@ -32,7 +32,7 @@ public class JSONService {
         FileInputStream fis;
         Properties property = new Properties();
         try {
-            fis = new FileInputStream("/Users/usser/issue-assigneer/src/main/resources/issue-assigneer.properties");
+            fis = new FileInputStream("/Users/alexey.pestov/Desktop/Issue-Assigneer/src/main/resources/issue-assigneer.properties");
             property.load(fis);
             System.out.println(property.getProperty("file.cab.path"));
             return property.getProperty("file.cab.path");
