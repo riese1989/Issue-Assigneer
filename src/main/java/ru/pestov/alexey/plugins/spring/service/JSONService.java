@@ -61,6 +61,7 @@ public class JSONService {
             String key = keys.next();
             systems.add(key);
         }
+        Collections.sort(systems);
         return systems;
     }
 

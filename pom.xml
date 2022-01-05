@@ -18,6 +18,10 @@
             <id>MyRepo</id>
             <url>https://github.com/riese1989/Issue-Assigneer/tree/Repository</url>
         </repository>
+        <repository>
+            <id>Atlassian Public</id>
+            <url>https://packages.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>
     </repositories>
 <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->

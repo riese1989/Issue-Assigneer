@@ -6,7 +6,7 @@
     <div class="field-group">
         <label for="systemCab">Система</label>
         <select class="select" id="systemCab" name="systemCab">
-            <option value="JDA - планограммы ТСХ">JDA - планограммы ТСХ</option>
+            <option>Select</option>
         </select>
     </div>
     <div class="field-group">
@@ -28,31 +28,31 @@
     </div>
     <div class="field-group">
         <label for="step1">Стадия 1</label>
-        <input class="text medium-field" type="text" id="step1" name="step1" value="$!{step1}">
+        <input class="text medium-field" type="text" id="step1" name="step1" value="$!{step1}" disabled>
     </div>
     <div class="field-group">
-        <label for="step2">Стадия 21</label>
-        <input class="text medium-field" type="text" id="step21" name="step21" value="$!{step21}">
+        <label for="step21">Стадия 21</label>
+        <input class="text medium-field" type="text" id="step21" name="step21" value="$!{step21}" disabled>
     </div>
     <div class="field-group">
         <label for="step2">Стадия 22</label>
-        <input class="text medium-field" type="text" id="step22" name="step22" value="$!{step22}">
+        <input class="text medium-field" type="text" id="step22" name="step22" value="$!{step22}" disabled>
     </div>
     <div class="field-group">
         <label for="step2">Стадия 23</label>
-        <input class="text medium-field" type="text" id="step23" name="step23" value="$!{step23}">
+        <input class="text medium-field" type="text" id="step23" name="step23" value="$!{step23}" disabled>
     </div>
     <div class="field-group">
         <label for="step3">Стадия 3</label>
-        <input class="text medium-field" type="text" id="step3" name="step3" value="$!{step3}">
+        <input class="text medium-field" type="text" id="step3" name="step3" value="$!{step3}" disabled>
     </div>
     <div class="field-group">
         <label for="autorize">Авторизующий</label>
-        <input class="text medium-field" type="text" id="autorize" name="autorize" value="$!{autorize}">
+        <input class="text medium-field" type="text" id="autorize" name="autorize" value="$!{autorize}" disabled>
     </div>
     <div class="field-group">
         <label for="active">Система активна?</label>
-        <select class="select" id="active" name="active">
+        <select class="select" id="active" name="active" disabled>
             <option>Select</option>
             <option value="true">Да</option>
             <option value="false">Нет</option>

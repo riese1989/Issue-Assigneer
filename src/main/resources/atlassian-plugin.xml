@@ -20,6 +20,7 @@
   <web-resource key="selects-resources" name="issue-assigneer Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="system.js" location="/js/system.js"/>
+    <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
     <context>selects</context>
   </web-resource>
   <!--  <servlet name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer" class="ru.pestov.alexey.plugins.spring.servlet.IssueAssigneer">-->  
