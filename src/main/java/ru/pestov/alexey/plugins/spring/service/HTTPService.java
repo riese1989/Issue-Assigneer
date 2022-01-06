@@ -12,14 +12,25 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONObject;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
+@Named
 public class HTTPService {
+
+    private static JSONService jsonService;
+
+    @Inject
+    public HTTPService(JSONService jsonService) {
+        HTTPService.jsonService = jsonService;
+    }
+
     public static void doPost() {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        JSONObject jsonObject = new JSONService().getJsonObject();
+        JSONObject jsonObject = jsonService.getJsonObject();
         //todo заменить на нормальный адрес jira
         HttpPost post = new HttpPost("http://localhost:2990/jira/rest/cab/1.0/systems/uploaddata");
         try {

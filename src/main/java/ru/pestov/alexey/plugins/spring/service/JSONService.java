@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -20,13 +21,30 @@ import java.util.*;
 @Named
 @ExportAsService
 public class JSONService {
-    private JSONObject jsonObject;
-    private String pathJson;
+    private final JSONObject jsonObject;
+    private final String pathJson;
+    private final StringService stringService;
 
-    public JSONService() {
+    @Inject
+    public JSONService(StringService stringService) {
         pathJson = getPathJSON();
         jsonObject = getJSONObjectFromFile();
+        this.stringService = stringService;
     }
+
+//    private JSONObject numeratedSystems()   {
+//        Integer id = 1;
+//        JSONObject jsonObject = getJSONObjectFromFile();
+//        Iterator<String> keys = jsonObject.keySet().iterator();
+//        while(keys.hasNext()) {
+//            String key = keys.next();
+//            JSONObject jsonSystem = (JSONObject) jsonObject.get(key);
+//            jsonSystem.put("id", id);
+//            jsonObject.put(key, jsonSystem);
+//            id++;
+//        }
+//        return jsonObject;
+//    }
 
     private String getPathJSON() {
         FileInputStream fis;
@@ -53,19 +71,8 @@ public class JSONService {
         }
     }
 
-    public List<String> getSystems()    {
-        List<String> systems = new ArrayList<>();
-        Iterator<String> keys = jsonObject.keySet().iterator();
 
-        while(keys.hasNext()) {
-            String key = keys.next();
-            systems.add(key);
-        }
-        Collections.sort(systems);
-        return systems;
-    }
-
-    public void updateJsonObject(Param param)   {
+    public void updateJsonObject(Param param) {
         JSONObject jsonSystem = (JSONObject) jsonObject.get(param.getSystem());
         jsonSystem.put("system_active", Boolean.valueOf(param.getActive()));
         JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(param.getTypeChange());
@@ -79,7 +86,7 @@ public class JSONService {
         writeToFile();
     }
 
-    private void writeToFile()  {
+    private void writeToFile() {
         try {
             FileWriter file = new FileWriter(pathJson);
             file.write(jsonObject.toJSONString());
@@ -88,15 +95,12 @@ public class JSONService {
             e.printStackTrace();
         }
     }
-    private JSONArray createJsonArray(String assigneesString)    {
+
+    private JSONArray createJsonArray(String assigneesString) {
         String regex = ";";
         JSONArray jsonArray = new JSONArray();
         List<String> assignees = Arrays.asList(assigneesString.split(regex));
         jsonArray.addAll(assignees);
         return jsonArray;
-    }
-
-    public JSONObject getSystem(String nameSystem)   {
-        return  (JSONObject) jsonObject.get(nameSystem.replaceAll("_", " "));
     }
 }

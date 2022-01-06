@@ -13,17 +13,16 @@
         <label for="typechange">Тип измения</label>
         <select class="select" id="typechange" name="typechange">
             <option>Select</option>
-            <option value="Bugfix">Bugfix</option>
-            <option value="Активация настроек">Активация настроек</option>
-            <option value="Внерелиз">Внерелиз</option>
-            <option value="Дефект">Дефект</option>
-            <option value="Внерелиз">Внерелиз</option>
-            <option value="Изменение настроек">Изменение настроек</option>
-            <option value="Массовая выгрузка">Массовая выгрузка</option>
-            <option value="Предсогласованное изменение">Предсогласованное изменение</option>
-            <option value="Релиз">Релиз</option>
-            <option value="Спринт">Спринт</option>
-            <option value="Фоновое задание">Фоновое задание</option>
+            <option value="1">Bugfix</option>
+            <option value="2">Активация настроек</option>
+            <option value="3">Внерелиз</option>
+            <option value="4">Дефект</option>
+            <option value="5">Изменение настроек</option>
+            <option value="6">Массовая выгрузка</option>
+            <option value="7">Предсогласованное изменение</option>
+            <option value="8">Релиз</option>
+            <option value="9">Спринт</option>
+            <option value="10">Фоновое задание</option>
         </select>
     </div>
     <div class="field-group">

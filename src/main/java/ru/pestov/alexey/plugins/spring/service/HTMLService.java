@@ -149,8 +149,6 @@ public class HTMLService {
             result += jsonObject.get(key).toString();
         }
         return result;
-
-
     }
 
 }

@@ -21,6 +21,7 @@
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="system.js" location="/js/system.js"/>
     <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
+    <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
     <context>selects</context>
   </web-resource>
   <!--  <servlet name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer" class="ru.pestov.alexey.plugins.spring.servlet.IssueAssigneer">-->  
@@ -35,6 +36,7 @@
     <description key="issue-assigneer-webitem">The Issue Assigneer Plugin</description>  
     <label key="issue-assigneer.label"/>  
     <link linkId="issue-assigneer-link">/secure/IssueAssigneerWebworkAction.jspa</link>
+    <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition" />
   </web-item>  
   <webwork1 key="issue-assigneerwebwork" name="Issue Assigneer webwork" i18n-name-key="issue-assigneerwebwork.name"> 
     <description key="issue-assigneerwebwork.description">The Issue Assigneer webwork Plugin</description>  
