@@ -35,7 +35,13 @@ public class SystemService {
     public String getNameSystemById(String idString)   {
         List<String> systems = getSystems();
         Integer id = Integer.parseInt(idString);
-        return systems.get(id - 1);
+        return systems.get(id);
+    }
+
+    public Boolean isSystemActive(String idString)  {
+        String nameSystem = getNameSystemById(idString);
+        JSONObject systemJson = getSystem(nameSystem);
+        return (Boolean) systemJson.get("system_active");
     }
 
     public JSONObject getSystem(String nameSystem)   {
@@ -56,7 +62,7 @@ public class SystemService {
             for (int i = 0; i < assigneesJSON.size(); i++) {
                 result += assigneesJSON.get(i);
                 if (i != assigneesJSON.size() - 1) {
-                    result += ",";
+                    result += ", ";
                 }
             }
         } catch (ClassCastException ex) {

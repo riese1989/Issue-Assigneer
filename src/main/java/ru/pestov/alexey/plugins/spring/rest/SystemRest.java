@@ -71,20 +71,26 @@ public class SystemRest {
         String typeChange = typeChangeService.getTypeChangeById(idChange);
         return Response.ok(systemService.getStageSystem(nameSystem, typeChange, stage)).build();
     }
+    @GET
+    @Path("/isactive")
+    public Response isActive(@Context HttpServletRequest httpServletRequest,
+                             @QueryParam("namesystem") String idSystem) {
+        return Response.ok(systemService.isSystemActive(idSystem).toString()).build();
+    }
     @POST
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
     public Response post(@FormParam("system") String system,
                          @FormParam("typechange") String typeChange,
-                         @FormParam("step1") String step1,
-                         @FormParam("step21") String step21,
-                         @FormParam("step22") String step22,
-                         @FormParam("step23") String step23,
-                         @FormParam("step3") String step3,
+                         @FormParam("stage1") String stage1,
+                         @FormParam("stage21") String stage21,
+                         @FormParam("stage22") String stage22,
+                         @FormParam("stage23") String stage23,
+                         @FormParam("stage3") String stage3,
                          @FormParam("autorize") String autorize,
                          @FormParam("active") String active) throws Exception {
-        Param param = new Param(system, typeChange, step1, step21, step22, step23, step3, autorize, active);
+        Param param = new Param(system, typeChange, stage1, stage21, stage22, stage23, stage3, autorize, active);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
         return Response.ok(issueAssigneerWebworkAction.doSave()).build();
@@ -94,8 +100,7 @@ public class SystemRest {
     @Path("/post2")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response post2(@FormParam("step1") String step1)  {
-        //todo не работает
-        return Response.ok(step1).build();
+    public Response post2(@FormParam("stage1") String stage1)  {
+        return Response.ok(stage1).build();
     }
 }

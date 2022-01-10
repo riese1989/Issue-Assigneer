@@ -26,24 +26,24 @@
         </select>
     </div>
     <div class="field-group">
-        <label for="step1">Стадия 1</label>
-        <input class="text medium-field" type="text" id="step1" name="step1" value="$!{step1}" disabled>
+        <label for="stage1">Стадия 1</label>
+        <input class="text medium-field" type="text" id="stage1" name="stage1" value="$!{stage1}" disabled>
     </div>
     <div class="field-group">
-        <label for="step21">Стадия 21</label>
-        <input class="text medium-field" type="text" id="step21" name="step21" value="$!{step21}" disabled>
+        <label for="stage21">Стадия 21</label>
+        <input class="text medium-field" type="text" id="stage21" name="stage21" value="$!{stage21}" disabled>
     </div>
     <div class="field-group">
-        <label for="step2">Стадия 22</label>
-        <input class="text medium-field" type="text" id="step22" name="step22" value="$!{step22}" disabled>
+        <label for="stage2">Стадия 22</label>
+        <input class="text medium-field" type="text" id="stage22" name="stage22" value="$!{stage22}" disabled>
     </div>
     <div class="field-group">
-        <label for="step2">Стадия 23</label>
-        <input class="text medium-field" type="text" id="step23" name="step23" value="$!{step23}" disabled>
+        <label for="stage2">Стадия 23</label>
+        <input class="text medium-field" type="text" id="stage23" name="stage23" value="$!{stage23}" disabled>
     </div>
     <div class="field-group">
-        <label for="step3">Стадия 3</label>
-        <input class="text medium-field" type="text" id="step3" name="step3" value="$!{step3}" disabled>
+        <label for="stage3">Стадия 3</label>
+        <input class="text medium-field" type="text" id="stage3" name="stage3" value="$!{stage3}" disabled>
     </div>
     <div class="field-group">
         <label for="autorize">Авторизующий</label>
