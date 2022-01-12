@@ -1968,14 +1968,26 @@
     }
   },
   "Advantum": {
-    "system_active": false,
+    "system_active": true,
     "Bugfix": {
-      "stage22": [],
-      "stage3": [],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage22": [
+        ""
+      ],
+      "stage3": [
+        ""
+      ],
+      "stage23": [
+        ""
+      ],
+      "stage21": [
+        ""
+      ],
+      "authorize": [
+        ""
+      ],
+      "stage1": [
+        ""
+      ]
     },
     "Фоновое задание": {
       "stage22": [],

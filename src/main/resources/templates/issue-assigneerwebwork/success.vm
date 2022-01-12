@@ -38,7 +38,7 @@
         <input class="text medium-field" type="text" id="stage22" name="stage22" value="$!{stage22}" disabled>
     </div>
     <div class="field-group">
-        <label for="stage2">Стадия 23</label>
+        <label for="stage23">Стадия 23</label>
         <input class="text medium-field" type="text" id="stage23" name="stage23" value="$!{stage23}" disabled>
     </div>
     <div class="field-group">
@@ -47,12 +47,11 @@
     </div>
     <div class="field-group">
         <label for="autorize">Авторизующий</label>
-        <input class="text medium-field" type="text" id="autorize" name="autorize" value="$!{autorize}" disabled>
+        <input class="text medium-field" type="text" id="authorize" name="authorize" value="$!{autorize}" disabled>
     </div>
     <div class="field-group">
         <label for="active">Система активна?</label>
         <select class="select" id="active" name="active" disabled>
-            <option>Select</option>
             <option value="true">Да</option>
             <option value="false">Нет</option>
         </select>

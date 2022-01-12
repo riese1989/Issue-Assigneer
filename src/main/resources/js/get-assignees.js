@@ -4,14 +4,13 @@ $(function () {
         item.addEventListener("change", event => {
             const system = document.getElementById("systemCab")
             const typechange = document.getElementById("typechange")
+            const stage1 = document.getElementById("stage1")
+            const stage21 = document.getElementById("stage21")
+            const stage22 = document.getElementById("stage22")
+            const stage23 = document.getElementById("stage23")
+            const stage3 = document.getElementById("stage3")
+            const authorize = document.getElementById("authorize")
             if(system.value !== "Select" && typechange.value !== "Select") {
-                const stage1 = document.getElementById("stage1")
-                const stage21 = document.getElementById("stage21")
-                const stage22 = document.getElementById("stage22")
-                const stage23 = document.getElementById("stage23")
-                const stage3 = document.getElementById("stage3")
-                const autorize = document.getElementById("autorize")
-                const active = document.getElementById("active")
                 var url = jiraRestAddress + 'getassignees?namesystem=' + system.value + '&typechange=' + typechange.value + "&stage="
                 $.get(url + 'stage1', function (response)   {
                     stage1.value = response
@@ -28,12 +27,16 @@ $(function () {
                 $.get(url + 'stage3', function (response)   {
                     stage3.value = response
                 })
-                $.get(url + 'autorize', function (response)   {
-                    autorize.value = response
+                $.get(url + 'authorize', function (response)   {
+                    authorize.value = response
                 })
-                $.get(jiraRestAddress + 'isactive?namesystem=' + system.value, function (response){
-                    active.value = response
-                })
+            }   else    {
+                stage1.value = ""
+                stage21.value = ""
+                stage22.value = ""
+                stage23.value = ""
+                stage3.value = ""
+                authorize.value = ""
             }
         })
     })

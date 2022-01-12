@@ -81,7 +81,7 @@ public class JSONService {
         jsonTypeChange.put("stage22", createJsonArray(param.getStep22()));
         jsonTypeChange.put("stage23", createJsonArray(param.getStep23()));
         jsonTypeChange.put("stage3", createJsonArray(param.getStep3()));
-        jsonTypeChange.put("authorize", createJsonArray(param.getAutorize()));
+        jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(param.getTypeChange(), jsonTypeChange);
         writeToFile();
     }

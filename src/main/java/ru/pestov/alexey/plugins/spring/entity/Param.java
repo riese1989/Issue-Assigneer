@@ -26,7 +26,7 @@ public class Param {
 
     private String step3;
 
-    private String autorize;
+    private String authorize;
 
     private String active;
 }

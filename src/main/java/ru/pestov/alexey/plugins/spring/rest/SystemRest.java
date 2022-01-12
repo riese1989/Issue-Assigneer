@@ -88,9 +88,9 @@ public class SystemRest {
                          @FormParam("stage22") String stage22,
                          @FormParam("stage23") String stage23,
                          @FormParam("stage3") String stage3,
-                         @FormParam("autorize") String autorize,
+                         @FormParam("authorize") String authorize,
                          @FormParam("active") String active) throws Exception {
-        Param param = new Param(system, typeChange, stage1, stage21, stage22, stage23, stage3, autorize, active);
+        Param param = new Param(system, typeChange, stage1, stage21, stage22, stage23, stage3, authorize, active);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
         return Response.ok(issueAssigneerWebworkAction.doSave()).build();

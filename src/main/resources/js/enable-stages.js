@@ -8,7 +8,7 @@ $(function () {
             const stage22 = document.getElementById("stage22")
             const stage23 = document.getElementById("stage23")
             const stage3 = document.getElementById("stage3")
-            const autorize = document.getElementById("autorize")
+            const authorize = document.getElementById("authorize")
             const active = document.getElementById("active")
             if (typechange.value == "Select" || system.value == "Select") {
                 stage1.setAttribute("disabled", "disabled")
@@ -16,7 +16,7 @@ $(function () {
                 stage22.setAttribute("disabled", "disabled")
                 stage23.setAttribute("disabled", "disabled")
                 stage3.setAttribute("disabled", "disabled")
-                autorize.setAttribute("disabled", "disabled")
+                authorize.setAttribute("disabled", "disabled")
                 active.setAttribute("disabled", "disabled")
             } else {
                 stage1.removeAttribute("disabled")
@@ -24,7 +24,7 @@ $(function () {
                 stage22.removeAttribute("disabled")
                 stage23.removeAttribute("disabled")
                 stage3.removeAttribute("disabled")
-                autorize.removeAttribute("disabled")
+                authorize.removeAttribute("disabled")
                 active.removeAttribute("disabled")
             }
         })
