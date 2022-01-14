@@ -3,10 +3,7 @@ package ru.pestov.alexey.plugins.spring.rest;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
-import ru.pestov.alexey.plugins.spring.service.JSONService;
-import ru.pestov.alexey.plugins.spring.service.StringService;
-import ru.pestov.alexey.plugins.spring.service.SystemService;
-import ru.pestov.alexey.plugins.spring.service.TypeChangeService;
+import ru.pestov.alexey.plugins.spring.service.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -15,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Map;
 
 @Named
 @Path("/systems")
@@ -25,6 +23,7 @@ public class SystemRest {
     private final TypeChangeService typeChangeService;
     private final SystemService systemService;
     private final IssueAssigneerWebworkAction issueAssigneerWebworkAction;
+    private final UserService userService;
 
 
     @Inject
@@ -32,12 +31,14 @@ public class SystemRest {
                       final StringService stringService,
                       final TypeChangeService typeChangeService,
                       final SystemService systemService,
+                      final UserService userService,
                       IssueAssigneerWebworkAction issueAssigneerWebworkAction) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
         this.stringService = stringService;
         this.typeChangeService = typeChangeService;
         this.systemService = systemService;
+        this.userService = userService;
     }
 
     @GET
@@ -102,5 +103,14 @@ public class SystemRest {
     @Produces({MediaType.APPLICATION_JSON})
     public Response post2(@FormParam("stage1") String stage1)  {
         return Response.ok(stage1).build();
+    }
+
+    @GET
+    @Path("/getactiveusers")
+    @Consumes({"application/x-www-form-urlencoded"})
+    @Produces({"application/json"})
+    public Response getActiveUsers() {
+        Map<String, String> usersMap = this.userService.getActiveUsers();
+        return Response.ok(usersMap.toString()).build();
     }
 }
