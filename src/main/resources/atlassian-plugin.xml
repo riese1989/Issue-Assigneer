@@ -10,29 +10,27 @@
   </plugin-info> add our i18n resource 
   <resource type="i18n" name="i18n" location="issue-assigneer"/>  
   <!-- add our web resources -->  
-  <web-resource key="issue-assigneer-resources" name="issue-assigneer Web Resources"> 
-    <dependency>com.atlassian.auiplugin:ajs</dependency>
-    <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>  
-    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
-    <resource type="download" name="images/" location="/images"/>  
-    <context>issueassigner</context>
-  </web-resource>
+<!--  <web-resource key="issue-assigneer-resources" name="issue-assigneer Web Resources"> -->
+<!--    <dependency>com.atlassian.auiplugin:ajs</dependency>-->
+<!--    <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>  -->
+<!--    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>-->
+<!--    <resource type="download" name="images/" location="/images"/>  -->
+<!--    <context>issueassigner</context>-->
+<!--  </web-resource>-->
   <web-resource key="selects-resources" name="issue-assigneer Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <dependency>com.atlassian.auiplugin:aui-select2</dependency>
     <resource type="download" name="system.js" location="/js/system.js"/>
     <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
     <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
     <resource type="download" name="get-status.js" location="/js/get-status.js"/>
+    <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
+    <resource type="download" name="get-users.js" location="/js/get-users.js"/>
+    <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
+    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
+    <resource type="download" name="images/" location="/images"/>
     <context>selects</context>
   </web-resource>
-  <!--  <servlet name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer" class="ru.pestov.alexey.plugins.spring.servlet.IssueAssigneer">-->  
-  <!--    <description key="issue-assigneer.description">The Issue Assigneer Plugin</description>-->  
-  <!--    <url-pattern>/issueassigneer</url-pattern>-->  
-  <!--  </servlet>-->  
-  <!--  <web-section name="mySection" i18n-name-key="my-section.name" key="my-section" location="my-item-link" weight="1000">
-    <description key="my-section.description">The mySection Plugin</description>
-    <label key="my-section.label"/>
-  </web-section>-->  
   <web-item name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer-webitem" section="system.top.navigation.bar" weight="1000"> 
     <description key="issue-assigneer-webitem">The Issue Assigneer Plugin</description>  
     <label key="issue-assigneer.label"/>  

@@ -1,5 +1,12 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import com.atlassian.crowd.embedded.api.User;
+import com.atlassian.jira.bc.user.UserService;
+import com.atlassian.jira.component.ComponentAccessor;
+import com.atlassian.jira.exception.CreateException;
+import com.atlassian.jira.exception.PermissionException;
+import com.atlassian.jira.user.ApplicationUser;
+import com.atlassian.jira.user.util.UserManager;
 import com.atlassian.plugin.spring.scanner.annotation.component.JiraComponent;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
@@ -24,6 +31,7 @@ public class JSONService {
     private final JSONObject jsonObject;
     private final String pathJson;
     private final StringService stringService;
+    private static int i = 0;
 
     @Inject
     public JSONService(StringService stringService) {
@@ -31,20 +39,6 @@ public class JSONService {
         jsonObject = getJSONObjectFromFile();
         this.stringService = stringService;
     }
-
-//    private JSONObject numeratedSystems()   {
-//        Integer id = 1;
-//        JSONObject jsonObject = getJSONObjectFromFile();
-//        Iterator<String> keys = jsonObject.keySet().iterator();
-//        while(keys.hasNext()) {
-//            String key = keys.next();
-//            JSONObject jsonSystem = (JSONObject) jsonObject.get(key);
-//            jsonSystem.put("id", id);
-//            jsonObject.put(key, jsonSystem);
-//            id++;
-//        }
-//        return jsonObject;
-//    }
 
     private String getPathJSON() {
         FileInputStream fis;

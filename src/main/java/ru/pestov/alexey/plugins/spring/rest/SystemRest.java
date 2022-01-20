@@ -12,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Map;
 
 @Named
@@ -24,6 +25,7 @@ public class SystemRest {
     private final SystemService systemService;
     private final IssueAssigneerWebworkAction issueAssigneerWebworkAction;
     private final UserService userService;
+    private final HService hService;
 
 
     @Inject
@@ -32,6 +34,7 @@ public class SystemRest {
                       final TypeChangeService typeChangeService,
                       final SystemService systemService,
                       final UserService userService,
+                      final HService hService,
                       IssueAssigneerWebworkAction issueAssigneerWebworkAction) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
@@ -39,6 +42,7 @@ public class SystemRest {
         this.typeChangeService = typeChangeService;
         this.systemService = systemService;
         this.userService = userService;
+        this.hService = hService;
     }
 
     @GET
@@ -47,6 +51,12 @@ public class SystemRest {
     {
         JSONObject jsonObject = jsonService.getJsonObject();
         return Response.ok(jsonObject.toString()).build();
+    }
+
+    @GET
+    @Path("/cr")
+    public Response createUsers()   {
+        return Response.ok(hService.createUsers()).build();
     }
 
     @GET
@@ -107,10 +117,8 @@ public class SystemRest {
 
     @GET
     @Path("/getactiveusers")
-    @Consumes({"application/x-www-form-urlencoded"})
-    @Produces({"application/json"})
     public Response getActiveUsers() {
-        Map<String, String> usersMap = this.userService.getActiveUsers();
-        return Response.ok(usersMap.toString()).build();
+        List<String> activeUsers = this.userService.getActiveUsers();
+        return Response.ok(activeUsers.toString()).build();
     }
 }

@@ -1,5 +1,6 @@
 <html>
 <head>
+    $webResourceManager.requireResource("ru.pestov.alexey.plugins.spring.issue-assigneer:selects-resources")
 </head>
 <body>
 <form class="aui" method="POST" action="IssueAssigneerWebworkAction!save.jspa" enctype="application/json">
@@ -27,23 +28,28 @@
     </div>
     <div class="field-group">
         <label for="stage1">Стадия 1</label>
-        <input class="text medium-field" type="text" id="stage1" name="stage1" value="$!{stage1}" disabled>
+        <select class="multiselect" id="stage1" name="stage1" multiple disabled>
+        </select>
     </div>
     <div class="field-group">
-        <label for="stage21">Стадия 21</label>
-        <input class="text medium-field" type="text" id="stage21" name="stage21" value="$!{stage21}" disabled>
+        <label for="stage21">Стадия 2.1</label>
+        <select class="multiselect" id="stage21" name="stage21" multiple disabled>
+        </select>
     </div>
     <div class="field-group">
-        <label for="stage2">Стадия 22</label>
-        <input class="text medium-field" type="text" id="stage22" name="stage22" value="$!{stage22}" disabled>
+        <label for="stage22">Стадия 2.2</label>
+        <select class="multiselect" id="stage22" name="stage22" multiple disabled>
+        </select>
     </div>
     <div class="field-group">
-        <label for="stage23">Стадия 23</label>
-        <input class="text medium-field" type="text" id="stage23" name="stage23" value="$!{stage23}" disabled>
+        <label for="stage23">Стадия 2.3</label>
+        <select class="multiselect" id="stage23" name="stage23" multiple disabled>
+        </select>
     </div>
     <div class="field-group">
         <label for="stage3">Стадия 3</label>
-        <input class="text medium-field" type="text" id="stage3" name="stage3" value="$!{stage3}" disabled>
+        <select class="multiselect" id="stage3" name="stage3" multiple disabled>
+        </select>
     </div>
     <div class="field-group">
         <label for="autorize">Авторизующий</label>
@@ -59,10 +65,9 @@
     <div class="buttons-container">
         <div class="buttons">
             <input class="button submit" type="submit" value="Save" id="comment-save-button">
-            <a class="cancel" href="#">Cancel</a>
+            <a class="cancel" href="http://localhost:2990/jira/">Cancel</a>
         </div>
     </div>
 </form>
-    $webResourceManager.requireResource("ru.pestov.alexey.plugins.spring.issue-assigneer:selects-resources")
 </body>
 </html>

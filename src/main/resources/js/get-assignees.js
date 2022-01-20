@@ -1,5 +1,6 @@
 $(function () {
     const jiraRestAddress = 'http://localhost:2990/jira/rest/cab/1.0/systems/'
+    //todo написать для мультиселектов
     document.querySelectorAll(".select").forEach(function (item)    {
         item.addEventListener("change", event => {
             const system = document.getElementById("systemCab")
@@ -13,7 +14,9 @@ $(function () {
             if(system.value !== "Select" && typechange.value !== "Select") {
                 var url = jiraRestAddress + 'getassignees?namesystem=' + system.value + '&typechange=' + typechange.value + "&stage="
                 $.get(url + 'stage1', function (response)   {
-                    stage1.value = response
+                    console.log(response)
+                    $('#stage1').val('A.Putnenko@x5.ru')
+                    $('#stage1').trigger('change')
                 })
                 $.get(url + 'stage21', function (response)   {
                     stage21.value = response
