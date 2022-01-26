@@ -7,13 +7,13 @@
     <div class="field-group">
         <label for="systemCab">Система</label>
         <select class="select" id="systemCab" name="systemCab">
-            <option>Select</option>
+            <option value="0">Select</option>
         </select>
     </div>
     <div class="field-group">
         <label for="typechange">Тип измения</label>
         <select class="select" id="typechange" name="typechange">
-            <option>Select</option>
+            <option value="0">Select</option>
             <option value="1">Bugfix</option>
             <option value="2">Активация настроек</option>
             <option value="3">Внерелиз</option>
@@ -52,14 +52,15 @@
         </select>
     </div>
     <div class="field-group">
-        <label for="autorize">Авторизующий</label>
-        <input class="text medium-field" type="text" id="authorize" name="authorize" value="$!{autorize}" disabled>
-    </div>
-    <div class="field-group">
         <label for="active">Система активна?</label>
-        <select class="select" id="active" name="active" disabled>
+        <select class="selectdown" id="active" name="active" disabled>
             <option value="true">Да</option>
             <option value="false">Нет</option>
+        </select>
+    </div>
+    <div class="field-group">
+        <label for="authorize">Авторизующий</label>
+        <select class="selectdown" id="authorize" name="authorize"  disabled>
         </select>
     </div>
     <div class="buttons-container">

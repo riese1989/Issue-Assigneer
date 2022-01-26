@@ -35,7 +35,7 @@ public class SystemService {
     public String getNameSystemById(String idString)   {
         List<String> systems = getSystems();
         Integer id = Integer.parseInt(idString);
-        return systems.get(id);
+        return systems.get(id-1);
     }
 
     public Boolean isSystemActive(String idString)  {
@@ -60,7 +60,7 @@ public class SystemService {
             JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
 
             for (int i = 0; i < assigneesJSON.size(); i++) {
-                result += assigneesJSON.get(i);
+                result += assigneesJSON.get(i) + "@x5.ru";
                 if (i != assigneesJSON.size() - 1) {
                     result += ", ";
                 }

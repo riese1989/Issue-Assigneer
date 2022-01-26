@@ -21,7 +21,8 @@
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <dependency>com.atlassian.auiplugin:aui-select2</dependency>
     <resource type="download" name="system.js" location="/js/system.js"/>
-    <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
+    <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
+<!--    <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>-->
     <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
     <resource type="download" name="get-status.js" location="/js/get-status.js"/>
     <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>

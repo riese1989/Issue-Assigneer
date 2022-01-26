@@ -71,6 +71,7 @@ public class SystemRest {
         return Response.ok(systemService.getSystem(nameSystem).toString()).build();
     }
 
+    //todo это не работает
     @GET
     @Path("/getassignees")
     public Response getSystem(@Context HttpServletRequest httpServletRequest,
