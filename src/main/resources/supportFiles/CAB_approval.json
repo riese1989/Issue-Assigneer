@@ -352,7 +352,7 @@
       ],
       "stage23": [],
       "stage21": [],
-      "authorize": [],
+      "authorize": ["rustem.fatkhiev"],
       "stage1": [
         "rustem.fatkhiev"
       ]

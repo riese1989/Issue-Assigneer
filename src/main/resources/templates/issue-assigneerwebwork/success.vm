@@ -60,7 +60,7 @@
     </div>
     <div class="field-group">
         <label for="authorize">Авторизующий</label>
-        <select class="selectdown" id="authorize" name="authorize"  disabled>
+        <select class="multiselect" id="authorize" name="authorize" multiple disabled>
         </select>
     </div>
     <div class="buttons-container">

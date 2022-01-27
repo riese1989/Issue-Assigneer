@@ -67,11 +67,10 @@ public class SystemRest {
 
     @GET
     @Path("/getsystem")
-    public Response getSystem(@Context HttpServletRequest httpServletRequest, @QueryParam("namesystem") String nameSystem) {
+    public Response getSystem(@Context HttpServletRequest httpServletRequest,
+                              @QueryParam("namesystem") String nameSystem) {
         return Response.ok(systemService.getSystem(nameSystem).toString()).build();
     }
-
-    //todo это не работает
     @GET
     @Path("/getassignees")
     public Response getSystem(@Context HttpServletRequest httpServletRequest,

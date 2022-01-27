@@ -8,6 +8,7 @@ $(function () {
             $.get(url + 'stage1', function (response) {
                 $('#stage1').val(response.split(", ")).trigger('change')
             })
+            console.log(2)
             $.get(url + 'stage21', function (response) {
                 $('#stage21').val(response.split(", ")).trigger('change')
             })
@@ -21,14 +22,11 @@ $(function () {
                 $('#stage3').val(response.split(", ")).trigger('change')
             })
             $.get(url + 'authorize', function (response) {
-                $('#authorize').val(response).trigger('change')
+                $('#authorize').val(response.split(", ")).trigger('change')
             })
         } else {
             $('.multiselect').val(null).trigger('change')
             $('#authorize').val(null).trigger('change')
-            if ($('#systemCab').select2('data')["id"] === "0")  {
-                $('#typechange').val('0').trigger('change')
-            }
         }
     });
 })
