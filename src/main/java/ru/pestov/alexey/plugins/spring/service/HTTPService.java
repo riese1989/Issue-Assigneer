@@ -31,7 +31,6 @@ public class HTTPService {
     public static void doPost() {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         JSONObject jsonObject = jsonService.getJsonObject();
-        //todo заменить на нормальный адрес jira
         HttpPost post = new HttpPost("http://localhost:2990/jira/rest/cab/1.0/systems/uploaddata");
         try {
             StringEntity params = new StringEntity(jsonObject.toString());

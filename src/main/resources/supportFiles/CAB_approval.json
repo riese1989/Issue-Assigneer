@@ -290,13 +290,20 @@
     "Bugfix": {
       "stage22": [],
       "stage3": [
-        "Mikhail.Batanov"
+        "Sergey.Kimelfeld@x5.ru"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
+      "stage23": [
+        "Al.Drozdov@x5.ru"
+      ],
+      "stage21": [
+        "A.Shakhverdov@x5.ru"
+      ],
+      "authorize": [
+        "A.Samsonov@x5.ru",
+        "A.Savkin@x5.ru"
+      ],
       "stage1": [
-        "rustem.fatkhiev"
+        "rustem.fatkhiev@x5.ru"
       ]
     },
     "Фоновое задание": {
@@ -328,7 +335,9 @@
       ],
       "stage23": [],
       "stage21": [],
-      "authorize": [],
+      "authorize": [
+        "A.Putnenko"
+      ],
       "stage1": [
         "rustem.fatkhiev"
       ]
@@ -351,21 +360,30 @@
         "Mikhail.Batanov"
       ],
       "stage23": [],
-      "stage21": [],
-      "authorize": ["rustem.fatkhiev"],
+      "stage21": [
+        "A.Putnenko"
+      ],
+      "authorize": [
+        "rustem.fatkhiev"
+      ],
       "stage1": [
         "rustem.fatkhiev"
       ]
     },
     "Изменение настроек": {
-      "stage22": [],
+      "stage22": [
+        "A.Putnenko"
+      ],
       "stage3": [
         "Mikhail.Batanov"
       ],
       "stage23": [],
       "stage21": [],
-      "authorize": [],
+      "authorize": [
+        "A.Putnenko"
+      ],
       "stage1": [
+        "A.Samsonov",
         "rustem.fatkhiev"
       ]
     },
@@ -1970,23 +1988,13 @@
   "Advantum": {
     "system_active": true,
     "Bugfix": {
-      "stage22": [
-        ""
-      ],
-      "stage3": [
-        ""
-      ],
-      "stage23": [
-        ""
-      ],
-      "stage21": [
-        ""
-      ],
-      "authorize": [
-        ""
-      ],
+      "stage22": [],
+      "stage3": [],
+      "stage23": [],
+      "stage21": [],
+      "authorize": [],
       "stage1": [
-        ""
+        "A.Samsonov@x5.ru"
       ]
     },
     "Фоновое задание": {
@@ -3902,14 +3910,18 @@
     }
   },
   "AD": {
-    "system_active": false,
+    "system_active": true,
     "Bugfix": {
       "stage22": [],
       "stage3": [],
-      "stage23": [],
+      "stage23": [
+        "A.Samsonov@x5.ru"
+      ],
       "stage21": [],
       "authorize": [],
-      "stage1": []
+      "stage1": [
+        "A.Putnenko@x5.ru"
+      ]
     },
     "Фоновое задание": {
       "stage22": [],

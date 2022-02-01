@@ -34,30 +34,7 @@ public class HTMLService {
     }
 
     private static String setPathJSON() {
-        FileInputStream fis;
-        Properties property = new Properties();
-//        String currentDirectory = System.getProperty("user.dir");
-//        File folder = new File(currentDirectory);
-//        File[] matchingFiles = folder.listFiles(new FilenameFilter() {
-//            @Override
-//            public boolean accept(File dir, String name) {
-//                return name.equals("issue-assigneer.properties");
-//            }
-//        });
-//        System.out.println("********************************************************");
-//        System.out.println("Папка " + folder.getAbsolutePath());
-//        System.out.println("Файлов в ней " + folder.listFiles().length);
-//        System.out.println("********************************************************");
-        try {
-            fis = new FileInputStream("/Users/usser/issue-assigneer/src/main/resources/issue-assigneer.properties");
-            property.load(fis);
-            System.out.println(property.getProperty("file.cab.path"));
-            return property.getProperty("file.cab.path");
-            //return "C:\\Users\\alexey.pestov\\Desktop\\Issue-Assigneer\\src\\main\\resources\\supportFiles\\CAB_approval.json";
-        } catch (IOException e) {
-            System.err.println("ОШИБКА: Файл свойств отсуствует!");
-            return new String();
-        }
+        return new Properties().getProperty("file.cab.path");
     }
 
     private static JSONObject getJSONObject() {

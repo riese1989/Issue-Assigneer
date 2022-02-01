@@ -6,27 +6,29 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
 
 @Data
-@AllArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class Param {
     @NonNull
     private String system;
-
+    @NonNull
     private String typeChange;
 
-    private String step1;
+    private List<String> stage1;
 
-    private String step21;
+    private List<String> stage21;
 
-    private String step22;
+    private List<String> stage22;
 
-    private String step23;
+    private List<String> stage23;
 
-    private String step3;
+    private List<String> stage3;
 
-    private String authorize;
+    private List<String> authorize;
 
     private String active;
+
 }

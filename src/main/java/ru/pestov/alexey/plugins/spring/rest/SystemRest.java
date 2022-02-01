@@ -1,5 +1,7 @@
 package ru.pestov.alexey.plugins.spring.rest;
 
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
@@ -26,10 +28,12 @@ public class SystemRest {
     private final IssueAssigneerWebworkAction issueAssigneerWebworkAction;
     private final UserService userService;
     private final HService hService;
+    private final PluginSettingsFactory pluginSettingsFactory;
 
 
     @Inject
-    public SystemRest(final JSONService jsonService,
+    public SystemRest(@ComponentImport PluginSettingsFactory pluginSettingsFactory,
+                      final JSONService jsonService,
                       final StringService stringService,
                       final TypeChangeService typeChangeService,
                       final SystemService systemService,
@@ -43,6 +47,7 @@ public class SystemRest {
         this.systemService = systemService;
         this.userService = userService;
         this.hService = hService;
+        this.pluginSettingsFactory = pluginSettingsFactory;
     }
 
     @GET
@@ -92,19 +97,20 @@ public class SystemRest {
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response post(@FormParam("system") String system,
+    public void post(@FormParam("systemCab") String system,
                          @FormParam("typechange") String typeChange,
-                         @FormParam("stage1") String stage1,
-                         @FormParam("stage21") String stage21,
-                         @FormParam("stage22") String stage22,
-                         @FormParam("stage23") String stage23,
-                         @FormParam("stage3") String stage3,
-                         @FormParam("authorize") String authorize,
+                         @FormParam("stage1") List<String> stage1,
+                         @FormParam("stage21") List<String> stage21,
+                         @FormParam("stage22") List<String> stage22,
+                         @FormParam("stage23") List<String> stage23,
+                         @FormParam("stage3") List<String> stage3,
+                         @FormParam("authorize") List<String> authorize,
                          @FormParam("active") String active) throws Exception {
-        Param param = new Param(system, typeChange, stage1, stage21, stage22, stage23, stage3, authorize, active);
+        Param param = new Param(systemService.getNameSystemById(system), typeChangeService.getTypeChangeById(typeChange),
+                stage1, stage21, stage22, stage23, stage3, authorize, active);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
-        return Response.ok(issueAssigneerWebworkAction.doSave()).build();
+        new IssueAssigneerWebworkAction(pluginSettingsFactory,jsonService, systemService, typeChangeService).doExecute();
     }
 
     @POST

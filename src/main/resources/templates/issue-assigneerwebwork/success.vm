@@ -3,7 +3,7 @@
     $webResourceManager.requireResource("ru.pestov.alexey.plugins.spring.issue-assigneer:selects-resources")
 </head>
 <body>
-<form class="aui" method="POST" action="IssueAssigneerWebworkAction!save.jspa" enctype="application/json">
+<form class="aui" method="POST" action="http://localhost:2990/jira/rest/cab/1.0/systems/post" enctype="application/json">
     <div class="field-group">
         <label for="systemCab">Система</label>
         <select class="select" id="systemCab" name="systemCab">

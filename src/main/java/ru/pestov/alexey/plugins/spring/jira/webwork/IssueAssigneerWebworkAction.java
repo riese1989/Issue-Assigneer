@@ -10,10 +10,19 @@ import org.slf4j.LoggerFactory;
 import lombok.extern.slf4j.Slf4j;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import ru.pestov.alexey.plugins.spring.entity.Param;
+import ru.pestov.alexey.plugins.spring.entity.Stage;
 import ru.pestov.alexey.plugins.spring.service.JSONService;
+import ru.pestov.alexey.plugins.spring.service.SystemService;
+import ru.pestov.alexey.plugins.spring.service.TypeChangeService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.FormParam;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
 
 @Slf4j
 @Data
@@ -23,39 +32,39 @@ public class IssueAssigneerWebworkAction extends JiraWebActionSupport
     private static final Logger log = LoggerFactory.getLogger(IssueAssigneerWebworkAction.class);
     private String system;
     private String typeChange;
-    private String step1;
-    private String step21;
-    private String step22;
-    private String step23;
-    private String step3;
-    private String authorize;
+    private List<String> stage1;
+    private List<String> stage21;
+    private List<String> stage22;
+    private List<String> stage23;
+    private List<String> stage3;
+    private List<String> authorize;
     private String active;
     private final PluginSettings pluginSettings;
     private final String PLUGIN_STORAGE_KEY = "ru.pestov.alexey.plugins.spring.issue-assigneer";
     private final JSONService jsonService;
+    private final SystemService systemService;
+    private final TypeChangeService typeChangeService;
 
     @Inject
     public IssueAssigneerWebworkAction(@ComponentImport PluginSettingsFactory pluginSettingsFactory,
-                                       final JSONService jsonService) {
+                                       final JSONService jsonService,
+                                       final SystemService systemService,
+                                       final TypeChangeService typeChangeService) {
             this.pluginSettings = pluginSettingsFactory.createGlobalSettings();
-            this.step1 = getSettings("step1");
-            this.step21 = getSettings("step21");
-            this.step22 = getSettings("step22");
-            this.step23 = getSettings("step23");
-            this.step3 = getSettings("step3");
-            this.authorize = getSettings("authorize");
             this.active = getSettings("active");
             this.typeChange = getSettings("typechange");
             this.system = getSettings("system");
             this.jsonService = jsonService;
+            this.systemService = systemService;
+            this.typeChangeService = typeChangeService;
     }
 
     public void setParams(Param param)  {
-        this.step1 = param.getStep1();
-        this.step21 = param.getStep21();
-        this.step22 = param.getStep22();
-        this.step23 = param.getStep23();
-        this.step3 = param.getStep3();
+        this.stage1 = param.getStage1();
+        this.stage21 = param.getStage21();
+        this.stage22 = param.getStage22();
+        this.stage23 = param.getStage23();
+        this.stage3 = param.getStage3();
         this.authorize = param.getAuthorize();
         this.active = param.getActive();
         this.typeChange = param.getTypeChange();
@@ -67,17 +76,8 @@ public class IssueAssigneerWebworkAction extends JiraWebActionSupport
         return SUCCESS; //returns SUCCESS
     }
     public String doSave() {
-        Param param = new Param(system, typeChange,step1, step21, step22, step23, step3, authorize, active);
-        jsonService.updateJsonObject(param);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "step1", this.step1);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "step21", this.step21);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "step22", this.step22);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "step23", this.step23);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "step3", this.step3);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "authorize", this.authorize);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "active", this.active);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "typechange", this.typeChange);
-        this.pluginSettings.put(PLUGIN_STORAGE_KEY + "system", this.system);
+//        Param param = new Param(system, typeChange,stage1, stage21, stage22, stage23, stage3, authorize, active);
+//        jsonService.updateJsonObject(param);
         return SUCCESS;
     }
 

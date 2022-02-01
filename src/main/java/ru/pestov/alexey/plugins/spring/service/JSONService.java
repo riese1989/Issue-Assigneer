@@ -14,6 +14,7 @@ import lombok.SneakyThrows;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 
 import javax.inject.Inject;
@@ -41,17 +42,7 @@ public class JSONService {
     }
 
     private String getPathJSON() {
-        FileInputStream fis;
-        Properties property = new Properties();
-        try {
-            fis = new FileInputStream("/Users/alexey.pestov/Desktop/Issue-Assigneer/src/main/resources/issue-assigneer.properties");
-            property.load(fis);
-            System.out.println(property.getProperty("file.cab.path"));
-            return property.getProperty("file.cab.path");
-        } catch (IOException e) {
-            System.err.println("ОШИБКА: Файл свойств отсуствует!");
-            return new String();
-        }
+        return new Property().getProperty("file.cab.path");
     }
 
     private JSONObject getJSONObjectFromFile() {
@@ -68,13 +59,13 @@ public class JSONService {
 
     public void updateJsonObject(Param param) {
         JSONObject jsonSystem = (JSONObject) jsonObject.get(param.getSystem());
-        jsonSystem.put("system_active", Boolean.valueOf(param.getActive()));
+        jsonSystem.put("system_active", param.getActive().equals("true"));
         JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(param.getTypeChange());
-        jsonTypeChange.put("stage1", createJsonArray(param.getStep1()));
-        jsonTypeChange.put("stage21", createJsonArray(param.getStep21()));
-        jsonTypeChange.put("stage22", createJsonArray(param.getStep22()));
-        jsonTypeChange.put("stage23", createJsonArray(param.getStep23()));
-        jsonTypeChange.put("stage3", createJsonArray(param.getStep3()));
+        jsonTypeChange.put("stage1", createJsonArray(param.getStage1()));
+        jsonTypeChange.put("stage21", createJsonArray(param.getStage21()));
+        jsonTypeChange.put("stage22", createJsonArray(param.getStage22()));
+        jsonTypeChange.put("stage23", createJsonArray(param.getStage23()));
+        jsonTypeChange.put("stage3", createJsonArray(param.getStage3()));
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(param.getTypeChange(), jsonTypeChange);
         writeToFile();
@@ -90,11 +81,11 @@ public class JSONService {
         }
     }
 
-    private JSONArray createJsonArray(String assigneesString) {
-        String regex = ";";
+    private JSONArray createJsonArray(List<String> assigneesList) {
         JSONArray jsonArray = new JSONArray();
-        List<String> assignees = Arrays.asList(assigneesString.split(regex));
-        jsonArray.addAll(assignees);
+        for (String assignee : assigneesList) {
+            jsonArray.add(assignee.replace("@x5.ru", ""));
+        }
         return jsonArray;
     }
 }
