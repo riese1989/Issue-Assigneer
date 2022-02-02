@@ -4,6 +4,7 @@
 </head>
 <body>
 <form class="aui" method="POST" action="http://localhost:2990/jira/rest/cab/1.0/systems/post" enctype="application/json">
+    <div id="message"></div>
     <div class="field-group">
         <label for="systemCab">Система</label>
         <select class="select" id="systemCab" name="systemCab">
@@ -65,7 +66,7 @@
     </div>
     <div class="buttons-container">
         <div class="buttons">
-            <input class="button submit" type="submit" value="Save" id="comment-save-button">
+            <input class="button submit" type="submit" value="Save" id="save">
             <a class="cancel" href="http://localhost:2990/jira/">Cancel</a>
         </div>
     </div>

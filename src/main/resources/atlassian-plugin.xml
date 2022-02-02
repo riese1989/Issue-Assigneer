@@ -26,6 +26,7 @@
     <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
     <resource type="download" name="get-status.js" location="/js/get-status.js"/>
     <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
+    <resource type="download" name="show-message.js" location="/js/show-message.js"/>
     <resource type="download" name="get-users.js" location="/js/get-users.js"/>
     <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
     <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
