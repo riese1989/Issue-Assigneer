@@ -67,7 +67,7 @@ public class SystemRest {
     @GET
     @Path("/getlistsystems")
     public Response getListSystems()    {
-        return Response.ok(systemService.getSystems().toString()).build();
+        return Response.ok(systemService.getSystems()).build();
     }
 
     @GET

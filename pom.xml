@@ -14,10 +14,10 @@
     <description>It's plugin for assignee users on Jira's issue</description>
     <packaging>atlassian-plugin</packaging>
     <repositories>
-        <repository>
-            <id>MyRepo</id>
-            <url>https://github.com/riese1989/Issue-Assigneer/tree/Repository</url>
-        </repository>
+<!--        <repository>-->
+<!--            <id>MyRepo</id>-->
+<!--            <url>https://github.com/riese1989/Issue-Assigneer/tree/Repository</url>-->
+<!--        </repository>-->
         <repository>
             <id>Atlassian Public</id>
             <url>https://packages.atlassian.com/content/repositories/atlassian-public/</url>

@@ -5,10 +5,7 @@ import org.json.simple.JSONObject;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Named
 public class SystemService {
@@ -21,7 +18,9 @@ public class SystemService {
         jsonObject = jsonService.getJsonObject();
     }
 
-    public List<String> getSystems()    {
+    public String getSystems()    {
+        String result = "";
+        String regex = ",,,,,";
         List<String> systems = new ArrayList<>();
         Iterator<String> keys = jsonObject.keySet().iterator();
         while(keys.hasNext()) {
@@ -29,11 +28,17 @@ public class SystemService {
             systems.add(key);
         }
         Collections.sort(systems);
-        return systems;
+        for (int i = 0; i < systems.size(); i++)    {
+            result += systems.get(i);
+            if (i != systems.size() - 1)    {
+                result += regex;
+            }
+        }
+        return result;
     }
 
     public String getNameSystemById(String idString)   {
-        List<String> systems = getSystems();
+        List<String> systems = Arrays.asList(getSystems().split(",,,,,"));
         Integer id = Integer.parseInt(idString);
         return systems.get(id-1);
     }
