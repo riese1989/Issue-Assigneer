@@ -1,8 +1,6 @@
-$( "#authorize" ).width()
-
-var select2 = $("#authorize").select2();
-$("#authorize").data('select2').$selection.css('height', '200px');
-
-$("#authorize").css('height', '34px')
-
-document.getElementById("authorize").style.height = "50px";
+$(function () {
+    AJS.messages.info("#label", {
+        title: 'Cервис для управления участниками релизного процесса',
+        body: '<a href = "https://wiki.x5.ru/pages/viewpage.action?pageId=129043254">Инструкция по CAB</a>'
+    });
+})
