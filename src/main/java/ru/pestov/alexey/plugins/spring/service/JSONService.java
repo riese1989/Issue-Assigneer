@@ -29,20 +29,26 @@ import java.util.*;
 @Named
 @ExportAsService
 public class JSONService {
+
     private final JSONObject jsonObject;
+    private final LogService logService;
     private final String pathJson;
     private final StringService stringService;
+    private final Property property;
     private static int i = 0;
 
     @Inject
-    public JSONService(StringService stringService) {
+    public JSONService(StringService stringService, LogService logService,
+                       Property property) {
+        this.property = property;
+        this.stringService = stringService;
+        this.logService = logService;
         pathJson = getPathJSON();
         jsonObject = getJSONObjectFromFile();
-        this.stringService = stringService;
     }
 
     private String getPathJSON() {
-        return new Property().getProperty("file.cab.path");
+        return property.getProperty("file.cab.path");
     }
 
     private JSONObject getJSONObjectFromFile() {
@@ -69,6 +75,7 @@ public class JSONService {
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(param.getTypeChange(), jsonTypeChange);
         writeToFile();
+        logService.log("dsfafdf");
     }
 
     private void writeToFile() {
@@ -88,4 +95,5 @@ public class JSONService {
         }
         return jsonArray;
     }
+
 }

@@ -29,6 +29,7 @@ public class SystemRest {
     private final UserService userService;
     private final HService hService;
     private final PluginSettingsFactory pluginSettingsFactory;
+    private final PermissionService permissionService;
 
 
     @Inject
@@ -39,6 +40,7 @@ public class SystemRest {
                       final SystemService systemService,
                       final UserService userService,
                       final HService hService,
+                      final PermissionService permissionService,
                       IssueAssigneerWebworkAction issueAssigneerWebworkAction) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
@@ -47,6 +49,7 @@ public class SystemRest {
         this.systemService = systemService;
         this.userService = userService;
         this.hService = hService;
+        this.permissionService = permissionService;
         this.pluginSettingsFactory = pluginSettingsFactory;
     }
 
@@ -93,6 +96,13 @@ public class SystemRest {
                              @QueryParam("namesystem") String idSystem) {
         return Response.ok(systemService.isSystemActive(idSystem).toString()).build();
     }
+
+    @GET
+    @Path("/isuseradmin")
+    public Response isUserAdmin(@Context HttpServletRequest httpServletRequest) {
+        return Response.ok(permissionService.isCurrentUserAdminJira().toString()).build();
+    }
+
     @POST
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})

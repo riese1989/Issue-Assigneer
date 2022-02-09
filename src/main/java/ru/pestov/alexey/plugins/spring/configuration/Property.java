@@ -1,10 +1,12 @@
 package ru.pestov.alexey.plugins.spring.configuration;
 
+import javax.inject.Named;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+@Named
 public class Property {
     public String getProperty(String name)  {
         InputStream fis;
