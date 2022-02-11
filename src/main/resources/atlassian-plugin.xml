@@ -50,4 +50,13 @@
     </actions> 
   </webwork1>
   <rest key= "system-rest" path="/cab" version="1.0"/>
+<ao key="ao-module">
+    <description>The module configuring the Active Objects service used by this plugin</description>
+    <entity>ru.pestov.alexey.plugins.spring.model.System</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.User</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.TypeChangeDB</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.SpecialUsersSystems</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.Log</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.SystemAssignees</entity>
+</ao>
 </atlassian-plugin>
