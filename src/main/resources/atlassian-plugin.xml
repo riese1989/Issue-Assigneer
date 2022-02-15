@@ -53,10 +53,9 @@
 <ao key="ao-module">
     <description>The module configuring the Active Objects service used by this plugin</description>
     <entity>ru.pestov.alexey.plugins.spring.model.System</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.User</entity>
     <entity>ru.pestov.alexey.plugins.spring.model.TypeChangeDB</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.SpecialUsersSystems</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.User</entity>
     <entity>ru.pestov.alexey.plugins.spring.model.Log</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.SystemAssignees</entity>
+    <entity>ru.pestov.alexey.plugins.spring.model.LogToUser</entity>
 </ao>
 </atlassian-plugin>
