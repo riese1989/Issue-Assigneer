@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
-  <plugin-info> 
-    <description>${project.description}</description>  
-    <version>${project.version}</version>  
-    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
-    <param name="plugin-icon">images/pluginIcon.png</param>  
-    <param name="plugin-logo">images/pluginLogo.png</param> 
-  </plugin-info> add our i18n resource 
-  <resource type="i18n" name="i18n" location="issue-assigneer"/>  
-  <!-- add our web resources -->  
-<!--  <web-resource key="issue-assigneer-resources" name="issue-assigneer Web Resources"> -->
-<!--    <dependency>com.atlassian.auiplugin:ajs</dependency>-->
-<!--    <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>  -->
-<!--    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>-->
-<!--    <resource type="download" name="images/" location="/images"/>  -->
-<!--    <context>issueassigner</context>-->
-<!--  </web-resource>-->
-  <web-resource key="selects-resources" name="issue-assigneer Web Resources">
-    <dependency>com.atlassian.auiplugin:ajs</dependency>
-    <dependency>com.atlassian.auiplugin:aui-select2</dependency>
-    <resource type="download" name="system.js" location="/js/system.js"/>
-    <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
-    <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
-    <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
-    <resource type="download" name="get-status.js" location="/js/get-status.js"/>
-    <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
-    <resource type="download" name="show-message.js" location="/js/show-message.js"/>
-    <resource type="download" name="get-users.js" location="/js/get-users.js"/>
-    <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
-    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
-    <resource type="download" name="images/" location="/images"/>
-    <context>selects</context>
-  </web-resource>
-  <web-item name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer-webitem" section="system.top.navigation.bar" weight="1000"> 
-    <description key="issue-assigneer-webitem">The Issue Assigneer Plugin</description>  
-    <label key="issue-assigneer.label"/>  
-    <link linkId="issue-assigneer-link">/secure/IssueAssigneerWebworkAction.jspa</link>
-    <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition" />
-  </web-item>  
-  <webwork1 key="issue-assigneerwebwork" name="Issue Assigneer webwork" i18n-name-key="issue-assigneerwebwork.name"> 
-    <description key="issue-assigneerwebwork.description">The Issue Assigneer webwork Plugin</description>  
-    <actions> 
-      <action name="ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction" alias="IssueAssigneerWebworkAction">
-        <view name="success">/templates/issue-assigneerwebwork/success.vm</view>  
-        <view name="input">/templates/issue-assigneerwebwork/input.vm</view>  
-        <view name="error">/templates/issue-assigneerwebwork/error.vm</view> 
-      </action> 
-    </actions> 
-  </webwork1>
-  <rest key= "system-rest" path="/cab" version="1.0"/>
-<ao key="ao-module">
-    <description>The module configuring the Active Objects service used by this plugin</description>
-    <entity>ru.pestov.alexey.plugins.spring.model.System</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.TypeChangeDB</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.User</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.Log</entity>
-    <entity>ru.pestov.alexey.plugins.spring.model.LogToUser</entity>
-</ao>
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+    add our i18n resource
+    <resource type="i18n" name="i18n" location="issue-assigneer"/>
+    <!-- add our web resources -->
+    <!--  <web-resource key="issue-assigneer-resources" name="issue-assigneer Web Resources"> -->
+    <!--    <dependency>com.atlassian.auiplugin:ajs</dependency>-->
+    <!--    <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>  -->
+    <!--    <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>-->
+    <!--    <resource type="download" name="images/" location="/images"/>  -->
+    <!--    <context>issueassigner</context>-->
+    <!--  </web-resource>-->
+    <web-resource key="selects-resources" name="issue-assigneer Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <resource type="download" name="system.js" location="/js/system.js"/>
+        <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
+        <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
+        <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
+        <resource type="download" name="get-status.js" location="/js/get-status.js"/>
+        <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
+        <resource type="download" name="show-message.js" location="/js/show-message.js"/>
+        <resource type="download" name="get-users.js" location="/js/get-users.js"/>
+        <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
+        <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>selects</context>
+    </web-resource>
+    <web-item name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer-webitem"
+              section="system.top.navigation.bar" weight="1000">
+        <description key="issue-assigneer-webitem">The Issue Assigneer Plugin</description>
+        <label key="issue-assigneer.label"/>
+        <link linkId="issue-assigneer-link">/secure/IssueAssigneerWebworkAction.jspa</link>
+        <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition"/>
+    </web-item>
+    <webwork1 key="issue-assigneerwebwork" name="Issue Assigneer webwork" i18n-name-key="issue-assigneerwebwork.name">
+        <description key="issue-assigneerwebwork.description">The Issue Assigneer webwork Plugin</description>
+        <actions>
+            <action name="ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction"
+                    alias="IssueAssigneerWebworkAction">
+                <view name="success">/templates/issue-assigneerwebwork/success.vm</view>
+                <view name="input">/templates/issue-assigneerwebwork/input.vm</view>
+                <view name="error">/templates/issue-assigneerwebwork/error.vm</view>
+            </action>
+        </actions>
+    </webwork1>
+    <rest key="system-rest" path="/cab" version="1.0"/>
+    <ao key="ao-module">
+        <description>The module configuring the Active Objects service used by this plugin</description>
+        <entity>ru.pestov.alexey.plugins.spring.model.System</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.TypeChangeDB</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.User</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.Log</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.SuperUser</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.Delivery</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.Stage</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.TypeChangeAssignee</entity>
+    </ao>
 </atlassian-plugin>

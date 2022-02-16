@@ -3,7 +3,8 @@ package ru.pestov.alexey.plugins.spring.model;
 import net.java.ao.Entity;
 import net.java.ao.ManyToMany;
 import net.java.ao.schema.Table;
-import org.joda.time.DateTime;
+
+import java.util.Date;
 
 @Table("Logs")
 public interface Log extends Entity {
@@ -14,9 +15,12 @@ public interface Log extends Entity {
     TypeChangeDB getTypeChange();
     void setTypeChange(TypeChangeDB typeChange);
 
-    @ManyToMany(LogToUser.class)
-    User[] getOldValueUsers();
+    TypeChangeAssignee getTypeChangeAssignee();
+    void setTypeChangeAssignee(TypeChangeAssignee typeChangeAssignee);
 
-    @ManyToMany(LogToUser.class)
-    User[] getNewValueUsers();
+    User getUser();
+    void setUser(User user);
+
+    Date getDate();
+    void setDate(Date date);
 }

@@ -9,6 +9,7 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import ru.pestov.alexey.plugins.spring.model.User;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,12 +25,14 @@ public class HService {
 
     private final JSONService jsonService;
     private final JSONObject jsonObject;
+    private final ru.pestov.alexey.plugins.spring.dbmanager.UserManager userManagerModel;
     private static Integer count = 0;
 
     @Inject
-    public HService(final JSONService jsonService) {
+    public HService(final JSONService jsonService, final ru.pestov.alexey.plugins.spring.dbmanager.UserManager userManagerModel) {
         this.jsonService = jsonService;
         this.jsonObject = jsonService.getJsonObject();
+        this.userManagerModel = userManagerModel;
     }
 
     public Integer createUsers()   {
@@ -62,8 +65,8 @@ public class HService {
 
     private void createUsers(String assignee) {
         UserManager userManager = ComponentAccessor.getUserManager();
-        System.out.println(1);
-        if (userManager.getUserByName(assignee) == null) {
+        ApplicationUser user = userManager.getUserByName(assignee);
+        if (user == null) {
             String name = assignee;
             String password = "123";
             String emailAddress = assignee + "@x5.ru";
@@ -82,6 +85,8 @@ public class HService {
                 e.printStackTrace();
             }
         }
+        //todo подумать как в бд закидывать пользаков
+        userManagerModel.createUser(user);
     }
 
     }

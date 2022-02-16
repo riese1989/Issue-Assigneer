@@ -4,16 +4,10 @@ import net.java.ao.Entity;
 import net.java.ao.OneToMany;
 import net.java.ao.schema.Table;
 
-@Table("Systems")
-public interface System extends Entity {
+@Table("Stages")
+public interface Stage extends Entity {
     String getName();
     void setName(String name);
-
-    Boolean getActive();
-    void setActive(Boolean active);
-
-    @OneToMany
-    Log[] getLogs();
 
     @OneToMany
     SystemAssignees[] getSystemAssignees();
