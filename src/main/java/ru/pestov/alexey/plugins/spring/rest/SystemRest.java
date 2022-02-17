@@ -30,6 +30,7 @@ public class SystemRest {
     private final HService hService;
     private final PluginSettingsFactory pluginSettingsFactory;
     private final PermissionService permissionService;
+    private final DBService dbService;
 
 
     @Inject
@@ -41,7 +42,8 @@ public class SystemRest {
                       final UserService userService,
                       final HService hService,
                       final PermissionService permissionService,
-                      IssueAssigneerWebworkAction issueAssigneerWebworkAction) {
+                      IssueAssigneerWebworkAction issueAssigneerWebworkAction,
+                      DBService dbService) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
         this.stringService = stringService;
@@ -51,6 +53,7 @@ public class SystemRest {
         this.hService = hService;
         this.permissionService = permissionService;
         this.pluginSettingsFactory = pluginSettingsFactory;
+        this.dbService = dbService;
     }
 
     @GET
@@ -64,7 +67,8 @@ public class SystemRest {
     @GET
     @Path("/cr")
     public Response createUsers()   {
-        return Response.ok(hService.createUsers()).build();
+        hService.createUsers();
+        return Response.ok(dbService.prepareDB()).build();
     }
 
     @GET

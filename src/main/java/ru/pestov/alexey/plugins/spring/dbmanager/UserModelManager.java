@@ -10,11 +10,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
-public class UserManager {
+public class UserModelManager {
     private final ActiveObjects ao;
 
     @Inject
-    public UserManager(@ComponentImport ActiveObjects ao)   {
+    public UserModelManager(@ComponentImport ActiveObjects ao)   {
         this.ao = ao;
     }
     public User createUser(ApplicationUser applicationUser)    {
@@ -24,6 +24,19 @@ public class UserManager {
                 User user = ao.create(User.class);
                 user.setActive(applicationUser.isActive());
                 user.setName(applicationUser.getName());
+                user.save();
+                return user;
+            }
+        });
+    }
+
+    public User createUser(String nameUser)    {
+        return ao.executeInTransaction(new TransactionCallback<User>() {
+            @Override
+            public User doInTransaction() {
+                User user = ao.create(User.class);
+                user.setActive(true);
+                user.setName(nameUser);
                 user.save();
                 return user;
             }

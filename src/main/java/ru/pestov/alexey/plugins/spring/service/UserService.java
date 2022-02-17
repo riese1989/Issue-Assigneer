@@ -1,22 +1,30 @@
 package ru.pestov.alexey.plugins.spring.service;
 
 import com.atlassian.jira.component.ComponentAccessor;
+import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.jira.user.util.UserManager;
+import ru.pestov.alexey.plugins.spring.configuration.Property;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
 public class UserService {
-    public UserService() {
+    private final Property property;
+
+    @Inject
+    public UserService (Property property)  {
+        this.property = property;
     }
 
     public List<String> getActiveUsers() {
+        String groupUsers = property.getProperty("jira.group.users");
+        GroupManager groupManager = ComponentAccessor.getGroupManager();
+        List<ApplicationUser> users = (List<ApplicationUser>) groupManager.getUsersInGroup(groupUsers);
         List<String> activeUsers = new ArrayList<>();
-        UserManager userManager = ComponentAccessor.getUserManager();
-        List<ApplicationUser> users = (List)userManager.getAllApplicationUsers();
         Iterator var4 = users.iterator();
         while(var4.hasNext()) {
             ApplicationUser user = (ApplicationUser)var4.next();
