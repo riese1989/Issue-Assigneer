@@ -98,8 +98,8 @@ public class DBService {
                 for (TypeChangeDB typeChangeDB : typeChangesDB) {
                     Stage[] stages = stageModelManager.getAllStages();
                     for (Stage stage : stages) {
-                        JSONObject stagesJSON = (JSONObject) systemJSON.get(stage.getName());
-                        List<User> assignees = getAssignees(typeChangeDB.getName(), stagesJSON);
+                        JSONObject stagesJSON = (JSONObject) systemJSON.get(typeChangeDB.getName());
+                        List<User> assignees = getAssignees(stage.getName(), stagesJSON);
                         if (assignees != null) {
                             for (User assignee : assignees) {
                                 systemAssigneesManager.createSystemAssignee(system, typeChangeDB, stage, assignee);
