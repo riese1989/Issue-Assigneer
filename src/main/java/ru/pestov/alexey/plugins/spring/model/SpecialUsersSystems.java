@@ -7,9 +7,9 @@ public interface SpecialUsersSystems extends Entity {
     System getSystem();
     void setSystem(System system);
 
-    User getSuperuser();
-    void setSuperuser(User superuser);
+    SuperUser getSuperuser();
+    void setSuperuser(SuperUser superuser);
 
-    User getDelivery();
-    void setDelivery(User delivery);
+    Delivery getDelivery();
+    void setDelivery(Delivery delivery);
 }

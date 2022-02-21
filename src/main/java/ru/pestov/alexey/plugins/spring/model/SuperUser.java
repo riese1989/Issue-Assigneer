@@ -10,6 +10,6 @@ public interface SuperUser extends Entity {
     System getSystem();
     void setSystem(System system);
 
-    User getSuperUser();
-    void setSuperUser(User superUser);
+    SuperUser getSuperUser();
+    void setSuperUser(SuperUser superUser);
 }
