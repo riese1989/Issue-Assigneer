@@ -10,13 +10,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
-public class UserModelManager {
-    private final ActiveObjects ao;
+public class UserModelManager extends ModelManager{
 
-    @Inject
-    public UserModelManager(@ComponentImport ActiveObjects ao)   {
-        this.ao = ao;
+    public UserModelManager(ActiveObjects ao) {
+        super(ao);
     }
+
     public User createUser(ApplicationUser applicationUser)    {
         return ao.executeInTransaction(new TransactionCallback<User>() {
             @Override

@@ -81,7 +81,6 @@ public class HService {
                 count++;
                 System.out.println("Create " + assignee);
             } catch (PermissionException | CreateException e) {
-                System.out.println("adsgddFFFGFFGGG");
                 e.printStackTrace();
             }
         }

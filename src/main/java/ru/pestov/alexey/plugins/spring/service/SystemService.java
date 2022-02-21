@@ -1,5 +1,6 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -7,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.*;
 
+@Getter
 @Named
 public class SystemService {
     private final JSONService jsonService;
@@ -16,6 +18,17 @@ public class SystemService {
     public SystemService(JSONService jsonService) {
         this.jsonService = jsonService;
         jsonObject = jsonService.getJsonObject();
+    }
+
+    public HashMap<String, Boolean> getMapSystemActive()    {
+        HashMap<String, Boolean> mapSystemActive = new HashMap<>();
+        Iterator<String> keys = jsonObject.keySet().iterator();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            JSONObject systemJSON = (JSONObject) jsonObject.get(key);
+            mapSystemActive.put(key, (Boolean) systemJSON.get("system_active"));
+        }
+        return mapSystemActive;
     }
 
     public String getSystems()    {

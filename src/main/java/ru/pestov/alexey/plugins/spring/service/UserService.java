@@ -19,11 +19,14 @@ public class UserService {
     public UserService (Property property)  {
         this.property = property;
     }
-
-    public List<String> getActiveUsers() {
+    public List<ApplicationUser> getUsersJira() {
         String groupUsers = property.getProperty("jira.group.users");
         GroupManager groupManager = ComponentAccessor.getGroupManager();
-        List<ApplicationUser> users = (List<ApplicationUser>) groupManager.getUsersInGroup(groupUsers);
+        return  (List<ApplicationUser>) groupManager.getUsersInGroup(groupUsers);
+    }
+
+    public List<String> getActiveUsers() {
+        List<ApplicationUser> users = getUsersJira();
         List<String> activeUsers = new ArrayList<>();
         Iterator var4 = users.iterator();
         while(var4.hasNext()) {

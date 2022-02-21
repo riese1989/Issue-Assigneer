@@ -1,5 +1,6 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import lombok.Getter;
 import ru.pestov.alexey.plugins.spring.comparators.TypeChangesComparator;
 import ru.pestov.alexey.plugins.spring.entity.SystemCAB;
 
@@ -7,6 +8,7 @@ import javax.inject.Named;
 import java.util.Collections;
 import java.util.HashMap;
 
+@Getter
 @Named
 public class TypeChangeService  {
     HashMap <String, String> typeChanges = new HashMap<>();
