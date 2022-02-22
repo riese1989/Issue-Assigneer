@@ -1,5 +1,6 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import com.atlassian.jira.JiraApplicationContext;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;

@@ -27,7 +27,7 @@ public class PermissionService {
         return Role.USER;
     }
 
-    public Role isCurrentUserSuperUser(String idSystem) {
+    public Role isCurrentUserSuperUser() {
         String nameGroupSuperUsers = property.getProperty("jira.group.superusers");
         if (isUserInGroup(nameGroupSuperUsers))    {
             return Role.SUPERUSER;

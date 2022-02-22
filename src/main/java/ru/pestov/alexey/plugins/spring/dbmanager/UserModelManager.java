@@ -48,7 +48,31 @@ public class UserModelManager extends ModelManager{
         return ao.executeInTransaction(new TransactionCallback<User>() {
             @Override
             public User doInTransaction() {
-                return ao.find(User.class, Query.select().where("name = ?", name))[0];
+                try {
+                    return ao.find(User.class, Query.select().where("name = ?", name))[0];
+                }
+                catch (Exception ex)    {
+                    ex.printStackTrace();
+                    return null;
+                }
+            }
+        });
+    }
+
+    public User[] getAllUsers() {
+        return ao.executeInTransaction(new TransactionCallback<User[]>() {
+            @Override
+            public User[] doInTransaction() {
+                return ao.find(User.class);
+            }
+        });
+    }
+
+    public User getUserById(int id) {
+        return ao.executeInTransaction(new TransactionCallback<User>() {
+            @Override
+            public User doInTransaction() {
+                return ao.find(User.class, Query.select().where("id = ?", id))[0];
             }
         });
     }

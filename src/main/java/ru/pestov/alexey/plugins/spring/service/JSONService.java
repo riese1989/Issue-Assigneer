@@ -19,10 +19,7 @@ import ru.pestov.alexey.plugins.spring.entity.Param;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 @Data
@@ -74,13 +71,13 @@ public class JSONService {
         jsonTypeChange.put("stage3", createJsonArray(param.getStage3()));
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(param.getTypeChange(), jsonTypeChange);
-        writeToFile();
+        writeToFile(jsonObject, pathJson);
         logService.log("dsfafdf");
     }
 
-    private void writeToFile() {
+    private void writeToFile(JSONObject jsonObject, String path) {
         try {
-            FileWriter file = new FileWriter(pathJson);
+            FileWriter file = new FileWriter(path);
             file.write(jsonObject.toJSONString());
             file.close();
         } catch (IOException e) {
@@ -94,6 +91,28 @@ public class JSONService {
             jsonArray.add(assignee.replace("@x5.ru", ""));
         }
         return jsonArray;
+    }
+
+    public JSONObject createJsonDelivery(List<String> deliveries)  {
+        Set<String> nameSystems = jsonObject.keySet();
+        String pathDeliveryFile = property.getProperty("file.delivery.path");
+        JSONObject deliveryJSON = new JSONObject();
+        int id = 0;
+        for (String nameSystem : nameSystems) {
+            deliveryJSON.put(nameSystem, deliveries.get(id));
+            id++;
+        }
+        File file = new File(pathDeliveryFile);
+        if (!file.exists())   {
+            try {
+                file.createNewFile();
+            }
+            catch (IOException ex)  {
+                ex.printStackTrace();
+            }
+        }
+        writeToFile(deliveryJSON, pathDeliveryFile);
+        return deliveryJSON;
     }
 
 }

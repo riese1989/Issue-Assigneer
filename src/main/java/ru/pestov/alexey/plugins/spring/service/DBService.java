@@ -1,13 +1,12 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.user.ApplicationUser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
-import ru.pestov.alexey.plugins.spring.model.Stage;
+import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
-import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
-import ru.pestov.alexey.plugins.spring.model.User;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,11 +23,13 @@ public class DBService {
     private final TypeChangeModelManager typeChangeModelManager;
     private final JSONService jsonService;
     private final SystemAssigneesManager systemAssigneesManager;
+    private final DeliveryModelManager deliveryModelManager;
 
     @Inject
     public DBService(UserModelManager userModelManager, UserService userService, StageModelManager stageModelManager,
                      SystemService systemService, SystemModelManager systemModelManager, TypeChangeService typeChangeService,
-                     TypeChangeModelManager typeChangeModelManager, JSONService jsonService, SystemAssigneesManager systemAssigneesManager) {
+                     TypeChangeModelManager typeChangeModelManager, JSONService jsonService, SystemAssigneesManager systemAssigneesManager,
+                     DeliveryModelManager deliveryModelManager) {
         this.userModelManager = userModelManager;
         this.userService = userService;
         this.stageModelManager = stageModelManager;
@@ -38,6 +39,7 @@ public class DBService {
         this.typeChangeModelManager = typeChangeModelManager;
         this.jsonService = jsonService;
         this.systemAssigneesManager = systemAssigneesManager;
+        this.deliveryModelManager = deliveryModelManager;
     }
 
     public Integer prepareDB() {
@@ -46,6 +48,7 @@ public class DBService {
         prepareSystems();
         prepareTypeChanges();
         prepareSystemAssignees();
+        prepareDelivery();
         return 1;
     }
 
@@ -57,7 +60,7 @@ public class DBService {
     }
 
     private void prepareStage() {
-        List<String> stages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3");
+        List<String> stages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3", "authorize");
         for (String stage : stages) {
             stageModelManager.createStage(stage);
         }
@@ -113,16 +116,43 @@ public class DBService {
     }
 
     private List<User> getAssignees(String key, JSONObject jsonObject) {
-        List<User> users = new ArrayList<>();
-        JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
-        if (assigneesJSON == null) {
+        try {
+            List<User> users = new ArrayList<>();
+            JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
+            if (assigneesJSON == null) {
+                return null;
+            }
+            for (int i = 0; i < assigneesJSON.size(); i++) {
+                User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
+                users.add(user);
+            }
+            return users;
+        }
+        catch (Exception ex)    {
+            ex.printStackTrace();
             return null;
         }
-        for (int i = 0; i < assigneesJSON.size(); i++) {
-            User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
-            users.add(user);
+
+    }
+
+    private void prepareDelivery()  {
+        String[] nameSystems = systemService.getSystems().split(",,,,,");
+        int countUsers = userModelManager.getAllUsers().length;
+        List<String> deliveries = new ArrayList<>();
+        for (int i = 0; i < nameSystems.length; i++)    {
+            Random random = new Random();
+            int idDelivery = random.ints(1, countUsers).findFirst().getAsInt();
+            User delivery = userModelManager.getUserById(idDelivery);
+            deliveries.add(delivery.getName());
+            System system = systemModelManager.getSystemByName(nameSystems[i]);
+            deliveryModelManager.createDelivery(system, delivery);
+
         }
-        return users;
+        jsonService.createJsonDelivery(deliveries);
+
+        //создаём лист delivery
+        //отправляем это дело в json
+        //заполлняем бд
     }
 
 }

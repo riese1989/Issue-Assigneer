@@ -10,6 +10,6 @@ public interface Delivery extends Entity {
     System getSystem();
     void setSystem(System system);
 
-    Delivery getDelivery();
-    void setDelivery(Delivery delivery);
+    User getDelivery();
+    void setDelivery(User delivery);
 }

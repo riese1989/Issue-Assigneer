@@ -141,4 +141,11 @@ public class SystemRest {
         List<String> activeUsers = this.userService.getActiveUsers();
         return Response.ok(activeUsers.toString()).build();
     }
+
+    @GET
+    @Path("/issuperuser")
+    public Response isSuperuser()   {
+        return Response.ok(permissionService.isCurrentUserSuperUser().toString()).build();
+    }
+
 }
