@@ -8,8 +8,8 @@ import ru.pestov.alexey.plugins.spring.model.System;
 import javax.inject.Named;
 
 @Named
-public class SpecialUsersSystemsManager extends ModelManager{
-    public SpecialUsersSystemsManager(ActiveObjects ao) {
+public class SUSManager extends ModelManager{
+    public SUSManager(ActiveObjects ao) {
         super(ao);
     }
 

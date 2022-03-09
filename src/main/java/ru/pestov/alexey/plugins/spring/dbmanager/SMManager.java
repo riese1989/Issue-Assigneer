@@ -8,8 +8,8 @@ import ru.pestov.alexey.plugins.spring.model.System;
 import javax.inject.Named;
 
 @Named
-public class SystemModelManager extends ModelManager{
-    public SystemModelManager(ActiveObjects ao) {
+public class SMManager extends ModelManager{
+    public SMManager(ActiveObjects ao) {
         super(ao);
     }
     public System createSystem(String name, Boolean isActive)   {
@@ -38,6 +38,15 @@ public class SystemModelManager extends ModelManager{
             @Override
             public System doInTransaction() {
                 return ao.find(System.class, Query.select().where("name = ?", name))[0];
+            }
+        });
+    }
+
+    public System[] getAllSystems() {
+        return ao.executeInTransaction(new TransactionCallback<System[]>() {
+            @Override
+            public System[] doInTransaction() {
+                return ao.find(System.class);
             }
         });
     }

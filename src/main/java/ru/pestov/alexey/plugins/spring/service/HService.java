@@ -9,7 +9,7 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import ru.pestov.alexey.plugins.spring.dbmanager.UserModelManager;
+import ru.pestov.alexey.plugins.spring.dbmanager.UMManager;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,15 +24,15 @@ import java.util.List;
 public class HService {
 
     private final JSONService jsonService;
-    private final JSONObject jsonObject;
-    private final UserModelManager userModelManagerModel;
+    private JSONObject jsonObject;
+    private final UMManager userModelManagerModel;
     private static Integer count = 0;
 
     @Inject
-    public HService(final JSONService jsonService, final UserModelManager userModelManagerModel) {
+    public HService(final JSONService jsonService, final UMManager userModelManagerModel) {
         this.jsonService = jsonService;
-        this.jsonObject = jsonService.getJsonObject();
         this.userModelManagerModel = userModelManagerModel;
+        jsonObject = jsonService.getJsonObject();
     }
 
     public Integer createUsers()   {

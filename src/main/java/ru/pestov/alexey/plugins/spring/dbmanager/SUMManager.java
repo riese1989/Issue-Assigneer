@@ -5,10 +5,9 @@ import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.SuperUser;
 import ru.pestov.alexey.plugins.spring.model.System;
-import ru.pestov.alexey.plugins.spring.model.User;
 
-public class SuperUserModelManager extends ModelManager {
-    public SuperUserModelManager(ActiveObjects ao) {
+public class SUMManager extends ModelManager {
+    public SUMManager(ActiveObjects ao) {
         super(ao);
     }
 

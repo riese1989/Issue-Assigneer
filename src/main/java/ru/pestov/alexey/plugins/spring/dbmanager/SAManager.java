@@ -2,14 +2,15 @@ package ru.pestov.alexey.plugins.spring.dbmanager;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
+import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
 
 import javax.inject.Named;
 
 @Named
-public class SystemAssigneesManager extends ModelManager {
-    public SystemAssigneesManager(ActiveObjects ao) {
+public class SAManager extends ModelManager {
+    public SAManager(ActiveObjects ao) {
         super(ao);
     }
     public SystemAssignees createSystemAssignee(System system, TypeChangeDB typeChangeDB, Stage stage, User user)  {
@@ -25,5 +26,18 @@ public class SystemAssigneesManager extends ModelManager {
                     return sa;
                 }
             });
+    }
+
+    public SystemAssignees[] getAssigneesSystem(Integer idSystem) {
+        return ao.find(SystemAssignees.class, Query.select().where("system_id = ?", idSystem));
+    }
+
+    public SystemAssignees[] getAssignees(Integer idSystem, Integer idTypeChange, Integer idStage) {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
+                return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ? AND STAGE_ID = ?", idSystem, idTypeChange, idStage));
+            }
+        });
     }
 }

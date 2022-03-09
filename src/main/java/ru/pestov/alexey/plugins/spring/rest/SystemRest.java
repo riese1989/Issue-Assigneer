@@ -15,7 +15,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-import java.util.Map;
 
 @Named
 @Path("/systems")
@@ -67,8 +66,13 @@ public class SystemRest {
     @GET
     @Path("/cr")
     public Response createUsers()   {
-        hService.createUsers();
-        return Response.ok(dbService.prepareDB()).build();
+        return Response.ok(hService.createUsers()).build();
+    }
+
+    @GET
+    @Path("/recover")
+    public Response recoverDB()   {
+        return Response.ok(dbService.recoverDB()).build();
     }
 
     @GET
@@ -77,22 +81,20 @@ public class SystemRest {
         return Response.ok(systemService.getSystems()).build();
     }
 
-    @GET
-    @Path("/getsystem")
-    public Response getSystem(@Context HttpServletRequest httpServletRequest,
-                              @QueryParam("namesystem") String nameSystem) {
-        return Response.ok(systemService.getSystem(nameSystem).toString()).build();
-    }
+//    @GET
+//    @Path("/getsystem")
+//    public Response getSystem(@Context HttpServletRequest httpServletRequest,
+//                              @QueryParam("namesystem") String nameSystem) {
+//        return Response.ok(systemService.getSystem(nameSystem).toString()).build();
+//    }
     @GET
     @Path("/getassignees")
     public Response getSystem(@Context HttpServletRequest httpServletRequest,
-                              @QueryParam("namesystem") String idSystem,
-                              @QueryParam("typechange") String idChange,
-                              @QueryParam("stage") String stage,
+                              @QueryParam("namesystem") Integer idSystem,
+                              @QueryParam("typechange") Integer idTypeChange,
+                              @QueryParam("stage") Integer idStage,
                               @QueryParam("_") String a) {
-        String nameSystem = systemService.getNameSystemById(idSystem);
-        String typeChange = typeChangeService.getTypeChangeById(idChange);
-        return Response.ok(systemService.getStageSystem(nameSystem, typeChange, stage)).build();
+        return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, idStage)).build();
     }
     @GET
     @Path("/isactive")

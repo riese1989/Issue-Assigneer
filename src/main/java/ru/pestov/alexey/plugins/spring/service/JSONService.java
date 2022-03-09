@@ -1,21 +1,16 @@
 package ru.pestov.alexey.plugins.spring.service;
 
-import com.atlassian.crowd.embedded.api.User;
-import com.atlassian.jira.bc.user.UserService;
-import com.atlassian.jira.component.ComponentAccessor;
-import com.atlassian.jira.exception.CreateException;
-import com.atlassian.jira.exception.PermissionException;
-import com.atlassian.jira.user.ApplicationUser;
-import com.atlassian.jira.user.util.UserManager;
-import com.atlassian.plugin.spring.scanner.annotation.component.JiraComponent;
-import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
-import lombok.SneakyThrows;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
+import ru.pestov.alexey.plugins.spring.dbmanager.SAManager;
+import ru.pestov.alexey.plugins.spring.dbmanager.SMManager;
 import ru.pestov.alexey.plugins.spring.entity.Param;
+import ru.pestov.alexey.plugins.spring.enums.Mode;
+import ru.pestov.alexey.plugins.spring.model.System;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,28 +19,40 @@ import java.util.*;
 
 @Data
 @Named
-@ExportAsService
 public class JSONService {
 
-    private final JSONObject jsonObject;
+    private JSONObject jsonObject;
     private final LogService logService;
     private final String pathJson;
     private final StringService stringService;
     private final Property property;
+    private final SMManager systemModelManager;
+    private final SAManager SAManager;
     private static int i = 0;
 
     @Inject
     public JSONService(StringService stringService, LogService logService,
-                       Property property) {
+                       Property property, SMManager systemModelManager, SAManager SAManager) {
         this.property = property;
         this.stringService = stringService;
         this.logService = logService;
+        this.systemModelManager = systemModelManager;
+        this.SAManager = SAManager;
         pathJson = getPathJSON();
         jsonObject = getJSONObjectFromFile();
     }
 
     private String getPathJSON() {
         return property.getProperty("file.cab.path");
+    }
+
+    public void createJSONObject(Mode mode)    {
+        if (mode == Mode.DB) {
+            jsonObject = getJSONObjectFromDB();
+        }
+        else    {
+            jsonObject = getJSONObjectFromFile();
+        }
     }
 
     private JSONObject getJSONObjectFromFile() {
@@ -58,6 +65,37 @@ public class JSONService {
             return new JSONObject();
         }
     }
+
+    private JSONObject getJSONObjectFromDB() {
+        JSONObject jsonObject = new JSONObject();
+        System[] systems = systemModelManager.getAllSystems();
+        for (System system : systems) {
+            JSONObject systemJSON = new JSONObject();
+            SystemAssignees systemAssignees[] = SAManager.getAssigneesSystem(system.getID());
+            for (SystemAssignees systemAssignee : systemAssignees) {
+                String nameTypeChange = systemAssignee.getTypeChange().getName();
+                JSONObject typeChangeJSON;
+                if (systemJSON.containsKey(nameTypeChange)) {
+                    typeChangeJSON = (JSONObject) systemJSON.get(nameTypeChange);
+                } else {
+                    typeChangeJSON = new JSONObject();
+                }
+                String nameStage = systemAssignee.getStage().getName();
+                JSONArray stageJSON;
+                if (typeChangeJSON.containsKey(nameStage)) {
+                    stageJSON = (JSONArray) typeChangeJSON.get(nameStage);
+                } else {
+                    stageJSON = new JSONArray();
+                }
+                stageJSON.add(systemAssignee.getUser().getName());
+                typeChangeJSON.put(nameStage, stageJSON);
+                systemJSON.put(nameTypeChange, typeChangeJSON);
+                jsonObject.put(system.getName(), systemJSON);
+            }
+        }
+        return jsonObject;
+    }
+
 
 
     public void updateJsonObject(Param param) {

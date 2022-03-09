@@ -2,19 +2,16 @@ package ru.pestov.alexey.plugins.spring.dbmanager;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.jira.user.ApplicationUser;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
-import ru.pestov.alexey.plugins.spring.model.System;
 import ru.pestov.alexey.plugins.spring.model.User;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
-public class UserModelManager extends ModelManager{
+public class UMManager extends ModelManager{
 
-    public UserModelManager(ActiveObjects ao) {
+    public UMManager(ActiveObjects ao) {
         super(ao);
     }
 

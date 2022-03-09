@@ -8,8 +8,8 @@ import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 import javax.inject.Named;
 
 @Named
-public class TypeChangeModelManager extends ModelManager{
-    public TypeChangeModelManager(ActiveObjects ao) {
+public class TCMManager extends ModelManager{
+    public TCMManager(ActiveObjects ao) {
         super(ao);
     }
     public TypeChangeDB createTypeChange(String name)   {
@@ -27,7 +27,7 @@ public class TypeChangeModelManager extends ModelManager{
         return ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
             @Override
             public TypeChangeDB doInTransaction() {
-                return ao.find(TypeChangeDB.class, Query.select().where("name = ?", name))[0];
+                return ao.find(TypeChangeDB.class, Query.select().where("NAME = ?", name))[0];
             }
         });
     }

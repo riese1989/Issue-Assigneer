@@ -4,15 +4,14 @@ import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.Delivery;
-import ru.pestov.alexey.plugins.spring.model.SuperUser;
 import ru.pestov.alexey.plugins.spring.model.System;
 import ru.pestov.alexey.plugins.spring.model.User;
 
 import javax.inject.Named;
 
 @Named
-public class DeliveryModelManager extends ModelManager{
-    public DeliveryModelManager(ActiveObjects ao) {
+public class DMManager extends ModelManager{
+    public DMManager(ActiveObjects ao) {
         super(ao);
     }
     public Delivery getSuperUserBySystem(System system)  {

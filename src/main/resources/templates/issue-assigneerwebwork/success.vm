@@ -35,27 +35,27 @@
     </div>
     <div class="field-group">
         <label for="stage1">Стадия 1</label>
-        <select class="multiselect" id="stage1" name="stage1" multiple disabled>
+        <select class="multiselect" id="1" name="stage1" multiple disabled>
         </select>
     </div>
     <div class="field-group">
         <label for="stage21">Стадия 2.1</label>
-        <select class="multiselect" id="stage21" name="stage21" multiple disabled>
+        <select class="multiselect" id="2" name="stage21" multiple disabled>
         </select>
     </div>
     <div class="field-group">
         <label for="stage22">Стадия 2.2</label>
-        <select class="multiselect" id="stage22" name="stage22" multiple disabled>
+        <select class="multiselect" id="3" name="stage22" multiple disabled>
         </select>
     </div>
     <div class="field-group">
         <label for="stage23">Стадия 2.3</label>
-        <select class="multiselect" id="stage23" name="stage23" multiple disabled>
+        <select class="multiselect" id="4" name="stage23" multiple disabled>
         </select>
     </div>
     <div class="field-group">
         <label for="stage3">Стадия 3</label>
-        <select class="multiselect" id="stage3" name="stage3" multiple disabled>
+        <select class="multiselect" id="5" name="stage3" multiple disabled>
         </select>
     </div>
     <div class="field-group">
@@ -67,7 +67,7 @@
     </div>
     <div class="field-group">
         <label for="authorize">Авторизующий</label>
-        <select class="multiselect" id="authorize" name="authorize" multiple disabled>
+        <select class="multiselect" id="6" name="authorize" multiple disabled>
         </select>
     </div>
     <div class="buttons-container">
