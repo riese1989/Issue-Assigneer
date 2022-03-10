@@ -100,16 +100,25 @@ public class DBService {
                 if (typeChangeName.equals("system_active")) {
                     continue;
                 }
-                TypeChangeDB[] typeChangesDB = typeChangeModelManager.getAllTypeChanges();
-                for (TypeChangeDB typeChangeDB : typeChangesDB) {
-                    Stage[] stages = stageModelManager.getAllStages();
-                    for (Stage stage : stages) {
-                        JSONObject stagesJSON = (JSONObject) systemJSON.get(typeChangeDB.getName());
-                        List<User> assignees = getAssignees(stage.getName(), stagesJSON);
-                        if (assignees != null) {
-                            for (User assignee : assignees) {
-                                SAManager.createSystemAssignee(system, typeChangeDB, stage, assignee);
-                            }
+                TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeByName(typeChangeName);
+                if (typeChangeDB == null) {
+                    int i = 0;
+                }
+                JSONObject stagesJSON = new JSONObject();
+                try {
+                    stagesJSON = (JSONObject) systemJSON.get(typeChangeDB.getName());
+                } catch (NullPointerException ex) {
+                    ex.printStackTrace();
+                }
+                Set<String> stages = stagesJSON.keySet();
+                Iterator<String> iteratorStages = stages.iterator();
+                while (iteratorStages.hasNext()) {
+                    String nameStage = iteratorStages.next();
+                    Stage stage = stageModelManager.getStageByName(nameStage);
+                    List<User> assignees = getAssignees(stage.getName(), stagesJSON);
+                    if (assignees != null) {
+                        for (User assignee : assignees) {
+                            SAManager.createSystemAssignee(system, typeChangeDB, stage, assignee);
                         }
                     }
                 }
@@ -118,30 +127,31 @@ public class DBService {
     }
 
     private List<User> getAssignees(String key, JSONObject jsonObject) {
-        try {
-            List<User> users = new ArrayList<>();
-            JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
+        List<User> users = new ArrayList();
+        if (key.equals("authorize")) {
+            User user = userModelManager.getUserByName(jsonObject.get(key).toString());
+            if (user != null) {
+                users.add(user);
+            }
+        } else {
+            JSONArray assigneesJSON = (JSONArray)jsonObject.get(key);
             if (assigneesJSON == null) {
                 return null;
             }
-            for (int i = 0; i < assigneesJSON.size(); i++) {
-                User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
+
+            for(int i = 0; i < assigneesJSON.size(); ++i) {
+                User user = userModelManager.getUserByName((String)assigneesJSON.get(i));
                 users.add(user);
             }
-            return users;
         }
-        catch (Exception ex)    {
-            ex.printStackTrace();
-            return null;
-        }
-
+        return users;
     }
 
-    private void recoverDelivery()  {
+    private void recoverDelivery() {
         String[] nameSystems = systemService.getSystems().split(",,,,,");
         int countUsers = userModelManager.getAllUsers().length;
         List<String> deliveries = new ArrayList<>();
-        for (int i = 0; i < nameSystems.length; i++)    {
+        for (int i = 0; i < nameSystems.length; i++) {
             Random random = new Random();
             int idDelivery = random.ints(1, countUsers).findFirst().getAsInt();
             User delivery = userModelManager.getUserById(idDelivery);

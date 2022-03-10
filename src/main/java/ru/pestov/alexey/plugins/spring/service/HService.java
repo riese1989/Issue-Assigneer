@@ -84,7 +84,6 @@ public class HService {
                 e.printStackTrace();
             }
         }
-        //todo подумать как в бд закидывать пользаков
     }
 
     }

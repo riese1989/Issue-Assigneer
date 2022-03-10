@@ -1,500 +1,325 @@
 {
-  "SAP ERP Аналитика и отчетность": {
+  "Atlassian: Jira Confluence": {
     "system_active": true,
     "Bugfix": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
+      "stage22": [],
       "stage3": [
-        "Evgeniy.Toreykin"
+        "Sergey.Kimelfeld"
       ],
       "stage23": [
-        "Evgeniy.Toreykin"
+        "Al.Drozdov"
       ],
-      "stage21": [],
+      "stage21": [
+        "A.Shakhverdov"
+      ],
       "authorize": [
-        "Evgeniya.Borovchenko"
+        "A.Samsonov",
+        "A.Savkin"
       ],
-      "stage1": [
-        "Evgeniy.Toreykin"
-      ]
+      "stage1": []
     },
     "Фоновое задание": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
+      "stage22": [],
       "stage3": [
-        "Evgeniy.Toreykin"
+        "Mikhail.Batanov"
       ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
+      "stage23": [],
       "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
+      "authorize": [],
       "stage1": [
-        "Evgeniy.Toreykin"
+        "rustem.fatkhiev"
       ]
     },
     "Предсогласованное изменение": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
-      "stage3": [
-        "Evgeniy.Toreykin"
-      ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
+      "stage22": [],
+      "stage3": [],
+      "stage23": [],
       "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
+      "authorize": [],
       "stage1": [
-        "Evgeniy.Toreykin"
+        "rustem.fatkhiev"
       ]
     },
     "Активация настроек": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
+      "stage22": [],
       "stage3": [
-        "Evgeniy.Toreykin"
-      ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
-      "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
-      "stage1": [
-        "Evgeniy.Toreykin"
-      ]
-    },
-    "Дефект": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
-      "stage3": [
-        "Evgeniy.Toreykin"
-      ],
-      "stage23": [
-        "Evgeniy.Toreykin"
-      ],
-      "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
-      "stage1": [
-        "Evgeniy.Toreykin"
-      ]
-    },
-    "Внерелиз": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
-      "stage3": [
-        "Evgeniy.Toreykin"
-      ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
-      "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
-      "stage1": [
-        "Evgeniy.Toreykin"
-      ]
-    },
-    "Изменение настроек": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
-      "stage3": [
-        "Evgeniy.Toreykin"
+        "Mikhail.Batanov"
       ],
       "stage23": [],
       "stage21": [],
       "authorize": [
-        "Evgeniya.Borovchenko"
+        "A.Putnenko"
+      ],
+      "stage1": []
+    },
+    "Дефект": {
+      "stage22": [],
+      "stage3": [
+        "Mikhail.Batanov"
+      ],
+      "stage23": [],
+      "stage21": [],
+      "authorize": [],
+      "stage1": [
+        "rustem.fatkhiev"
+      ]
+    },
+    "Внерелиз": {
+      "stage22": [],
+      "stage3": [
+        "Mikhail.Batanov"
+      ],
+      "stage23": [],
+      "stage21": [
+        "A.Putnenko"
+      ],
+      "authorize": [
+        "rustem.fatkhiev"
+      ],
+      "stage1": []
+    },
+    "Изменение настроек": {
+      "stage22": [
+        "A.Putnenko"
+      ],
+      "stage3": [
+        "Mikhail.Batanov"
+      ],
+      "stage23": [],
+      "stage21": [],
+      "authorize": [
+        "A.Putnenko"
       ],
       "stage1": [
-        "Evgeniy.Toreykin"
+        "A.Samsonov",
+        "rustem.fatkhiev"
       ]
     },
     "Массовая выгрузка": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
-      "stage3": [
-        "Evgeniy.Toreykin"
-      ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
+      "stage22": [],
+      "stage3": [],
+      "stage23": [],
       "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
+      "authorize": [],
       "stage1": [
-        "Evgeniy.Toreykin"
+        "rustem.fatkhiev"
       ]
     },
     "Спринт": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
+      "stage22": [],
       "stage3": [
-        "Evgeniy.Toreykin"
+        "Mikhail.Batanov"
       ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
+      "stage23": [],
       "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
+      "authorize": [],
       "stage1": [
-        "Evgeniy.Toreykin"
+        "rustem.fatkhiev"
       ]
     },
     "Релиз": {
-      "stage22": [
-        "Tatiana.Sarycheva",
-        "Maria.Chupina",
-        "Andrey.Ustinov",
-        "Artur.Synbulatov"
-      ],
+      "stage22": [],
       "stage3": [
-        "Evgeniy.Toreykin"
+        "Mikhail.Batanov"
       ],
-      "stage23": [
-        "Ivan.Novikov"
-      ],
+      "stage23": [],
       "stage21": [],
-      "authorize": [
-        "Evgeniya.Borovchenko"
-      ],
+      "authorize": [],
       "stage1": [
-        "Evgeniy.Toreykin"
+        "rustem.fatkhiev"
       ]
     }
   },
-
-  "Система хранения и управления медиа-контентом (media.x5.ru)": {
+  "СМХО": {
     "system_active": true,
     "Bugfix": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Фоновое задание": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Предсогласованное изменение": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Активация настроек": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Дефект": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Внерелиз": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Изменение настроек": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Массовая выгрузка": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Спринт": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
+        "Ruslan.Kaymakov",
+        "Dmitry.Rebrov"
       ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
+      "stage23": [
+        "V.Salamatov"
+      ],
+      "stage21": [
+        "Denis.Tarasov"
+      ],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
+      "stage1": [
+        "Artur.Manukyan"
+      ]
     },
     "Релиз": {
       "stage22": [],
       "stage3": [
-        "Maria.Fedyakina"
-      ],
-      "stage23": [],
-      "stage21": [],
-      "authorize": [],
-      "stage1": []
-    }
-  },
-
-  "МП ЛК 5-ка": {
-    "system_active": true,
-    "Bugfix": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "German.Chachin"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Фоновое задание": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
+        "Ruslan.Kaymakov",
         "Dmitry.Rebrov"
       ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Предсогласованное изменение": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
       "stage23": [
-        "German.Chachin"
+        "V.Salamatov"
       ],
       "stage21": [
-        "Stanislav.Petryakov"
+        "Denis.Tarasov"
       ],
-      "authorize": [],
+      "authorize": [
+        "Darya.Danilchenko"
+      ],
       "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Активация настроек": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
         "Artur.Manukyan"
-      ],
-      "stage23": [
-        "German.Chachin"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Дефект": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "German.Chachin"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Внерелиз": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "Dmitry.Rebrov"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Изменение настроек": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "German.Chachin"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Массовая выгрузка": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "Ma.AndrianovaDeyneka"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Спринт": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "Dmitry.Rebrov"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
-      ]
-    },
-    "Релиз": {
-      "stage22": [
-        "Denis.Igoshin"
-      ],
-      "stage3": [
-        "Artur.Manukyan"
-      ],
-      "stage23": [
-        "Dmitry.Rebrov"
-      ],
-      "stage21": [
-        "Stanislav.Petryakov"
-      ],
-      "authorize": [],
-      "stage1": [
-        "Ilya.Yurtaev"
       ]
     }
   }

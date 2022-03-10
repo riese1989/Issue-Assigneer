@@ -78,7 +78,7 @@ public class SystemRest {
     @GET
     @Path("/getlistsystems")
     public Response getListSystems()    {
-        return Response.ok(systemService.getSystems()).build();
+        return Response.ok(systemService.getHashMapSystems().toString()).build();
     }
 
 //    @GET
@@ -92,9 +92,9 @@ public class SystemRest {
     public Response getSystem(@Context HttpServletRequest httpServletRequest,
                               @QueryParam("namesystem") Integer idSystem,
                               @QueryParam("typechange") Integer idTypeChange,
-                              @QueryParam("stage") Integer idStage,
-                              @QueryParam("_") String a) {
-        return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, idStage)).build();
+                              @QueryParam("stage") String nameStage,
+                              @QueryParam("_x") String a) {
+        return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
     }
     @GET
     @Path("/isactive")

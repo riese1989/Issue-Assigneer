@@ -5,7 +5,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.dbmanager.SAManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.SMManager;
+import ru.pestov.alexey.plugins.spring.dbmanager.StMManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.TCMManager;
+import ru.pestov.alexey.plugins.spring.model.Stage;
 import ru.pestov.alexey.plugins.spring.model.System;
 import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 
@@ -21,14 +23,18 @@ public class SystemService {
     private final SAManager saManager;
     private JSONObject jsonObject;
     private final TCMManager tcmManager;
+    private final StMManager stMManager;
+    private List<String> nameSystems = new ArrayList<>();
 
     @Inject
-    public SystemService(JSONService jsonService, SMManager smManager, SAManager saManager, TCMManager tcmManager) {
+    public SystemService(JSONService jsonService, SMManager smManager, SAManager saManager, TCMManager tcmManager,
+                         StMManager stMManager) {
         this.jsonService = jsonService;
         jsonObject = jsonService.getJsonObject();
         this.smManager = smManager;
         this.saManager = saManager;
         this.tcmManager = tcmManager;
+        this.stMManager = stMManager;
 
     }
 
@@ -47,28 +53,33 @@ public class SystemService {
         String result = "";
         String regex = ",,,,,";
         System[] systems = smManager.getAllSystems();
-        List<String> nameSystems = new ArrayList<>();
-        Arrays.asList(systems).stream().map(System::getName).forEach(nameSystems::add);
-        Collections.sort(nameSystems);
+        if (nameSystems.size() == 0) {
+            for (System system : systems) {
+                nameSystems.add(system.getName());
+            }
+            Collections.sort(nameSystems);
+        }
         for (int i = 0; i < nameSystems.size(); i++) {
             result += nameSystems.get(i);
             if (i != nameSystems.size() - 1) {
                 result += regex;
             }
         }
-//        List<String> systems = new ArrayList<>();
-//        Iterator<String> keys = jsonObject.keySet().iterator();
-//        while(keys.hasNext()) {
-//            String key = keys.next();
-//            systems.add(key);
-//        }
-//        Collections.sort(systems);
-//        for (int i = 0; i < systems.size(); i++)    {
-//            result += systems.get(i);
-//            if (i != systems.size() - 1)    {
-//                result += regex;
-//            }
-//        }
+        return result;
+    }
+
+    public HashMap<Integer, String> getHashMapSystems()  {
+        HashMap<Integer, String> result = new HashMap<>();
+        System[] systems = smManager.getAllSystems();
+        if (nameSystems.size() == 0) {
+            for (System system : systems) {
+                nameSystems.add(system.getName());
+            }
+        }
+        for (String nameSystem : nameSystems)   {
+            System system = smManager.getSystemByName(nameSystem);
+            result.put(system.getID(), system.getName());
+        }
         return result;
     }
 
@@ -88,12 +99,12 @@ public class SystemService {
         return (JSONObject) jsonObject.get(nameSystem);
     }
 
-    //todo
-    public String getAssigneesStageSystem(Integer idSystem, Integer idTypeChange, Integer idStage) {
-//        JSONObject jsonSystem = getSystem(idSystem);
-//        JSONObject typeChangeSystem = (JSONObject) jsonSystem.get(idTypeChange);
-//        return getAssignees(idStage, typeChangeSystem);
-        SystemAssignees[] systemAssignees = saManager.getAssignees(idSystem, idTypeChange, idStage);
+    public String getAssigneesStageSystem(Integer idSystem, Integer idTypeChange, String nameStage) {
+        Stage stage = stMManager.getStageByName(nameStage);
+        String nameSystem = nameSystems.get(idSystem-1);
+        System systemDB = smManager.getSystemByName(nameSystem);
+        Integer idSystemDB = systemDB.getID();
+        SystemAssignees[] systemAssignees = saManager.getAssignees(idSystemDB, idTypeChange, stage.getID());
         String result = "";
         for (int i = 0; i < systemAssignees.length; i++)    {
             result += systemAssignees[i].getUser().getName() + "@x5.ru";

@@ -6,13 +6,15 @@ import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 
 import javax.inject.Named;
+import java.lang.reflect.Array;
 
 @Named
-public class TCMManager extends ModelManager{
+public class TCMManager extends ModelManager {
     public TCMManager(ActiveObjects ao) {
         super(ao);
     }
-    public TypeChangeDB createTypeChange(String name)   {
+
+    public TypeChangeDB createTypeChange(String name) {
         return ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
             @Override
             public TypeChangeDB doInTransaction() {
@@ -23,15 +25,22 @@ public class TCMManager extends ModelManager{
             }
         });
     }
-    public TypeChangeDB getTypeChangeByName(String name)  {
+
+    public TypeChangeDB getTypeChangeByName(String name) {
         return ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
             @Override
             public TypeChangeDB doInTransaction() {
-                return ao.find(TypeChangeDB.class, Query.select().where("NAME = ?", name))[0];
+                try {
+                    return ao.find(TypeChangeDB.class, Query.select().where("NAME = ?", name))[0];
+                }
+                catch (ArrayIndexOutOfBoundsException ex)   {
+                    return null;
+                }
             }
         });
     }
-    public TypeChangeDB[] getAllTypeChanges()   {
+
+    public TypeChangeDB[] getAllTypeChanges() {
         return ao.executeInTransaction(new TransactionCallback<TypeChangeDB[]>() {
             @Override
             public TypeChangeDB[] doInTransaction() {
