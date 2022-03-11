@@ -13,9 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Param {
     @NonNull
-    private String system;
+    private Integer systemId;
     @NonNull
-    private String typeChange;
+    private Integer typeChangeId;
 
     private List<String> stage1;
 
@@ -29,6 +29,30 @@ public class Param {
 
     private List<String> authorize;
 
-    private String active;
+    private Boolean active;
+
+    public List<String> getRequiredStage(String nameStage)  {
+        switch (nameStage)  {
+            case ("stage1"):    {
+                return stage1;
+            }
+            case ("stage21"):    {
+                return stage21;
+            }
+            case ("stage22"):    {
+                return stage22;
+            }
+            case ("stage23"):    {
+                return stage23;
+            }
+            case ("stage3"):    {
+                return stage3;
+            }
+            case ("authorize"):    {
+                return authorize;
+            }
+        }
+        return null;
+    }
 
 }

@@ -2,9 +2,12 @@ package ru.pestov.alexey.plugins.spring.rest;
 
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
+import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 import ru.pestov.alexey.plugins.spring.service.*;
 
 import javax.inject.Inject;
@@ -87,13 +90,14 @@ public class SystemRest {
 //                              @QueryParam("namesystem") String nameSystem) {
 //        return Response.ok(systemService.getSystem(nameSystem).toString()).build();
 //    }
+
+    //done
     @GET
     @Path("/getassignees")
     public Response getSystem(@Context HttpServletRequest httpServletRequest,
                               @QueryParam("namesystem") Integer idSystem,
                               @QueryParam("typechange") Integer idTypeChange,
-                              @QueryParam("stage") String nameStage,
-                              @QueryParam("_x") String a) {
+                              @QueryParam("stage") String nameStage) {
         return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
     }
     @GET
@@ -109,22 +113,24 @@ public class SystemRest {
         return Response.ok(permissionService.isCurrentUserAdminJira().toString()).build();
     }
 
+    //in progress
     @POST
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public void post(@FormParam("systemCab") String system,
-                         @FormParam("typechange") String typeChange,
+    public void post(@FormParam("systemCab") Integer idSystem,
+                         @FormParam("typechange") Integer idTypeChange,
                          @FormParam("stage1") List<String> stage1,
                          @FormParam("stage21") List<String> stage21,
                          @FormParam("stage22") List<String> stage22,
                          @FormParam("stage23") List<String> stage23,
                          @FormParam("stage3") List<String> stage3,
                          @FormParam("authorize") List<String> authorize,
-                         @FormParam("active") String active) throws Exception {
-        Param param = new Param(systemService.getNameSystemById(system), typeChangeService.getTypeChangeById(typeChange),
+                         @FormParam("active") Boolean active) throws Exception {
+        Param param = new Param(idSystem, idTypeChange,
                 stage1, stage21, stage22, stage23, stage3, authorize, active);
-        jsonService.updateJsonObject(param);
+        SystemAssignees systemAssignees = dbService.updateDB(param);
+        jsonService.updateJsonObject(param, systemAssignees.getSystem().getName(), systemAssignees.getTypeChange().getName());
         issueAssigneerWebworkAction.setParams(param);
         new IssueAssigneerWebworkAction(pluginSettingsFactory,jsonService, systemService, typeChangeService).doExecute();
     }

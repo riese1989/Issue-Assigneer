@@ -13,19 +13,20 @@ public class SAManager extends ModelManager {
     public SAManager(ActiveObjects ao) {
         super(ao);
     }
-    public SystemAssignees createSystemAssignee(System system, TypeChangeDB typeChangeDB, Stage stage, User user)  {
-            return ao.executeInTransaction(new TransactionCallback<SystemAssignees>() {
-                @Override
-                public SystemAssignees doInTransaction() {
-                    SystemAssignees sa = ao.create(SystemAssignees.class);
-                    sa.setSystem(system);
-                    sa.setTypeChange(typeChangeDB);
-                    sa.setStage(stage);
-                    sa.setUser(user);
-                    sa.save();
-                    return sa;
-                }
-            });
+
+    public SystemAssignees createSystemAssignee(System system, TypeChangeDB typeChangeDB, Stage stage, User user) {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees>() {
+            @Override
+            public SystemAssignees doInTransaction() {
+                SystemAssignees sa = ao.create(SystemAssignees.class);
+                sa.setSystem(system);
+                sa.setTypeChange(typeChangeDB);
+                sa.setStage(stage);
+                sa.setUser(user);
+                sa.save();
+                return sa;
+            }
+        });
     }
 
     public SystemAssignees[] getAssigneesSystem(Integer idSystem) {
@@ -40,4 +41,17 @@ public class SAManager extends ModelManager {
             }
         });
     }
+
+    public void deleteObjects(Integer idSystem, Integer idTypeChange) {
+        ao.executeInTransaction(new TransactionCallback<Void>() {
+            @Override
+            public Void doInTransaction() {
+                SystemAssignees[] systems = ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
+                ao.delete(systems);
+                return null;
+            }
+        });
+    }
+
+
 }

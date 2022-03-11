@@ -2,9 +2,11 @@ package ru.pestov.alexey.plugins.spring.service;
 
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
+import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
+import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
 import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
@@ -14,6 +16,7 @@ import javax.inject.Named;
 import java.util.*;
 
 @Named
+@Getter
 @ExportAsService
 public class DBService {
     private final UMManager userModelManager;
@@ -128,21 +131,14 @@ public class DBService {
 
     private List<User> getAssignees(String key, JSONObject jsonObject) {
         List<User> users = new ArrayList();
-        if (key.equals("authorize")) {
-            User user = userModelManager.getUserByName(jsonObject.get(key).toString());
-            if (user != null) {
-                users.add(user);
-            }
-        } else {
-            JSONArray assigneesJSON = (JSONArray)jsonObject.get(key);
-            if (assigneesJSON == null) {
-                return null;
-            }
+        JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
+        if (assigneesJSON == null) {
+            return null;
+        }
 
-            for(int i = 0; i < assigneesJSON.size(); ++i) {
-                User user = userModelManager.getUserByName((String)assigneesJSON.get(i));
-                users.add(user);
-            }
+        for (int i = 0; i < assigneesJSON.size(); ++i) {
+            User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
+            users.add(user);
         }
         return users;
     }
@@ -165,6 +161,25 @@ public class DBService {
         //создаём лист delivery
         //отправляем это дело в json
         //заполлняем бд
+    }
+
+    public SystemAssignees updateDB(Param param)   {
+        Integer idSystem = param.getSystemId();
+        System system = systemModelManager.getSystemById(idSystem);
+        Integer idTypeChange = param.getTypeChangeId();
+        TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
+        Boolean isActive = Boolean.valueOf(param.getActive());
+        systemModelManager.setActive(idSystem, isActive);
+        Stage[] stages = stageModelManager.getAllStages();
+        for (Stage stage : stages)  {
+            SAManager.deleteObjects(idSystem, idTypeChange);
+            List<String> assignees = param.getRequiredStage(stage.getName());
+            for (String assignee : assignees)   {
+                User user = userModelManager.getUserByName(assignee.replace("@x5.ru",""));
+                return SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+            }
+        }
+        return null;
     }
 
 }

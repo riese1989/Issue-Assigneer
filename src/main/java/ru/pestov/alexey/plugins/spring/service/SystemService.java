@@ -101,8 +101,7 @@ public class SystemService {
 
     public String getAssigneesStageSystem(Integer idSystem, Integer idTypeChange, String nameStage) {
         Stage stage = stMManager.getStageByName(nameStage);
-        String nameSystem = nameSystems.get(idSystem-1);
-        System systemDB = smManager.getSystemByName(nameSystem);
+        System systemDB = smManager.getSystemById(idSystem);
         Integer idSystemDB = systemDB.getID();
         SystemAssignees[] systemAssignees = saManager.getAssignees(idSystemDB, idTypeChange, stage.getID());
         String result = "";

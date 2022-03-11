@@ -98,17 +98,17 @@ public class JSONService {
 
 
 
-    public void updateJsonObject(Param param) {
-        JSONObject jsonSystem = (JSONObject) jsonObject.get(param.getSystem());
-        jsonSystem.put("system_active", param.getActive().equals("true"));
-        JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(param.getTypeChange());
+    public void updateJsonObject(Param param, String nameSystem, String nameTypeChange) {
+        JSONObject jsonSystem = (JSONObject) jsonObject.get(nameSystem);
+        jsonSystem.put("system_active", param.getActive());
+        JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(nameTypeChange);
         jsonTypeChange.put("stage1", createJsonArray(param.getStage1()));
         jsonTypeChange.put("stage21", createJsonArray(param.getStage21()));
         jsonTypeChange.put("stage22", createJsonArray(param.getStage22()));
         jsonTypeChange.put("stage23", createJsonArray(param.getStage23()));
         jsonTypeChange.put("stage3", createJsonArray(param.getStage3()));
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
-        jsonSystem.put(param.getTypeChange(), jsonTypeChange);
+        jsonSystem.put(param.getTypeChangeId(), jsonTypeChange);
         writeToFile(jsonObject, pathJson);
         logService.log("dsfafdf");
     }

@@ -10,18 +10,12 @@ import org.slf4j.LoggerFactory;
 import lombok.extern.slf4j.Slf4j;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import ru.pestov.alexey.plugins.spring.entity.Param;
-import ru.pestov.alexey.plugins.spring.entity.Stage;
 import ru.pestov.alexey.plugins.spring.service.JSONService;
 import ru.pestov.alexey.plugins.spring.service.SystemService;
 import ru.pestov.alexey.plugins.spring.service.TypeChangeService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.FormParam;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Enumeration;
 import java.util.List;
 
 @Slf4j
@@ -30,8 +24,8 @@ import java.util.List;
 public class IssueAssigneerWebworkAction extends JiraWebActionSupport
 {
     private static final Logger log = LoggerFactory.getLogger(IssueAssigneerWebworkAction.class);
-    private String system;
-    private String typeChange;
+    private String systemId;
+    private String typeChangeId;
     private List<String> stage1;
     private List<String> stage21;
     private List<String> stage22;
@@ -52,8 +46,8 @@ public class IssueAssigneerWebworkAction extends JiraWebActionSupport
                                        final TypeChangeService typeChangeService) {
             this.pluginSettings = pluginSettingsFactory.createGlobalSettings();
             this.active = getSettings("active");
-            this.typeChange = getSettings("typechange");
-            this.system = getSettings("system");
+            this.typeChangeId = getSettings("typechange");
+            this.systemId = getSettings("system");
             this.jsonService = jsonService;
             this.systemService = systemService;
             this.typeChangeService = typeChangeService;
@@ -66,9 +60,9 @@ public class IssueAssigneerWebworkAction extends JiraWebActionSupport
         this.stage23 = param.getStage23();
         this.stage3 = param.getStage3();
         this.authorize = param.getAuthorize();
-        this.active = param.getActive();
-        this.typeChange = param.getTypeChange();
-        this.system = param.getSystem();
+        this.active = String.valueOf(param.getActive());
+        this.typeChangeId = String.valueOf(param.getTypeChangeId());
+        this.systemId = String.valueOf(param.getSystemId());
     }
 
     @Override

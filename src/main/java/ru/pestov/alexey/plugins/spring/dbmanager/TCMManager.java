@@ -14,6 +14,7 @@ public class TCMManager extends ModelManager {
         super(ao);
     }
 
+
     public TypeChangeDB createTypeChange(String name) {
         return ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
             @Override
@@ -45,6 +46,15 @@ public class TCMManager extends ModelManager {
             @Override
             public TypeChangeDB[] doInTransaction() {
                 return ao.find(TypeChangeDB.class);
+            }
+        });
+    }
+
+    public TypeChangeDB getTypeChangeById(Integer idTypeChange) {
+        return ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
+            @Override
+            public TypeChangeDB doInTransaction() {
+                return ao.get(TypeChangeDB.class, idTypeChange);
             }
         });
     }
