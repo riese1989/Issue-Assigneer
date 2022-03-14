@@ -1,5 +1,6 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
@@ -29,12 +30,14 @@ public class DBService {
     private final JSONService jsonService;
     private final SAManager SAManager;
     private final DMManager DMManager;
+    private final TCAManager tcaManager;
+    private final LogModelManager logModelManager;
 
     @Inject
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
                      SystemService systemService, SMManager SMManager, TypeChangeService typeChangeService,
                      TCMManager typeChangeModelManager, JSONService jsonService, SAManager SAManager,
-                     DMManager DMManager) {
+                     DMManager DMManager, TCAManager tcaManager, LogModelManager logModelManager) {
         this.userModelManager = UMManager;
         this.userService = userService;
         this.stageModelManager = stageModelManager;
@@ -45,6 +48,8 @@ public class DBService {
         this.jsonService = jsonService;
         this.SAManager = SAManager;
         this.DMManager = DMManager;
+        this.tcaManager = tcaManager;
+        this.logModelManager = logModelManager;
     }
 
     public Integer recoverDB() {
@@ -55,6 +60,7 @@ public class DBService {
         recoverTypeChanges();
         recoverSystemAssignees();
         recoverDelivery();
+        recoverTypeChangeAssignee();
         return 1;
     }
 
@@ -157,13 +163,10 @@ public class DBService {
 
         }
         jsonService.createJsonDelivery(deliveries);
-
-        //создаём лист delivery
-        //отправляем это дело в json
-        //заполлняем бд
     }
 
-    public SystemAssignees updateDB(Param param)   {
+    public List<SystemAssignees> updateDB(Param param)   {
+        List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
         Integer idTypeChange = param.getTypeChangeId();
@@ -171,15 +174,27 @@ public class DBService {
         Boolean isActive = Boolean.valueOf(param.getActive());
         systemModelManager.setActive(idSystem, isActive);
         Stage[] stages = stageModelManager.getAllStages();
+        User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
+        SystemAssignees[] systemAssignees = SAManager.getAssignees(idSystem,idTypeChange);
+        SAManager.deleteObjects(idSystem, idTypeChange);
+        for (SystemAssignees systemAssignee : systemAssignees) {
+            logModelManager.create(systemAssignee, tcaManager.get(1), currentUser);
+        }
         for (Stage stage : stages)  {
-            SAManager.deleteObjects(idSystem, idTypeChange);
             List<String> assignees = param.getRequiredStage(stage.getName());
             for (String assignee : assignees)   {
                 User user = userModelManager.getUserByName(assignee.replace("@x5.ru",""));
-                return SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                result.add(systemAssigneeNew);
+                logModelManager.create(systemAssigneeNew, tcaManager.get(2), currentUser);
             }
         }
-        return null;
+        return result;
+    }
+
+    private void recoverTypeChangeAssignee()    {
+        tcaManager.create("Create");
+        tcaManager.create("Delete");
     }
 
 }

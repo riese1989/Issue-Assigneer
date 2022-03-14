@@ -18,9 +18,18 @@ public interface Log extends Entity {
     TypeChangeAssignee getTypeChangeAssignee();
     void setTypeChangeAssignee(TypeChangeAssignee typeChangeAssignee);
 
-    User getUser();
-    void setUser(User user);
+    User getAssignee();
+    void setAssignee(User user);
 
     Date getDate();
     void setDate(Date date);
+
+    User getUser();
+    void setUser(User user);
+
+    Stage getStage();
+    void setStage(Stage stage);
+
+    Boolean getSystemActive();
+    void setSystemActive(Boolean flag);
 }

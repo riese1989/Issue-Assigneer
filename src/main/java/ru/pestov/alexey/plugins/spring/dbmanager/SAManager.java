@@ -42,13 +42,22 @@ public class SAManager extends ModelManager {
         });
     }
 
-    public void deleteObjects(Integer idSystem, Integer idTypeChange) {
-        ao.executeInTransaction(new TransactionCallback<Void>() {
+    public SystemAssignees[] getAssignees(Integer idSystem, Integer idTypeChange) {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
             @Override
-            public Void doInTransaction() {
+            public SystemAssignees[] doInTransaction() {
+                return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
+            }
+        });
+    }
+
+    public void deleteObjects(Integer idSystem, Integer idTypeChange) {
+        ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
                 SystemAssignees[] systems = ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
                 ao.delete(systems);
-                return null;
+                return systems;
             }
         });
     }
