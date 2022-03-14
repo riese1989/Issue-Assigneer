@@ -108,9 +108,9 @@ public class JSONService {
         jsonTypeChange.put("stage23", createJsonArray(param.getStage23()));
         jsonTypeChange.put("stage3", createJsonArray(param.getStage3()));
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
-        jsonSystem.put(param.getTypeChangeId(), jsonTypeChange);
+        jsonSystem.put(nameTypeChange, jsonTypeChange);
+        jsonObject.put(nameSystem, jsonSystem);
         writeToFile(jsonObject, pathJson);
-        logService.log("dsfafdf");
     }
 
     private void writeToFile(JSONObject jsonObject, String path) {

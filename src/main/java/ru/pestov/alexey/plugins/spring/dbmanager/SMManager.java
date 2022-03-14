@@ -62,4 +62,14 @@ public class SMManager extends ModelManager{
             }
         });
     }
+
+    public Boolean isSystemActive(Integer idSystem) {
+        return ao.executeInTransaction(new TransactionCallback<Boolean>() {
+            @Override
+            public Boolean doInTransaction() {
+                System system = ao.get(System.class, idSystem);
+                return system.getActive();
+            }
+        });
+    }
 }

@@ -7,6 +7,7 @@ import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.User;
 
 import javax.inject.Named;
+import java.util.Arrays;
 
 @Named
 public class UMManager extends ModelManager{
@@ -46,7 +47,7 @@ public class UMManager extends ModelManager{
             @Override
             public User doInTransaction() {
                 try {
-                    return ao.find(User.class, Query.select().where("name = ?", name))[0];
+                    return Arrays.stream(ao.find(User.class)).filter(user -> user.getName().equals(name)).findFirst().get();
                 }
                 catch (Exception ex)    {
                     ex.printStackTrace();

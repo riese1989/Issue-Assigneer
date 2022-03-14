@@ -89,10 +89,8 @@ public class SystemService {
         return systems.get(id - 1);
     }
 
-    public Boolean isSystemActive(String idString) {
-        String nameSystem = getNameSystemById(idString);
-        JSONObject systemJson = getSystem(nameSystem);
-        return (Boolean) systemJson.get("system_active");
+    public Boolean isSystemActive(Integer idSystem) {
+        return smManager.isSystemActive(idSystem);
     }
 
     public JSONObject getSystem(String nameSystem) {

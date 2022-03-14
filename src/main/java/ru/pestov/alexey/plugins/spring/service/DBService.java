@@ -157,13 +157,10 @@ public class DBService {
 
         }
         jsonService.createJsonDelivery(deliveries);
-
-        //создаём лист delivery
-        //отправляем это дело в json
-        //заполлняем бд
     }
 
-    public SystemAssignees updateDB(Param param)   {
+    public List<SystemAssignees> updateDB(Param param)   {
+        List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
         Integer idTypeChange = param.getTypeChangeId();
@@ -171,15 +168,15 @@ public class DBService {
         Boolean isActive = Boolean.valueOf(param.getActive());
         systemModelManager.setActive(idSystem, isActive);
         Stage[] stages = stageModelManager.getAllStages();
+        SAManager.deleteObjects(idSystem, idTypeChange);
         for (Stage stage : stages)  {
-            SAManager.deleteObjects(idSystem, idTypeChange);
             List<String> assignees = param.getRequiredStage(stage.getName());
             for (String assignee : assignees)   {
                 User user = userModelManager.getUserByName(assignee.replace("@x5.ru",""));
-                return SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                result.add(SAManager.createSystemAssignee(system, typeChangeDB, stage, user));
             }
         }
-        return null;
+        return result;
     }
 
 }

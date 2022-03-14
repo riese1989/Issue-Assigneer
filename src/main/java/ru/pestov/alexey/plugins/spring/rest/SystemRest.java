@@ -100,10 +100,11 @@ public class SystemRest {
                               @QueryParam("stage") String nameStage) {
         return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
     }
+    // done
     @GET
     @Path("/isactive")
     public Response isActive(@Context HttpServletRequest httpServletRequest,
-                             @QueryParam("namesystem") String idSystem) {
+                             @QueryParam("namesystem") Integer idSystem) {
         return Response.ok(systemService.isSystemActive(idSystem).toString()).build();
     }
 
@@ -113,7 +114,7 @@ public class SystemRest {
         return Response.ok(permissionService.isCurrentUserAdminJira().toString()).build();
     }
 
-    //in progress
+    //done
     @POST
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
@@ -129,8 +130,8 @@ public class SystemRest {
                          @FormParam("active") Boolean active) throws Exception {
         Param param = new Param(idSystem, idTypeChange,
                 stage1, stage21, stage22, stage23, stage3, authorize, active);
-        SystemAssignees systemAssignees = dbService.updateDB(param);
-        jsonService.updateJsonObject(param, systemAssignees.getSystem().getName(), systemAssignees.getTypeChange().getName());
+        List<SystemAssignees> systemAssignees = dbService.updateDB(param);
+        jsonService.updateJsonObject(param, systemAssignees.get(0).getSystem().getName(), systemAssignees.get(0).getTypeChange().getName());
         issueAssigneerWebworkAction.setParams(param);
         new IssueAssigneerWebworkAction(pluginSettingsFactory,jsonService, systemService, typeChangeService).doExecute();
     }
