@@ -98,7 +98,9 @@ public class JSONService {
 
 
 
-    public void updateJsonObject(Param param, String nameSystem, String nameTypeChange) {
+    public void updateJsonObject(Param param) {
+        String nameSystem = param.getSystem().getName();
+        String nameTypeChange = param.getTypeChangeDB().getName();
         JSONObject jsonSystem = (JSONObject) jsonObject.get(nameSystem);
         jsonSystem.put("system_active", param.getActive());
         JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(nameTypeChange);

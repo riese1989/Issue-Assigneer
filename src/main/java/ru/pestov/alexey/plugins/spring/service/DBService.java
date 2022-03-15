@@ -169,17 +169,19 @@ public class DBService {
         List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
+        param.setSystem(system);
         Integer idTypeChange = param.getTypeChangeId();
         TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
+        param.setTypeChangeDB(typeChangeDB);
         Boolean isActive = Boolean.valueOf(param.getActive());
-        systemModelManager.setActive(idSystem, isActive);
-        Stage[] stages = stageModelManager.getAllStages();
+        List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
         User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
-        SystemAssignees[] systemAssignees = SAManager.getAssignees(idSystem,idTypeChange);
-        SAManager.deleteObjects(idSystem, idTypeChange);
-        for (SystemAssignees systemAssignee : systemAssignees) {
+        List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
+        for (SystemAssignees systemAssignee : oldSystemAssignees) {
             logModelManager.create(systemAssignee, tcaManager.get(1), currentUser);
         }
+        system = systemModelManager.setActive(idSystem, isActive);
+        SAManager.deleteObjects(idSystem, idTypeChange);
         for (Stage stage : stages)  {
             List<String> assignees = param.getRequiredStage(stage.getName());
             for (String assignee : assignees)   {

@@ -130,8 +130,8 @@ public class SystemRest {
                          @FormParam("active") Boolean active) throws Exception {
         Param param = new Param(idSystem, idTypeChange,
                 stage1, stage21, stage22, stage23, stage3, authorize, active);
-        List<SystemAssignees> systemAssignees = dbService.updateDB(param);
-        jsonService.updateJsonObject(param, systemAssignees.get(0).getSystem().getName(), systemAssignees.get(0).getTypeChange().getName());
+        dbService.updateDB(param);
+        jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
         new IssueAssigneerWebworkAction(pluginSettingsFactory,jsonService, systemService, typeChangeService).doExecute();
     }
