@@ -28,6 +28,7 @@ public class JSONService {
     private final Property property;
     private final SMManager systemModelManager;
     private final SAManager SAManager;
+    private final JSONObject jsonDelivery;
     private static int i = 0;
 
     @Inject
@@ -39,7 +40,8 @@ public class JSONService {
         this.systemModelManager = systemModelManager;
         this.SAManager = SAManager;
         pathJson = getPathJSON();
-        jsonObject = getJSONObjectFromFile();
+        jsonObject = getJSONObjectFromFile(pathJson);
+        jsonDelivery = getJSONObjectFromFile(property.getProperty("file.delivery.path"));
     }
 
     private String getPathJSON() {
@@ -51,11 +53,11 @@ public class JSONService {
             jsonObject = getJSONObjectFromDB();
         }
         else    {
-            jsonObject = getJSONObjectFromFile();
+            jsonObject = getJSONObjectFromFile(pathJson);
         }
     }
 
-    private JSONObject getJSONObjectFromFile() {
+    private JSONObject getJSONObjectFromFile(String pathJson) {
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new InputStreamReader(new FileInputStream(pathJson)));

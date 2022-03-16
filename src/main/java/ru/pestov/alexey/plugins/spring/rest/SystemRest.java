@@ -60,27 +60,26 @@ public class SystemRest {
 
     @GET
     @Path("/get")
-    public Response get()
-    {
+    public Response get() {
         JSONObject jsonObject = jsonService.getJsonObject();
         return Response.ok(jsonObject.toString()).build();
     }
 
     @GET
     @Path("/cr")
-    public Response createUsers()   {
+    public Response createUsers() {
         return Response.ok(hService.createUsers()).build();
     }
 
     @GET
     @Path("/recover")
-    public Response recoverDB()   {
+    public Response recoverDB() {
         return Response.ok(dbService.recoverDB()).build();
     }
 
     @GET
     @Path("/getlistsystems")
-    public Response getListSystems()    {
+    public Response getListSystems() {
         return Response.ok(systemService.getHashMapSystems().toString()).build();
     }
 
@@ -100,6 +99,7 @@ public class SystemRest {
                               @QueryParam("stage") String nameStage) {
         return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
     }
+
     // done
     @GET
     @Path("/isactive")
@@ -120,27 +120,28 @@ public class SystemRest {
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
     public void post(@FormParam("systemCab") Integer idSystem,
-                         @FormParam("typechange") Integer idTypeChange,
-                         @FormParam("stage1") List<String> stage1,
-                         @FormParam("stage21") List<String> stage21,
-                         @FormParam("stage22") List<String> stage22,
-                         @FormParam("stage23") List<String> stage23,
-                         @FormParam("stage3") List<String> stage3,
-                         @FormParam("authorize") List<String> authorize,
-                         @FormParam("active") Boolean active) throws Exception {
+                     @FormParam("typechange") Integer idTypeChange,
+                     @FormParam("stage1") List<String> stage1,
+                     @FormParam("stage21") List<String> stage21,
+                     @FormParam("stage22") List<String> stage22,
+                     @FormParam("stage23") List<String> stage23,
+                     @FormParam("stage3") List<String> stage3,
+                     @FormParam("authorize") List<String> authorize,
+                     @FormParam("active") Boolean active,
+                     @FormParam("delivery") String delivery) throws Exception {
         Param param = new Param(idSystem, idTypeChange,
-                stage1, stage21, stage22, stage23, stage3, authorize, active);
+                stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
         dbService.updateDB(param);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
-        new IssueAssigneerWebworkAction(pluginSettingsFactory,jsonService, systemService, typeChangeService).doExecute();
+        new IssueAssigneerWebworkAction(pluginSettingsFactory, jsonService, systemService, typeChangeService).doExecute();
     }
 
     @POST
     @Path("/post2")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response post2(@FormParam("stage1") String stage1)  {
+    public Response post2(@FormParam("stage1") String stage1) {
         return Response.ok(stage1).build();
     }
 
@@ -153,8 +154,13 @@ public class SystemRest {
 
     @GET
     @Path("/issuperuser")
-    public Response isSuperuser()   {
+    public Response isSuperuser() {
         return Response.ok(permissionService.isCurrentUserSuperUser().toString()).build();
     }
 
+    @GET
+    @Path("/delivery")
+    public Response getDelivery(@QueryParam("idsystem") Integer idSystem) {
+        return Response.ok(dbService.getDelivery(idSystem)).build();
+    }
 }

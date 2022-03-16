@@ -33,4 +33,21 @@ public class LogModelManager extends ModelManager{
             }
         });
     }
+
+    public Log create (Delivery delivery, TypeChangeAssignee typeChangeAssignee,
+                       User currentUser)   {
+        return ao.executeInTransaction(new TransactionCallback<Log>() {
+            @Override
+            public Log doInTransaction() {
+                Log log = ao.create(Log.class);
+                log.setSystem(delivery.getSystem());
+                log.setAssignee(delivery.getDelivery());
+                log.setTypeChangeAssignee(typeChangeAssignee);
+                log.setUser(currentUser);
+                log.setDate(new Date());
+                log.save();
+                return log;
+            }
+        });
+    }
 }

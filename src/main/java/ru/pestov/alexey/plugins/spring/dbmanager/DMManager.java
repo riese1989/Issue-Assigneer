@@ -14,7 +14,7 @@ public class DMManager extends ModelManager{
     public DMManager(ActiveObjects ao) {
         super(ao);
     }
-    public Delivery getSuperUserBySystem(System system)  {
+    public Delivery getDelivery(System system)  {
         return ao.executeInTransaction(new TransactionCallback<Delivery>() {
             @Override
             public Delivery doInTransaction() {
@@ -30,6 +30,17 @@ public class DMManager extends ModelManager{
                 delivery.setSystem(system);
                 delivery.setDelivery(user);
                 delivery.save();
+                return delivery;
+            }
+        });
+    }
+
+    public Delivery delete(System system)   {
+        return ao.executeInTransaction(new TransactionCallback<Delivery>() {
+            @Override
+            public Delivery doInTransaction() {
+                Delivery delivery = ao.find(Delivery.class, Query.select().where("system_id = ?", system.getID()))[0];
+                ao.delete(delivery);
                 return delivery;
             }
         });

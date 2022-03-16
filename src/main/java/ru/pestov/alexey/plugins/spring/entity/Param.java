@@ -30,6 +30,8 @@ public class Param {
     @NonNull
     private List<String> authorize;
     @NonNull
+    private String delivery;
+    @NonNull
     private Boolean active;
 
     private System system;

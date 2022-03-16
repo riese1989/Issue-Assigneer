@@ -70,6 +70,11 @@
         <select class="multiselect" id="authorize" name="authorize" multiple disabled>
         </select>
     </div>
+    <div class="field-group">
+        <label for="delivery">Delivery</label>
+        <select class="multiselect" id="delivery" name="delivery" disabled>
+        </select>
+    </div>
     <div class="buttons-container">
         <div class="buttons">
             <input class="button submit" type="submit" value="Save" id="save" disabled>

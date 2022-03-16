@@ -31,6 +31,7 @@
         <resource type="download" name="get-users.js" location="/js/get-users.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
+        <resource type="download" name="get-delivery.js" location="/js/get-delivery.js"/>
         <resource type="download" name="images/" location="/images"/>
         <context>selects</context>
     </web-resource>

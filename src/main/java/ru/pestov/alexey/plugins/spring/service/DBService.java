@@ -29,7 +29,7 @@ public class DBService {
     private final TCMManager typeChangeModelManager;
     private final JSONService jsonService;
     private final SAManager SAManager;
-    private final DMManager DMManager;
+    private final DMManager dmManager;
     private final TCAManager tcaManager;
     private final LogModelManager logModelManager;
 
@@ -37,7 +37,7 @@ public class DBService {
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
                      SystemService systemService, SMManager SMManager, TypeChangeService typeChangeService,
                      TCMManager typeChangeModelManager, JSONService jsonService, SAManager SAManager,
-                     DMManager DMManager, TCAManager tcaManager, LogModelManager logModelManager) {
+                     DMManager dmManager, TCAManager tcaManager, LogModelManager logModelManager) {
         this.userModelManager = UMManager;
         this.userService = userService;
         this.stageModelManager = stageModelManager;
@@ -47,7 +47,7 @@ public class DBService {
         this.typeChangeModelManager = typeChangeModelManager;
         this.jsonService = jsonService;
         this.SAManager = SAManager;
-        this.DMManager = DMManager;
+        this.dmManager = dmManager;
         this.tcaManager = tcaManager;
         this.logModelManager = logModelManager;
     }
@@ -150,19 +150,13 @@ public class DBService {
     }
 
     private void recoverDelivery() {
-        String[] nameSystems = systemService.getSystems().split(",,,,,");
-        int countUsers = userModelManager.getAllUsers().length;
-        List<String> deliveries = new ArrayList<>();
-        for (int i = 0; i < nameSystems.length; i++) {
-            Random random = new Random();
-            int idDelivery = random.ints(1, countUsers).findFirst().getAsInt();
-            User delivery = userModelManager.getUserById(idDelivery);
-            deliveries.add(delivery.getName());
-            System system = systemModelManager.getSystemByName(nameSystems[i]);
-            DMManager.createDelivery(system, delivery);
-
+        List<System> systems = Arrays.asList(systemModelManager.getAllSystems());
+        JSONObject jsonObject = jsonService.getJsonDelivery();
+        for (System system : systems)   {
+            String nameDelivery = (String) jsonObject.get(system.getName());
+            User delivery = userModelManager.getUserByName(nameDelivery);
+            dmManager.createDelivery(system, delivery);
         }
-        jsonService.createJsonDelivery(deliveries);
     }
 
     public List<SystemAssignees> updateDB(Param param)   {
@@ -178,7 +172,7 @@ public class DBService {
         User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
         List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
         for (SystemAssignees systemAssignee : oldSystemAssignees) {
-            logModelManager.create(systemAssignee, tcaManager.get(1), currentUser);
+            logModelManager.create(systemAssignee, tcaManager.get(2), currentUser);
         }
         system = systemModelManager.setActive(idSystem, isActive);
         SAManager.deleteObjects(idSystem, idTypeChange);
@@ -188,15 +182,34 @@ public class DBService {
                 User user = userModelManager.getUserByName(assignee.replace("@x5.ru",""));
                 SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
                 result.add(systemAssigneeNew);
-                logModelManager.create(systemAssigneeNew, tcaManager.get(2), currentUser);
+                logModelManager.create(systemAssigneeNew, tcaManager.get(1), currentUser);
             }
         }
+        updateDeliveryDB(param, currentUser);
         return result;
+    }
+
+    private void updateDeliveryDB(Param param, User currentUser)   {
+        System system = param.getSystem();
+        Delivery oldDelivery = dmManager.delete(system);
+        logModelManager.create(oldDelivery, tcaManager.get(4), currentUser);
+        User user = userModelManager.getUserByName(param.getDelivery().replace("@x5.ru", ""));
+        Delivery newDelivery = dmManager.createDelivery(system, user);
+        logModelManager.create(newDelivery, tcaManager.get(4), currentUser);
+
     }
 
     private void recoverTypeChangeAssignee()    {
         tcaManager.create("Create");
         tcaManager.create("Delete");
+        tcaManager.create("Create delivery");
+        tcaManager.create("Delete delivery");
+    }
+
+    public String getDelivery (Integer idSystem)    {
+        System system = systemModelManager.getSystemById(idSystem);
+        User user = dmManager.getDelivery(system).getDelivery();
+        return user.getName() + "@x5.ru";
     }
 
 }

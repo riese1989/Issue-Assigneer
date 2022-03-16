@@ -17,6 +17,7 @@ public class TCAManager extends ModelManager {
             @Override
             public TypeChangeAssignee doInTransaction() {
                 TypeChangeAssignee typeChangeAssignee = ao.create(TypeChangeAssignee.class);
+                typeChangeAssignee.setName(name);
                 typeChangeAssignee.save();
                 return typeChangeAssignee;
             }

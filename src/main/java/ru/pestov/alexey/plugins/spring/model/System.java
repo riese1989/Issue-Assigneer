@@ -2,6 +2,7 @@ package ru.pestov.alexey.plugins.spring.model;
 
 import net.java.ao.Entity;
 import net.java.ao.OneToMany;
+import net.java.ao.OneToOne;
 import net.java.ao.schema.Table;
 
 @Table("Systems")
@@ -17,4 +18,7 @@ public interface System extends Entity {
 
     @OneToMany
     SystemAssignees[] getSystemAssignees();
+
+    @OneToOne
+    Delivery getDelivery();
 }
