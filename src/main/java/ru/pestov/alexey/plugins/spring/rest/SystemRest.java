@@ -163,4 +163,10 @@ public class SystemRest {
     public Response getDelivery(@QueryParam("idsystem") Integer idSystem) {
         return Response.ok(dbService.getDelivery(idSystem)).build();
     }
+
+    @GET
+    @Path("/isdelivery")
+    public Response checkUserDelivery(@QueryParam("idsystem") Integer idSystem) {
+        return Response.ok(permissionService.isCurrentUserDelivery(idSystem).toString()).build();
+    }
 }

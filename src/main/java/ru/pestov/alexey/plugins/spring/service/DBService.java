@@ -191,11 +191,12 @@ public class DBService {
 
     private void updateDeliveryDB(Param param, User currentUser)   {
         System system = param.getSystem();
-        Delivery oldDelivery = dmManager.delete(system);
-        logModelManager.create(oldDelivery, tcaManager.get(4), currentUser);
+        User oldUser = dmManager.getDelivery(system).getUser();
+        dmManager.delete(system);
+        logModelManager.create(oldUser,system, tcaManager.get(4), currentUser);
         User user = userModelManager.getUserByName(param.getDelivery().replace("@x5.ru", ""));
         Delivery newDelivery = dmManager.createDelivery(system, user);
-        logModelManager.create(newDelivery, tcaManager.get(4), currentUser);
+        logModelManager.create(newDelivery.getUser(), system, tcaManager.get(3), currentUser);
 
     }
 
@@ -208,8 +209,14 @@ public class DBService {
 
     public String getDelivery (Integer idSystem)    {
         System system = systemModelManager.getSystemById(idSystem);
-        User user = dmManager.getDelivery(system).getDelivery();
+        User user = dmManager.getDelivery(system).getUser();
         return user.getName() + "@x5.ru";
+    }
+
+    public Boolean isCurrentUserDelivery(Integer idSystem, ApplicationUser currentUser) {
+        System system = systemModelManager.getSystemById(idSystem);
+        Delivery delivery = dmManager.getDelivery(system);
+        return delivery.getUser().getName().equals(currentUser.getDisplayName());
     }
 
 }

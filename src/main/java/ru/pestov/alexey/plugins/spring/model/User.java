@@ -26,7 +26,7 @@ public interface User extends Entity {
     @OneToMany
     SystemAssignees[] getSystemAssignees();
 
-    @OneToOne
-    Delivery getDelivery();
+    @OneToMany
+    Delivery[] getDelivery();
 
 }

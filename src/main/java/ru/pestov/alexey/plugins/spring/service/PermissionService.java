@@ -3,6 +3,7 @@ package ru.pestov.alexey.plugins.spring.service;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.enums.Role;
 
@@ -13,10 +14,12 @@ import javax.inject.Named;
 public class PermissionService {
 
     private final Property property;
+    private final DBService dbService;
 
     @Inject
-    public PermissionService(Property property) {
+    public PermissionService(Property property, DBService dbService) {
         this.property = property;
+        this.dbService = dbService;
     }
 
     public Role isCurrentUserAdminJira()    {
@@ -27,20 +30,15 @@ public class PermissionService {
         return Role.USER;
     }
 
-    public Role isCurrentUserSuperUser() {
+    public Boolean isCurrentUserSuperUser() {
         String nameGroupSuperUsers = property.getProperty("jira.group.superusers");
-        if (isUserInGroup(nameGroupSuperUsers))    {
-            return Role.SUPERUSER;
-        }
-        return Role.USER;
+        String adminGroup = property.getProperty("jira.group.admins");
+        return isUserInGroup(nameGroupSuperUsers) || isUserInGroup(adminGroup);
     }
 
-    public Role isCurrentUserDelivery(String idSystem)  {
-        String nameGroupDelivery = property.getProperty("jira.group.delivery");
-        if (isUserInGroup(nameGroupDelivery))    {
-            return Role.DELIVERY;
-        }
-        return Role.USER;
+    public Boolean isCurrentUserDelivery(Integer idSystem)  {
+        ApplicationUser currentUser = getCurrentUser();
+        return dbService.isCurrentUserDelivery(idSystem, currentUser);
     }
 
     private boolean isUserInGroup (ApplicationUser applicationUser, String nameGroup)   {
@@ -48,8 +46,11 @@ public class PermissionService {
         return groupManager.isUserInGroup(applicationUser, nameGroup);
     }
     private boolean isUserInGroup(String nameGroup) {
-        ApplicationUser currentUser = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
+        ApplicationUser currentUser = getCurrentUser();
         GroupManager groupManager = ComponentAccessor.getGroupManager();
         return groupManager.isUserInGroup(currentUser, nameGroup);
+    }
+    private ApplicationUser getCurrentUser()    {
+        return ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
     }
 }

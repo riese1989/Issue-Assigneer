@@ -28,7 +28,7 @@ public class DMManager extends ModelManager{
             public Delivery doInTransaction() {
                 Delivery delivery = ao.create(Delivery.class);
                 delivery.setSystem(system);
-                delivery.setDelivery(user);
+                delivery.setUser(user);
                 delivery.save();
                 return delivery;
             }

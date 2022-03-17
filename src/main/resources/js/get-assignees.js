@@ -8,7 +8,6 @@ $(function () {
             $.get(url + 'stage1', function (response) {
                 $('#stage1').val(response.split(", ")).trigger('change')
             })
-            console.log(2)
             $.get(url + 'stage21', function (response) {
                 $('#stage21').val(response.split(", ")).trigger('change')
             })
