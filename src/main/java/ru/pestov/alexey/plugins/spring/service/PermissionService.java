@@ -53,4 +53,8 @@ public class PermissionService {
     private ApplicationUser getCurrentUser()    {
         return ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
     }
+
+    public Boolean isEnable (Integer idSystem)  {
+        return isCurrentUserDelivery(idSystem) || isCurrentUserSuperUser();
+    }
 }

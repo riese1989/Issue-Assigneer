@@ -169,4 +169,10 @@ public class SystemRest {
     public Response checkUserDelivery(@QueryParam("idsystem") Integer idSystem) {
         return Response.ok(permissionService.isCurrentUserDelivery(idSystem).toString()).build();
     }
+
+    @GET
+    @Path("/isenable")
+    public Response checkEnable(@QueryParam("idsystem") Integer idSystem)   {
+        return Response.ok(permissionService.isEnable(idSystem).toString()).build();
+    }
 }
