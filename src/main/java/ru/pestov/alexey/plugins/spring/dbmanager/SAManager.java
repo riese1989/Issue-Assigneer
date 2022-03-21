@@ -62,5 +62,21 @@ public class SAManager extends ModelManager {
         });
     }
 
+    public SystemAssignees[] getSystemAssigneesByUser(User user)    {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
+                return ao.find(SystemAssignees.class, Query.select().where("USER_ID = ? AND STAGE_ID <> 6", user.getID()));
+            }
+        });
+    }
 
+    public SystemAssignees[] getSystemAssigneesByAuthorize(User user)    {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
+                return ao.find(SystemAssignees.class, Query.select().where("USER_ID = ? AND STAGE_ID = 6", user.getID()));
+            }
+        });
+    }
 }

@@ -45,4 +45,13 @@ public class DMManager extends ModelManager{
             }
         });
     }
+
+    public Delivery[] getSystemsByDelivery(User user)   {
+        return ao.executeInTransaction(new TransactionCallback<Delivery[]>() {
+            @Override
+            public Delivery[] doInTransaction() {
+                return ao.find(Delivery.class, Query.select().where("USER_ID = ?", user.getID()));
+            }
+        });
+    }
 }

@@ -24,6 +24,7 @@ public class JSONService {
     private JSONObject jsonObject;
     private final LogService logService;
     private final String pathJson;
+    private final String pathDelivery;
     private final StringService stringService;
     private final Property property;
     private final SMManager systemModelManager;
@@ -39,13 +40,10 @@ public class JSONService {
         this.logService = logService;
         this.systemModelManager = systemModelManager;
         this.SAManager = SAManager;
-        pathJson = getPathJSON();
+        pathJson = property.getProperty("file.cab.path");
+        pathDelivery = property.getProperty("file.delivery.path");
         jsonObject = getJSONObjectFromFile(pathJson);
-        jsonDelivery = getJSONObjectFromFile(property.getProperty("file.delivery.path"));
-    }
-
-    private String getPathJSON() {
-        return property.getProperty("file.cab.path");
+        jsonDelivery = getJSONObjectFromFile(pathDelivery);
     }
 
     public void createJSONObject(Mode mode)    {
@@ -114,7 +112,9 @@ public class JSONService {
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(nameTypeChange, jsonTypeChange);
         jsonObject.put(nameSystem, jsonSystem);
+        jsonDelivery.put(nameSystem, param.getDelivery().replaceAll("@x5.ru",""));
         writeToFile(jsonObject, pathJson);
+        writeToFile(jsonDelivery, pathDelivery);
     }
 
     private void writeToFile(JSONObject jsonObject, String path) {

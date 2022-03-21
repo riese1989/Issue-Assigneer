@@ -5,7 +5,7 @@
 <body>
 <div class="aui-message aui-message-info">
     <p class="title">
-        <strong>Cервис для управления участниками релизного процесса</strong>
+        <strong>Сервис для управления участниками релизного процесса</strong>
     </p>
     <p><a href = "https://wiki.x5.ru/pages/viewpage.action?pageId=129043254">Инструкция по CAB</a></p>
 </div>
@@ -17,6 +17,24 @@
             <option value="0">Select</option>
         </select>
     </div>
+    <fieldset class="group">
+        <div class="checkbox">
+            <input class="checkbox" type="checkbox" name="checkbox" id="check1" value="1">
+            <label for="check1">Показывать все системы</label>
+        </div>
+        <div class="checkbox">
+            <input class="checkbox" type="checkbox" name="checkbox" id="check2" value="2">
+            <label for="check2">Где я согласующий</label>
+        </div>
+        <div class="checkbox">
+            <input class="checkbox" type="checkbox" name="checkbox" id="check3" value="3">
+            <label for="check3">Где я авторизующий</label>
+        </div>
+        <div class="checkbox">
+            <input class="checkbox" type="checkbox" name="checkbox" id="check4" value="4">
+            <label for="check4">Где я delivery</label>
+        </div>
+    </fieldset>
     <div class="field-group">
         <label for="typechange">Тип измения</label>
         <select class="select" id="typechange" name="typechange">
@@ -34,35 +52,31 @@
         </select>
     </div>
     <div class="field-group">
-        <label for="stage1">Стадия 1</label>
+        <label for="stage1" title=" 1 Этап согласования
+функционального лидера или Начальника отдела функциональной области или Техническим владельцем
+
+Роль определяется исходя из орг.структуры и требований процесса согласований конкретной области">1 этап</label>
         <select class="multiselect" id="stage1" name="stage1" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage21">Стадия 2.1</label>
+        <label for="stage21" title="2 Этап согласования: менеджер изменений">Менеджер изменений</label>
         <select class="multiselect" id="stage21" name="stage21" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage22">Стадия 2.2</label>
+        <label for="stage22" title="2 Этап согласования: (м.б. определены заранее или назначены при необходимости дополнительного контроля менеджером изменений)">2 этап</label>
         <select class="multiselect" id="stage22" name="stage22" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage23">Стадия 2.3</label>
+        <label for="stage23" title="2 Этап согласования: Поддержка">Поддержка</label>
         <select class="multiselect" id="stage23" name="stage23" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage3">Стадия 3</label>
+        <label for="stage3">Утверждающий</label>
         <select class="multiselect" id="stage3" name="stage3" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="active">Система активна?</label>
-        <select class="selectdown" id="active" name="active" disabled>
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
         </select>
     </div>
     <div class="field-group">
@@ -75,6 +89,14 @@
         <select class="multiselect" id="delivery" name="delivery" disabled>
         </select>
     </div>
+    <div class="field-group">
+        <label for="active">Система активна?</label>
+        <select class="selectdown" id="active" name="active" disabled>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
+        </select>
+    </div>
+    <aui-toggle id="gzip-compression" label="use gzip compression"></aui-toggle>
     <div class="buttons-container">
         <div class="buttons">
             <input class="button submit" type="submit" value="Save" id="save" disabled>

@@ -2,6 +2,7 @@ package ru.pestov.alexey.plugins.spring.service;
 
 import com.atlassian.jira.JiraApplicationContext;
 import com.atlassian.jira.component.ComponentAccessor;
+import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.jira.user.util.UserManager;
@@ -38,5 +39,9 @@ public class UserService {
         }
         activeUsers.stream().sorted().collect(Collectors.toList());
         return activeUsers;
+    }
+
+    public ApplicationUser getCurrentUser() {
+        return ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
     }
 }

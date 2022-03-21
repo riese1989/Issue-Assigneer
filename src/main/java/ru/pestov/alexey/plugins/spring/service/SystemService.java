@@ -1,8 +1,10 @@
 package ru.pestov.alexey.plugins.spring.service;
 
+import com.google.errorprone.annotations.concurrent.LazyInit;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.pestov.alexey.plugins.spring.dbmanager.SAManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.SMManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.StMManager;
@@ -64,21 +66,6 @@ public class SystemService {
             if (i != nameSystems.size() - 1) {
                 result += regex;
             }
-        }
-        return result;
-    }
-
-    public HashMap<Integer, String> getHashMapSystems()  {
-        HashMap<Integer, String> result = new HashMap<>();
-        System[] systems = smManager.getAllSystems();
-        if (nameSystems.size() == 0) {
-            for (System system : systems) {
-                nameSystems.add(system.getName());
-            }
-        }
-        for (String nameSystem : nameSystems)   {
-            System system = smManager.getSystemByName(nameSystem);
-            result.put(system.getID(), system.getName());
         }
         return result;
     }

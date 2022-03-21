@@ -79,16 +79,9 @@ public class SystemRest {
 
     @GET
     @Path("/getlistsystems")
-    public Response getListSystems() {
-        return Response.ok(systemService.getHashMapSystems().toString()).build();
+    public Response getListSystems(@QueryParam("valuefilter") String valueFilter) {
+        return Response.ok(dbService.getHashMapSystems(valueFilter).toString()).build();
     }
-
-//    @GET
-//    @Path("/getsystem")
-//    public Response getSystem(@Context HttpServletRequest httpServletRequest,
-//                              @QueryParam("namesystem") String nameSystem) {
-//        return Response.ok(systemService.getSystem(nameSystem).toString()).build();
-//    }
 
     //done
     @GET

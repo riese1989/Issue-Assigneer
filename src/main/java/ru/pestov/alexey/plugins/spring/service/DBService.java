@@ -6,6 +6,7 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.context.ApplicationContext;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -217,6 +218,75 @@ public class DBService {
         System system = systemModelManager.getSystemById(idSystem);
         Delivery delivery = dmManager.getDelivery(system);
         return delivery.getUser().getName().equals(currentUser.getDisplayName());
+    }
+
+    public HashMap<Integer, String> getHashMapSystems(String valueFilter)  {
+        List<String> nameSystems = new ArrayList<>();
+        HashMap<Integer, String> result = new HashMap<>();
+        List<System> systems = new ArrayList<>();
+        ApplicationUser applicationUser = userService.getCurrentUser();
+        User user = userModelManager.getUserByName(applicationUser.getDisplayName());
+        List<String> valuesFilter = Arrays.asList(valueFilter.split(","));
+        for (String value : valuesFilter)   {
+            if(value.equals("1"))   {
+                systems = Arrays.asList(systemModelManager.getAllSystems());
+                break;
+            }
+            switch (value) {
+                case "2":   {
+                    systems.addAll(getSystemsWhereAssignee(user));
+                    break;
+                }
+                case "3":   {
+                    systems.addAll(getSystemWhereAuthorize(user));
+                    break;
+                }
+                case "4":   {
+                    systems.addAll(getSystemWhereDelivery(user));
+                    break;
+                }
+            }
+        }
+        if (nameSystems.size() == 0) {
+            for (System system : systems) {
+                nameSystems.add(system.getName());
+            }
+        }
+        for (String nameSystem : nameSystems)   {
+            System system = systemModelManager.getSystemByName(nameSystem);
+            if (result.containsValue(system.getName())) {
+                continue;
+            }
+            result.put(system.getID(), system.getName());
+        }
+        return result;
+    }
+
+    private List<System> getSystemsWhereAssignee(User user)  {
+        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByUser(user));
+        return getSystemFromSystemAssignees(systemAssignees);
+    }
+
+    private List<System> getSystemWhereAuthorize(User user) {
+        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByAuthorize(user));
+        return getSystemFromSystemAssignees(systemAssignees);
+    }
+
+    private List<System> getSystemWhereDelivery(User user)  {
+        List<System> systems =  new ArrayList<>();
+        List<Delivery> deliverySystems = Arrays.asList(dmManager.getSystemsByDelivery(user));
+        deliverySystems.forEach(delivery -> systems.add(delivery.getSystem()));
+        return systems;
+    }
+
+
+
+    private List<System> getSystemFromSystemAssignees(List<SystemAssignees> systemAssignees)    {
+        List<System> systems = new ArrayList<>();
+        for (SystemAssignees systemAssignee : systemAssignees)    {
+            systems.add(systemAssignee.getSystem());
+        }
+        return systems;
     }
 
 }
