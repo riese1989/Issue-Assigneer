@@ -6,7 +6,8 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.context.ApplicationContext;
+import ru.pestov.alexey.plugins.spring.comparators.SystemCABComparator;
+import ru.pestov.alexey.plugins.spring.comparators.SystemComparator;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -261,7 +262,6 @@ public class DBService {
         }
         return result;
     }
-
     private List<System> getSystemsWhereAssignee(User user)  {
         List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByUser(user));
         return getSystemFromSystemAssignees(systemAssignees);

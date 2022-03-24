@@ -2,10 +2,8 @@ package ru.pestov.alexey.plugins.spring.service;
 
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.user.ApplicationUser;
-import org.jfree.util.Log;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.FileInputStream;
 import java.util.logging.LogManager;

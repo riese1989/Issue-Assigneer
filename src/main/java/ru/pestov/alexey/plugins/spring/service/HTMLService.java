@@ -3,8 +3,7 @@ package ru.pestov.alexey.plugins.spring.service;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import ru.pestov.alexey.plugins.spring.comparators.SystemComparator;
+import ru.pestov.alexey.plugins.spring.comparators.SystemCABComparator;
 import ru.pestov.alexey.plugins.spring.entity.Stage;
 import ru.pestov.alexey.plugins.spring.entity.SystemCAB;
 import ru.pestov.alexey.plugins.spring.entity.TypeChange;
@@ -83,7 +82,7 @@ public class HTMLService {
             TypeChangeService.sort(systemCAB);
             systems.add(systemCAB);
         }
-        Collections.sort(systems, new SystemComparator());
+        Collections.sort(systems, new SystemCABComparator());
         return getStringForWrite();
     }
 

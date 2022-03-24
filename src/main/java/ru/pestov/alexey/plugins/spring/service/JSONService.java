@@ -25,7 +25,6 @@ public class JSONService {
     private final LogService logService;
     private final String pathJson;
     private final String pathDelivery;
-    private final StringService stringService;
     private final Property property;
     private final SMManager systemModelManager;
     private final SAManager SAManager;
@@ -33,10 +32,9 @@ public class JSONService {
     private static int i = 0;
 
     @Inject
-    public JSONService(StringService stringService, LogService logService,
+    public JSONService(LogService logService,
                        Property property, SMManager systemModelManager, SAManager SAManager) {
         this.property = property;
-        this.stringService = stringService;
         this.logService = logService;
         this.systemModelManager = systemModelManager;
         this.SAManager = SAManager;

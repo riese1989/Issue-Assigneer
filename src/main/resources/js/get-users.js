@@ -1,6 +1,8 @@
 $(function () {
-    var jiraAddress = 'http://localhost:2990/jira/'
-    $.get(jiraAddress + 'rest/cab/1.0/systems/getactiveusers', function (response) {
+    var currentURL = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search
+    var jiraURL = currentURL.split("secure")[0]
+    const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
+    $.get(jiraRestAddress + 'getactiveusers', function (response) {
         const arrayUsers = response.substring(1, response.length - 1).split(", ");
         const stages = ["#stage1", "#stage21", "#stage22", "#stage23", "#stage3","#authorize", "#delivery"]
         stages.forEach((stage) =>{

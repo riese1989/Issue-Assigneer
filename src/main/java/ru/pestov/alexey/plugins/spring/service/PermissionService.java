@@ -3,7 +3,6 @@ package ru.pestov.alexey.plugins.spring.service;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.enums.Role;
 

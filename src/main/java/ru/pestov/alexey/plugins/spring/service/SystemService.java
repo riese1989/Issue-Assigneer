@@ -1,10 +1,8 @@
 package ru.pestov.alexey.plugins.spring.service;
 
-import com.google.errorprone.annotations.concurrent.LazyInit;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import ru.pestov.alexey.plugins.spring.dbmanager.SAManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.SMManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.StMManager;

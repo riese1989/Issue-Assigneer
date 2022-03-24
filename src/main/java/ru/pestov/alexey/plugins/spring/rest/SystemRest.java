@@ -24,7 +24,6 @@ import java.util.List;
 public class SystemRest {
 
     private final JSONService jsonService;
-    private final StringService stringService;
     private final TypeChangeService typeChangeService;
     private final SystemService systemService;
     private final IssueAssigneerWebworkAction issueAssigneerWebworkAction;
@@ -38,7 +37,6 @@ public class SystemRest {
     @Inject
     public SystemRest(@ComponentImport PluginSettingsFactory pluginSettingsFactory,
                       final JSONService jsonService,
-                      final StringService stringService,
                       final TypeChangeService typeChangeService,
                       final SystemService systemService,
                       final UserService userService,
@@ -48,7 +46,6 @@ public class SystemRest {
                       DBService dbService) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
-        this.stringService = stringService;
         this.typeChangeService = typeChangeService;
         this.systemService = systemService;
         this.userService = userService;

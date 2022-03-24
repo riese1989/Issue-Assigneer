@@ -1,9 +1,6 @@
 package ru.pestov.alexey.plugins.spring.service;
 
-
-import org.apache.commons.httpclient.HttpClient;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -15,8 +12,6 @@ import org.json.simple.JSONObject;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Scanner;
 
 @Named
 public class HTTPService {
