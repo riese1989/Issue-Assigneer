@@ -1,8 +1,9 @@
 $(function () {
     var j = 1
+    var countCheckedBefore = 0;
     $(document.body).on("change", ".checkbox", function () {
         j++
-        if (j%3 === 0) {
+        if (j % 2 === 0) {
             var systemCab = document.getElementById("systemCab");
             while (systemCab.length !== 0) {
                 for (var i = 0; i <= systemCab.length - 1; i++) {
@@ -18,36 +19,39 @@ $(function () {
                 if (checkbox.checked)
                     values += checkbox.value + ','
             }
-            var newOption = document.createElement("option")
-            newOption.innerHTML = "Select"
-            newOption.value = "0";
-            document.querySelector('#systemCab').append(newOption)
-            var param = values.replaceAll("function values() { [native code] }", "")
-            $.get(jiraRestAddress + 'getlistsystems?valuefilter=' + param, function (response) {
-                var hashMapSystems = response.substr(1, response.length - 2);
-                if (hashMapSystems !== "") {
-                    var mapSystems = hashMapSystems.split(", ")
-                    mapSystems.forEach((system) => {
-                        newOption = document.createElement("option")
-                        let dataSystem = system.split("=")
-                        newOption.innerHTML = dataSystem[1]
-                        newOption.value = dataSystem[0];
-                        document.querySelector('#systemCab').append(newOption)
-                    })
+            if (values === "") {
+                $('#save').prop('disabled', true)
+            } else {
+                var newOption = document.createElement("option")
+                newOption.innerHTML = "Select"
+                newOption.value = "0";
+                document.querySelector('#systemCab').append(newOption)
+                var param = values.replaceAll("function values() { [native code] }", "")
+                $.get(jiraRestAddress + 'getlistsystems?valuefilter=' + param, function (response) {
+                    var hashMapSystems = response.substr(1, response.length - 2);
+                    if (hashMapSystems !== "") {
+                        var mapSystems = hashMapSystems.split(", ")
+                        mapSystems.forEach((system) => {
+                            newOption = document.createElement("option")
+                            let dataSystem = system.split("=")
+                            newOption.innerHTML = dataSystem[1]
+                            newOption.value = dataSystem[0];
+                            document.querySelector('#systemCab').append(newOption)
+                        })
+                    }
+                })
+                var countCheckedAfter = 0;
+                for (let checkbox of markedCheckbox) {
+                    if (checkbox.checked)
+                        countCheckedAfter++
                 }
-            })
-            j = 0
-            //todo доделать (когда select везде и нет отмеченных чекбоксов delivery и save активны
-            for (let checkbox of markedCheckbox) {
-                if (checkbox.checked && j !== 0 && systemCab.length !== 0)    {
+                if (countCheckedBefore !== countCheckedAfter || countCheckedAfter === 0)    {
                     var typeChange = document.getElementById("typechange")
                     typeChange.selectedIndex = 0
                     systemCab.selectedIndex = 0
                     $('.select').trigger('change')
-                    $('#save').prop('disabled', true)
-                    break
                 }
-                j++
+                countCheckedBefore = countCheckedAfter
             }
         }
     })
