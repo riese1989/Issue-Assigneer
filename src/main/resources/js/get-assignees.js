@@ -5,11 +5,13 @@ $(function () {
         const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
         const system = document.getElementById("systemCab")
         const typechange = document.getElementById("typechange")
-        if (system.value !== "0" && typechange.value !== "0" && system.value !== "" && typechange.value !== "") {
-            var url = jiraRestAddress + 'getassignees?namesystem=' + system.value + '&typechange=' + typechange.value + "&stage="
+        if (system.value !== "0")   {
             $.get(jiraRestAddress + 'delivery?idsystem=' + system.value, function (response) {
                 $('#delivery').val(response).trigger('change')
             })
+        }
+        if (system.value !== "0" && typechange.value !== "0" && system.value !== "" && typechange.value !== "") {
+            var url = jiraRestAddress + 'getassignees?namesystem=' + system.value + '&typechange=' + typechange.value + "&stage="
             $.get(url + 'stage1', function (response) {
                 $('#stage1').val(response.split(", ")).trigger('change')
             })

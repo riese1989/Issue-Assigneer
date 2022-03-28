@@ -4,28 +4,27 @@ $(function () {
     $(document.body).on("change", ".checkbox", function () {
         j++
         if (j % 2 === 0) {
-            var systemCab = document.getElementById("systemCab");
+            const systemCab = document.getElementById("systemCab");
+            const typeChange = document.getElementById("typechange")
             while (systemCab.length !== 0) {
                 for (var i = 0; i <= systemCab.length - 1; i++) {
                     systemCab.remove(i)
                 }
             }
+            var newOption = document.createElement("option")
+            newOption.innerHTML = "Select"
+            newOption.value = "0";
+            document.querySelector('#systemCab').append(newOption)
             var currentURL = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search
             var jiraURL = currentURL.split("secure")[0]
             const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
-            var markedCheckbox = document.getElementsByName("checkbox")
+            const markedCheckbox = document.getElementsByName("checkbox")
             var values = ""
             for (let checkbox of markedCheckbox) {
                 if (checkbox.checked)
                     values += checkbox.value + ','
             }
-            if (values === "") {
-                $('#save').prop('disabled', true)
-            } else {
-                var newOption = document.createElement("option")
-                newOption.innerHTML = "Select"
-                newOption.value = "0";
-                document.querySelector('#systemCab').append(newOption)
+            if (values !== "") {
                 var param = values.replaceAll("function values() { [native code] }", "")
                 $.get(jiraRestAddress + 'getlistsystems?valuefilter=' + param, function (response) {
                     var hashMapSystems = response.substr(1, response.length - 2);
@@ -40,19 +39,18 @@ $(function () {
                         })
                     }
                 })
-                var countCheckedAfter = 0;
-                for (let checkbox of markedCheckbox) {
-                    if (checkbox.checked)
-                        countCheckedAfter++
-                }
-                if (countCheckedBefore !== countCheckedAfter || countCheckedAfter === 0)    {
-                    var typeChange = document.getElementById("typechange")
-                    typeChange.selectedIndex = 0
-                    systemCab.selectedIndex = 0
-                    $('.select').trigger('change')
-                }
-                countCheckedBefore = countCheckedAfter
             }
+            var countCheckedAfter = 0;
+            for (let checkbox of markedCheckbox) {
+                if (checkbox.checked)
+                    countCheckedAfter++
+            }
+            if (countCheckedBefore !== countCheckedAfter || countCheckedAfter === 0 || values === "") {
+                typeChange.selectedIndex = 0
+                systemCab.selectedIndex = 0
+                $('.select').trigger('change')
+            }
+            countCheckedBefore = countCheckedAfter
         }
     })
 })
