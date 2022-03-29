@@ -54,4 +54,15 @@ public class DMManager extends ModelManager{
             }
         });
     }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<Delivery>() {
+            @Override
+            public Delivery doInTransaction() {
+                Delivery[] deliveries =ao.find(Delivery.class);
+                ao.delete(deliveries);
+                return null;
+            }
+        });
+    }
 }

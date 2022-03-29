@@ -79,4 +79,15 @@ public class SAManager extends ModelManager {
             }
         });
     }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<SystemAssignees>() {
+            @Override
+            public SystemAssignees doInTransaction() {
+                SystemAssignees[] systemAssignees =ao.find(SystemAssignees.class);
+                ao.delete(systemAssignees);
+                return null;
+            }
+        });
+    }
 }

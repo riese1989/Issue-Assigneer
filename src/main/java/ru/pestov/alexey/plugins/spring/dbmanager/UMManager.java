@@ -4,6 +4,7 @@ import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
+import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 import ru.pestov.alexey.plugins.spring.model.User;
 
 import javax.inject.Named;
@@ -71,6 +72,17 @@ public class UMManager extends ModelManager{
             @Override
             public User doInTransaction() {
                 return ao.find(User.class, Query.select().where("id = ?", id))[0];
+            }
+        });
+    }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<User>() {
+            @Override
+            public User doInTransaction() {
+                User[] users =ao.find(User.class);
+                ao.delete(users);
+                return null;
             }
         });
     }

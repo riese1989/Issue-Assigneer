@@ -55,6 +55,7 @@ public class DBService {
     }
 
     public Integer recoverDB() {
+        clearDB();
         jsonService.createJSONObject(Mode.FILE);
         recoverUser();
         recoverStage();
@@ -64,6 +65,17 @@ public class DBService {
         recoverDelivery();
         recoverTypeChangeAssignee();
         return 1;
+    }
+
+    private void clearDB()  {
+        logModelManager.deleteAll();
+        SAManager.deleteAll();
+        dmManager.deleteAll();
+        systemModelManager.deleteAll();
+        userModelManager.deleteAll();
+        typeChangeModelManager.deleteAll();
+        stageModelManager.deleteAll();
+        tcaManager.deleteAll();
     }
 
     private void recoverUser() {

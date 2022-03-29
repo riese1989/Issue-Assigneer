@@ -3,6 +3,7 @@ package ru.pestov.alexey.plugins.spring.dbmanager;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
+import ru.pestov.alexey.plugins.spring.model.TypeChangeAssignee;
 import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 
 import javax.inject.Named;
@@ -55,6 +56,17 @@ public class TCMManager extends ModelManager {
             @Override
             public TypeChangeDB doInTransaction() {
                 return ao.get(TypeChangeDB.class, idTypeChange);
+            }
+        });
+    }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
+            @Override
+            public TypeChangeDB doInTransaction() {
+                TypeChangeDB[] typeChangeDBS =ao.find(TypeChangeDB.class);
+                ao.delete(typeChangeDBS);
+                return null;
             }
         });
     }

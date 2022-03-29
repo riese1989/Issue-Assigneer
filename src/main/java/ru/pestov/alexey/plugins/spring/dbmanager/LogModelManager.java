@@ -50,4 +50,15 @@ public class LogModelManager extends ModelManager{
             }
         });
     }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<Log>() {
+            @Override
+            public Log doInTransaction() {
+                Log[] logs =ao.find(Log.class);
+                ao.delete(logs);
+                return null;
+            }
+        });
+    }
 }

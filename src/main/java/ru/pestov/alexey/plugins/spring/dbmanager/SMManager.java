@@ -4,6 +4,7 @@ import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.System;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 
 import javax.inject.Named;
 
@@ -69,6 +70,17 @@ public class SMManager extends ModelManager{
             public Boolean doInTransaction() {
                 System system = ao.get(System.class, idSystem);
                 return system.getActive();
+            }
+        });
+    }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<System>() {
+            @Override
+            public System doInTransaction() {
+                System[] systems =ao.find(System.class);
+                ao.delete(systems);
+                return null;
             }
         });
     }

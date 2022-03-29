@@ -4,6 +4,7 @@ import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.Stage;
+import ru.pestov.alexey.plugins.spring.model.System;
 
 import javax.inject.Named;
 
@@ -37,6 +38,17 @@ public class StMManager extends ModelManager {
             @Override
             public Stage doInTransaction() {
                 return ao.find(Stage.class, Query.select().where("NAME = ?", nameStage))[0];
+            }
+        });
+    }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<Stage>() {
+            @Override
+            public Stage doInTransaction() {
+                Stage[] stages =ao.find(Stage.class);
+                ao.delete(stages);
+                return null;
             }
         });
     }
