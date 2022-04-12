@@ -19,9 +19,8 @@ public class UserService {
         this.property = property;
     }
     public List<ApplicationUser> getUsersJira() {
-        String groupUsers = property.getProperty("jira.group.users");
         GroupManager groupManager = ComponentAccessor.getGroupManager();
-        return  (List<ApplicationUser>) groupManager.getUsersInGroup(groupUsers);
+        return  (List<ApplicationUser>) groupManager.getUsersInGroup("jira-users");
     }
 
     public List<String> getActiveUsers() {

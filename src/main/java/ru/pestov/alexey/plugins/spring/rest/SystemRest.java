@@ -65,13 +65,15 @@ public class SystemRest {
     @GET
     @Path("/cr")
     public Response createUsers() {
-        return Response.ok(hService.createUsers()).build();
+        String result = hService.createUsers();
+        return Response.ok(result).build();
     }
 
     @GET
     @Path("/recover")
     public Response recoverDB() {
-        return Response.ok(dbService.recoverDB()).build();
+        dbService.recoverDB();
+        return Response.ok().build();
     }
 
     @GET

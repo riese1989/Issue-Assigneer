@@ -14,16 +14,16 @@ public class LogService {
     private static Logger LOGGER = null;
 
     static {
-        try(FileInputStream ins = new FileInputStream(new Property().getProperty("file.settings.log"))){
-            LogManager.getLogManager().readConfiguration(ins);
-            LOGGER = Logger.getLogger(LogService.class.getName());
-        }   catch (Exception ignore){
-            ignore.printStackTrace();
-        }
+//        try(FileInputStream ins = new FileInputStream(new Property().getProperty("file.settings.log"))){
+//            LogManager.getLogManager().readConfiguration(ins);
+//            LOGGER = Logger.getLogger(LogService.class.getName());
+//        }   catch (Exception ignore){
+//            ignore.printStackTrace();
+//        }
     }
 
     public void log(String message) {
-        ApplicationUser user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
-        LOGGER.info("User " + user.getEmailAddress() + " was changed " + message);
+//        ApplicationUser user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
+//        LOGGER.info("User " + user.getEmailAddress() + " was changed " + message);
     }
 }

@@ -18,7 +18,7 @@ public class DMManager extends ModelManager{
         return ao.executeInTransaction(new TransactionCallback<Delivery>() {
             @Override
             public Delivery doInTransaction() {
-                return ao.find(Delivery.class, Query.select().where("system_id = ?", system.getID()))[0];
+                return ao.find(Delivery.class, Query.select().where("SYSTEM_ID = ?", system.getID()))[0];
             }
         });
     }
@@ -39,7 +39,7 @@ public class DMManager extends ModelManager{
         return ao.executeInTransaction(new TransactionCallback<Delivery>() {
             @Override
             public Delivery doInTransaction() {
-                Delivery delivery = ao.find(Delivery.class, Query.select().where("system_id = ?", system.getID()))[0];
+                Delivery delivery = ao.find(Delivery.class, Query.select().where("SYSTEM_ID = ?", system.getID()))[0];
                 ao.delete(delivery);
                 return delivery;
             }

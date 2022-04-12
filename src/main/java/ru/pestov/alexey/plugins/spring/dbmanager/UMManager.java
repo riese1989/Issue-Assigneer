@@ -71,7 +71,7 @@ public class UMManager extends ModelManager{
         return ao.executeInTransaction(new TransactionCallback<User>() {
             @Override
             public User doInTransaction() {
-                return ao.find(User.class, Query.select().where("id = ?", id))[0];
+                return ao.find(User.class, Query.select().where("ID = ?", id))[0];
             }
         });
     }

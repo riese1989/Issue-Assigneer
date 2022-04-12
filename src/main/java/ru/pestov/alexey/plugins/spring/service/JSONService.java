@@ -44,13 +44,14 @@ public class JSONService {
         jsonDelivery = getJSONObjectFromFile(pathDelivery);
     }
 
-    public void createJSONObject(Mode mode)    {
+    public JSONObject createJSONObject(Mode mode)    {
         if (mode == Mode.DB) {
             jsonObject = getJSONObjectFromDB();
         }
         else    {
             jsonObject = getJSONObjectFromFile(pathJson);
         }
+        return jsonObject;
     }
 
     private JSONObject getJSONObjectFromFile(String pathJson) {

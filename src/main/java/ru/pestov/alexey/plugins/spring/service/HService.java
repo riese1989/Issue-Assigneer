@@ -9,10 +9,16 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Data;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import ru.pestov.alexey.plugins.spring.dbmanager.UMManager;
+import ru.pestov.alexey.plugins.spring.enums.Mode;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -32,34 +38,49 @@ public class HService {
     public HService(final JSONService jsonService, final UMManager userModelManagerModel) {
         this.jsonService = jsonService;
         this.userModelManagerModel = userModelManagerModel;
-        jsonObject = jsonService.getJsonObject();
+        jsonObject = jsonService.createJSONObject(Mode.FILE);
     }
 
-    public Integer createUsers()   {
-        Iterator<String> systems = jsonObject.keySet().iterator();
-        while(systems.hasNext()) {
-            String system = systems.next();
-            JSONObject jsonObject1 = (JSONObject) jsonObject.get(system);
-            List<String> typeChanges = new ArrayList<>(Arrays.asList("Bugfix", "Фоновое задание", "Предсогласованное изменение", "Активация настроек", "Дефект", "Внерелиз", "Изменение настроек", "Массовая выгрузка", "Спринт", "Релиз"));
-            List<String> stages = new ArrayList<>(Arrays.asList("stage22", "stage3", "stage23", "stage21", "authorize", "stage1"));
-            for (String typeChange : typeChanges)   {
-                JSONObject change = (JSONObject) jsonObject1.get(typeChange);
-                for (String stage : stages) {
-                    try {
-                        JSONArray jsonArray = (JSONArray) change.get(stage);
-                        for (int i = 0; i < jsonArray.size(); i++)  {
-                            createUsers((String) jsonArray.get(i));
-                            count++;
+    public String createUsers() {
+        String result = "";
+        String forWrite = "";
+        try {
+            Iterator<String> systems = jsonObject.keySet().iterator();
+            while (systems.hasNext()) {
+                String system = systems.next();
+                JSONObject jsonObject1 = (JSONObject) jsonObject.get(system);                List<String> typeChanges = new ArrayList<>(Arrays.asList("Bugfix", "Фоновое задание", "Предсогласованное изменение", "Активация настроек", "Дефект", "Внерелиз", "Изменение настроек", "Массовая выгрузка", "Спринт", "Релиз"));
+                List<String> stages = new ArrayList<>(Arrays.asList("stage22", "stage3", "stage23", "stage21", "authorize", "stage1"));
+                for (String typeChange : typeChanges) {
+                    JSONObject change = (JSONObject) jsonObject1.get(typeChange);
+                    for (String stage : stages) {
+                        try {
+                            JSONArray jsonArray = (JSONArray) change.get(stage);
+                            for (int i = 0; i < jsonArray.size(); i++) {
+                                result += (String) jsonArray.get(i);
+                                createUsers((String) jsonArray.get(i));
+                                forWrite += "\"" + jsonArray.get(i) + "\",";
+                                count++;
+                            }
+                        } catch (Exception ex) {
+                            continue;
                         }
                     }
-                    catch (Exception ex)    {
-                        continue;
-                    }
-                }
 
+                }
             }
         }
-        return count;
+        catch (Exception ex)   {
+            result += "ERROR";
+            ex.printStackTrace();
+        }
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/alexey.pestov/Desktop/Issue-Assigneer/src/main/resources/supportFiles/users.txt"));
+            writer.write(forWrite);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 

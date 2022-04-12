@@ -38,7 +38,7 @@ public class SMManager extends ModelManager{
         return ao.executeInTransaction(new TransactionCallback<System>() {
             @Override
             public System doInTransaction() {
-                return ao.find(System.class, Query.select().where("name = ?", name))[0];
+                return ao.find(System.class, Query.select().where("NAME = ?", name))[0];
             }
         });
     }

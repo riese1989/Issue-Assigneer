@@ -6,3 +6,5 @@ LICENSE
 src/main/resources/help
 src/main/resources/logs
 /src/main/resources/supportFiles/
+/src/main/resources/js/test.js
+/src/main/resources/js/test2.js

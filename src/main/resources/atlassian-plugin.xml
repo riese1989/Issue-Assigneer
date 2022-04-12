@@ -21,19 +21,23 @@
     <web-resource key="selects-resources" name="issue-assigneer Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         <dependency>com.atlassian.auiplugin:aui-select2</dependency>
-        <resource type="download" name="system.js" location="/js/system.js"/>
         <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
         <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
         <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
         <resource type="download" name="get-status.js" location="/js/get-status.js"/>
         <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
         <resource type="download" name="show-message.js" location="/js/show-message.js"/>
-        <resource type="download" name="get-users.js" location="/js/get-users.js"/>
+        <resource type="download" name="get-systems.js" location="/js/get-systems.js"/>
+        <resource type="download" name="get-active-users.js" location="/js/get-active-users.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
-        <resource type="download" name="issue-assigneer.js" location="/js/issue-assigneer.js"/>
-        <resource type="download" name="enable-save.js" location="/js/enable-save.js"/>
         <resource type="download" name="images/" location="/images"/>
         <context>selects</context>
+    </web-resource>
+    <web-resource key="selects2-resources" name="issue-assigneer-2 Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="get-active-users.js" location="/js/get-active-users.js"/>
+        <resource type="download" name="enable-save.js" location="/js/enable-save.js"/>
+        <context>selects2</context>
     </web-resource>
     <web-item name="Issue Assigneer" i18n-name-key="issue-assigneer.name" key="issue-assigneer-webitem"
               section="system.top.navigation.bar" weight="1000">

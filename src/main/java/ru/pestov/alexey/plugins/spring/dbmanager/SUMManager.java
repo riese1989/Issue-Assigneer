@@ -15,7 +15,7 @@ public class SUMManager extends ModelManager {
         return ao.executeInTransaction(new TransactionCallback<SuperUser>() {
             @Override
             public SuperUser doInTransaction() {
-                return ao.find(SuperUser.class, Query.select().where("system_id = ?", system.getID()))[0];
+                return ao.find(SuperUser.class, Query.select().where("SYSTEM_ID = ?", system.getID()))[0];
             }
         });
     }

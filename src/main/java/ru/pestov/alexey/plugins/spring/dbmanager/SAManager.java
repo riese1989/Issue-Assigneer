@@ -30,7 +30,7 @@ public class SAManager extends ModelManager {
     }
 
     public SystemAssignees[] getAssigneesSystem(Integer idSystem) {
-        return ao.find(SystemAssignees.class, Query.select().where("system_id = ?", idSystem));
+        return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ?", idSystem));
     }
 
     public SystemAssignees[] getAssignees(Integer idSystem, Integer idTypeChange, Integer idStage) {
