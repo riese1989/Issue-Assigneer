@@ -22,19 +22,19 @@
 
     <fieldset class="group">
         <div class="checkbox">
-            <input class="checkbox" type="checkbox" name="checkbox" id="check1" value="1">
+            <input class="checkboxes" type="checkbox" name="checkbox" id="check1" value="1">
             <label for="check1">Показывать все системы</label>
         </div>
         <div class="checkbox">
-            <input class="checkbox" type="checkbox" name="checkbox" id="check2" value="2">
+            <input class="checkboxes" type="checkbox" name="checkbox" id="check2" value="2">
             <label for="check2">Где я согласующий</label>
         </div>
         <div class="checkbox">
-            <input class="checkbox" type="checkbox" name="checkbox" id="check3" value="3">
+            <input class="checkboxes" type="checkbox" name="checkbox" id="check3" value="3">
             <label for="check3">Где я авторизующий</label>
         </div>
         <div class="checkbox">
-            <input class="checkbox" type="checkbox" name="checkbox" id="check4" value="4">
+            <input class="checkboxes" type="checkbox" name="checkbox" id="check4" value="4">
             <label for="check4">Где я delivery</label>
         </div>
     </fieldset>
