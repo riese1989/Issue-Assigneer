@@ -30,7 +30,6 @@
         <resource type="download" name="get-systems.js" location="/js/get-systems.js"/>
         <resource type="download" name="get-active-users.js" location="/js/get-active-users.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
-        <resource type="download" name="test.js" location="/js/test.js"/>
         <resource type="download" name="images/" location="/images"/>
         <context>selects</context>
     </web-resource>

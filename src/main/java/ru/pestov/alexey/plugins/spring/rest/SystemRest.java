@@ -70,6 +70,13 @@ public class SystemRest {
     }
 
     @GET
+    @Path("/check")
+    public Response checkFiles() {
+        String result = hService.checkFiles();
+        return Response.ok(result).build();
+    }
+
+    @GET
     @Path("/recover")
     public Response recoverDB() {
         dbService.recoverDB();

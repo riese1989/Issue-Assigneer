@@ -13,7 +13,19 @@ $(document).ready(function() {
         if (values !== "")  {
             console.log(jiraRestAddress + 'getlistsystems?valuefilter=' + values)
             $.get(jiraRestAddress + 'getlistsystems?valuefilter=' + values, function (response) {
+                var hashMapSystems = response.substr(1, response.length - 2) + ""
+                if (hashMapSystems !== "") {
+                    var systems = hashMapSystems.split(", ")
+                    $(systems).each(function (index, system){
+                        console.log(system)
+                        var dataSystem = system.toString().split("=")
+                        $('#systemCab').append(new Option(dataSystem[1], dataSystem[0]))
+                    })
+                }
+
             })
         }
+        $('.select').val('0').change()
+        console.log("Yeeeeee")
     })
 })

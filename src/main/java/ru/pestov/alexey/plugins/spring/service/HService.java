@@ -11,12 +11,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.dbmanager.UMManager;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,13 +34,35 @@ public class HService {
     private final JSONService jsonService;
     private JSONObject jsonObject;
     private final UMManager userModelManagerModel;
+    private final Property property;
     private static Integer count = 0;
 
     @Inject
-    public HService(final JSONService jsonService, final UMManager userModelManagerModel) {
+    public HService(final JSONService jsonService, final UMManager userModelManagerModel, final Property property) {
         this.jsonService = jsonService;
         this.userModelManagerModel = userModelManagerModel;
+        this.property = property;
         jsonObject = jsonService.createJSONObject(Mode.FILE);
+    }
+
+    public String checkFiles()  {
+        String result = "";
+        File delivery = new File(property.getProperty("file.delivery.path"));
+        if(delivery == null)    {
+            result += "Delivery null " + property.getProperty("file.delivery.path");
+        }
+        else    {
+            result += "Delivery true " + property.getProperty("file.delivery.path");
+        }
+
+        File cab = new File(property.getProperty("file.cab.path"));
+        if(delivery == null)    {
+            result += "Cab null " + property.getProperty("file.cab.path");
+        }
+        else    {
+            result += "Cab true " + property.getProperty("file.cab.path");
+        }
+        return result;
     }
 
     public String createUsers() {
@@ -48,7 +72,8 @@ public class HService {
             Iterator<String> systems = jsonObject.keySet().iterator();
             while (systems.hasNext()) {
                 String system = systems.next();
-                JSONObject jsonObject1 = (JSONObject) jsonObject.get(system);                List<String> typeChanges = new ArrayList<>(Arrays.asList("Bugfix", "Фоновое задание", "Предсогласованное изменение", "Активация настроек", "Дефект", "Внерелиз", "Изменение настроек", "Массовая выгрузка", "Спринт", "Релиз"));
+                JSONObject jsonObject1 = (JSONObject) jsonObject.get(system);
+                List<String> typeChanges = new ArrayList<>(Arrays.asList("Bugfix", "Фоновое задание", "Предсогласованное изменение", "Активация настроек", "Дефект", "Внерелиз", "Изменение настроек", "Массовая выгрузка", "Спринт", "Релиз"));
                 List<String> stages = new ArrayList<>(Arrays.asList("stage22", "stage3", "stage23", "stage21", "authorize", "stage1"));
                 for (String typeChange : typeChanges) {
                     JSONObject change = (JSONObject) jsonObject1.get(typeChange);
