@@ -230,7 +230,7 @@ public class DBService {
     public Boolean isCurrentUserDelivery(Integer idSystem, ApplicationUser currentUser) {
         System system = systemModelManager.getSystemById(idSystem);
         Delivery delivery = dmManager.getDelivery(system);
-        return delivery.getUser().getName().equals(currentUser.getDisplayName());
+        return delivery.getUser().getName().equals(currentUser.getUsername());
     }
 
     public HashMap<Integer, String> getHashMapSystems(String valueFilter)  {
