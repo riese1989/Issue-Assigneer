@@ -234,11 +234,12 @@ public class DBService {
     }
 
     public HashMap<Integer, String> getHashMapSystems(String valueFilter)  {
+        String regex = "&&&&&&&&&&&&&&&&&&";
         List<String> nameSystems = new ArrayList<>();
         HashMap<Integer, String> result = new HashMap<>();
         List<System> systems = new ArrayList<>();
         ApplicationUser applicationUser = userService.getCurrentUser();
-        User user = userModelManager.getUserByName(applicationUser.getDisplayName());
+        User user = userModelManager.getUserByName(applicationUser.getUsername());
         List<String> valuesFilter = Arrays.asList(valueFilter.split(","));
         for (String value : valuesFilter)   {
             if(value.equals("1"))   {
@@ -270,7 +271,7 @@ public class DBService {
             if (result.containsValue(system.getName())) {
                 continue;
             }
-            result.put(system.getID(), system.getName());
+            result.put(system.getID(), system.getName().replaceAll(", ", regex));
         }
         return result;
     }

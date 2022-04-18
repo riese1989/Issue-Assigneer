@@ -17,7 +17,7 @@ $(document).ready(function() {
                     var systems = hashMapSystems.split(", ")
                     $(systems).each(function (index, system){
                         console.log(system)
-                        var dataSystem = system.toString().split("=")
+                        var dataSystem = system.toString().replace("&&&&&&&&&&&&&&&&&&",", ").split("=")
                         $('#systemCab').append(new Option(dataSystem[1], dataSystem[0]))
                     })
                 }

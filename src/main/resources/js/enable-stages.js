@@ -5,18 +5,6 @@ $(function () {
         const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
         const system = document.getElementById("systemCab")
         const typechange = document.getElementById("typechange")
-        const countChecked = $('.checkboxes').filter(':checked').length
-        if (system.value !== '' && system.value !== undefined && system.value !== '0') {
-            $.get(jiraRestAddress + 'isenable?idsystem=' + system.value, function (response) {
-                if (system.value !== "0" && typechange.value !== "0" && countChecked !== 0 && response === "true") {
-                    $('#save').prop('disabled', false)
-                } else {
-                    $('#save').prop('disabled', true)
-                }
-            })
-        }   else    {
-            $('#save').prop('disabled', true)
-        }
         if(system.value !== "0") {
             $.get(jiraRestAddress + 'isenable?idsystem=' + system.value, function (response) {
                 if (system.value !== "0" && typechange.value !== "0" && response === "true") {

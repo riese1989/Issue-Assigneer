@@ -48,7 +48,7 @@ public class UMManager extends ModelManager{
             @Override
             public User doInTransaction() {
                 try {
-                    return Arrays.stream(ao.find(User.class)).filter(user -> user.getName().equals(name)).findFirst().get();
+                    return ao.find(User.class, Query.select().where("NAME = ?", name))[0];
                 }
                 catch (Exception ex)    {
                     ex.printStackTrace();

@@ -10,7 +10,7 @@
     </p>
     <p><a href="https://wiki.x5.ru/pages/viewpage.action?pageId=129043254">Инструкция по CAB</a></p>
 </div>
-<form class="aui" method="POST" action="http://localhost:2990/jira/rest/cab/1.0/systems/post"
+<form class="aui" id="form" method="POST" action=""
       enctype="application/json">
     <div id="message"></div>
     <div class="field-group">
