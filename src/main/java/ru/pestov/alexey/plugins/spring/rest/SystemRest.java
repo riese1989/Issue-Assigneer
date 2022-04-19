@@ -99,6 +99,12 @@ public class SystemRest {
         return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
     }
 
+    @GET
+    @Path(("/synch"))
+    public Response runSynch()  {
+        return Response.ok(dbService.synchronize()).build();
+    }
+
     // done
     @GET
     @Path("/isactive")

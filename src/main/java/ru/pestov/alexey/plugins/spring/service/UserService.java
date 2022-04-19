@@ -20,7 +20,7 @@ public class UserService {
     }
     public List<ApplicationUser> getUsersJira() {
         GroupManager groupManager = ComponentAccessor.getGroupManager();
-        return  (List<ApplicationUser>) groupManager.getUsersInGroup("jira-users");
+        return  (List<ApplicationUser>) groupManager.getUsersInGroup(property.getProperty("jira.group.users"));
     }
 
     public List<String> getActiveUsers() {

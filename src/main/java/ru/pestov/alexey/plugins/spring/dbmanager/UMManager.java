@@ -75,6 +75,17 @@ public class UMManager extends ModelManager{
             }
         });
     }
+    public User updateStatusUser(User user) {
+        return ao.executeInTransaction(new TransactionCallback<User>() {
+            @Override
+            public User doInTransaction() {
+                boolean currentStatus = user.getActive();
+                user.setActive(!currentStatus);
+                user.save();
+                return user;
+            }
+        });
+    }
 
     public void deleteAll() {
         ao.executeInTransaction(new TransactionCallback<User>() {

@@ -302,4 +302,25 @@ public class DBService {
         return systems;
     }
 
+    public boolean synchronize()   {
+        List<ApplicationUser> users = userService.getUsersJira();
+        for (ApplicationUser user : users)  {
+            checkAndChangeStatus(user.getUsername());
+        }
+        return true;
+    }
+
+    public void checkAndChangeStatus(String nameUser)    {
+        ApplicationUser user = ComponentAccessor.getUserManager().getUserByName(nameUser);
+        User userDB = userModelManager.getUserByName(user.getUsername());
+        if (userDB == null) {
+            userModelManager.createUser(nameUser);
+        }
+        else {
+            boolean isActive = user.isActive();
+            if (userDB.getActive() != isActive) {
+                userModelManager.updateStatusUser(userDB);
+            }
+        }
+    }
 }
