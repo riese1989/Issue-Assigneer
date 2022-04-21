@@ -16,7 +16,6 @@ $(document).ready(function() {
                 if (hashMapSystems !== "") {
                     var systems = hashMapSystems.split(", ")
                     $(systems).each(function (index, system){
-                        console.log(system)
                         var dataSystem = system.toString().replace("&&&&&&&&&&&&&&&&&&",", ").split("=")
                         $('#systemCab').append(new Option(dataSystem[1], dataSystem[0]))
                     })

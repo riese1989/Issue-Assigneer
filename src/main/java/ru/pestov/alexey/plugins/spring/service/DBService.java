@@ -6,8 +6,6 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import ru.pestov.alexey.plugins.spring.comparators.SystemCABComparator;
-import ru.pestov.alexey.plugins.spring.comparators.SystemComparator;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -67,7 +65,7 @@ public class DBService {
         return 1;
     }
 
-    private void clearDB()  {
+    private void clearDB() {
         logModelManager.deleteAll();
         SAManager.deleteAll();
         dmManager.deleteAll();
@@ -151,14 +149,21 @@ public class DBService {
 
     private List<User> getAssignees(String key, JSONObject jsonObject) {
         List<User> users = new ArrayList();
-        JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
-        if (assigneesJSON == null) {
-            return null;
-        }
+        try {
+            JSONArray assigneesJSON = (JSONArray) jsonObject.get(key);
+            if (assigneesJSON == null) {
+                return null;
+            }
 
-        for (int i = 0; i < assigneesJSON.size(); ++i) {
-            User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
-            users.add(user);
+            for (int i = 0; i < assigneesJSON.size(); ++i) {
+                User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
+                if (user != null) {
+                    users.add(user);
+                }
+            }
+        } catch (ClassCastException ex) {
+            String nameUser = jsonObject.get(key).toString();
+            users.add(userModelManager.getUserByName(nameUser));
         }
         return users;
     }
@@ -166,14 +171,16 @@ public class DBService {
     private void recoverDelivery() {
         List<System> systems = Arrays.asList(systemModelManager.getAllSystems());
         JSONObject jsonObject = jsonService.getJsonDelivery();
-        for (System system : systems)   {
+        for (System system : systems) {
             String nameDelivery = (String) jsonObject.get(system.getName());
             User delivery = userModelManager.getUserByName(nameDelivery);
-            dmManager.createDelivery(system, delivery);
+            if (delivery != null) {
+                dmManager.createDelivery(system, delivery);
+            }
         }
     }
 
-    public List<SystemAssignees> updateDB(Param param)   {
+    public List<SystemAssignees> updateDB(Param param) {
         List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
@@ -190,50 +197,73 @@ public class DBService {
         }
         system = systemModelManager.setActive(idSystem, isActive);
         SAManager.deleteObjects(idSystem, idTypeChange);
-        for (Stage stage : stages)  {
+        for (Stage stage : stages) {
             List<String> assignees = param.getRequiredStage(stage.getName());
-            for (String assignee : assignees)   {
-                User user = userModelManager.getUserByName(assignee.replace("@x5.ru",""));
-                SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
-                result.add(systemAssigneeNew);
-                logModelManager.create(systemAssigneeNew, tcaManager.get(1), currentUser);
+            for (String assignee : assignees) {
+                User user = userModelManager.getUserByName(assignee.replace("@x5.ru", ""));
+                if (user != null) {
+                    SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                    result.add(systemAssigneeNew);
+                    logModelManager.create(systemAssigneeNew, tcaManager.get(1), currentUser);
+                }
             }
         }
         updateDeliveryDB(param, currentUser);
         return result;
     }
 
-    private void updateDeliveryDB(Param param, User currentUser)   {
+    private void updateDeliveryDB(Param param, User currentUser) {
         System system = param.getSystem();
-        User oldUser = dmManager.getDelivery(system).getUser();
-        dmManager.delete(system);
-        logModelManager.create(oldUser,system, tcaManager.get(4), currentUser);
+        Delivery delivery = dmManager.getDelivery(system);
+        if (delivery != null) {
+            User oldUser = delivery.getUser();
+            dmManager.delete(system);
+            logModelManager.create(oldUser, system, tcaManager.get(4), currentUser);
+        }
         User user = userModelManager.getUserByName(param.getDelivery().replace("@x5.ru", ""));
-        Delivery newDelivery = dmManager.createDelivery(system, user);
-        logModelManager.create(newDelivery.getUser(), system, tcaManager.get(3), currentUser);
+        if (user != null) {
+            Delivery newDelivery = dmManager.createDelivery(system, user);
+            logModelManager.create(newDelivery.getUser(), system, tcaManager.get(3), currentUser);
+        }
 
     }
 
-    private void recoverTypeChangeAssignee()    {
+    private void recoverTypeChangeAssignee() {
         tcaManager.create("Create");
         tcaManager.create("Delete");
         tcaManager.create("Create delivery");
         tcaManager.create("Delete delivery");
     }
 
-    public String getDelivery (Integer idSystem)    {
+    public String getDelivery(Integer idSystem) {
         System system = systemModelManager.getSystemById(idSystem);
-        User user = dmManager.getDelivery(system).getUser();
-        return user.getName() + "@x5.ru";
+        Delivery delivery = dmManager.getDelivery(system);
+        if (delivery != null) {
+            User user = delivery.getUser();
+            return user.getName() + "@x5.ru";
+        }
+        return null;
     }
 
     public Boolean isCurrentUserDelivery(Integer idSystem, ApplicationUser currentUser) {
         System system = systemModelManager.getSystemById(idSystem);
         Delivery delivery = dmManager.getDelivery(system);
-        return delivery.getUser().getName().equals(currentUser.getUsername());
+        if (delivery != null) {
+            return delivery.getUser().getName().equals(currentUser.getUsername());
+        }
+        return false;
     }
 
-    public HashMap<Integer, String> getHashMapSystems(String valueFilter)  {
+    public HashMap<Integer, String> getHashMapTypeChanges() {
+        HashMap<Integer, String> typeChanges = new HashMap<>();
+        List<TypeChangeDB> typeChangeDBS = Arrays.asList(typeChangeModelManager.getAllTypeChanges());
+        for (TypeChangeDB typeChangeDB : typeChangeDBS) {
+            typeChanges.put(typeChangeDB.getID(), typeChangeDB.getName());
+        }
+        return typeChanges;
+    }
+
+    public HashMap<Integer, String> getHashMapSystems(String valueFilter) {
         String regex = "&&&&&&&&&&&&&&&&&&";
         List<String> nameSystems = new ArrayList<>();
         HashMap<Integer, String> result = new HashMap<>();
@@ -241,86 +271,90 @@ public class DBService {
         ApplicationUser applicationUser = userService.getCurrentUser();
         User user = userModelManager.getUserByName(applicationUser.getUsername());
         List<String> valuesFilter = Arrays.asList(valueFilter.split(","));
-        for (String value : valuesFilter)   {
-            if(value.equals("1"))   {
-                systems = Arrays.asList(systemModelManager.getAllSystems());
-                break;
-            }
-            switch (value) {
-                case "2":   {
-                    systems.addAll(getSystemsWhereAssignee(user));
+        if (user != null) {
+            for (String value : valuesFilter) {
+                if (value.equals("1")) {
+                    systems = Arrays.asList(systemModelManager.getAllSystems());
                     break;
                 }
-                case "3":   {
-                    systems.addAll(getSystemWhereAuthorize(user));
-                    break;
+                switch (value) {
+                    case "2": {
+                        systems.addAll(getSystemsWhereAssignee(user));
+                        break;
+                    }
+                    case "3": {
+                        systems.addAll(getSystemWhereAuthorize(user));
+                        break;
+                    }
+                    case "4": {
+                        systems.addAll(getSystemWhereDelivery(user));
+                        break;
+                    }
                 }
-                case "4":   {
-                    systems.addAll(getSystemWhereDelivery(user));
-                    break;
+            }
+            if (nameSystems.size() == 0) {
+                for (System system : systems) {
+                    nameSystems.add(system.getName());
                 }
             }
-        }
-        if (nameSystems.size() == 0) {
-            for (System system : systems) {
-                nameSystems.add(system.getName());
+            for (String nameSystem : nameSystems) {
+                System system = systemModelManager.getSystemByName(nameSystem);
+                if (result.containsValue(system.getName())) {
+                    continue;
+                }
+                result.put(system.getID(), system.getName().replaceAll(", ", regex));
             }
-        }
-        for (String nameSystem : nameSystems)   {
-            System system = systemModelManager.getSystemByName(nameSystem);
-            if (result.containsValue(system.getName())) {
-                continue;
-            }
-            result.put(system.getID(), system.getName().replaceAll(", ", regex));
         }
         return result;
     }
-    private List<System> getSystemsWhereAssignee(User user)  {
-        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByUser(user));
+
+    private List<System> getSystemsWhereAssignee(User user) {
+        Stage stageAuthorize = stageModelManager.getStageByName("authorize");
+        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByUser(user, stageAuthorize));
         return getSystemFromSystemAssignees(systemAssignees);
     }
 
     private List<System> getSystemWhereAuthorize(User user) {
-        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByAuthorize(user));
+        Stage stageAuthorize = stageModelManager.getStageByName("authorize");
+        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesByAuthorize(user, stageAuthorize));
         return getSystemFromSystemAssignees(systemAssignees);
     }
 
-    private List<System> getSystemWhereDelivery(User user)  {
-        List<System> systems =  new ArrayList<>();
+    private List<System> getSystemWhereDelivery(User user) {
+        List<System> systems = new ArrayList<>();
         List<Delivery> deliverySystems = Arrays.asList(dmManager.getSystemsByDelivery(user));
         deliverySystems.forEach(delivery -> systems.add(delivery.getSystem()));
         return systems;
     }
 
 
-
-    private List<System> getSystemFromSystemAssignees(List<SystemAssignees> systemAssignees)    {
+    private List<System> getSystemFromSystemAssignees(List<SystemAssignees> systemAssignees) {
         List<System> systems = new ArrayList<>();
-        for (SystemAssignees systemAssignee : systemAssignees)    {
+        for (SystemAssignees systemAssignee : systemAssignees) {
             systems.add(systemAssignee.getSystem());
         }
         return systems;
     }
 
-    public boolean synchronize()   {
+    public Boolean synchronize() {
         List<ApplicationUser> users = userService.getUsersJira();
-        for (ApplicationUser user : users)  {
+        for (ApplicationUser user : users) {
             checkAndChangeStatus(user.getUsername());
         }
         return true;
     }
 
-    public void checkAndChangeStatus(String nameUser)    {
+    public void checkAndChangeStatus(String nameUser) {
         ApplicationUser user = ComponentAccessor.getUserManager().getUserByName(nameUser);
         User userDB = userModelManager.getUserByName(user.getUsername());
         if (userDB == null) {
             userModelManager.createUser(nameUser);
-        }
-        else {
+        } else {
             boolean isActive = user.isActive();
             if (userDB.getActive() != isActive) {
                 userModelManager.updateStatusUser(userDB);
             }
         }
     }
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 
 @Data
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class Param {
     @NonNull
     private Integer systemId;
@@ -29,7 +30,7 @@ public class Param {
     private List<String> stage3;
     @NonNull
     private List<String> authorize;
-    @NonNull
+
     private String delivery;
     @NonNull
     private Boolean active;

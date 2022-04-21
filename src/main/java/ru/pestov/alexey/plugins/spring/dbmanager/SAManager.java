@@ -62,20 +62,20 @@ public class SAManager extends ModelManager {
         });
     }
 
-    public SystemAssignees[] getSystemAssigneesByUser(User user)    {
+    public SystemAssignees[] getSystemAssigneesByUser(User user, Stage stage)    {
         return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
             @Override
             public SystemAssignees[] doInTransaction() {
-                return ao.find(SystemAssignees.class, Query.select().where("USER_ID = ? AND STAGE_ID <> 6", user.getID()));
+                return ao.find(SystemAssignees.class, Query.select().where("USER_ID = ? AND STAGE_ID <> ?", user.getID(), stage.getID()));
             }
         });
     }
 
-    public SystemAssignees[] getSystemAssigneesByAuthorize(User user)    {
+    public SystemAssignees[] getSystemAssigneesByAuthorize(User user, Stage stage)    {
         return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
             @Override
             public SystemAssignees[] doInTransaction() {
-                return ao.find(SystemAssignees.class, Query.select().where("USER_ID = ? AND STAGE_ID = 6", user.getID()));
+                return ao.find(SystemAssignees.class, Query.select().where("USER_ID = ? AND STAGE_ID = ?", user.getID(), stage.getID()));
             }
         });
     }

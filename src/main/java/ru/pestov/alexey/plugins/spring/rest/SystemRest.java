@@ -2,12 +2,9 @@ package ru.pestov.alexey.plugins.spring.rest;
 
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
-import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
-import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 import ru.pestov.alexey.plugins.spring.service.*;
 
 import javax.inject.Inject;
@@ -89,6 +86,12 @@ public class SystemRest {
         return Response.ok(dbService.getHashMapSystems(valueFilter).toString()).build();
     }
 
+    @GET
+    @Path("/getlisttypechanges")
+    public Response getListSystems() {
+        return Response.ok(dbService.getHashMapTypeChanges().toString()).build();
+    }
+
     //done
     @GET
     @Path("/getassignees")
@@ -135,7 +138,7 @@ public class SystemRest {
                      @FormParam("active") Boolean active,
                      @FormParam("delivery") String delivery) throws Exception {
         Param param = new Param(idSystem, idTypeChange,
-                stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
+                stage1, stage21, stage22, stage23, stage3, authorize, delivery, active, null, null);
         dbService.updateDB(param);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);

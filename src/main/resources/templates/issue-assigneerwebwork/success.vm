@@ -42,16 +42,6 @@
         <label for="typechange">Тип измения</label>
         <select class="select" id="typechange" name="typechange">
             <option value="0">Select</option>
-            <option value="1">Bugfix</option>
-            <option value="2">Активация настроек</option>
-            <option value="3">Внерелиз</option>
-            <option value="4">Дефект</option>
-            <option value="5">Изменение настроек</option>
-            <option value="6">Массовая выгрузка</option>
-            <option value="7">Предсогласованное изменение</option>
-            <option value="8">Релиз</option>
-            <option value="9">Спринт</option>
-            <option value="10">Фоновое задание</option>
         </select>
     </div>
     <div class="field-group">
@@ -92,6 +82,7 @@
     <div class="field-group">
         <label for="delivery">Delivery</label>
         <select class="multiselect" id="delivery" name="delivery" disabled>
+            <option value="0">Empty</option>
         </select>
     </div>
     <div class="field-group">
