@@ -1,1 +1,16 @@
-<h1>Issue Assigneer</h1>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Параметр rowspan (Элемент th)</title>
+</head>
+<body>
+<h1>Пример использования атрибута "rowspan"</h1>
+<table border="1">
+    <tbody>
+    <tr> <th rowspan="3">Умножение</th> <td> 2 * 0 </td> <td> = 0 </td> </tr>
+    <tr> <td> 2 * 1 </td> <td> = 2 </td> </tr>
+    <tr> <td> 2 * 2 </td> <td> = 4 </td> </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -30,7 +30,7 @@ public class UserService {
         while(var4.hasNext()) {
             ApplicationUser user = (ApplicationUser)var4.next();
             if (user.isActive()) {
-                activeUsers.add(user.getEmailAddress().replace("@x5.ru","") + "=" + user.getEmailAddress());
+                activeUsers.add(user.getUsername() + "=");
             }
         }
         activeUsers.stream().sorted().collect(Collectors.toList());

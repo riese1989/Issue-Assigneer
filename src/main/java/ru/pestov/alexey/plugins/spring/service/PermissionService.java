@@ -14,11 +14,13 @@ public class PermissionService {
 
     private final Property property;
     private final DBService dbService;
+    private final SystemService systemService;
 
     @Inject
-    public PermissionService(Property property, DBService dbService) {
+    public PermissionService(Property property, DBService dbService, SystemService systemService) {
         this.property = property;
         this.dbService = dbService;
+        this.systemService = systemService;
     }
 
     public Role isCurrentUserAdminJira()    {
@@ -53,7 +55,13 @@ public class PermissionService {
         return ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
     }
 
-    public Boolean isEnable (Integer idSystem)  {
-        return isCurrentUserDelivery(idSystem) || isCurrentUserSuperUser();
+    public Boolean isEnable (Integer idSystem, Integer idTypeChange)  {
+        return isCurrentUserDelivery(idSystem) || isCurrentUserSuperUser() || isCurrentUserAuthorize(idSystem, idTypeChange);
+    }
+
+    private Boolean isCurrentUserAuthorize(Integer idSystem, Integer idTypeChange)   {
+        ApplicationUser currentUser = getCurrentUser();
+        String nameAuthorize = systemService.getAssigneesStageSystem(idSystem, idTypeChange, "authorize");
+        return currentUser.getUsername().equals(nameAuthorize);
     }
 }

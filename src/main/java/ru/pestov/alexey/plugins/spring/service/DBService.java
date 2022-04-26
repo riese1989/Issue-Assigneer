@@ -199,8 +199,8 @@ public class DBService {
         SAManager.deleteObjects(idSystem, idTypeChange);
         for (Stage stage : stages) {
             List<String> assignees = param.getRequiredStage(stage.getName());
-            for (String assignee : assignees) {
-                User user = userModelManager.getUserByName(assignee.replace("@x5.ru", ""));
+            for (String idAssignee : assignees) {
+                User user = userModelManager.getUserById(Integer.parseInt(idAssignee));
                 if (user != null) {
                     SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
                     result.add(systemAssigneeNew);
@@ -208,7 +208,9 @@ public class DBService {
                 }
             }
         }
-        updateDeliveryDB(param, currentUser);
+        if(param.getDelivery() != null || !param.getDelivery().equals("Empty")) {
+            updateDeliveryDB(param, currentUser);
+        }
         return result;
     }
 
@@ -220,7 +222,7 @@ public class DBService {
             dmManager.delete(system);
             logModelManager.create(oldUser, system, tcaManager.get(4), currentUser);
         }
-        User user = userModelManager.getUserByName(param.getDelivery().replace("@x5.ru", ""));
+        User user = userModelManager.getUserById(Integer.parseInt(param.getDelivery()));
         if (user != null) {
             Delivery newDelivery = dmManager.createDelivery(system, user);
             logModelManager.create(newDelivery.getUser(), system, tcaManager.get(3), currentUser);
@@ -240,7 +242,7 @@ public class DBService {
         Delivery delivery = dmManager.getDelivery(system);
         if (delivery != null) {
             User user = delivery.getUser();
-            return user.getName() + "@x5.ru";
+            return String.valueOf(user.getID());
         }
         return null;
     }
@@ -355,6 +357,15 @@ public class DBService {
                 userModelManager.updateStatusUser(userDB);
             }
         }
+    }
+
+    public List<String> addToActiveUsersId(List<String> activeUsers)    {
+        List<String> result = new ArrayList<>();
+        for(String nameUser : activeUsers)  {
+            Integer idUser = userModelManager.getUserByName(nameUser).getID();
+            result.add(nameUser + idUser);
+        }
+        return result;
     }
 
 }

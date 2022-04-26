@@ -157,7 +157,8 @@ public class SystemRest {
     @Path("/getactiveusers")
     public Response getActiveUsers() {
         List<String> activeUsers = this.userService.getActiveUsers();
-        return Response.ok(activeUsers.toString()).build();
+        List<String> activeUsersWithId = dbService.addToActiveUsersId(activeUsers);
+        return Response.ok(activeUsersWithId.toString()).build();
     }
 
     @GET
@@ -180,7 +181,8 @@ public class SystemRest {
 
     @GET
     @Path("/isenable")
-    public Response checkEnable(@QueryParam("idsystem") Integer idSystem)   {
-        return Response.ok(permissionService.isEnable(idSystem).toString()).build();
+    public Response checkEnable(@QueryParam("idsystem") Integer idSystem,
+                                @QueryParam("ididtypechange") Integer idTypeChange)   {
+        return Response.ok(permissionService.isEnable(idSystem, idTypeChange).toString()).build();
     }
 }

@@ -6,8 +6,9 @@ $(function () {
         const system = document.getElementById("systemCab")
         const typechange = document.getElementById("typechange")
         var countChecked = $('.checkboxes:checked').size()
-        if (system.value !== '' && system.value !== undefined && system.value !== '0') {
-            $.get(jiraRestAddress + 'isenable?idsystem=' + system.value, function (response) {
+        if (system.value !== '' && system.value !== undefined && system.value !== '0' &&
+            typechange.value !== '' && typechange.value !== undefined && typechange.value !== '0') {
+            $.get(jiraRestAddress + 'isenable?idsystem=' + system.value + '&idtypechange=' + typechange.value, function (response) {
                 if (system.value !== "0" && typechange.value !== "0" && countChecked !== 0 && response === "true") {
                     $('#save').prop('disabled', false)
                 } else {
