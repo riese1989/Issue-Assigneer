@@ -67,11 +67,14 @@ public class UMManager extends ModelManager{
         });
     }
 
-    public User getUserById(int id) {
+    public User getUserById(Integer id) {
         return ao.executeInTransaction(new TransactionCallback<User>() {
             @Override
             public User doInTransaction() {
-                return ao.find(User.class, Query.select().where("ID = ?", id))[0];
+                if (id != 0) {
+                    return ao.find(User.class, Query.select().where("ID = ?", id))[0];
+                }
+                return null;
             }
         });
     }
@@ -94,6 +97,15 @@ public class UMManager extends ModelManager{
                 User[] users =ao.find(User.class);
                 ao.delete(users);
                 return null;
+            }
+        });
+    }
+
+    public User[] getActiveUsers()  {
+        return ao.executeInTransaction(new TransactionCallback<User[]>() {
+            @Override
+            public User[] doInTransaction() {
+                return ao.find(User.class, Query.select().where("ACTIVE = true"));
             }
         });
     }

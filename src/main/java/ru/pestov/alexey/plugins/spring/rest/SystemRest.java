@@ -24,11 +24,11 @@ public class SystemRest {
     private final TypeChangeService typeChangeService;
     private final SystemService systemService;
     private final IssueAssigneerWebworkAction issueAssigneerWebworkAction;
-    private final UserService userService;
     private final HService hService;
     private final PluginSettingsFactory pluginSettingsFactory;
     private final PermissionService permissionService;
     private final DBService dbService;
+    private final ParamService paramService;
 
 
     @Inject
@@ -36,20 +36,20 @@ public class SystemRest {
                       final JSONService jsonService,
                       final TypeChangeService typeChangeService,
                       final SystemService systemService,
-                      final UserService userService,
                       final HService hService,
                       final PermissionService permissionService,
+                      final ParamService paramService,
                       IssueAssigneerWebworkAction issueAssigneerWebworkAction,
                       DBService dbService) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
         this.typeChangeService = typeChangeService;
         this.systemService = systemService;
-        this.userService = userService;
         this.hService = hService;
         this.permissionService = permissionService;
         this.pluginSettingsFactory = pluginSettingsFactory;
         this.dbService = dbService;
+        this.paramService = paramService;
     }
 
     @GET
@@ -105,7 +105,8 @@ public class SystemRest {
     @GET
     @Path(("/synch"))
     public Response runSynch()  {
-        return Response.ok(dbService.synchronize()).build();
+        dbService.synchronize();
+        return Response.ok().build();
     }
 
     // done
@@ -139,6 +140,7 @@ public class SystemRest {
                      @FormParam("delivery") String delivery) throws Exception {
         Param param = new Param(idSystem, idTypeChange,
                 stage1, stage21, stage22, stage23, stage3, authorize, delivery, active, null, null);
+        param = paramService.convert(param);
         dbService.updateDB(param);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
@@ -156,7 +158,7 @@ public class SystemRest {
     @GET
     @Path("/getactiveusers")
     public Response getActiveUsers() {
-        List<String> activeUsers = this.userService.getActiveUsers();
+        List<String> activeUsers = dbService.getNameActiveUsers();
         List<String> activeUsersWithId = dbService.addToActiveUsersId(activeUsers);
         return Response.ok(activeUsersWithId.toString()).build();
     }

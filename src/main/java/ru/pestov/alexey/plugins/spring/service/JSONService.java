@@ -111,7 +111,12 @@ public class JSONService {
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(nameTypeChange, jsonTypeChange);
         jsonObject.put(nameSystem, jsonSystem);
-        jsonDelivery.put(nameSystem, param.getDelivery().replaceAll("@x5.ru",""));
+        if (!param.getDelivery().equals("0")) {
+            jsonDelivery.put(nameSystem, param.getDelivery().replaceAll("@x5.ru", ""));
+        }
+        else    {
+            jsonDelivery.remove(nameSystem);
+        }
         writeToFile(jsonObject, pathJson);
         writeToFile(jsonDelivery, pathDelivery);
     }

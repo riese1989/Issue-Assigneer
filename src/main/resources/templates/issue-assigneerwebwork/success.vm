@@ -10,39 +10,103 @@
     </p>
     <p><a href="https://wiki.x5.ru/pages/viewpage.action?pageId=129043254">Инструкция по CAB</a></p>
 </div>
-<form class="aui" id="form" method="POST" action=""
-      enctype="application/json">
-    <div id="message"></div>
-    <div class="field-group">
-        <label for="systemCab">Система</label>
-        <select class="select" id="systemCab" name="systemCab">
-            <option value="0">Select</option>
-        </select>
-    </div>
 
-    <fieldset class="group">
-        <div class="checkbox">
-            <input class="checkboxes" type="checkbox" name="checkbox" id="check1" value="1">
-            <label for="check1">Показывать все системы</label>
+<form class="aui" id="form" method="POST" action="" enctype="application/json">
+    <div id="message"></div>
+    <div id="box">
+        <div class="left">
+            <div class="field-group">
+                <label for="systemCab">Информационная система</label>
+                <select class="select" id="systemCab" name="systemCab">
+                    <option value="0">Select</option>
+                </select>
+            </div>
+            <fieldset class="group">
+                <div class="checkbox">
+                    <input class="checkboxes" type="checkbox" name="checkbox" id="check1" value="1">
+                    <label for="check1">Показывать все системы</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkboxes" type="checkbox" name="checkbox" id="check2" value="2">
+                    <label for="check2">Где я согласующий</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkboxes" type="checkbox" name="checkbox" id="check3" value="3">
+                    <label for="check3">Где я авторизующий</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkboxes" type="checkbox" name="checkbox" id="check4" value="4">
+                    <label for="check4">Где я delivery</label>
+                </div>
+            </fieldset>
+            <div class="field-group">
+                <label for="typechange">Тип измения</label>
+                <select class="select" id="typechange" name="typechange">
+                    <option value="0">Select</option>
+                </select>
+            </div>
         </div>
-        <div class="checkbox">
-            <input class="checkboxes" type="checkbox" name="checkbox" id="check2" value="2">
-            <label for="check2">Где я согласующий</label>
+        <div class="right">
+            <a id="link-hide-table"></a>
+            <div class="table-history" hidden>
+                <table class="aui" id="history-table">
+                    <thead>
+                    <tr>
+                        <th id="when">Когда</th>
+                        <th id="who">Кто</th>
+                        <th id="stage">Стадия</th>
+                        <th id="change">Изменение</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change"><s>"Artem.Firstov","Sergey.Zharkov","German.Chachin"</s><br>"Artem.Firstov","Sergey.Zharkov","German.Chachin",
+                            "Artem.Firstov"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
+                    </tr>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
+                    </tr>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
+                    </tr>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
+                    </tr>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
+                    </tr>
+                    <tr>
+                        <td headers="when">1.01.2011, 02:03:04</td>
+                        <td headers="who">Evgeniya.Borovchenko</td>
+                        <td headers="stage">Менеджер изменений</td>
+                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="checkbox">
-            <input class="checkboxes" type="checkbox" name="checkbox" id="check3" value="3">
-            <label for="check3">Где я авторизующий</label>
-        </div>
-        <div class="checkbox">
-            <input class="checkboxes" type="checkbox" name="checkbox" id="check4" value="4">
-            <label for="check4">Где я delivery</label>
-        </div>
-    </fieldset>
-    <div class="field-group">
-        <label for="typechange">Тип измения</label>
-        <select class="select" id="typechange" name="typechange">
-            <option value="0">Select</option>
-        </select>
     </div>
     <div class="field-group">
         <label for="stage1" title=" 1 Этап согласования

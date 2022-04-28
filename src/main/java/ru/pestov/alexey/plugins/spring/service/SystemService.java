@@ -89,7 +89,7 @@ public class SystemService {
         SystemAssignees[] systemAssignees = saManager.getAssignees(idSystemDB, idTypeChange, stage.getID());
         String result = "";
         for (int i = 0; i < systemAssignees.length; i++)    {
-            result += systemAssignees[i].getUser().getName() + "@x5.ru";
+            result += systemAssignees[i].getUser().getID();
             if (i != systemAssignees.length - 1) {
                 result += ", ";
             }
