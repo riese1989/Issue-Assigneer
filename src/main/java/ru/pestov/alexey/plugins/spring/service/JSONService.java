@@ -44,11 +44,10 @@ public class JSONService {
         jsonDelivery = getJSONObjectFromFile(pathDelivery);
     }
 
-    public JSONObject createJSONObject(Mode mode)    {
+    public JSONObject createJSONObject(Mode mode) {
         if (mode == Mode.DB) {
             jsonObject = getJSONObjectFromDB();
-        }
-        else    {
+        } else {
             jsonObject = getJSONObjectFromFile(pathJson);
         }
         return jsonObject;
@@ -96,7 +95,6 @@ public class JSONService {
     }
 
 
-
     public void updateJsonObject(Param param) {
         String nameSystem = param.getSystem().getName();
         String nameTypeChange = param.getTypeChangeDB().getName();
@@ -111,10 +109,9 @@ public class JSONService {
         jsonTypeChange.put("authorize", createJsonArray(param.getAuthorize()));
         jsonSystem.put(nameTypeChange, jsonTypeChange);
         jsonObject.put(nameSystem, jsonSystem);
-        if (!param.getDelivery().equals("0")) {
+        if (param.getDelivery() != null) {
             jsonDelivery.put(nameSystem, param.getDelivery().replaceAll("@x5.ru", ""));
-        }
-        else    {
+        } else {
             jsonDelivery.remove(nameSystem);
         }
         writeToFile(jsonObject, pathJson);
@@ -139,7 +136,7 @@ public class JSONService {
         return jsonArray;
     }
 
-    public JSONObject createJsonDelivery(List<String> deliveries)  {
+    public JSONObject createJsonDelivery(List<String> deliveries) {
         Set<String> nameSystems = jsonObject.keySet();
         String pathDeliveryFile = property.getProperty("file.delivery.path");
         JSONObject deliveryJSON = new JSONObject();
@@ -149,11 +146,10 @@ public class JSONService {
             id++;
         }
         File file = new File(pathDeliveryFile);
-        if (!file.exists())   {
+        if (!file.exists()) {
             try {
                 file.createNewFile();
-            }
-            catch (IOException ex)  {
+            } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }

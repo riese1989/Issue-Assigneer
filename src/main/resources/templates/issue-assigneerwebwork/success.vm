@@ -59,50 +59,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change"><s>"Artem.Firstov","Sergey.Zharkov","German.Chachin"</s><br>"Artem.Firstov","Sergey.Zharkov","German.Chachin",
-                            "Artem.Firstov"
-                        </td>
-                    </tr>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
-                    </tr>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
-                    </tr>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
-                    </tr>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
-                    </tr>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
-                    </tr>
-                    <tr>
-                        <td headers="when">1.01.2011, 02:03:04</td>
-                        <td headers="who">Evgeniya.Borovchenko</td>
-                        <td headers="stage">Менеджер изменений</td>
-                        <td headers="change">"Artem.Firstov","Sergey.Zharkov","German.Chachin"</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

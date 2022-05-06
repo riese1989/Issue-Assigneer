@@ -6,6 +6,7 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -15,6 +16,7 @@ import ru.pestov.alexey.plugins.spring.model.System;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Named
 @Getter
@@ -90,7 +92,7 @@ public class DBService {
         }
     }
 
-    private void  recoverSystems() {
+    private void recoverSystems() {
         HashMap<String, Boolean> mapSystems = systemService.getMapSystemActive();
         for (Map.Entry<String, Boolean> entry : mapSystems.entrySet()) {
             String name = entry.getKey();
@@ -171,19 +173,20 @@ public class DBService {
     private void recoverDelivery() {
         JSONObject jsonObject = jsonService.getJsonDelivery();
         Iterator keys = jsonObject.keySet().iterator();
-        while (keys.hasNext())  {
+        while (keys.hasNext()) {
             String nameSystem = (String) keys.next();
             String nameDelivery = jsonObject.get(nameSystem).toString().replaceAll("@x5.ru", "");
             User delivery = userModelManager.getUserByName(nameDelivery);
-            if (delivery == null)   {
+            if (delivery == null) {
                 delivery = userModelManager.createUser(nameDelivery);
             }
             System system = systemModelManager.getSystemByName(nameSystem);
-            dmManager.createDelivery(system,delivery);
+            dmManager.createDelivery(system, delivery);
         }
     }
 
     public List<SystemAssignees> updateDB(Param param) {
+        Date date = new Date();
         List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
@@ -196,7 +199,7 @@ public class DBService {
         User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
         List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
         for (SystemAssignees systemAssignee : oldSystemAssignees) {
-            logModelManager.create(systemAssignee, tcaManager.get(2), currentUser);
+            logModelManager.create(date, systemAssignee, tcaManager.get(2), currentUser);
         }
         system = systemModelManager.setActive(idSystem, isActive);
         SAManager.deleteObjects(idSystem, idTypeChange);
@@ -207,28 +210,29 @@ public class DBService {
                 if (user != null) {
                     SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
                     result.add(systemAssigneeNew);
-                    logModelManager.create(systemAssigneeNew, tcaManager.get(1), currentUser);
+                    logModelManager.create(date, systemAssigneeNew, tcaManager.get(1), currentUser);
                 }
             }
         }
-        if(param.getDelivery() != null) {
-            updateDeliveryDB(param, currentUser);
+        List<SystemAssignees> newSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
+        if (param.getDelivery() != null) {
+            updateDeliveryDB(date, param, currentUser);
         }
         return result;
     }
 
-    private void updateDeliveryDB(Param param, User currentUser) {
+    private void updateDeliveryDB(Date date, Param param, User currentUser) {
         System system = param.getSystem();
         Delivery delivery = dmManager.getDelivery(system);
         if (delivery != null) {
             User oldUser = delivery.getUser();
             dmManager.delete(system);
-            logModelManager.create(oldUser, system, tcaManager.get(4), currentUser);
+            logModelManager.create(date, oldUser, system, tcaManager.get(4), currentUser);
         }
         User user = userModelManager.getUserByName(param.getDelivery());
         if (user != null) {
             Delivery newDelivery = dmManager.createDelivery(system, user);
-            logModelManager.create(newDelivery.getUser(), system, tcaManager.get(3), currentUser);
+            logModelManager.create(date, newDelivery.getUser(), system, tcaManager.get(3), currentUser);
         }
 
     }
@@ -361,27 +365,72 @@ public class DBService {
         }
     }
 
-    public List<String> addToActiveUsersId(List<String> activeUsers)    {
+    public List<String> addToActiveUsersId(List<String> activeUsers) {
         List<String> result = new ArrayList<>();
-        for(String nameUser : activeUsers)  {
+        for (String nameUser : activeUsers) {
             //todo 500 ошибка
-            Integer idUser = userModelManager.getUserByName(nameUser.replaceAll("=","")).getID();
+            Integer idUser = userModelManager.getUserByName(nameUser.replaceAll("=", "")).getID();
             result.add(nameUser + idUser);
         }
         return result;
     }
 
-    public List<String> getNameActiveUsers()    {
+    public List<String> getNameActiveUsers() {
         List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers());
         List<String> result = new ArrayList<>();
-        activeUsers.forEach(au -> result.add(au.getName()+"="));
+        activeUsers.forEach(au -> result.add(au.getName() + "="));
         return result;
     }
 
-    public String getUserById(int id)    {
+    public String getUserById(int id) {
         return userModelManager.getUserById(id).getName();
     }
 
+    public String getLogs(Integer idSystem, Integer idTypeChange) {
+        String result = "";
+        List<Log> logsDate = Arrays.asList(logModelManager.getDate(idSystem, idTypeChange));
+        for (Log logDate : logsDate) {
+            Date date = logDate.getDate();
+            List<Log> logs = Arrays.asList(logModelManager.getLogsByDate(idSystem, idTypeChange, date));
+            result += compareStages(logs);
+        }
+        return result;
+    }
+
+    private String compareStages(List<Log> logs) {
+        String result = "";
+        List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
+        for (Stage stage : stages) {
+            java.lang.System.out.println();
+            List<Log> logsBefore = logs.stream().filter(l -> l.getTypeChangeAssignee().getName().equals("Delete") && l.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
+            List<Log> logsAfter = logs.stream().filter(l -> l.getTypeChangeAssignee().getName().equals("Create") && l.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
+            List<User> usersBefore = new ArrayList<>();
+            List<User> usersAfter = new ArrayList<>();
+            logsBefore.forEach(l -> usersBefore.add(l.getAssignee()));
+            logsAfter.forEach(l -> usersAfter.add(l.getAssignee()));
+            List<User> usersBeforeBuf = new ArrayList<>(usersBefore);
+            List<User> usersAfterBuf = new ArrayList<>(usersAfter);
+            usersBeforeBuf.removeAll(usersAfterBuf);
+            usersAfterBuf.removeAll(usersBefore);
+            if (usersBeforeBuf.size() != 0 || usersAfterBuf.size() != 0) {
+                result += "<tr><td headers=\"when\">" + logs.get(0).getDate().toString() + "</td>";
+                result += "<td headers =\"who\">" + logs.get(0).getUser().getName() + "</td>";
+                result += "<td headers =\"stage\">" + stage.getName() + "</td>";
+                result += "<td headers =\"change\">" + "<s>" + getAssigneeLogs(usersBefore) + "</s><br>" + getAssigneeLogs(usersAfter) + "</td>";
+                result += "</tr>";
+            }
+        }
+        return result;
+    }
+
+
+    private String getAssigneeLogs(List<User> users) {
+        String result = "";
+        for (User user : users) {
+            result += user.getName() + " ";
+        }
+        return result;
+    }
 
 
 }

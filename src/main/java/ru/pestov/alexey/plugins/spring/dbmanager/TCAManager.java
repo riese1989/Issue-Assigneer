@@ -2,6 +2,7 @@ package ru.pestov.alexey.plugins.spring.dbmanager;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
+import net.java.ao.Query;
 import ru.pestov.alexey.plugins.spring.model.Stage;
 import ru.pestov.alexey.plugins.spring.model.TypeChangeAssignee;
 
@@ -30,6 +31,15 @@ public class TCAManager extends ModelManager {
             @Override
             public TypeChangeAssignee doInTransaction() {
                 return ao.get(TypeChangeAssignee.class, id);
+            }
+        });
+    }
+
+    public TypeChangeAssignee getByName(String name)    {
+        return ao.executeInTransaction(new TransactionCallback<TypeChangeAssignee>() {
+            @Override
+            public TypeChangeAssignee doInTransaction() {
+                return ao.find(TypeChangeAssignee.class, Query.select().where("NAME = ?", name))[0];
             }
         });
     }

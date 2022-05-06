@@ -105,7 +105,7 @@ public class SystemRest {
     @GET
     @Path(("/synch"))
     public Response runSynch()  {
-        dbService.synchronize();
+        //dbService.synchronize();
         return Response.ok().build();
     }
 
@@ -184,7 +184,14 @@ public class SystemRest {
     @GET
     @Path("/isenable")
     public Response checkEnable(@QueryParam("idsystem") Integer idSystem,
-                                @QueryParam("ididtypechange") Integer idTypeChange)   {
+                                @QueryParam("idtypechange") Integer idTypeChange)   {
         return Response.ok(permissionService.isEnable(idSystem, idTypeChange).toString()).build();
+    }
+
+    @GET
+    @Path("/getlogs")
+    public Response getLogs(@QueryParam("idsystem") Integer idSystem,
+                            @QueryParam("idtypechange") Integer idTypeChange) {
+        return Response.ok(dbService.getLogs(idSystem, idTypeChange)).build();
     }
 }

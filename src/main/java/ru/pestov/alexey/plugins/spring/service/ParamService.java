@@ -19,7 +19,7 @@ public class ParamService {
         param.setStage23(getNameUsers(param.getStage23()));
         param.setStage3(getNameUsers(param.getStage3()));
         param.setAuthorize(getNameUsers(param.getAuthorize()));
-        if (!param.getDelivery().equals("0")) {
+        if (param.getDelivery()!=null) {
             param.setDelivery(dbService.getUserById(Integer.parseInt(param.getDelivery())));
         }
         return param;
