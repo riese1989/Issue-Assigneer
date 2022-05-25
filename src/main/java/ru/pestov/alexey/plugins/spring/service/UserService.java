@@ -4,6 +4,8 @@ import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
+import ru.pestov.alexey.plugins.spring.model.User;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -39,5 +41,15 @@ public class UserService {
 
     public ApplicationUser getCurrentUser() {
         return ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
+    }
+
+    public boolean compareLists(List<User> list1, List<User> list2)   {
+        List<User> list1Buf = new ArrayList<>(list1), list2Buf = new ArrayList<>(list2);
+        if (list1.size() != list2.size())   {
+            return false;
+        }
+        list1Buf.removeAll(list2);
+        list2Buf.removeAll(list1);
+        return list1Buf.size() == 0 && list1Buf.size() == 0;
     }
 }

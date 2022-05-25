@@ -62,6 +62,16 @@ public class SAManager extends ModelManager {
         });
     }
 
+    public void deleteObjects(SystemAssignees[] systems) {
+        ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
+                ao.delete(systems);
+                return systems;
+            }
+        });
+    }
+
     public SystemAssignees[] getSystemAssigneesByUser(User user, Stage stage)    {
         return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
             @Override

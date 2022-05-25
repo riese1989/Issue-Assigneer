@@ -7,8 +7,9 @@ import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
 
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
 
 @Named
 public class LogModelManager extends ModelManager{
@@ -34,6 +35,15 @@ public class LogModelManager extends ModelManager{
                 return log;
             }
         });
+    }
+
+    public List<Log> create (Date date, List<SystemAssignees> systemAssigneeList, TypeChangeAssignee typeChangeAssignee,
+                       User currentUser)   {
+        List<Log> logs = new ArrayList<>();
+        for (SystemAssignees systemAssignees : systemAssigneeList)  {
+            logs.add(create(date, systemAssignees, typeChangeAssignee, currentUser));
+        }
+        return logs;
     }
 
     public Log create (Date date, User user, System system, TypeChangeAssignee typeChangeAssignee,

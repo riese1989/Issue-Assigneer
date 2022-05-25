@@ -6,7 +6,6 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -34,12 +33,14 @@ public class DBService {
     private final DMManager dmManager;
     private final TCAManager tcaManager;
     private final LogModelManager logModelManager;
+    private final SystemAssigneeService systemAssigneeService;
 
     @Inject
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
                      SystemService systemService, SMManager SMManager, TypeChangeService typeChangeService,
                      TCMManager typeChangeModelManager, JSONService jsonService, SAManager SAManager,
-                     DMManager dmManager, TCAManager tcaManager, LogModelManager logModelManager) {
+                     DMManager dmManager, TCAManager tcaManager, LogModelManager logModelManager,
+                     SystemAssigneeService systemAssigneeService) {
         this.userModelManager = UMManager;
         this.userService = userService;
         this.stageModelManager = stageModelManager;
@@ -52,6 +53,7 @@ public class DBService {
         this.dmManager = dmManager;
         this.tcaManager = tcaManager;
         this.logModelManager = logModelManager;
+        this.systemAssigneeService = systemAssigneeService;
     }
 
     public Integer recoverDB() {
@@ -198,27 +200,47 @@ public class DBService {
         List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
         User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
         List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
-        for (SystemAssignees systemAssignee : oldSystemAssignees) {
-            logModelManager.create(date, systemAssignee, tcaManager.get(2), currentUser);
-        }
         system = systemModelManager.setActive(idSystem, isActive);
-        SAManager.deleteObjects(idSystem, idTypeChange);
+        List<SystemAssignees> newSystemAssignees = new ArrayList<>();
         for (Stage stage : stages) {
             List<String> nameUsers = param.getRequiredStage(stage.getName());
             for (String nameUser : nameUsers) {
                 User user = userModelManager.getUserByName(nameUser);
                 if (user != null) {
                     SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                    newSystemAssignees.add(systemAssigneeNew);
                     result.add(systemAssigneeNew);
-                    logModelManager.create(date, systemAssigneeNew, tcaManager.get(1), currentUser);
                 }
             }
         }
-        List<SystemAssignees> newSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
+        if (!oldSystemAssignees.equals(newSystemAssignees)) {
+            updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser);
+        }
         if (param.getDelivery() != null) {
             updateDeliveryDB(date, param, currentUser);
         }
+        SAManager.deleteObjects(oldSystemAssignees.toArray(new SystemAssignees[0]));
         return result;
+    }
+
+    private void updateLog(List<SystemAssignees> oldSystemAssignees, List<SystemAssignees> newSystemAssignees, List<Stage> stages, User currentUser)  {
+        Date date = new Date();
+        for (Stage stage : stages)  {
+            List<SystemAssignees> oldSystemAssigneesStage = oldSystemAssignees.stream()
+                    .filter(osa -> osa.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
+            List<SystemAssignees> newSystemAssigneesStage = newSystemAssignees.stream()
+                    .filter(nsa -> nsa.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
+            List<User> oldUsers = systemAssigneeService.getUsers(oldSystemAssigneesStage);
+            List<User> newUsers = systemAssigneeService.getUsers(newSystemAssigneesStage);
+            if (!userService.compareLists(oldUsers, newUsers))   {
+                if (oldSystemAssigneesStage != null) {
+                    logModelManager.create(date, oldSystemAssigneesStage, tcaManager.getByName("Delete"), currentUser);
+                }
+                if (newSystemAssigneesStage != null) {
+                    logModelManager.create(date, newSystemAssigneesStage, tcaManager.getByName("Create"), currentUser);
+                }
+            }
+        }
     }
 
     private void updateDeliveryDB(Date date, Param param, User currentUser) {
