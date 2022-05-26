@@ -21,4 +21,7 @@ public interface System extends Entity {
 
     @OneToOne
     Delivery getDelivery();
+
+    @OneToMany
+    LogDelivery[] getLogDelivery();
 }

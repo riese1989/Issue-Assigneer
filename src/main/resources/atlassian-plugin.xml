@@ -70,5 +70,6 @@
         <entity>ru.pestov.alexey.plugins.spring.model.Stage</entity>
         <entity>ru.pestov.alexey.plugins.spring.model.TypeChangeAssignee</entity>
         <entity>ru.pestov.alexey.plugins.spring.model.SystemAssignees</entity>
+        <entity>ru.pestov.alexey.plugins.spring.model.LogDelivery</entity>
     </ao>
 </atlassian-plugin>

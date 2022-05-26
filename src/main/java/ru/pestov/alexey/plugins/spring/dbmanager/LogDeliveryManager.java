@@ -1,0 +1,34 @@
+package ru.pestov.alexey.plugins.spring.dbmanager;
+
+import com.atlassian.activeobjects.external.ActiveObjects;
+import com.atlassian.sal.api.transaction.TransactionCallback;
+import ru.pestov.alexey.plugins.spring.model.LogDelivery;
+import ru.pestov.alexey.plugins.spring.model.System;
+import ru.pestov.alexey.plugins.spring.model.User;
+
+import javax.inject.Named;
+import java.util.Date;
+
+@Named
+public class LogDeliveryManager extends ModelManager {
+
+    public LogDeliveryManager(ActiveObjects ao) {
+        super(ao);
+    }
+
+    public LogDelivery create(Date date, System system, User oldDelivery, User newDelivery, User currentUser)   {
+        return ao.executeInTransaction(new TransactionCallback<LogDelivery>() {
+            @Override
+            public LogDelivery doInTransaction() {
+                LogDelivery logDelivery = ao.create(LogDelivery.class);
+                logDelivery.setDate(date);
+                logDelivery.setSystem(system);
+                logDelivery.setOldDelivery(oldDelivery);
+                logDelivery.setNewDelivery(newDelivery);
+                logDelivery.setUser(currentUser);
+                logDelivery.save();
+                return logDelivery;
+            }
+        });
+    }
+}

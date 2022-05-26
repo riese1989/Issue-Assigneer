@@ -34,13 +34,15 @@ public class DBService {
     private final TCAManager tcaManager;
     private final LogModelManager logModelManager;
     private final SystemAssigneeService systemAssigneeService;
+    private final LogDeliveryManager logDeliveryManager;
+    private final DeliveryService deliveryService;
 
     @Inject
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
                      SystemService systemService, SMManager SMManager, TypeChangeService typeChangeService,
                      TCMManager typeChangeModelManager, JSONService jsonService, SAManager SAManager,
                      DMManager dmManager, TCAManager tcaManager, LogModelManager logModelManager,
-                     SystemAssigneeService systemAssigneeService) {
+                     SystemAssigneeService systemAssigneeService, LogDeliveryManager logDeliveryManager, DeliveryService deliveryService) {
         this.userModelManager = UMManager;
         this.userService = userService;
         this.stageModelManager = stageModelManager;
@@ -54,6 +56,8 @@ public class DBService {
         this.tcaManager = tcaManager;
         this.logModelManager = logModelManager;
         this.systemAssigneeService = systemAssigneeService;
+        this.logDeliveryManager = logDeliveryManager;
+        this.deliveryService = deliveryService;
     }
 
     public Integer recoverDB() {
@@ -219,6 +223,7 @@ public class DBService {
         if (param.getDelivery() != null) {
             updateDeliveryDB(date, param, currentUser);
         }
+        //todo хз
         SAManager.deleteObjects(oldSystemAssignees.toArray(new SystemAssignees[0]));
         return result;
     }
@@ -245,18 +250,22 @@ public class DBService {
 
     private void updateDeliveryDB(Date date, Param param, User currentUser) {
         System system = param.getSystem();
-        Delivery delivery = dmManager.getDelivery(system);
-        if (delivery != null) {
-            User oldUser = delivery.getUser();
-            dmManager.delete(system);
-            logModelManager.create(date, oldUser, system, tcaManager.get(4), currentUser);
-        }
+        Delivery oldDelivery = dmManager.getDelivery(system);
+        User oldDeliveryUser = oldDelivery != null ? oldDelivery.getUser() : null;
+        Delivery newDelivery = null;
         User user = userModelManager.getUserByName(param.getDelivery());
         if (user != null) {
-            Delivery newDelivery = dmManager.createDelivery(system, user);
-            logModelManager.create(date, newDelivery.getUser(), system, tcaManager.get(3), currentUser);
+            newDelivery = dmManager.createDelivery(system, user);
         }
-
+        if (!deliveryService.compare(newDelivery, oldDelivery)) {
+            logDeliveryManager.create(date, system,
+                    oldDeliveryUser != null ? oldDeliveryUser : null,
+                    newDelivery != null ? newDelivery.getUser() : null,
+                    currentUser);
+            if (oldDelivery != null) {
+                dmManager.delete(oldDelivery);
+            }
+        }
     }
 
     private void recoverTypeChangeAssignee() {
@@ -390,7 +399,6 @@ public class DBService {
     public List<String> addToActiveUsersId(List<String> activeUsers) {
         List<String> result = new ArrayList<>();
         for (String nameUser : activeUsers) {
-            //todo 500 ошибка
             Integer idUser = userModelManager.getUserByName(nameUser.replaceAll("=", "")).getID();
             result.add(nameUser + idUser);
         }

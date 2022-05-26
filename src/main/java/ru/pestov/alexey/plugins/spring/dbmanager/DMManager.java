@@ -50,6 +50,16 @@ public class DMManager extends ModelManager{
         });
     }
 
+    public Delivery delete(Delivery delivery)   {
+        return ao.executeInTransaction(new TransactionCallback<Delivery>() {
+            @Override
+            public Delivery doInTransaction() {
+                ao.delete(delivery);
+                return delivery;
+            }
+        });
+    }
+
     public Delivery[] getSystemsByDelivery(User user)   {
         return ao.executeInTransaction(new TransactionCallback<Delivery[]>() {
             @Override

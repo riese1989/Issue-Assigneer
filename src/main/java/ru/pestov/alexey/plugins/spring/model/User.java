@@ -29,4 +29,7 @@ public interface User extends Entity {
     @OneToMany
     Delivery[] getDelivery();
 
+    @OneToMany
+    LogDelivery[] getLogDelivery();
+
 }
