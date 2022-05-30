@@ -74,12 +74,29 @@ public class LogModelManager extends ModelManager{
         });
     }
 
-    public Log[] getDate(Integer idSystem, Integer idTypeChange)   {
+    public Log[] getLogs(Integer idSystem, Integer idTypeChange)   {
         return ao.executeInTransaction(new TransactionCallback<Log[]>() {
             @Override
             public Log[] doInTransaction() {
-                Log[] logs =  ao.find(Log.class, Query.select("DATE").distinct().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
-                return Arrays.stream(logs).distinct().toArray(Log[]::new);
+                return ao.find(Log.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
+            }
+        });
+    }
+
+    public Log[] getUniqueData(Integer idSystem, Integer idTypeChange)  {
+        return ao.executeInTransaction(new TransactionCallback<Log[]>() {
+            @Override
+            public Log[] doInTransaction() {
+                return ao.find(Log.class, Query.select("DATE").where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange).distinct());
+            }
+        });
+    }
+
+    public Log[] getLogData(Integer idSystem, Integer idTypeChange, Date date, Integer typeChangeAssigneeId)  {
+        return ao.executeInTransaction(new TransactionCallback<Log[]>() {
+            @Override
+            public Log[] doInTransaction() {
+                return ao.find(Log.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ? AND DATE = ? AND TYPE_CHANGE_ASSIGNEE_ID = ?", idSystem, idTypeChange, date, typeChangeAssigneeId));
             }
         });
     }

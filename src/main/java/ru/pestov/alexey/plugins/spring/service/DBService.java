@@ -93,6 +93,7 @@ public class DBService {
         }
     }
 
+    //todo переделать как на форме
     private void recoverStage() {
         List<String> stages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3", "authorize");
         for (String stage : stages) {
@@ -421,14 +422,81 @@ public class DBService {
     }
 
     public String getLogs(Integer idSystem, Integer idTypeChange) {
-        String result = "";
-        List<Log> logsDate = Arrays.asList(logModelManager.getDate(idSystem, idTypeChange));
-        for (Log logDate : logsDate) {
-            Date date = logDate.getDate();
-            List<Log> logs = Arrays.asList(logModelManager.getLogsByDate(idSystem, idTypeChange, date));
-            result += compareStages(logs);
+        List<String> stringLogs = new ArrayList<>();
+        stringLogs.addAll(getFromAssigneeLogs(idSystem, idTypeChange));
+        stringLogs.addAll(getLogsFromDelivery(idSystem));
+        stringLogs.addAll(getLogsActiveSystem(idSystem));
+        Collections.sort(stringLogs);
+        if (stringLogs.size() == 0) {
+            return "";
+        }
+        return stringLogs.toString().replaceAll("[|]","");
+    }
+
+    private List<String> getFromAssigneeLogs(Integer idSystem, Integer idTypeChange)  {
+        TypeChangeAssignee createTCA = tcaManager.getByName("Create");
+        TypeChangeAssignee deleteTCA = tcaManager.getByName("Delete");
+        List<String> result = new ArrayList<>();
+        List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
+        List<Date> dates = new ArrayList<>();
+        for (Log log : logs)    {
+            Date dateLog = log.getDate();
+            if (!dates.contains(dateLog))   {
+                dates.add(dateLog);
+            }
+        }
+        for (Date date : dates) {
+            String when = date.toString();
+            List<Log> logsByDateDelete = Arrays.asList(logModelManager.getLogData(idSystem, idTypeChange, date, deleteTCA.getID()));
+            List<Log> logsByDateCreate = Arrays.asList(logModelManager.getLogData(idSystem, idTypeChange, date, createTCA.getID()));
+            String who = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getUser().getName() : logsByDateDelete.get(0).getUser().getName();
+            String stage = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getStage().getName() : logsByDateDelete.get(0).getStage().getName();
+            String change = "<s>" + convertLogsToString(logsByDateDelete) + "</s> " + convertLogsToString(logsByDateCreate);
+            result.add(getHTMLFromPattern(when, who, stage, change));
         }
         return result;
+    }
+
+    private List<String> getLogsFromDelivery(Integer idSystem)  {
+        List<LogDelivery> logs = Arrays.asList(logDeliveryManager.getLogs(idSystem));
+        List<String> result = new ArrayList<>();
+        for (LogDelivery log : logs)    {
+            String when  = log.getDate().toString();
+            String who = log.getUser().getName();
+            String stage = "Delivery";
+            String change = "<s>" + log.getOldDelivery().getName() + "</s> " + log.getNewDelivery().getName();
+            result.add(getHTMLFromPattern(when, who,stage,change));
+        }
+        return result;
+    }
+
+    private List<String> getLogsActiveSystem(Integer idSystem)  {
+        List<LogActiveSystem> logs = Arrays.asList(logActiveSystemManager.getLogs(idSystem));
+        List<String> result = new ArrayList<>();
+        for (LogActiveSystem log : logs)    {
+            String when = log.getDate().toString();
+            String who = log.getUser().getName();
+            String stage = "Система активна";
+            boolean isActive = log.getNewValue();
+            String change = "<s>" + !isActive + "</s> " + isActive;
+            result.add(getHTMLFromPattern(when, who,stage,change));
+        }
+        return result;
+    }
+
+    private String convertLogsToString (List<Log> logs) {
+        String result = "";
+        for (int i = 0; i < logs.size(); i++)    {
+                result +=  logs.get(i).getAssignee().getName();
+            if (i != logs.size() - 1)   {
+                result += ", ";
+            }
+        }
+        return result;
+    }
+
+    private String getHTMLFromPattern(String arg1, String arg2, String arg3, String arg4)   {
+        return "<tr><td>" + arg1 + "</td><td>" + arg2 + "</td><td>" + arg3 + "</td><td>" + arg4 + "</td></tr>";
     }
 
     private String compareStages(List<Log> logs) {
