@@ -16,7 +16,7 @@
     <div id="box">
         <div class="left">
             <div class="field-group">
-                <label for="systemCab">Информационная система</label>
+                <label for="systemCab">Система</label>
                 <select class="select" id="systemCab" name="systemCab">
                     <option value="0">Select</option>
                 </select>
@@ -65,48 +65,43 @@
         </div>
     </div>
     <div class="field-group">
-        <label for="stage1" title=" 1 Этап согласования
-функционального лидера или Начальника отдела функциональной области или Техническим владельцем
-
-Роль определяется исходя из орг.структуры и требований процесса согласований конкретной области">1 этап</label>
+        <label for="stage1" id="stage1Label"></label>
         <select class="multiselect" id="stage1" name="stage1" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage21" title="2 Этап согласования: менеджер изменений">Менеджер изменений</label>
+        <label for="stage21" id="stage21Label"></label>
         <select class="multiselect" id="stage21" name="stage21" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage22"
-               title="2 Этап согласования: (м.б. определены заранее или назначены при необходимости дополнительного контроля менеджером изменений)">2
-            этап</label>
+        <label for="stage22" id="stage22Label"></label>
         <select class="multiselect" id="stage22" name="stage22" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage23" title="2 Этап согласования: Поддержка">Поддержка</label>
+        <label for="stage23" id="stage23Label"></label>
         <select class="multiselect" id="stage23" name="stage23" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="stage3">Утверждающий</label>
+        <label for="stage3" id="stage3Label"></label>
         <select class="multiselect" id="stage3" name="stage3" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="authorize">Авторизующий</label>
+        <label for="authorize" id="authorizeLabel"></label>
         <select class="multiselect" id="authorize" name="authorize" multiple disabled>
         </select>
     </div>
     <div class="field-group">
-        <label for="delivery">Delivery</label>
+        <label for="delivery" id = "deliveryLabel"></label>
         <select class="multiselect" id="delivery" name="delivery" disabled>
             <option value="0">Empty</option>
         </select>
     </div>
     <div class="field-group">
-        <label for="active">Система активна?</label>
+        <label for="active" id = "activeLabel"></label>
         <select class="selectdown" id="active" name="active" disabled>
             <option value="true">Да</option>
             <option value="false">Нет</option>

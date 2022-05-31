@@ -13,12 +13,14 @@ public class StMManager extends ModelManager {
     public StMManager(ActiveObjects ao) {
         super(ao);
     }
-    public Stage createStage(String name)   {
+    public Stage createStage(String name, String label, String title)   {
         return ao.executeInTransaction(new TransactionCallback<Stage>() {
             @Override
             public Stage doInTransaction() {
                 Stage stage = ao.create(Stage.class);
                 stage.setName(name);
+                stage.setLabel(label);
+                stage.setTitle(title);
                 stage.save();
                 return stage;
             }

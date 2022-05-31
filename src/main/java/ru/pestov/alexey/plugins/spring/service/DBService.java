@@ -95,10 +95,17 @@ public class DBService {
 
     //todo переделать как на форме
     private void recoverStage() {
-        List<String> stages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3", "authorize");
-        for (String stage : stages) {
-            stageModelManager.createStage(stage);
-        }
+        stageModelManager.createStage("stage1","1 этап","1 Этап согласования\n" +
+                "функционального лидера или Начальника отдела функциональной области или Техническим владельцем\n" +
+                "\n" +
+                "Роль определяется исходя из орг.структуры и требований процесса согласований конкретной области");
+        stageModelManager.createStage("stage21", "Менеджер изменений", "2 Этап согласования: менеджер изменений");
+        stageModelManager.createStage("stage22", "2 этап", "2 Этап согласования: (м.б. определены заранее или назначены при необходимости дополнительного контроля менеджером изменений)");
+        stageModelManager.createStage("stage23", "Поддержка", "2 Этап согласования: Поддержка");
+        stageModelManager.createStage("stage3","Утверждающий","");
+        stageModelManager.createStage("authorize", "Авторизующий", "");
+        stageModelManager.createStage("delivery", "Деливери", "");
+        stageModelManager.createStage("active", "Система активна?", "");
     }
 
     private void recoverSystems() {
@@ -213,6 +220,9 @@ public class DBService {
         system = systemModelManager.setActive(idSystem, isActive);
         List<SystemAssignees> newSystemAssignees = new ArrayList<>();
         for (Stage stage : stages) {
+            if (stage.getName().equals("delivery") || stage.getName().equals("active"))  {
+                continue;
+            }
             List<String> nameUsers = param.getRequiredStage(stage.getName());
             for (String nameUser : nameUsers) {
                 User user = userModelManager.getUserByName(nameUser);
@@ -450,7 +460,7 @@ public class DBService {
             List<Log> logsByDateDelete = Arrays.asList(logModelManager.getLogData(idSystem, idTypeChange, date, deleteTCA.getID()));
             List<Log> logsByDateCreate = Arrays.asList(logModelManager.getLogData(idSystem, idTypeChange, date, createTCA.getID()));
             String who = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getUser().getName() : logsByDateDelete.get(0).getUser().getName();
-            String stage = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getStage().getName() : logsByDateDelete.get(0).getStage().getName();
+            String stage = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getStage().getLabel() : logsByDateDelete.get(0).getStage().getLabel();
             String change = "<s>" + convertLogsToString(logsByDateDelete) + "</s> " + convertLogsToString(logsByDateCreate);
             result.add(getHTMLFromPattern(when, who, stage, change));
         }
@@ -463,8 +473,12 @@ public class DBService {
         for (LogDelivery log : logs)    {
             String when  = log.getDate().toString();
             String who = log.getUser().getName();
-            String stage = "Delivery";
-            String change = "<s>" + log.getOldDelivery().getName() + "</s> " + log.getNewDelivery().getName();
+            String stage = stageModelManager.getStageByName("delivery").getLabel();
+            User oldDelivery = log.getOldDelivery();
+            String nameOldDelivery = oldDelivery == null ? "" : oldDelivery.getName();
+            User newDelivery = log.getNewDelivery();
+            String nameNewDelivery = newDelivery == null ? "" : newDelivery.getName();
+            String change = "<s>" + nameOldDelivery + "</s> " + nameNewDelivery;
             result.add(getHTMLFromPattern(when, who,stage,change));
         }
         return result;
@@ -476,7 +490,7 @@ public class DBService {
         for (LogActiveSystem log : logs)    {
             String when = log.getDate().toString();
             String who = log.getUser().getName();
-            String stage = "Система активна";
+            String stage = stageModelManager.getStageByName("active").getLabel();
             boolean isActive = log.getNewValue();
             String change = "<s>" + !isActive + "</s> " + isActive;
             result.add(getHTMLFromPattern(when, who,stage,change));
@@ -503,6 +517,9 @@ public class DBService {
         String result = "";
         List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
         for (Stage stage : stages) {
+            if (stage.getName().equals("Delivery") || stage.getName().equals("Active system"))  {
+                continue;
+            }
             java.lang.System.out.println();
             List<Log> logsBefore = logs.stream().filter(l -> l.getTypeChangeAssignee().getName().equals("Delete") && l.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
             List<Log> logsAfter = logs.stream().filter(l -> l.getTypeChangeAssignee().getName().equals("Create") && l.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
@@ -533,6 +550,15 @@ public class DBService {
         }
         return result;
     }
+    
+    public String getLabelStage(String name)    {
+        Stage stage = stageModelManager.getStageByName(name);
+        return stage.getLabel();
+    }
 
+    public String getTitleStage(String name)    {
+        Stage stage = stageModelManager.getStageByName(name);
+        return stage.getTitle();
+    }
 
 }

@@ -194,4 +194,16 @@ public class SystemRest {
                             @QueryParam("idtypechange") Integer idTypeChange) {
         return Response.ok(dbService.getLogs(idSystem, idTypeChange)).build();
     }
+
+    @GET
+    @Path("/stage/title")
+    public Response getTitle(@QueryParam("namestage") String nameStage) {
+        return Response.ok(dbService.getTitleStage(nameStage)).build();
+    }
+
+    @GET
+    @Path("/stage/label")
+    public Response getLabel(@QueryParam("namestage") String nameStage) {
+        return Response.ok(dbService.getLabelStage(nameStage)).build();
+    }
 }

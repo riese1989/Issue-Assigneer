@@ -9,6 +9,12 @@ public interface Stage extends Entity {
     String getName();
     void setName(String name);
 
+    String getLabel();
+    void setLabel(String label);
+
+    String getTitle();
+    void setTitle(String title);
+
     @OneToMany
     SystemAssignees[] getSystemAssignees();
 }
