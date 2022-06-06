@@ -158,8 +158,9 @@ public class SystemRest {
     @GET
     @Path("/getactiveusers")
     public Response getActiveUsers() {
-        List<String> activeUsers = dbService.getActiveUsers();
-        return Response.ok(activeUsers.toString()).build();
+        List<String> activeUsers = dbService.getNameActiveUsers();
+        List<String> activeUsersWithId = dbService.addToActiveUsersId(activeUsers);
+        return Response.ok(activeUsersWithId.toString()).build();
     }
 
     @GET

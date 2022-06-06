@@ -39,17 +39,6 @@ public class DMManager extends ModelManager{
         });
     }
 
-    public Delivery delete(System system)   {
-        return ao.executeInTransaction(new TransactionCallback<Delivery>() {
-            @Override
-            public Delivery doInTransaction() {
-                Delivery delivery = ao.find(Delivery.class, Query.select().where("SYSTEM_ID = ?", system.getID()))[0];
-                ao.delete(delivery);
-                return delivery;
-            }
-        });
-    }
-
     public Delivery delete(Delivery delivery)   {
         return ao.executeInTransaction(new TransactionCallback<Delivery>() {
             @Override

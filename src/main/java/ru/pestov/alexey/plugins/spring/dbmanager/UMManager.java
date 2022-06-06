@@ -95,7 +95,9 @@ public class UMManager extends ModelManager{
             @Override
             public User doInTransaction() {
                 User[] users =ao.find(User.class);
-                ao.delete(users);
+                for (User user : users) {
+                    ao.delete(user);
+                }
                 return null;
             }
         });

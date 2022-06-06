@@ -76,6 +76,8 @@ public class DBService {
     }
 
     private void clearDB() {
+        logDeliveryManager.deleteAll();
+        logActiveSystemManager.deleteAll();
         logModelManager.deleteAll();
         SAManager.deleteAll();
         dmManager.deleteAll();
@@ -263,6 +265,8 @@ public class DBService {
         }
     }
 
+    //todo завдваиваются записи. нужно если найдено сделать update
+
     private void updateDeliveryDB(Date date, Param param, User currentUser) {
         System system = param.getSystem();
         Delivery oldDelivery = dmManager.getDelivery(system);
@@ -411,10 +415,19 @@ public class DBService {
         }
     }
 
-    public List<String> getActiveUsers() {
+    public List<String> addToActiveUsersId(List<String> activeUsers) {
+        List<String> result = new ArrayList<>();
+        for (String nameUser : activeUsers) {
+            Integer idUser = userModelManager.getUserByName(nameUser.replaceAll("=", "")).getID();
+            result.add(nameUser + idUser);
+        }
+        return result;
+    }
+
+    public List<String> getNameActiveUsers() {
         List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers());
         List<String> result = new ArrayList<>();
-        activeUsers.forEach(au -> result.add(au.getName() + "=" + au.getID()));
+        activeUsers.forEach(au -> result.add(au.getName() + "="));
         return result;
     }
 

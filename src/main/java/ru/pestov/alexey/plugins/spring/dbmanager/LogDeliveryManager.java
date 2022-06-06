@@ -42,4 +42,15 @@ public class LogDeliveryManager extends ModelManager {
             }
         });
     }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<LogDelivery>() {
+            @Override
+            public LogDelivery doInTransaction() {
+                LogDelivery[] logs =ao.find(LogDelivery.class);
+                ao.delete(logs);
+                return null;
+            }
+        });
+    }
 }

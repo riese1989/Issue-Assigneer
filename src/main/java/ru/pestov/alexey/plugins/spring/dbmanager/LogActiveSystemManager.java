@@ -3,10 +3,8 @@ package ru.pestov.alexey.plugins.spring.dbmanager;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.sal.api.transaction.TransactionCallback;
 import net.java.ao.Query;
-import ru.pestov.alexey.plugins.spring.model.LogActiveSystem;
-import ru.pestov.alexey.plugins.spring.model.LogDelivery;
+import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
-import ru.pestov.alexey.plugins.spring.model.User;
 
 import javax.inject.Named;
 import java.util.Date;
@@ -37,6 +35,17 @@ public class LogActiveSystemManager extends ModelManager {
             @Override
             public LogActiveSystem[] doInTransaction() {
                 return ao.find(LogActiveSystem.class, Query.select().where("SYSTEM_ID = ?", idSystem));
+            }
+        });
+    }
+
+    public void deleteAll() {
+        ao.executeInTransaction(new TransactionCallback<LogActiveSystem>() {
+            @Override
+            public LogActiveSystem doInTransaction() {
+                LogActiveSystem[] logs =ao.find(LogActiveSystem.class);
+                ao.delete(logs);
+                return null;
             }
         });
     }
