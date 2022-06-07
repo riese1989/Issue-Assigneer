@@ -68,4 +68,15 @@ public class DMManager extends ModelManager{
             }
         });
     }
+
+    public Delivery updateDelivery (Delivery delivery, User newDeliveryUser) {
+        return ao.executeInTransaction(new TransactionCallback<Delivery>() {
+            @Override
+            public Delivery doInTransaction() {
+                delivery.setUser(newDeliveryUser);
+                delivery.save();
+                return delivery;
+            }
+        });
+    }
 }

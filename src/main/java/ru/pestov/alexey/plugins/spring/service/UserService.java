@@ -52,4 +52,17 @@ public class UserService {
         list2Buf.removeAll(list1);
         return list1Buf.size() == 0 && list1Buf.size() == 0;
     }
+
+    public boolean compare(User user1, User user2)  {
+        if (user1 == null && user2 != null) {
+            return false;
+        }
+        if (user1 != null && user2 == null) {
+            return false;
+        }
+        if (user1 == null && user2 == null) {
+            return true;
+        }
+        return user1.getName().equals(user2.getName());
+    }
 }

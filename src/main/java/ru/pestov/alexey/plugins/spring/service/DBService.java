@@ -255,35 +255,34 @@ public class DBService {
             List<User> oldUsers = systemAssigneeService.getUsers(oldSystemAssigneesStage);
             List<User> newUsers = systemAssigneeService.getUsers(newSystemAssigneesStage);
             if (!userService.compareLists(oldUsers, newUsers)) {
-                if (oldSystemAssigneesStage != null) {
+                if (oldSystemAssigneesStage.size()!=0) {
                     logModelManager.create(date, oldSystemAssigneesStage, tcaManager.getByName("Delete"), currentUser);
                 }
-                if (newSystemAssigneesStage != null) {
+                if (newSystemAssigneesStage.size()!=0) {
                     logModelManager.create(date, newSystemAssigneesStage, tcaManager.getByName("Create"), currentUser);
                 }
             }
         }
     }
 
-    //todo завдваиваются записи. нужно если найдено сделать update
-
     private void updateDeliveryDB(Date date, Param param, User currentUser) {
         System system = param.getSystem();
         Delivery oldDelivery = dmManager.getDelivery(system);
-        User oldDeliveryUser = oldDelivery != null ? oldDelivery.getUser() : null;
-        Delivery newDelivery = null;
-        User user = userModelManager.getUserByName(param.getDelivery());
-        if (user != null) {
-            newDelivery = dmManager.createDelivery(system, user);
-        }
-        if (!deliveryService.compare(newDelivery, oldDelivery)) {
-            logDeliveryManager.create(date, system,
-                    oldDeliveryUser != null ? oldDeliveryUser : null,
-                    newDelivery != null ? newDelivery.getUser() : null,
-                    currentUser);
-            if (oldDelivery != null) {
-                dmManager.delete(oldDelivery);
+        User oldDeliveryUser = oldDelivery == null? null : oldDelivery.getUser();
+        User newDeliveryUser = userModelManager.getUserByName(param.getDelivery());
+        if (!userService.compare(oldDeliveryUser, newDeliveryUser)) {
+            if (oldDeliveryUser == null)    {
+                dmManager.createDelivery(system, newDeliveryUser);
             }
+            else {
+                if (newDeliveryUser == null) {
+                    dmManager.delete(oldDelivery);
+                }
+                else    {
+                    dmManager.updateDelivery(oldDelivery, newDeliveryUser);
+                }
+            }
+            logDeliveryManager.create(date, system, oldDeliveryUser, newDeliveryUser, currentUser);
         }
     }
 
@@ -463,12 +462,30 @@ public class DBService {
             String when = date.toString();
             List<Log> logsByDateDelete = Arrays.asList(logModelManager.getLogData(idSystem, idTypeChange, date, deleteTCA.getID()));
             List<Log> logsByDateCreate = Arrays.asList(logModelManager.getLogData(idSystem, idTypeChange, date, createTCA.getID()));
+            List<Log> allLogsByDate = new ArrayList<>();
+            allLogsByDate.addAll(logsByDateCreate);
+            allLogsByDate.addAll(logsByDateDelete);
             String who = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getUser().getName() : logsByDateDelete.get(0).getUser().getName();
-            String stage = logsByDateDelete.size() == 0 ? logsByDateCreate.get(0).getStage().getLabel() : logsByDateDelete.get(0).getStage().getLabel();
-            String change = "<s>" + convertLogsToString(logsByDateDelete) + "</s> " + convertLogsToString(logsByDateCreate);
-            result.add(getHTMLFromPattern(when, who, stage, change));
+            List<String> nameStages = getUniqueStages(allLogsByDate);
+            for (String nameStage : nameStages) {
+                String stageLabel = stageModelManager.getStageByName(nameStage).getLabel();
+                List<Log> logsByDateDeleteStage = logsByDateDelete.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
+                List<Log> logsByDateCreateStage = logsByDateCreate.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
+                String change = "<s>" + convertLogsToString(logsByDateDeleteStage) + "</s> " + convertLogsToString(logsByDateCreateStage);
+                result.add(getHTMLFromPattern(when, who, stageLabel, change));
+            }
         }
         return result;
+    }
+
+    private List<String> getUniqueStages(List<Log> logs)    {
+        List<String> nameStages = new ArrayList<>();
+        for (Log log : logs)    {
+            if(!nameStages.contains(log.getStage().getName()))  {
+                nameStages.add(log.getStage().getName());
+            }
+        }
+        return nameStages;
     }
 
     private List<String> getLogsFromDelivery(Integer idSystem)  {
