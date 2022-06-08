@@ -6,6 +6,7 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import ru.pestov.alexey.plugins.spring.Threads.UserThread;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -414,20 +415,11 @@ public class DBService {
         }
     }
 
-    public List<String> addToActiveUsersId(List<String> activeUsers) {
-        List<String> result = new ArrayList<>();
-        for (String nameUser : activeUsers) {
-            Integer idUser = userModelManager.getUserByName(nameUser.replaceAll("=", "")).getID();
-            result.add(nameUser + idUser);
-        }
-        return result;
-    }
-
     public List<String> getNameActiveUsers() {
         List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers());
         List<String> result = new ArrayList<>();
-        activeUsers.forEach(au -> result.add(au.getName() + "="));
-        return result;
+        activeUsers.forEach(au -> new UserThread(au).start());
+        return UserThread.nameUsersWithID;
     }
 
     public String getUserById(int id) {

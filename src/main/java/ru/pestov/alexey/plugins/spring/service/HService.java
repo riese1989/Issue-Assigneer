@@ -11,6 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import ru.pestov.alexey.plugins.spring.Threads.UserThread;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.dbmanager.UMManager;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
@@ -45,21 +46,19 @@ public class HService {
         jsonObject = jsonService.createJSONObject(Mode.FILE);
     }
 
-    public String checkFiles()  {
+    public String checkFiles() {
         String result = "";
         File delivery = new File(property.getProperty("file.delivery.path"));
-        if(delivery == null)    {
+        if (delivery == null) {
             result += "Delivery null " + property.getProperty("file.delivery.path");
-        }
-        else    {
+        } else {
             result += "Delivery true " + property.getProperty("file.delivery.path");
         }
 
         File cab = new File(property.getProperty("file.cab.path"));
-        if(delivery == null)    {
+        if (delivery == null) {
             result += "Cab null " + property.getProperty("file.cab.path");
-        }
-        else    {
+        } else {
             result += "Cab true " + property.getProperty("file.cab.path");
         }
         return result;
@@ -93,8 +92,7 @@ public class HService {
 
                 }
             }
-        }
-        catch (Exception ex)   {
+        } catch (Exception ex) {
             result += "ERROR";
             ex.printStackTrace();
         }
@@ -113,7 +111,7 @@ public class HService {
         UserManager userManager = ComponentAccessor.getUserManager();
         ApplicationUser user = userManager.getUserByName(assignee);
         if (user == null) {
-            String name = assignee;
+            String name = assignee ;
             String password = "123";
             String emailAddress = assignee + "@x5.ru";
             String displayName = assignee;
@@ -132,5 +130,5 @@ public class HService {
         }
     }
 
-    }
+}
 
