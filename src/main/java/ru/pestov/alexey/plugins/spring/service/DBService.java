@@ -430,6 +430,13 @@ public class DBService {
         return result;
     }
 
+    public List<String> getNameActiveUsers(String pattern) {
+        List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers(pattern));
+        List<String> result = new ArrayList<>();
+        activeUsers.forEach(au -> result.add(au.getName() + "="));
+        return result;
+    }
+
     public String getUserById(int id) {
         return userModelManager.getUserById(id).getName();
     }

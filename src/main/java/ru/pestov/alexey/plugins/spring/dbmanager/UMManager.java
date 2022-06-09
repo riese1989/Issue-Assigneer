@@ -112,4 +112,13 @@ public class UMManager extends ModelManager{
         });
     }
 
+    public User[] getActiveUsers(String pattern)  {
+        return ao.executeInTransaction(new TransactionCallback<User[]>() {
+            @Override
+            public User[] doInTransaction() {
+                return ao.find(User.class, Query.select().where("NAME LIKE ?", "%" + pattern + "%"));
+            }
+        });
+    }
+
 }
