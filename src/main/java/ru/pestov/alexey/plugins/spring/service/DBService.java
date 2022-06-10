@@ -413,7 +413,7 @@ public class DBService {
             }
         }
     }
-
+//todo должен возвращать string, соединенную stringbuilder
     public List<String> addToActiveUsersId(List<String> activeUsers) {
         List<String> result = new ArrayList<>();
         for (String nameUser : activeUsers) {
@@ -423,11 +423,14 @@ public class DBService {
         return result;
     }
 
-    public List<String> getNameActiveUsers() {
-        List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers());
-        List<String> result = new ArrayList<>();
-        activeUsers.forEach(au -> result.add(au.getName() + "="));
-        return result;
+    public String getNameActiveUsers() {
+        String resultString = "[";
+        StringBuffer resultStringBuffer = new StringBuffer(resultString);
+        List<User> users = Arrays.asList(userModelManager.getAllUsers());
+        List<User> activeUsers = users.stream().filter(User::getActive).collect(Collectors.toList());
+        activeUsers.forEach(au -> resultStringBuffer.append(au.getName()).append("=").append(au.getID()).append(", "));
+        resultString = resultStringBuffer.toString();
+        return resultString;
     }
 
     public List<String> getNameActiveUsers(String pattern) {
