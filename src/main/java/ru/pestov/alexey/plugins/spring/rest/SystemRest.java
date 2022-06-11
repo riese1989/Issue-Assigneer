@@ -5,6 +5,7 @@ import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
+import ru.pestov.alexey.plugins.spring.model.User;
 import ru.pestov.alexey.plugins.spring.service.*;
 
 import javax.inject.Inject;
@@ -29,6 +30,7 @@ public class SystemRest {
     private final PermissionService permissionService;
     private final DBService dbService;
     private final ParamService paramService;
+    private final XMLService xmlService;
 
 
     @Inject
@@ -40,7 +42,7 @@ public class SystemRest {
                       final PermissionService permissionService,
                       final ParamService paramService,
                       IssueAssigneerWebworkAction issueAssigneerWebworkAction,
-                      DBService dbService) {
+                      DBService dbService, XMLService xmlService) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
         this.typeChangeService = typeChangeService;
@@ -50,6 +52,7 @@ public class SystemRest {
         this.pluginSettingsFactory = pluginSettingsFactory;
         this.dbService = dbService;
         this.paramService = paramService;
+        this.xmlService = xmlService;
     }
 
     @GET
@@ -155,13 +158,21 @@ public class SystemRest {
         return Response.ok(stage1).build();
     }
 
+//    @GET
+//    @Path("/getactiveusers")
+//    public Response getActiveUsers() {
+//        List<String> activeUsers = dbService.getNameActiveUsers();
+//        List<String> activeUsersWithId = dbService.addToActiveUsersId(activeUsers);
+//        return Response.ok(activeUsersWithId.toString()).build();
+//    }
+
     @GET
     @Path("/getactiveusers")
-    public Response getActiveUsers() {
-        List<String> activeUsers = dbService.getNameActiveUsers();
-        List<String> activeUsersWithId = dbService.addToActiveUsersId(activeUsers);
-        return Response.ok(activeUsersWithId.toString()).build();
+    public Response getActiveUsersXML() {
+        List<User> activeUsers = dbService.getActiveUsers();
+        return Response.ok(xmlService.createXML(activeUsers)).build();
     }
+
 
     @GET
     @Path("/issuperuser")

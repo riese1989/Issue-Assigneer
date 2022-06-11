@@ -424,10 +424,14 @@ public class DBService {
     }
 
     public List<String> getNameActiveUsers() {
-        List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers());
+        List<User> activeUsers = getActiveUsers() ;
         List<String> result = new ArrayList<>();
         activeUsers.forEach(au -> result.add(au.getName() + "="));
         return result;
+    }
+
+    public List<User> getActiveUsers()  {
+        return Arrays.asList(userModelManager.getActiveUsers());
     }
 
     public String getUserById(int id) {
