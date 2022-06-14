@@ -413,7 +413,6 @@ public class DBService {
             }
         }
     }
-//todo должен возвращать string, соединенную stringbuilder
     public List<String> addToActiveUsersId(List<String> activeUsers) {
         List<String> result = new ArrayList<>();
         for (String nameUser : activeUsers) {

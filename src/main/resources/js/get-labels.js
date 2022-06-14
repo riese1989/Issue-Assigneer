@@ -7,7 +7,6 @@ $(function () {
     $.each(nameElems, function (i, n) {
         $.get(jiraRestAddressLabel + n, function (response) {
             $('#' + n + 'Label').text(response)
-            console.log('#' + n + 'Label')
         })
         $.get(jiraRestAddressTitle + n, function (response) {
             $('#' + n + 'Label').attr('title', response)

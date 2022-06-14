@@ -164,13 +164,6 @@ public class SystemRest {
     }
 
     @GET
-    @Path("/getactiveuserspattern")
-    public Response getActiveUsers(@QueryParam("pattern") String pattern) {
-        List<String> activeUsers = dbService.getNameActiveUsers(pattern);
-        return Response.ok(activeUsers.toString()).build();
-    }
-
-    @GET
     @Path("/issuperuser")
     public Response isSuperuser() {
         return Response.ok(permissionService.isCurrentUserSuperUser().toString()).build();
