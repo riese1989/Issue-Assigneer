@@ -95,7 +95,11 @@ public class DBService {
         }
     }
 
-    //todo переделать как на форме
+    private void recoverTypeChangeAssignee() {
+        tcaManager.create("Create");
+        tcaManager.create("Delete");
+    }
+
     private void recoverStage() {
         stageModelManager.createStage("stage1","1 этап","1 Этап согласования\n" +
                 "функционального лидера или Начальника отдела функциональной области или Техническим владельцем\n" +
@@ -175,7 +179,7 @@ public class DBService {
                 return null;
             }
 
-            for (int i = 0; i < assigneesJSON.size(); ++i) {
+             for (int i = 0; i < assigneesJSON.size(); ++i) {
                 User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
                 if (user != null) {
                     users.add(user);
@@ -208,11 +212,9 @@ public class DBService {
         List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
-        param.setSystem(system);
         Integer idTypeChange = param.getTypeChangeId();
         TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
-        param.setTypeChangeDB(typeChangeDB);
-        Boolean isActive = Boolean.valueOf(param.getActive());
+        Boolean isActive = param.getActive();
         List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
         User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
         List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
@@ -266,7 +268,7 @@ public class DBService {
     }
 
     private void updateDeliveryDB(Date date, Param param, User currentUser) {
-        System system = param.getSystem();
+        System system = systemModelManager.getSystemById(param.getSystemId());
         Delivery oldDelivery = dmManager.getDelivery(system);
         User oldDeliveryUser = oldDelivery == null? null : oldDelivery.getUser();
         User newDeliveryUser = userModelManager.getUserByName(param.getDelivery());
@@ -284,13 +286,6 @@ public class DBService {
             }
             logDeliveryManager.create(date, system, oldDeliveryUser, newDeliveryUser, currentUser);
         }
-    }
-
-    private void recoverTypeChangeAssignee() {
-        tcaManager.create("Create");
-        tcaManager.create("Delete");
-        tcaManager.create("Create delivery");
-        tcaManager.create("Delete delivery");
     }
 
     public String getDelivery(Integer idSystem) {
@@ -328,7 +323,7 @@ public class DBService {
         List<System> systems = new ArrayList<>();
         ApplicationUser applicationUser = userService.getCurrentUser();
         User user = userModelManager.getUserByName(applicationUser.getUsername());
-        List<String> valuesFilter = Arrays.asList(valueFilter.split(","));
+        String[] valuesFilter = valueFilter.split(",");
         if (user != null) {
             for (String value : valuesFilter) {
                 if (value.equals("1")) {
@@ -350,10 +345,8 @@ public class DBService {
                     }
                 }
             }
-            if (nameSystems.size() == 0) {
-                for (System system : systems) {
-                    nameSystems.add(system.getName());
-                }
+            for (System system : systems) {
+                nameSystems.add(system.getName());
             }
             for (String nameSystem : nameSystems) {
                 System system = systemModelManager.getSystemByName(nameSystem);

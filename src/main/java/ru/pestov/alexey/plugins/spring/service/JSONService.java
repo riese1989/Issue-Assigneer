@@ -22,7 +22,6 @@ import java.util.*;
 public class JSONService {
 
     private JSONObject jsonObject;
-    private final LogService logService;
     private final String pathJson;
     private final String pathDelivery;
     private final Property property;
@@ -32,10 +31,8 @@ public class JSONService {
     private static int i = 0;
 
     @Inject
-    public JSONService(LogService logService,
-                       Property property, SMManager systemModelManager, SAManager SAManager) {
+    public JSONService(Property property, SMManager systemModelManager, SAManager SAManager) {
         this.property = property;
-        this.logService = logService;
         this.systemModelManager = systemModelManager;
         this.SAManager = SAManager;
         pathJson = property.getProperty("file.cab.path");

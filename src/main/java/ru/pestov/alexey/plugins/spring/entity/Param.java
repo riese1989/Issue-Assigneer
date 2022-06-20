@@ -35,10 +35,6 @@ public class Param {
     @NonNull
     private Boolean active;
 
-    private System system;
-
-    private TypeChangeDB typeChangeDB;
-
     public List<String> getRequiredStage(String nameStage)  {
         switch (nameStage)  {
             case ("stage1"):    {
