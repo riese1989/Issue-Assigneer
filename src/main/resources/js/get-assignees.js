@@ -29,5 +29,8 @@ $(function () {
             $('.multiselect').val(null).trigger('change')
             $('#authorize').val(null).trigger('change')
         }
+        if ($('.table-history').is(":visible")) {
+            $("#link-hide-table").click()
+        }
     })
 })

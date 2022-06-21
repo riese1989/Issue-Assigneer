@@ -54,6 +54,7 @@
                     <tr>
                         <th id="when">Когда</th>
                         <th id="who">Кто</th>
+                        <th id="typeChange">Тип изменения</th>
                         <th id="stage">Стадия</th>
                         <th id="change">Изменение</th>
                     </tr>

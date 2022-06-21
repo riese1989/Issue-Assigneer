@@ -139,7 +139,7 @@ public class SystemRest {
                      @FormParam("active") Boolean active,
                      @FormParam("delivery") String delivery) throws Exception {
         Param param = new Param(idSystem, idTypeChange,
-                stage1, stage21, stage22, stage23, stage3, authorize, delivery, active, null, null);
+                stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
         param = paramService.convert(param);
         dbService.updateDB(param);
         jsonService.updateJsonObject(param);

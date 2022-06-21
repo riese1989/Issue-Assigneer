@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
+import ru.pestov.alexey.plugins.spring.entity.TypeChange;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
 import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
@@ -325,6 +326,7 @@ public class DBService {
         User user = userModelManager.getUserByName(applicationUser.getUsername());
         String[] valuesFilter = valueFilter.split(",");
         if (user != null) {
+            //todo заменить 1 2 3 4  на что-то осмысленное
             for (String value : valuesFilter) {
                 if (value.equals("1")) {
                     systems = Arrays.asList(systemModelManager.getAllSystems());
@@ -451,6 +453,8 @@ public class DBService {
     private List<String> getFromAssigneeLogs(Integer idSystem, Integer idTypeChange)  {
         TypeChangeAssignee createTCA = tcaManager.getByName("Create");
         TypeChangeAssignee deleteTCA = tcaManager.getByName("Delete");
+        TypeChangeDB typeChange = typeChangeModelManager.getTypeChangeById(idTypeChange);
+        String nameTypeChange = typeChange.getName();
         List<String> result = new ArrayList<>();
         List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
         List<Date> dates = new ArrayList<>();
@@ -474,7 +478,7 @@ public class DBService {
                 List<Log> logsByDateDeleteStage = logsByDateDelete.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
                 List<Log> logsByDateCreateStage = logsByDateCreate.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
                 String change = "<s>" + convertLogsToString(logsByDateDeleteStage) + "</s> " + convertLogsToString(logsByDateCreateStage);
-                result.add(getHTMLFromPattern(when, who, stageLabel, change));
+                result.add(getHTMLFromPattern(when, who,nameTypeChange, stageLabel, change));
             }
         }
         return result;
@@ -502,7 +506,7 @@ public class DBService {
             User newDelivery = log.getNewDelivery();
             String nameNewDelivery = newDelivery == null ? "" : newDelivery.getName();
             String change = "<s>" + nameOldDelivery + "</s> " + nameNewDelivery;
-            result.add(getHTMLFromPattern(when, who,stage,change));
+            result.add(getHTMLFromPattern(when, who,"-", stage,change));
         }
         return result;
     }
@@ -516,7 +520,7 @@ public class DBService {
             String stage = stageModelManager.getStageByName("active").getLabel();
             boolean isActive = log.getNewValue();
             String change = "<s>" + !isActive + "</s> " + isActive;
-            result.add(getHTMLFromPattern(when, who,stage,change));
+            result.add(getHTMLFromPattern(when, who,"-",stage,change));
         }
         return result;
     }
@@ -532,8 +536,10 @@ public class DBService {
         return result;
     }
 
-    private String getHTMLFromPattern(String arg1, String arg2, String arg3, String arg4)   {
-        return "<tr><td>" + arg1 + "</td><td>" + arg2 + "</td><td>" + arg3 + "</td><td>" + arg4 + "</td></tr>";
+    //todo че-то осмысленное arg
+
+    private String getHTMLFromPattern(String when, String who, String typeChangeName, String stageLabel, String change)   {
+        return "<tr><td>" + when + "</td><td>" + who + "</td><td>" + typeChangeName + "</td><td>" + stageLabel + "</td><td>" + change + "</td></tr>";
     }
 
     private String compareStages(List<Log> logs) {

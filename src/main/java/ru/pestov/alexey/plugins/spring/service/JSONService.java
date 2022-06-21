@@ -7,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.dbmanager.SAManager;
 import ru.pestov.alexey.plugins.spring.dbmanager.SMManager;
+import ru.pestov.alexey.plugins.spring.dbmanager.TCMManager;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
 import ru.pestov.alexey.plugins.spring.model.System;
@@ -28,10 +29,11 @@ public class JSONService {
     private final SMManager systemModelManager;
     private final SAManager SAManager;
     private final JSONObject jsonDelivery;
+    private final TCMManager tcmManager;
     private static int i = 0;
 
     @Inject
-    public JSONService(Property property, SMManager systemModelManager, SAManager SAManager) {
+    public JSONService(Property property, SMManager systemModelManager, SAManager SAManager, TCMManager tcmManager) {
         this.property = property;
         this.systemModelManager = systemModelManager;
         this.SAManager = SAManager;
@@ -39,6 +41,7 @@ public class JSONService {
         pathDelivery = property.getProperty("file.delivery.path");
         jsonObject = getJSONObjectFromFile(pathJson);
         jsonDelivery = getJSONObjectFromFile(pathDelivery);
+        this.tcmManager = tcmManager;
     }
 
     public JSONObject createJSONObject(Mode mode) {
@@ -93,8 +96,8 @@ public class JSONService {
 
 
     public void updateJsonObject(Param param) {
-        String nameSystem = param.getSystem().getName();
-        String nameTypeChange = param.getTypeChangeDB().getName();
+        String nameSystem = systemModelManager.getSystemById(param.getSystemId()).getName();
+        String nameTypeChange = tcmManager.getTypeChangeById(param.getTypeChangeId()).getName();
         JSONObject jsonSystem = (JSONObject) jsonObject.get(nameSystem);
         jsonSystem.put("system_active", param.getActive());
         JSONObject jsonTypeChange = (JSONObject) jsonSystem.get(nameTypeChange);

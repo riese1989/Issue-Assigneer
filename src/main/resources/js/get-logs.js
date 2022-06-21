@@ -1,5 +1,11 @@
 $(function () {
-    $(document.body).on("change", ".select", function () {
+    $(document.body).on("click", "#link-hide-table", function () {
+        setTimeout(getLogs, 200)
+    })
+})
+
+function getLogs()  {
+    if ($('.table-history').is(":visible")) {
         $('.table-history tbody').empty()
         var currentURL = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search
         var jiraURL = currentURL.split("secure")[0]
@@ -12,5 +18,5 @@ $(function () {
                 $('.table-history tbody').append(response)
             })
         }
-    })
-})
+    }
+}
