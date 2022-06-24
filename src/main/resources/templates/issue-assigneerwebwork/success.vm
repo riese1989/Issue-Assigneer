@@ -45,7 +45,51 @@
                     <option value="0">Select</option>
                 </select>
             </div>
+            <div class="field-group">
+                <label for="stage1" id="stage1Label"></label>
+                <select class="multiselect" id="stage1" name="stage1" multiple disabled>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="stage21" id="stage21Label"></label>
+                <select class="multiselect" id="stage21" name="stage21" multiple disabled>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="stage22" id="stage22Label"></label>
+                <select class="multiselect" id="stage22" name="stage22" multiple disabled>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="stage23" id="stage23Label"></label>
+                <select class="multiselect" id="stage23" name="stage23" multiple disabled>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="stage3" id="stage3Label"></label>
+                <select class="multiselect" id="stage3" name="stage3" multiple disabled>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="authorize" id="authorizeLabel"></label>
+                <select class="multiselect" id="authorize" name="authorize" multiple disabled>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="delivery" id = "deliveryLabel"></label>
+                <select class="multiselect" id="delivery" name="delivery" disabled>
+                    <option value="0">Empty</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="active" id = "activeLabel"></label>
+                <select class="selectdown" id="active" name="active" disabled>
+                    <option value="true">Да</option>
+                    <option value="false">Нет</option>
+                </select>
+            </div>
         </div>
+
         <div class="right">
             <a id="link-hide-table"></a>
             <div class="table-history" hidden>
@@ -64,49 +108,6 @@
                 </table>
             </div>
         </div>
-    </div>
-    <div class="field-group">
-        <label for="stage1" id="stage1Label"></label>
-        <select class="multiselect" id="stage1" name="stage1" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="stage21" id="stage21Label"></label>
-        <select class="multiselect" id="stage21" name="stage21" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="stage22" id="stage22Label"></label>
-        <select class="multiselect" id="stage22" name="stage22" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="stage23" id="stage23Label"></label>
-        <select class="multiselect" id="stage23" name="stage23" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="stage3" id="stage3Label"></label>
-        <select class="multiselect" id="stage3" name="stage3" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="authorize" id="authorizeLabel"></label>
-        <select class="multiselect" id="authorize" name="authorize" multiple disabled>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="delivery" id = "deliveryLabel"></label>
-        <select class="multiselect" id="delivery" name="delivery" disabled>
-            <option value="0">Empty</option>
-        </select>
-    </div>
-    <div class="field-group">
-        <label for="active" id = "activeLabel"></label>
-        <select class="selectdown" id="active" name="active" disabled>
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-        </select>
     </div>
     <div class="buttons-container">
         <div class="buttons">
