@@ -8,7 +8,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
-import ru.pestov.alexey.plugins.spring.entity.TypeChange;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
 import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
@@ -434,8 +433,30 @@ public class DBService {
         return result;
     }
 
-    public String getUserById(int id) {
-        return userModelManager.getUserById(id).getName();
+    public String getNameUserById(int id) {
+        User user = userModelManager.getUserById(id);
+        String name = user.getName();
+        if (!user.getActive())  {
+            name += "[X]";
+        }
+        return name;
+    }
+
+    public String getInactiveUsersById(String ids)  {
+        String regex = ", ";
+        String[] idsList = ids.split(regex);
+        StringBuilder result = new StringBuilder();
+        if (ids != "") {
+            for (String idString : idsList) {
+                Integer id = Integer.valueOf(idString);
+                User user = userModelManager.getUserById(id);
+                if (user.getActive()) {
+                    continue;
+                }
+                result.append(user.getName()).append("[X]").append("=").append(user.getID()).append(regex);
+            }
+        }
+        return result.toString();
     }
 
     public String getLogs(Integer idSystem, Integer idTypeChange) {

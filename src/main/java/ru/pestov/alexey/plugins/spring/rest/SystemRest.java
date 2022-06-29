@@ -5,10 +5,12 @@ import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 import ru.pestov.alexey.plugins.spring.service.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.print.attribute.standard.PresentationDirection;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -100,6 +102,16 @@ public class SystemRest {
                               @QueryParam("typechange") Integer idTypeChange,
                               @QueryParam("stage") String nameStage) {
         return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
+    }
+
+    @GET
+    @Path("/getIa")
+    public Response getInactiveAssignees(@Context HttpServletRequest httpServletRequest,
+                              @QueryParam("namesystem") Integer idSystem,
+                              @QueryParam("typechange") Integer idTypeChange,
+                              @QueryParam("stage") String nameStage) {
+        String inactiveSystemAssigneesIds = systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage);
+        return Response.ok(dbService.getInactiveUsersById(inactiveSystemAssigneesIds)).build();
     }
 
     @GET
@@ -205,5 +217,11 @@ public class SystemRest {
     @Path("/stage/label")
     public Response getLabel(@QueryParam("namestage") String nameStage) {
         return Response.ok(dbService.getLabelStage(nameStage)).build();
+    }
+
+    @GET
+    @Path("/getuser")
+    public Response getUserById (@QueryParam("id") Integer idUser)   {
+        return Response.ok(dbService.getNameUserById(idUser)).build();
     }
 }
