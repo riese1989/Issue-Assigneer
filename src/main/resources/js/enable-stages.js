@@ -7,10 +7,7 @@ $(function () {
         const typechange = document.getElementById("typechange")
         if(system.value !== "0" && typechange.value !== "0") {
             $.get(jiraRestAddress + 'isenable?idsystem=' + system.value + '&idtypechange=' + typechange.value, function (response) {
-                console.log(jiraRestAddress + 'isenable?idsystem=' + system.value)
-                console.log(response)
                 if (response === "true") {
-                    console.log("Ага")
                     $(".multiselect").prop("disabled", false)
                     $(".selectdown").prop("disabled", false)
                     // $('#save').prop('disabled', false)

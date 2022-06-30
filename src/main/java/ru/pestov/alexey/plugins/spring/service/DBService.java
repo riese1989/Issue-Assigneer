@@ -101,14 +101,14 @@ public class DBService {
     }
 
     private void recoverStage() {
-        stageModelManager.createStage("stage1","1 этап","1 Этап согласования\n" +
+        stageModelManager.createStage("stage1", "1 этап", "1 Этап согласования\n" +
                 "функционального лидера или Начальника отдела функциональной области или Техническим владельцем\n" +
                 "\n" +
                 "Роль определяется исходя из орг.структуры и требований процесса согласований конкретной области");
         stageModelManager.createStage("stage21", "Менеджер изменений", "2 Этап согласования: менеджер изменений");
         stageModelManager.createStage("stage22", "2 этап", "2 Этап согласования: (м.б. определены заранее или назначены при необходимости дополнительного контроля менеджером изменений)");
         stageModelManager.createStage("stage23", "Поддержка", "2 Этап согласования: Поддержка");
-        stageModelManager.createStage("stage3","Утверждающий","");
+        stageModelManager.createStage("stage3", "Утверждающий", "");
         stageModelManager.createStage("authorize", "Авторизующий", "");
         stageModelManager.createStage("delivery", "Деливери", "");
         stageModelManager.createStage("active", "Система активна?", "");
@@ -179,7 +179,7 @@ public class DBService {
                 return null;
             }
 
-             for (int i = 0; i < assigneesJSON.size(); ++i) {
+            for (int i = 0; i < assigneesJSON.size(); ++i) {
                 User user = userModelManager.getUserByName((String) assigneesJSON.get(i));
                 if (user != null) {
                     users.add(user);
@@ -224,7 +224,7 @@ public class DBService {
         system = systemModelManager.setActive(idSystem, isActive);
         List<SystemAssignees> newSystemAssignees = new ArrayList<>();
         for (Stage stage : stages) {
-            if (stage.getName().equals("delivery") || stage.getName().equals("active"))  {
+            if (stage.getName().equals("delivery") || stage.getName().equals("active")) {
                 continue;
             }
             List<String> nameUsers = param.getRequiredStage(stage.getName());
@@ -257,10 +257,10 @@ public class DBService {
             List<User> oldUsers = systemAssigneeService.getUsers(oldSystemAssigneesStage);
             List<User> newUsers = systemAssigneeService.getUsers(newSystemAssigneesStage);
             if (!userService.compareLists(oldUsers, newUsers)) {
-                if (oldSystemAssigneesStage.size()!=0) {
+                if (oldSystemAssigneesStage.size() != 0) {
                     logModelManager.create(date, oldSystemAssigneesStage, tcaManager.getByName("Delete"), currentUser);
                 }
-                if (newSystemAssigneesStage.size()!=0) {
+                if (newSystemAssigneesStage.size() != 0) {
                     logModelManager.create(date, newSystemAssigneesStage, tcaManager.getByName("Create"), currentUser);
                 }
             }
@@ -270,17 +270,15 @@ public class DBService {
     private void updateDeliveryDB(Date date, Param param, User currentUser) {
         System system = systemModelManager.getSystemById(param.getSystemId());
         Delivery oldDelivery = dmManager.getDelivery(system);
-        User oldDeliveryUser = oldDelivery == null? null : oldDelivery.getUser();
+        User oldDeliveryUser = oldDelivery == null ? null : oldDelivery.getUser();
         User newDeliveryUser = userModelManager.getUserByName(param.getDelivery());
         if (!userService.compare(oldDeliveryUser, newDeliveryUser)) {
-            if (oldDeliveryUser == null)    {
+            if (oldDeliveryUser == null) {
                 dmManager.createDelivery(system, newDeliveryUser);
-            }
-            else {
+            } else {
                 if (newDeliveryUser == null) {
                     dmManager.delete(oldDelivery);
-                }
-                else    {
+                } else {
                     dmManager.updateDelivery(oldDelivery, newDeliveryUser);
                 }
             }
@@ -407,6 +405,7 @@ public class DBService {
             }
         }
     }
+
     public List<String> addToActiveUsersId(List<String> activeUsers) {
         List<String> result = new ArrayList<>();
         for (String nameUser : activeUsers) {
@@ -433,16 +432,12 @@ public class DBService {
         return result;
     }
 
-    public String getNameUserById(int id) {
+    public String getUserById(int id) {
         User user = userModelManager.getUserById(id);
-        String name = user.getName();
-        if (!user.getActive())  {
-            name += "[X]";
-        }
-        return name;
+        return user.getName() + "=" + user.getID() + "=" + user.getActive();
     }
 
-    public String getInactiveUsersById(String ids)  {
+    public String getInactiveUsersById(String ids) {
         String regex = ", ";
         String[] idsList = ids.split(regex);
         StringBuilder result = new StringBuilder();
@@ -468,10 +463,10 @@ public class DBService {
         if (stringLogs.size() == 0) {
             return "";
         }
-        return stringLogs.toString().replaceAll("[|]","");
+        return stringLogs.toString().replaceAll("[|]", "");
     }
 
-    private List<String> getFromAssigneeLogs(Integer idSystem, Integer idTypeChange)  {
+    private List<String> getFromAssigneeLogs(Integer idSystem, Integer idTypeChange) {
         TypeChangeAssignee createTCA = tcaManager.getByName("Create");
         TypeChangeAssignee deleteTCA = tcaManager.getByName("Delete");
         TypeChangeDB typeChange = typeChangeModelManager.getTypeChangeById(idTypeChange);
@@ -479,9 +474,9 @@ public class DBService {
         List<String> result = new ArrayList<>();
         List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
         List<Date> dates = new ArrayList<>();
-        for (Log log : logs)    {
+        for (Log log : logs) {
             Date dateLog = log.getDate();
-            if (!dates.contains(dateLog))   {
+            if (!dates.contains(dateLog)) {
                 dates.add(dateLog);
             }
         }
@@ -499,27 +494,27 @@ public class DBService {
                 List<Log> logsByDateDeleteStage = logsByDateDelete.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
                 List<Log> logsByDateCreateStage = logsByDateCreate.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
                 String change = "<s>" + convertLogsToString(logsByDateDeleteStage) + "</s> " + convertLogsToString(logsByDateCreateStage);
-                result.add(getHTMLFromPattern(when, who,nameTypeChange, stageLabel, change));
+                result.add(getHTMLFromPattern(when, who, nameTypeChange, stageLabel, change));
             }
         }
         return result;
     }
 
-    private List<String> getUniqueStages(List<Log> logs)    {
+    private List<String> getUniqueStages(List<Log> logs) {
         List<String> nameStages = new ArrayList<>();
-        for (Log log : logs)    {
-            if(!nameStages.contains(log.getStage().getName()))  {
+        for (Log log : logs) {
+            if (!nameStages.contains(log.getStage().getName())) {
                 nameStages.add(log.getStage().getName());
             }
         }
         return nameStages;
     }
 
-    private List<String> getLogsFromDelivery(Integer idSystem)  {
+    private List<String> getLogsFromDelivery(Integer idSystem) {
         List<LogDelivery> logs = Arrays.asList(logDeliveryManager.getLogs(idSystem));
         List<String> result = new ArrayList<>();
-        for (LogDelivery log : logs)    {
-            String when  = log.getDate().toString();
+        for (LogDelivery log : logs) {
+            String when = log.getDate().toString();
             String who = log.getUser().getName();
             String stage = stageModelManager.getStageByName("delivery").getLabel();
             User oldDelivery = log.getOldDelivery();
@@ -527,30 +522,30 @@ public class DBService {
             User newDelivery = log.getNewDelivery();
             String nameNewDelivery = newDelivery == null ? "" : newDelivery.getName();
             String change = "<s>" + nameOldDelivery + "</s> " + nameNewDelivery;
-            result.add(getHTMLFromPattern(when, who,"-", stage,change));
+            result.add(getHTMLFromPattern(when, who, "-", stage, change));
         }
         return result;
     }
 
-    private List<String> getLogsActiveSystem(Integer idSystem)  {
+    private List<String> getLogsActiveSystem(Integer idSystem) {
         List<LogActiveSystem> logs = Arrays.asList(logActiveSystemManager.getLogs(idSystem));
         List<String> result = new ArrayList<>();
-        for (LogActiveSystem log : logs)    {
+        for (LogActiveSystem log : logs) {
             String when = log.getDate().toString();
             String who = log.getUser().getName();
             String stage = stageModelManager.getStageByName("active").getLabel();
             boolean isActive = log.getNewValue();
             String change = "<s>" + !isActive + "</s> " + isActive;
-            result.add(getHTMLFromPattern(when, who,"-",stage,change));
+            result.add(getHTMLFromPattern(when, who, "-", stage, change));
         }
         return result;
     }
 
-    private String convertLogsToString (List<Log> logs) {
+    private String convertLogsToString(List<Log> logs) {
         String result = "";
-        for (int i = 0; i < logs.size(); i++)    {
-                result +=  logs.get(i).getAssignee().getName();
-            if (i != logs.size() - 1)   {
+        for (int i = 0; i < logs.size(); i++) {
+            result += logs.get(i).getAssignee().getName();
+            if (i != logs.size() - 1) {
                 result += ", ";
             }
         }
@@ -559,7 +554,7 @@ public class DBService {
 
     //todo че-то осмысленное arg
 
-    private String getHTMLFromPattern(String when, String who, String typeChangeName, String stageLabel, String change)   {
+    private String getHTMLFromPattern(String when, String who, String typeChangeName, String stageLabel, String change) {
         return "<tr><td>" + when + "</td><td>" + who + "</td><td>" + typeChangeName + "</td><td>" + stageLabel + "</td><td>" + change + "</td></tr>";
     }
 
@@ -567,7 +562,7 @@ public class DBService {
         String result = "";
         List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
         for (Stage stage : stages) {
-            if (stage.getName().equals("Delivery") || stage.getName().equals("Active system"))  {
+            if (stage.getName().equals("Delivery") || stage.getName().equals("Active system")) {
                 continue;
             }
             java.lang.System.out.println();
@@ -600,13 +595,13 @@ public class DBService {
         }
         return result;
     }
-    
-    public String getLabelStage(String name)    {
+
+    public String getLabelStage(String name) {
         Stage stage = stageModelManager.getStageByName(name);
         return stage.getLabel();
     }
 
-    public String getTitleStage(String name)    {
+    public String getTitleStage(String name) {
         Stage stage = stageModelManager.getStageByName(name);
         return stage.getTitle();
     }
