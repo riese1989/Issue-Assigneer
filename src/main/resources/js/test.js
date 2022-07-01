@@ -1,31 +1,30 @@
-$(document).ready(function() {
-    $('.checkboxes').change(function (){
-        $('#systemCab').empty()
-        $('#systemCab').append(new Option("Select", "0"))
-        var values = ""
-        $(':checkbox').each(function() {
-            if (this.checked)   {
-                values += this.value + ","
-            }
-        })
-        var jiraURL = $(location).attr("href").split("secure")[0]
-        var jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
-        if (values !== "")  {
-            console.log(jiraRestAddress + 'getlistsystems?valuefilter=' + values)
-            $.get(jiraRestAddress + 'getlistsystems?valuefilter=' + values, function (response) {
-                var hashMapSystems = response.substr(1, response.length - 2) + ""
-                if (hashMapSystems !== "") {
-                    var systems = hashMapSystems.split(", ")
-                    $(systems).each(function (index, system){
-                        console.log(system)
-                        var dataSystem = system.toString().split("=")
-                        $('#systemCab').append(new Option(dataSystem[1], dataSystem[0]))
-                    })
-                }
+$("#stage1 value=[2,3,4]").wrap("<span/>")
 
-            })
-        }
-        $('.select').val('0').change()
-        console.log("Yeeeeee")
+if (name.includes("[X]"))   {
+    $(stage +" option[value='"+ id + "']").wrap("<span/>")
+}
+
+$("#stage1 > option").each(function() {
+    if (this.text.includes(["[X]"]))    {
+        $("#stage1 option[value='325']").wrap("<span/>")
+    }
+});
+
+$(function () {
+    $(document.body).on("change", "#systemCab", function () {
+        setTimeout(getDelivery, 200)
     })
 })
+
+function getDelivery()  {
+    $('#delivery').val('0').change()
+    const system = document.getElementById("systemCab")
+    var currentURL = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search
+    var jiraURL = currentURL.split("secure")[0]
+    const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
+    if (system.value !== '0') {
+        $.get(jiraRestAddress + 'delivery?idsystem=' + system.value, function (response) {
+            $('#delivery').val(response).trigger('change')
+        })
+    }
+}

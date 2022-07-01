@@ -37,6 +37,7 @@ public class DBService {
     private final LogDeliveryManager logDeliveryManager;
     private final DeliveryService deliveryService;
     private final LogActiveSystemManager logActiveSystemManager;
+    private final String markInactiveUser = "[X]";
 
     @Inject
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
@@ -415,17 +416,23 @@ public class DBService {
         return result;
     }
 
-    public String getNameActiveUsers() {
+    public String getUsers() {
         String resultString = "[";
         StringBuffer resultStringBuffer = new StringBuffer(resultString);
         List<User> users = Arrays.asList(userModelManager.getAllUsers());
-        List<User> activeUsers = users.stream().filter(User::getActive).collect(Collectors.toList());
-        activeUsers.forEach(au -> resultStringBuffer.append(au.getName()).append("=").append(au.getID()).append(", "));
+        users.forEach(u -> {
+            resultStringBuffer.append(u.getName());
+            if (!u.getActive())    {
+                resultStringBuffer.append(markInactiveUser);
+            }
+            resultStringBuffer.append("=").append(u.getID()).append(", ");
+            //resultStringBuffer.append(au.getName()).append("=").append(au.getID()).append(", ");
+        });
         resultString = resultStringBuffer.toString();
         return resultString;
     }
 
-    public List<String> getNameActiveUsers(String pattern) {
+    public List<String> getUsers(String pattern) {
         List<User> activeUsers = Arrays.asList(userModelManager.getActiveUsers(pattern));
         List<String> result = new ArrayList<>();
         activeUsers.forEach(au -> result.add(au.getName() + "="));
