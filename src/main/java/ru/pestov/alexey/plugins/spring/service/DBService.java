@@ -230,7 +230,7 @@ public class DBService {
             }
             List<String> nameUsers = param.getRequiredStage(stage.getName());
             for (String nameUser : nameUsers) {
-                User user = userModelManager.getUserByName(nameUser);
+                User user = userModelManager.getUserByName(nameUser.split("=")[0]);
                 if (user != null) {
                     SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
                     newSystemAssignees.add(systemAssigneeNew);

@@ -24,10 +24,9 @@
         <resource type="download" name="hide-show-table.js" location="/js/hide-show-table.js"/>
         <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
         <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
-        <resource type="download" name="get-inactive-assignees.js" location="/js/get-inactive-assignees.js"/>
-        <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
+        <resource type="download" name="get-hide-assignees.js" location="/js/get-hide-assignees.js"/>
         <resource type="download" name="get-status.js" location="/js/get-status.js"/>
-        <resource type="download" name="hide-inactive-users.js" location="/js/hide-inactive-users.js"/>
+<!--        <resource type="download" name="hide-inactive-users.js" location="/js/hide-inactive-users.js"/>-->
         <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
         <resource type="download" name="show-message.js" location="/js/show-message.js"/>
         <resource type="download" name="get-systems.js" location="/js/get-systems.js"/>

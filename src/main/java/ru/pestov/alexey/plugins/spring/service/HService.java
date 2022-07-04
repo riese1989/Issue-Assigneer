@@ -82,7 +82,7 @@ public class HService {
                             JSONArray jsonArray = (JSONArray) change.get(stage);
                             for (int i = 0; i < jsonArray.size(); i++) {
                                 result += (String) jsonArray.get(i);
-                                createUsers((String) jsonArray.get(i));
+                                createUsers(((String) jsonArray.get(i)).split("=")[0]);
                                 forWrite += "\"" + jsonArray.get(i) + "\",";
                                 count++;
                             }

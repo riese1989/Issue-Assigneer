@@ -23,7 +23,7 @@ public class UMManager extends ModelManager{
             public User doInTransaction() {
                 User user = ao.create(User.class);
                 user.setActive(applicationUser.isActive());
-                user.setName(applicationUser.getName());
+                user.setName(applicationUser.getName().split("=")[0]);
                 user.save();
                 return user;
             }

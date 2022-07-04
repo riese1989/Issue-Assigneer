@@ -131,7 +131,7 @@ public class JSONService {
     private JSONArray createJsonArray(List<String> assigneesList) {
         JSONArray jsonArray = new JSONArray();
         for (String assignee : assigneesList) {
-            jsonArray.add(assignee.replace("@x5.ru", ""));
+            jsonArray.add(assignee.replace("@x5.ru", "").split("=")[0]);
         }
         return jsonArray;
     }
