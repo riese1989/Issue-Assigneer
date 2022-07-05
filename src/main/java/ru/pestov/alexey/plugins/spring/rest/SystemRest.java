@@ -5,6 +5,8 @@ import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
+import ru.pestov.alexey.plugins.spring.model.Stage;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 import ru.pestov.alexey.plugins.spring.service.*;
 
 import javax.inject.Inject;
@@ -29,6 +31,7 @@ public class SystemRest {
     private final PermissionService permissionService;
     private final DBService dbService;
     private final ParamService paramService;
+    private final FileService fileService;
 
 
     @Inject
@@ -40,7 +43,7 @@ public class SystemRest {
                       final PermissionService permissionService,
                       final ParamService paramService,
                       IssueAssigneerWebworkAction issueAssigneerWebworkAction,
-                      DBService dbService) {
+                      DBService dbService, FileService fileService) {
         this.jsonService = jsonService;
         this.issueAssigneerWebworkAction = issueAssigneerWebworkAction;
         this.typeChangeService = typeChangeService;
@@ -50,6 +53,7 @@ public class SystemRest {
         this.pluginSettingsFactory = pluginSettingsFactory;
         this.dbService = dbService;
         this.paramService = paramService;
+        this.fileService = fileService;
     }
 
     @GET
@@ -221,5 +225,13 @@ public class SystemRest {
     @Path("/getuser")
     public Response getUserById (@QueryParam("id") Integer idUser)   {
         return Response.ok(dbService.getUserById(idUser)).build();
+    }
+
+    @GET
+    @Path("/export")
+    public Response exportCSV() {
+        List<SystemAssignees> systemAssigneesList = dbService.getListSystemsUserDelivery();
+        List<Stage> stages = dbService.getAllStages();
+        return Response.ok(fileService.createFile(systemAssigneesList, stages)).build();
     }
 }

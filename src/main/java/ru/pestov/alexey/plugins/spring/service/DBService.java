@@ -208,6 +208,10 @@ public class DBService {
         }
     }
 
+    private User getCurrentUser()   {
+        return userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
+    }
+
     public List<SystemAssignees> updateDB(Param param) {
         Date date = new Date();
         List<SystemAssignees> result = new ArrayList<>();
@@ -217,7 +221,7 @@ public class DBService {
         TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
         Boolean isActive = param.getActive();
         List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
-        User currentUser = userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
+        User currentUser = getCurrentUser();
         List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
         if (isActive != system.getActive()) {
             logActiveSystemManager.create(date, system, isActive, currentUser);
@@ -340,7 +344,7 @@ public class DBService {
                         break;
                     }
                     case "4": {
-                        systems.addAll(getSystemWhereDelivery(user));
+                        systems.addAll(getNameSystemWhereDelivery(user));
                         break;
                     }
                 }
@@ -371,11 +375,22 @@ public class DBService {
         return getSystemFromSystemAssignees(systemAssignees);
     }
 
-    private List<System> getSystemWhereDelivery(User user) {
+    private List<System> getNameSystemWhereDelivery(User user) {
         List<System> systems = new ArrayList<>();
         List<Delivery> deliverySystems = Arrays.asList(dmManager.getSystemsByDelivery(user));
         deliverySystems.forEach(delivery -> systems.add(delivery.getSystem()));
         return systems;
+    }
+
+    public  List<SystemAssignees> getListSystemsUserDelivery()  {
+        List<SystemAssignees> result = new ArrayList<>();
+        User currentUser = getCurrentUser();
+        List<Delivery> deliveries = Arrays.asList(dmManager.getSystemsByDelivery(currentUser));
+        for (Delivery delivery : deliveries)    {
+            System system = delivery.getSystem();
+            result.addAll(Arrays.asList(system.getSystemAssignees()));
+        }
+        return result;
     }
 
 
@@ -613,4 +628,7 @@ public class DBService {
         return stage.getTitle();
     }
 
+    public List<Stage> getAllStages()   {
+        return Arrays.asList(stageModelManager.getAllStages());
+    }
 }
