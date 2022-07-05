@@ -67,7 +67,7 @@ public class PermissionService {
         String assigneesStageSystem = systemService.getAssigneesStageSystem(idSystem, idTypeChange, "authorize");
         if (!assigneesStageSystem.equals("")) {
             Integer idAuthorize = Integer.parseInt(assigneesStageSystem);
-            String nameAuthorize = dbService.getUserById(idAuthorize);
+            String nameAuthorize = dbService.getUserById(idAuthorize).split("=")[0];
             return currentUser.getUsername().toLowerCase(Locale.ROOT).equals(nameAuthorize.toLowerCase());
         } else {
             return false;

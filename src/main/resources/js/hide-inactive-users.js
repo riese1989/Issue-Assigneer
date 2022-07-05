@@ -9,7 +9,7 @@ function getInactiveUsers()  {
     $.each(stages, function (idStage, stage) {
         $(stage + " > option").each(function() {
             if (this.text.includes(["[X]"]))    {
-                $("#stage1 option[value='" + this.value +"']").wrap("<span/>")
+                $(stage +" option[value='" + this.value +"']").wrap("<span/>")
             }
         });
     })

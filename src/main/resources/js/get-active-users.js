@@ -8,9 +8,17 @@ $(function () {
         $.each(stages, function (idStage, stage) {
             $.each(arrayUsers, function (idUser, user)   {
                 var newOption = document.createElement("option")
-                newOption.innerHTML = user.split("=")[0]
-                newOption.value = user.split("=")[1]
-                document.querySelector(stage).append(newOption)
+                var name = user.split("=")[0]
+                var value = user.split("=")[1]
+                newOption.innerHTML = name
+                newOption.value = value
+                if (name.includes(["[X]"]))    {
+                    var span = document.createElement("span")
+                    span.appendChild(newOption)
+                    document.querySelector(stage).append(span)
+                }   else {
+                    document.querySelector(stage).append(newOption)
+                }
             })
         })
     });
