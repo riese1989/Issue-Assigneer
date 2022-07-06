@@ -6,85 +6,57 @@ import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 import ru.pestov.alexey.plugins.spring.model.TypeChangeDB;
 
 import javax.inject.Named;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Named
 public class FileService {
     public String createFile(List<SystemAssignees> systemAssigneesList, List<Stage> stages) {
-        String path = "export.csv";
-        List<String[]> dataLines = createDataLines(systemAssigneesList, stages);
-        write(dataLines, path);
-        return path;
+        return createDataLines(systemAssigneesList, stages);
     }
 
-    private List<String[]> createDataLines(List<SystemAssignees> systemAssigneesList, List<Stage> stages) {
-        List<String[]> result = new ArrayList<>();
+    private String createDataLines(List<SystemAssignees> systemAssigneesList, List<Stage> stages) {
+        StringBuilder result = new StringBuilder();
         Map<System, List<SystemAssignees>> mapSystemAssigneesGroupSystems = systemAssigneesList.stream()
-                .collect(Collectors.groupingBy(SystemAssignees::getSystem));
-        String[] header = {"Система", "Тип изменения", stages.get(0).getName(), stages.get(1).getName(),
-                stages.get(2).getName(), stages.get(3).getName(), stages.get(4).getName(), stages.get(5).getName()};
-        result.add(header);
+                .collect(Collectors.groupingBy(SystemAssignees::getSystem)); //группировка по системам
+        String[] header = {"Система", "Тип изменения", stages.get(0).getTitle(), stages.get(1).getTitle(),
+                stages.get(2).getTitle(), stages.get(3).getTitle(), stages.get(4).getTitle(), stages.get(5).getTitle()};
+        result.append(getRecord(Arrays.asList(header)));
         for (Map.Entry<System, List<SystemAssignees>> map : mapSystemAssigneesGroupSystems.entrySet())  {
             System system = map.getKey();
             List<SystemAssignees> systemAssigneesListGroupSystems = map.getValue();
             Map<TypeChangeDB, List<SystemAssignees>> mapGroupTypeChange = systemAssigneesListGroupSystems.stream()
-                    .collect(Collectors.groupingBy(SystemAssignees::getTypeChange));
+                    .collect(Collectors.groupingBy(SystemAssignees::getTypeChange)); //внутри системы группируем по типам изменений
             for (Map.Entry<TypeChangeDB, List<SystemAssignees>> entry : mapGroupTypeChange.entrySet())  {
                 List<SystemAssignees> listGroupTypeChange = entry.getValue();
                 TypeChangeDB typeChangeDB = entry.getKey();
-                List<String> record = new ArrayList<>();
-                record.add(system.getName());
-                record.add(typeChangeDB.getName());
+                List<String> records = new ArrayList<>();
+                records.add(system.getName());
+                records.add(typeChangeDB.getName());
                 for (Stage stage : stages)  {
+                    String nameStage = stage.getName();
+                    if(nameStage.equals("delivery") || nameStage.equals("active"))  {
+                        continue;
+                    }
                     StringBuffer recordAssignee = new StringBuffer();
-                    listGroupTypeChange.stream().filter(s -> s.getStage() == stage).forEach(l -> {
-                       recordAssignee.append(l.getUser()).append(" ");
-                    });
-                    record.add(recordAssignee.toString());
+                    List<SystemAssignees> assigneesStage = listGroupTypeChange.stream().filter(s -> s.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
+                    assigneesStage.forEach(a -> recordAssignee.append(a.getUser().getName()).append(" "));
+                    records.add(recordAssignee.toString());
                 }
-                result.add(record.toArray(new String[0]));
+                result.append(getRecord(records));
             }
 
         }
-        return result;
+        return result.toString();
     }
 
-    private String convertToCSV(String[] data) {
-        return Stream.of(data)
-                .map(this::escapeSpecialCharacters)
-                .collect(Collectors.joining(","));
+    private StringBuilder getRecord(List<String> labels) {
+        StringBuilder record = new StringBuilder();
+        labels.forEach(l -> record.append(l).append(","));
+        record.append("\n");
+        return record;
     }
-
-    private String escapeSpecialCharacters(String data) {
-        String escapedData = data.replaceAll("\\R", " ");
-        if (data.contains(",") || data.contains("\"") || data.contains("'")) {
-            data = data.replace("\"", "\"\"");
-            escapedData = "\"" + data + "\"";
-        }
-        return escapedData;
-    }
-
-    private void write(List<String[]> dataLines, String path) {
-        File csvOutputFile = new File(path);
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(csvOutputFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        dataLines.stream()
-                .map(this::convertToCSV)
-                .forEach(pw::println);
-        csvOutputFile.exists();
-    }
-
-
 }

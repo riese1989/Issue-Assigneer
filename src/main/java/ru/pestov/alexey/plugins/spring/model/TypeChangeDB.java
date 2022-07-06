@@ -11,4 +11,7 @@ public interface TypeChangeDB extends Entity {
 
     @OneToMany
     Log[] getLogs();
+
+    String getTranslit();
+    void setTranslit(String translit);
 }

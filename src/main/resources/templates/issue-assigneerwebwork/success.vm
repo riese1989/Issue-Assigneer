@@ -111,6 +111,7 @@
     </div>
     <div class="buttons-container">
         <div class="buttons">
+            <a href="http://localhost:2990/jira/rest/cab/1.0/systems/export" download="export.csv" charset="Windows 1251">Download</a>
             <input class="button submit" type="submit" value="Save" id="save" disabled>
             <a class="cancel" href="http://localhost:2990/jira/">Cancel</a>
         </div>

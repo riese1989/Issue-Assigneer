@@ -16,12 +16,13 @@ public class TCMManager extends ModelManager {
     }
 
 
-    public TypeChangeDB createTypeChange(String name) {
+    public TypeChangeDB createTypeChange(String name, String translit) {
         return ao.executeInTransaction(new TransactionCallback<TypeChangeDB>() {
             @Override
             public TypeChangeDB doInTransaction() {
                 TypeChangeDB typeChangeDB = ao.create(TypeChangeDB.class);
                 typeChangeDB.setName(name);
+                typeChangeDB.setTranslit(translit);
                 typeChangeDB.save();
                 return typeChangeDB;
             }

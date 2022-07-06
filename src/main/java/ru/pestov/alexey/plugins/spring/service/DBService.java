@@ -126,8 +126,10 @@ public class DBService {
 
     private void recoverTypeChanges() {
         HashMap<String, String> typeChanges = typeChangeService.getTypeChanges();
-        for (String name : typeChanges.values()) {
-            typeChangeModelManager.createTypeChange(name);
+        for (Map.Entry<String, String> entry : typeChanges.entrySet()) {
+            String name = entry.getKey();
+            String translit = entry.getValue();
+            typeChangeModelManager.createTypeChange(name, translit);
         }
     }
 

@@ -14,16 +14,16 @@ public class TypeChangeService  {
     HashMap <String, String> typeChanges = new HashMap<>();
 
     public TypeChangeService() {
-        typeChanges.put("1", "Bugfix");
-        typeChanges.put("2", "Активация настроек");
-        typeChanges.put("3", "Внерелиз");
-        typeChanges.put("4", "Дефект");
-        typeChanges.put("5", "Изменение настроек");
-        typeChanges.put("6", "Массовая выгрузка");
-        typeChanges.put("7", "Предсогласованное изменение");
-        typeChanges.put("8", "Релиз");
-        typeChanges.put("9", "Спринт");
-        typeChanges.put("10", "Фоновое задание");
+        typeChanges.put("Bugfix", "Bugfix");
+        typeChanges.put("Активация настроек", "Activatcia nastroek");
+        typeChanges.put("Внерелиз", "Vnereliz");
+        typeChanges.put("Дефект", "Defect");
+        typeChanges.put("Изменение настроек", "Izmenenie nastroek");
+        typeChanges.put("Массовая выгрузка", "Massovaya vigruzka");
+        typeChanges.put("Предсогласованное изменение", "Predsoglasovannoe izmenenie");
+        typeChanges.put("Релиз", "Reliz");
+        typeChanges.put("Спринт", "Sprint");
+        typeChanges.put("Фоновое задание", "Fonovoe zadanie");
     }
 
     public String getTypeChangeById(String stringId)    {
