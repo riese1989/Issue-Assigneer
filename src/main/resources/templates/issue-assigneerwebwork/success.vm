@@ -111,11 +111,11 @@
     </div>
     <div class="buttons-container">
         <div class="exportButton" hidden>
-            <a id = "exportButton" href="http://localhost:2990/jira/rest/cab/1.0/systems/export" download="export.csv">Выгрузить данные по системам где я Delivery</a>
+            <a id = "exportButton" href="#" download="export.csv">Выгрузить данные по системам где я Delivery</a>
         </div>
         <div class="buttons" style="margin-top: 1%">
             <input class="button submit" type="submit" value="Save" id="save" disabled>
-            <a class="cancel" href="http://localhost:2990/jira/">Cancel</a>
+            <a class="cancel" id="cancel" href="#">Cancel</a>
         </div>
     </div>
 </form>
