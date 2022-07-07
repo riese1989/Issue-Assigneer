@@ -234,4 +234,10 @@ public class SystemRest {
         List<Stage> stages = dbService.getAllStages();
         return Response.ok(fileService.createFile(systemAssigneesList, stages)).build();
     }
+
+    @GET
+    @Path("/countmysystems")
+    public Response countMySystems()    {
+        return Response.ok(dbService.getCountSystemDelivery().toString()).build();
+    }
 }

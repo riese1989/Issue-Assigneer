@@ -22,8 +22,9 @@ public class FileService {
         StringBuilder result = new StringBuilder();
         Map<System, List<SystemAssignees>> mapSystemAssigneesGroupSystems = systemAssigneesList.stream()
                 .collect(Collectors.groupingBy(SystemAssignees::getSystem)); //группировка по системам
-        String[] header = {"Система", "Тип изменения", stages.get(0).getTitle(), stages.get(1).getTitle(),
-                stages.get(2).getTitle(), stages.get(3).getTitle(), stages.get(4).getTitle(), stages.get(5).getTitle()};
+        String[] header = {"Система", "Тип изменения", stages.get(0).getLabel(), stages.get(1).getLabel(),
+                stages.get(2).getLabel(), stages.get(3).getLabel(), stages.get(4).getLabel(),
+                stages.get(5).getLabel()};
         result.append(getRecord(Arrays.asList(header)));
         for (Map.Entry<System, List<SystemAssignees>> map : mapSystemAssigneesGroupSystems.entrySet())  {
             System system = map.getKey();

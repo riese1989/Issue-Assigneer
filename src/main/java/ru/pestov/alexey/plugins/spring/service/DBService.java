@@ -633,4 +633,8 @@ public class DBService {
     public List<Stage> getAllStages()   {
         return Arrays.asList(stageModelManager.getAllStages());
     }
+
+    public Integer getCountSystemDelivery() {
+        return getHashMapSystems("4").size();
+    }
 }
