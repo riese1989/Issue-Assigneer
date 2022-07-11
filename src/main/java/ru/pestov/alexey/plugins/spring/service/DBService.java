@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.dbmanager.*;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Mode;
+import ru.pestov.alexey.plugins.spring.enums.TypeEmailNotifications;
 import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
 
@@ -38,13 +39,14 @@ public class DBService {
     private final DeliveryService deliveryService;
     private final LogActiveSystemManager logActiveSystemManager;
     private final String markInactiveUser = "[X]";
+    private final EmailService emailService;
 
     @Inject
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
                      SystemService systemService, SMManager SMManager, TypeChangeService typeChangeService,
                      TCMManager typeChangeModelManager, JSONService jsonService, SAManager SAManager,
                      DMManager dmManager, TCAManager tcaManager, LogModelManager logModelManager,
-                     SystemAssigneeService systemAssigneeService, LogDeliveryManager logDeliveryManager, DeliveryService deliveryService, LogActiveSystemManager logActiveSystemManager) {
+                     SystemAssigneeService systemAssigneeService, LogDeliveryManager logDeliveryManager, DeliveryService deliveryService, LogActiveSystemManager logActiveSystemManager, EmailService emailService) {
         this.userModelManager = UMManager;
         this.userService = userService;
         this.stageModelManager = stageModelManager;
@@ -61,6 +63,7 @@ public class DBService {
         this.logDeliveryManager = logDeliveryManager;
         this.deliveryService = deliveryService;
         this.logActiveSystemManager = logActiveSystemManager;
+        this.emailService = emailService;
     }
 
     public Integer recoverDB() {
@@ -245,7 +248,7 @@ public class DBService {
             }
         }
         if (!oldSystemAssignees.equals(newSystemAssignees)) {
-            updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser);
+            updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser, system, typeChangeDB);
         }
         if (param.getDelivery() != null) {
             updateDeliveryDB(date, param, currentUser);
@@ -254,7 +257,9 @@ public class DBService {
         return result;
     }
 
-    private void updateLog(List<SystemAssignees> oldSystemAssignees, List<SystemAssignees> newSystemAssignees, List<Stage> stages, User currentUser) {
+    private void updateLog(List<SystemAssignees> oldSystemAssignees, List<SystemAssignees> newSystemAssignees,
+                           List<Stage> stages, User currentUser,
+                           System system, TypeChangeDB typeChangeDB) {
         Date date = new Date();
         for (Stage stage : stages) {
             List<SystemAssignees> oldSystemAssigneesStage = oldSystemAssignees.stream()
@@ -271,6 +276,14 @@ public class DBService {
                     logModelManager.create(date, newSystemAssigneesStage, tcaManager.getByName("Create"), currentUser);
                 }
             }
+            String nameSystem = system.getName();
+            String nameTypeChange = typeChangeDB.getName();
+            List<String> nameAddedUsers = userService.removeUsers(newUsers, oldUsers);
+            nameAddedUsers.forEach(u -> emailService.sendNotification(u + "@x5.ru", TypeEmailNotifications.ADDED,
+                    nameSystem, nameTypeChange, stage.getLabel()));
+            List<String> nameDeletedUsers = userService.removeUsers(oldUsers, newUsers);
+           nameDeletedUsers.forEach (u -> emailService.sendNotification(u + "@x5.ru", TypeEmailNotifications.DELETE,
+                    nameSystem, nameTypeChange, stage.getLabel()));
         }
     }
 
@@ -290,6 +303,14 @@ public class DBService {
                 }
             }
             logDeliveryManager.create(date, system, oldDeliveryUser, newDeliveryUser, currentUser);
+            if (oldDeliveryUser != null)    {
+                emailService.sendNotification(oldDeliveryUser.getName() + "@x5.ru", TypeEmailNotifications.DELETE_DELIVERY,
+                        system.getName(), null, null);
+            }
+            if (newDeliveryUser != null)    {
+                emailService.sendNotification(newDeliveryUser.getName() + "@x5.ru", TypeEmailNotifications.ADDED_DELIVERY,
+                        system.getName(), null, null);
+            }
         }
     }
 

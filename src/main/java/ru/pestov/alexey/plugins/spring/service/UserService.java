@@ -53,6 +53,14 @@ public class UserService {
         return list1Buf.size() == 0 && list1Buf.size() == 0;
     }
 
+    public List<String> removeUsers(List<User> list1, List<User> list2) {
+        List<String> nameUsers = new ArrayList<>();
+        List<User> list1Buf = new ArrayList<>(list1), list2Buf = new ArrayList<>(list2);
+        list1Buf.removeAll(list2Buf);
+        list1Buf.forEach(l -> nameUsers.add(l.getName()));
+        return nameUsers;
+    }
+
     public boolean compare(User user1, User user2)  {
         if (user1 == null && user2 != null) {
             return false;
