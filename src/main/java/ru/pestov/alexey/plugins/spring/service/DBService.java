@@ -659,6 +659,7 @@ public class DBService {
     }
 
     public Param getLastLog(Integer idSystem, Integer idTypeChange)   {
+        boolean flag = false;
         List<Date> datesLastLogs = new ArrayList<>();
         Param param = new Param();
         List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
@@ -694,17 +695,22 @@ public class DBService {
                 param.setStage23(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage23")).collect(Collectors.toList())));
                 param.setStage3(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage3")).collect(Collectors.toList())));
                 param.setAuthorize(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("authorize")).collect(Collectors.toList())));
+                flag = true;
             }
 
             if (maxDateLogsDelivery != null && maxDateLogsDelivery.equals(maxDate)) {
                 param.setDelivery(String.valueOf(logsDeliveryMaxDate.get(0).getOldDelivery().getID()));
+                flag = true;
             }
 
             if (maxDateLogsActiveSystem != null && maxDateLogsActiveSystem.equals(maxDate)) {
                 param.setActive(!logsMaxDateActiveSystem.get(0).getNewValue());
+                flag = true;
             }
         }
-
+        if (!flag)  {
+            return null;
+        }
         return param;
     }
 
