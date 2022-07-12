@@ -248,7 +248,7 @@ public class DBService {
             }
         }
         if (!oldSystemAssignees.equals(newSystemAssignees)) {
-            updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser, system, typeChangeDB);
+            updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser, system, typeChangeDB, date);
         }
         if (param.getDelivery() != null) {
             updateDeliveryDB(date, param, currentUser);
@@ -259,8 +259,7 @@ public class DBService {
 
     private void updateLog(List<SystemAssignees> oldSystemAssignees, List<SystemAssignees> newSystemAssignees,
                            List<Stage> stages, User currentUser,
-                           System system, TypeChangeDB typeChangeDB) {
-        Date date = new Date();
+                           System system, TypeChangeDB typeChangeDB, Date date) {
         for (Stage stage : stages) {
             List<SystemAssignees> oldSystemAssigneesStage = oldSystemAssignees.stream()
                     .filter(osa -> osa.getStage().getName().equals(stage.getName())).collect(Collectors.toList());
@@ -657,5 +656,64 @@ public class DBService {
 
     public Integer getCountSystemDelivery() {
         return getHashMapSystems("4").size();
+    }
+
+    public Param getLastLog(Integer idSystem, Integer idTypeChange)   {
+        List<Date> datesLastLogs = new ArrayList<>();
+        Param param = new Param();
+        List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
+        Comparator<Log> comparatorLog = Comparator.comparing(Log::getDate);
+        Date maxDateLogs = logs.size() != 0 ? logs.stream().max(comparatorLog).get().getDate() : null;;
+        List<Log> logsMaxDate = logs.stream().filter(l -> l.getDate().equals(maxDateLogs)).collect(Collectors.toList());
+        if(logsMaxDate.size() != 0 && logsMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
+            datesLastLogs.add(maxDateLogs);
+        }
+
+        List<LogDelivery> logDeliveries = Arrays.asList(logDeliveryManager.getLogs(idSystem));
+        Comparator<LogDelivery> comparatorLogDelivery = Comparator.comparing(LogDelivery::getDate);
+        Date maxDateLogsDelivery = logDeliveries.size() != 0 ? logDeliveries.stream().max(comparatorLogDelivery).get().getDate() : null;
+        List<LogDelivery> logsDeliveryMaxDate = logDeliveries.stream().filter(l -> l.getDate().equals(maxDateLogsDelivery)).collect(Collectors.toList());
+        if(logsDeliveryMaxDate.size() != 0 && logsDeliveryMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
+            datesLastLogs.add(maxDateLogsDelivery);
+        }
+
+        List<LogActiveSystem> logsActiveSystem = Arrays.asList(logActiveSystemManager.getLogs(idSystem));
+        Comparator<LogActiveSystem> comparatorLogActiveSystem = Comparator.comparing(LogActiveSystem::getDate);
+        Date maxDateLogsActiveSystem = logsActiveSystem.size() != 0 ? logsActiveSystem.stream().max(comparatorLogActiveSystem).get().getDate(): null;
+        List<LogActiveSystem> logsMaxDateActiveSystem = logsActiveSystem.stream().filter(l -> l.getDate().equals(maxDateLogsActiveSystem)).collect(Collectors.toList());
+        if(logsMaxDateActiveSystem.size() != 0 && logsMaxDateActiveSystem.get(0).getUser().getID()== getCurrentUser().getID()) {
+            datesLastLogs.add(maxDateLogsActiveSystem);
+        }
+        if (datesLastLogs.size() != 0) {
+            Date maxDate = Collections.max(datesLastLogs);
+
+            if (maxDateLogs != null && maxDateLogs.equals(maxDate)) {
+                param.setStage1(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage1")).collect(Collectors.toList())));
+                param.setStage21(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage21")).collect(Collectors.toList())));
+                param.setStage22(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage22")).collect(Collectors.toList())));
+                param.setStage23(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage23")).collect(Collectors.toList())));
+                param.setStage3(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage3")).collect(Collectors.toList())));
+                param.setAuthorize(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("authorize")).collect(Collectors.toList())));
+            }
+
+            if (maxDateLogsDelivery != null && maxDateLogsDelivery.equals(maxDate)) {
+                param.setDelivery(String.valueOf(logsDeliveryMaxDate.get(0).getOldDelivery().getID()));
+            }
+
+            if (maxDateLogsActiveSystem != null && maxDateLogsActiveSystem.equals(maxDate)) {
+                param.setActive(!logsMaxDateActiveSystem.get(0).getNewValue());
+            }
+        }
+
+        return param;
+    }
+
+    private List<String> getListAssignee(List<Log> logs)    {
+        List<Log> deletedLogs = logs.stream().filter(l -> l.getTypeChangeAssignee().getName().equals("Delete")).collect(Collectors.toList());
+        List<String> result = new ArrayList<>();
+        for (Log log : deletedLogs)    {
+            result.add(String.valueOf(log.getAssignee().getID()));
+        }
+        return result;
     }
 }

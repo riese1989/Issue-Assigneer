@@ -240,4 +240,11 @@ public class SystemRest {
     public Response countMySystems()    {
         return Response.ok(dbService.getCountSystemDelivery().toString()).build();
     }
+
+    @GET
+    @Path("/checklastlog")
+    public Response checkLastLog(@QueryParam("idsystem") Integer idSystem,
+                                 @QueryParam("idtypechange") Integer idTypeChange)  {
+        return Response.ok(dbService.getLastLog(idSystem, idTypeChange)).build();
+    }
 }

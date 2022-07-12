@@ -14,25 +14,25 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Param {
-    @NonNull
+
     private Integer systemId;
-    @NonNull
+
     private Integer typeChangeId;
-    @NonNull
+
     private List<String> stage1;
-    @NonNull
+
     private List<String> stage21;
-    @NonNull
+
     private List<String> stage22;
-    @NonNull
+
     private List<String> stage23;
-    @NonNull
+
     private List<String> stage3;
-    @NonNull
+
     private List<String> authorize;
 
     private String delivery;
-    @NonNull
+
     private Boolean active;
 
     public List<String> getRequiredStage(String nameStage)  {

@@ -101,13 +101,4 @@ public class LogModelManager extends ModelManager{
         });
     }
 
-    public Log[] getLogsByDate(Integer idSystem, Integer idTypeChange, Date date)   {
-        return ao.executeInTransaction(new TransactionCallback<Log[]>() {
-            @Override
-            public Log[] doInTransaction() {
-                return ao.find(Log.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ? AND DATE = ?", idSystem, idTypeChange, date));
-            }
-        });
-    }
-
 }
