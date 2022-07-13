@@ -88,11 +88,21 @@
                     <option value="false">Нет</option>
                 </select>
             </div>
+            <div class="buttons-container">
+                <div class="exportButton" hidden>
+                    <a id = "exportButton" href="#" download="export.csv">Выгрузить данные по системам где я Delivery</a>
+                </div>
+                <div class="buttons" style="margin-top: 1%">
+                    <input class="button submit" type="submit" value="Save" id="save" disabled>
+                    <a class="cancel" id="cancel" href="#">Cancel</a>
+                </div>
+            </div>
         </div>
 
         <div class="right">
-            <a id="link-hide-table"></a>
-            <div class="table-history" hidden>
+            <a id="link-hide-table"></a><br>
+            <a id="link-return-values" hidden>Откатить изменения</a>
+            <div class="table-history" style=" overflow: auto" hidden>
                 <table class="aui" id="history-table">
                     <thead>
                     <tr>
@@ -107,15 +117,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-    <div class="buttons-container">
-        <div class="exportButton" hidden>
-            <a id = "exportButton" href="#" download="export.csv">Выгрузить данные по системам где я Delivery</a>
-        </div>
-        <div class="buttons" style="margin-top: 1%">
-            <input class="button submit" type="submit" value="Save" id="save" disabled>
-            <a class="cancel" id="cancel" href="#">Cancel</a>
         </div>
     </div>
 </form>

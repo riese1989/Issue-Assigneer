@@ -245,6 +245,12 @@ public class SystemRest {
     @Path("/checklastlog")
     public Response checkLastLog(@QueryParam("idsystem") Integer idSystem,
                                  @QueryParam("idtypechange") Integer idTypeChange)  {
-        return Response.ok(dbService.getLastLog(idSystem, idTypeChange)).build();
+        return Response.ok(dbService.checkLastLog(idSystem, idTypeChange).toString()).build();
+    }
+    @GET
+    @Path("/getlastlogs")
+    public Response getLastLog(@QueryParam("idsystem") Integer idSystem,
+                                 @QueryParam("idtypechange") Integer idTypeChange)  {
+        return Response.ok(dbService.getLastLogs(idSystem, idTypeChange).toString()).build();
     }
 }

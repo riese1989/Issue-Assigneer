@@ -39,6 +39,7 @@
         <resource type="download" name="get-type-changes.js" location="/js/get-type-changes.js"/>
         <resource type="download" name="get-logs.js" location="/js/get-logs.js"/>
         <resource type="download" name="get-labels.js" location="/js/get-labels.js"/>
+        <resource type="download" name="check-last-log.js" location="/js/check-last-log"/>
         <resource type="download" name="hide-show-export-link.js" location="/js/hide-show-export-link.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="images/" location="/images"/>
