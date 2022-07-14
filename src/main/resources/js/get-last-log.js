@@ -4,30 +4,34 @@ $(function () {
         var jiraURL = currentURL.split("secure")[0]
         const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
         const system = document.getElementById("systemCab")
-        const stages = ["stage1", "stage21", "stage22", "stage23", "stage3", "authorize", "delivery", "active"]
         const typechange = document.getElementById("typechange")
         if (system.value !== '' && system.value !== undefined && system.value !== '0' &&
             typechange.value !== '' && typechange.value !== undefined && typechange.value !== '0')  {
             $.get(jiraRestAddress + 'getlastlogs?idsystem=' + system.value + '&idtypechange=' + typechange.value, function (response)   {
-                console.log(response)
-                $.each(stages, function (idStage, stage) {
-                    // if (stage !== "delivery") {
-                    //     var values = response.split(stage + "=[")[1].split("]")[0].split(", ")
-                    //     $('#'+stage).val(values).trigger('change')
-                    // }
-                    // if (stage === "delivery")   {
-                    //     var preVal = response.split(/delivery=/, )[1]
-                    //     console.log(preVal)
-                    //     var value = preVal.split(", ")[0]
-                    //     $('#delivery').val(value).trigger('change')
-                    // }
-                    // if (stage === "active")   {
-                    //     var value = response
-                    //     $('#active').val(value).trigger('change')
-                    // }
-
-                })
+                var obj = jQuery.parseJSON(response);
+                if (obj.stage1 !== undefined)   {
+                    $('#stage1').val(obj.stage1).trigger('change')
+                }
+                if (obj.stage21 !== undefined)   {
+                    $('#stage21').val(obj.stage21).trigger('change')
+                }
+                if (obj.stage22 !== undefined)   {
+                    $('#stage22').val(obj.stage22).trigger('change')
+                }
+                if (obj.stage23 !== undefined)   {
+                    $('#stage23').val(obj.stage23).trigger('change')
+                }
+                if (obj.stage3 !== undefined)   {
+                    $('#stage3').val(obj.stage3).trigger('change')
+                }
+                if (obj.authorize !== undefined)   {
+                    $('#authorize').val(obj.authorize).trigger('change')
+                }
+                if (obj.delivery !== undefined)   {
+                    $('#authorize').val(obj.delivery).trigger('change')
+                }
             })
+            $('#link-return-values').attr("hidden","hidden");
         }
     })
 })

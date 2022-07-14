@@ -25,6 +25,7 @@
         <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
         <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
         <resource type="download" name="get-inactive-assignees.js" location="/js/get-inactive-assignees.js"/>
+        <resource type="download" name="get-actual-links.js" location="/js/get-actual-links.js"/>
         <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
         <resource type="download" name="get-status.js" location="/js/get-status.js"/>
 <!--        <resource type="download" name="hide-inactive-users.js" location="/js/hide-inactive-users.js"/>&ndash;&gt;-->
@@ -39,7 +40,8 @@
         <resource type="download" name="get-type-changes.js" location="/js/get-type-changes.js"/>
         <resource type="download" name="get-logs.js" location="/js/get-logs.js"/>
         <resource type="download" name="get-labels.js" location="/js/get-labels.js"/>
-        <resource type="download" name="check-last-log.js" location="/js/check-last-log"/>
+        <resource type="download" name="check-last-log.js" location="/js/check-last-log.js"/>
+        <resource type="download" name="get-last-log.js" location="/js/get-last-log.js"/>
         <resource type="download" name="hide-show-export-link.js" location="/js/hide-show-export-link.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="images/" location="/images"/>

@@ -661,7 +661,6 @@ public class DBService {
     }
 
     public Boolean checkLastLog(Integer idSystem, Integer idTypeChange)   {
-        paramForLastLog = new Param();
         jsonObject = null;
         Boolean result = false;
         List<Date> datesLastLogs = new ArrayList<>();
@@ -692,13 +691,6 @@ public class DBService {
             Date maxDate = Collections.max(datesLastLogs);
 
             if (maxDateLogs != null && maxDateLogs.equals(maxDate) && logsMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
-//                paramForLastLog.setStage1(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage1")).collect(Collectors.toList())));
-//                paramForLastLog.setStage21(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage21")).collect(Collectors.toList())));
-//                paramForLastLog.setStage22(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage22")).collect(Collectors.toList())));
-//                paramForLastLog.setStage23(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage23")).collect(Collectors.toList())));
-//                paramForLastLog.setStage3(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("stage3")).collect(Collectors.toList())));
-//                paramForLastLog.setAuthorize(getListAssignee(logsMaxDate.stream().filter(l -> l.getStage().getName().equals("authorize")).collect(Collectors.toList())));
-//
                 List<String> nameStages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3", "authorize");
                 for (String nameStage : nameStages) {
                     prepareJSON(nameStage, logsMaxDate);
@@ -707,7 +699,6 @@ public class DBService {
             }
 
             if (maxDateLogsDelivery != null && maxDateLogsDelivery.equals(maxDate) && logsDeliveryMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
-                //paramForLastLog.setDelivery(String.valueOf(logsDeliveryMaxDate.get(0).getOldDelivery().getID()));
                 if (jsonObject == null) {
                     jsonObject = new JSONObject();
                 }
@@ -716,7 +707,6 @@ public class DBService {
             }
 
             if (maxDateLogsActiveSystem != null && maxDateLogsActiveSystem.equals(maxDate) && logsMaxDateActiveSystem.get(0).getUser().getID()== getCurrentUser().getID()) {
-                //paramForLastLog.setActive(!logsMaxDateActiveSystem.get(0).getNewValue());
                 if (jsonObject == null) {
                     jsonObject = new JSONObject();
                 }
@@ -725,7 +715,6 @@ public class DBService {
             }
         }
         if (!result)    {
-//            paramForLastLog = null;
             jsonObject = null;
         }
         return result;
@@ -753,7 +742,7 @@ public class DBService {
         }
         List<Log> filterLogs = logs.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
         if (filterLogs.size() != 0) {
-            jsonObject.put(nameStage, getListAssignee(logs));
+            jsonObject.put(nameStage, getListAssignee(filterLogs));
         }
     }
 }
