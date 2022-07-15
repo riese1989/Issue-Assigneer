@@ -253,4 +253,11 @@ public class SystemRest {
                                  @QueryParam("idtypechange") Integer idTypeChange)  {
         return Response.ok(dbService.getLastLogs(idSystem, idTypeChange).toString()).build();
     }
+
+    @GET
+    @Path("/isenablebulk")
+    public Response checkEnableBulk()   {
+        return Response.ok(permissionService.isEnableBulk().toString()).build();
+    }
+
 }

@@ -3,6 +3,7 @@
 
 </head>
     $webResourceManager.requireResource("ru.pestov.alexey.plugins.spring.issue-assigneer:selects-resources")
+    $webResourceManager.requireResource("com.atlassian.auiplugin:aui-toggle")
 <body>
 <div class="aui-message aui-message-info">
     <p class="title">
@@ -88,6 +89,10 @@
                     <option value="false">Нет</option>
                 </select>
             </div>
+            <div class="field-group">
+                <label id = "bulk-edit-label" for="bulk-edit" hidden>Bulk edit</label>
+                <aui-toggle class = "bilk-edit" id="bulk-edit" hidden></aui-toggle>
+            </div>
             <div class="buttons-container">
                 <div class="exportButton" hidden>
                     <a id = "exportButton" href="#" download="export.csv">Выгрузить данные по системам где я Delivery</a>
@@ -97,6 +102,7 @@
                     <a class="cancel" id="cancel" href="#">Cancel</a>
                 </div>
             </div>
+
         </div>
 
         <div class="right">

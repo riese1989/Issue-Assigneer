@@ -5,9 +5,12 @@ import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
 import ru.pestov.alexey.plugins.spring.configuration.Property;
 import ru.pestov.alexey.plugins.spring.enums.Role;
+import ru.pestov.alexey.plugins.spring.model.Delivery;
+import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 import java.util.Locale;
 
 @Named
@@ -43,6 +46,11 @@ public class PermissionService {
         return dbService.isCurrentUserDelivery(idSystem, currentUser);
     }
 
+    public Boolean isCurrentUserDelivery() {
+        List<SystemAssignees> deliveries = dbService.getListSystemsUserDelivery();
+        return deliveries.size() != 0;
+    }
+
     private boolean isUserInGroup(ApplicationUser applicationUser, String nameGroup) {
         GroupManager groupManager = ComponentAccessor.getGroupManager();
         return groupManager.isUserInGroup(applicationUser, nameGroup);
@@ -60,6 +68,10 @@ public class PermissionService {
 
     public Boolean isEnable(Integer idSystem, Integer idTypeChange) {
         return (idTypeChange != null) && (isCurrentUserDelivery(idSystem) || isCurrentUserSuperUser() || isCurrentUserAuthorize(idSystem, idTypeChange));
+    }
+
+    public Boolean isEnableBulk()   {
+        return isCurrentUserSuperUser() || isCurrentUserDelivery();
     }
 
     private Boolean isCurrentUserAuthorize(Integer idSystem, Integer idTypeChange) {
