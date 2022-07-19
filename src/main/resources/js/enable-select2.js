@@ -1,3 +1,3 @@
 $(function () {
-    AJS.$("btn").auiSelect2()
+    AJS.$("select").auiSelect2()
 })

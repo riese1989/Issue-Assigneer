@@ -16,10 +16,15 @@
     <div id="message"></div>
     <div id="box">
         <div class="left">
-            <div class="field-group">
+            <div class="field-group" id = "divSystemCabSingle">
                 <label for="systemCab">Система</label>
                 <select class="select" id="systemCab" name="systemCab">
                     <option value="0">Select</option>
+                </select>
+            </div>
+            <div class="field-group" id = "divSystemCabMulti" hidden>
+                <label for="systemCabMulti">Система</label>
+                <select class="multiselect" id="systemCabMulti" name="systemCabMulti" multiple>
                 </select>
             </div>
             <fieldset class="group">
@@ -40,8 +45,13 @@
                     <label for="check4">Где я delivery</label>
                 </div>
             </fieldset>
-            <div class="field-group">
-                <label for="typechange">Тип измения</label>
+            <div class="field-group" id = "divTypeChangeMulti" hidden>
+                <label for="typechangeMulti">Тип изменения</label>
+                <select class="multiselect" id="typechangeMulti" name="typechangeMulti" multiple>
+                </select>
+            </div>
+            <div class="field-group" id = "divTypeChangeSingle">
+                <label for="typechange">Тип изменения</label>
                 <select class="select" id="typechange" name="typechange">
                     <option value="0">Select</option>
                 </select>
@@ -84,7 +94,7 @@
             </div>
             <div class="field-group">
                 <label for="active" id = "activeLabel"></label>
-                <select class="selectdown" id="active" name="active" disabled>
+                <select class="select" id="active" name="active" disabled>
                     <option value="true">Да</option>
                     <option value="false">Нет</option>
                 </select>
