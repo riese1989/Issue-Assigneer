@@ -2,8 +2,10 @@ package ru.pestov.alexey.plugins.spring.rest;
 
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.simple.JSONObject;
 import ru.pestov.alexey.plugins.spring.entity.Param;
+import ru.pestov.alexey.plugins.spring.enums.Role;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
 import ru.pestov.alexey.plugins.spring.model.Stage;
 import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
@@ -259,5 +261,15 @@ public class SystemRest {
     public Response checkEnableBulk()   {
         return Response.ok(permissionService.isEnableBulk().toString()).build();
     }
+
+    @GET
+    @Path("/getmysystems")
+    public Response getMySystems()  {
+        Boolean isAdmin = permissionService.isCurrentUserAdminJira() == Role.JIRA_ADMIN;
+        Boolean isDelivery = permissionService.isCurrentUserDelivery();
+        return Response.ok(dbService.getSystemsOfUser(isAdmin, isDelivery).toString()).build();
+    }
+
+
 
 }

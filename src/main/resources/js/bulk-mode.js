@@ -1,6 +1,6 @@
 $(function () {
     var toggle = document.getElementById('bulk-edit')
-    $(document.body).on("click", toggle, function () {
+    $(document.body).on("click", "#bulk-edit", function () {
         if (toggle.checked === true)    {
             $('#divSystemCabSingle').attr("hidden","hidden")
             $('#divSystemCabMulti').removeAttr("hidden")
@@ -10,6 +10,9 @@ $(function () {
             $("#link-hide-table").attr("hidden","hidden")
             $("#link-return-values").attr("hidden","hidden")
             $("#table-history").attr("hidden","hidden")
+            $('.multiselect').val(null).trigger('change')
+            $('#delivery').val(0).trigger('change')
+            $('#save').prop('disabled', true)
         }   else    {
             $('#divSystemCabSingle').removeAttr("hidden")
             $('#divSystemCabMulti').attr("hidden","hidden")
@@ -17,7 +20,6 @@ $(function () {
             $('#divTypeChangeMulti').attr("hidden","hidden")
             $(".checkbox").removeAttr("hidden")
             $("#link-hide-table").removeAttr("hidden")
-            $("#link-return-values").removeAttr("hidden")
             $("#table-history").removeAttr("hidden")
         }
     })

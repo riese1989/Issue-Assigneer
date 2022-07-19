@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('.checkboxes').change(function (){
         $('#systemCab').empty()
         $('#systemCab').append(new Option("Select", "0"))
+        $('#systemCabMulti').empty()
         var values = ""
         $(':checkbox').each(function() {
             if (this.checked)   {

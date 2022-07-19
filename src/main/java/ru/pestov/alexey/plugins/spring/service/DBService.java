@@ -3,6 +3,7 @@ package ru.pestov.alexey.plugins.spring.service;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -41,7 +42,7 @@ public class DBService {
     private final String markInactiveUser = "[X]";
     private final EmailService emailService;
     private Param paramForLastLog = null;
-    JSONObject jsonObject = null;
+    JSONObject jsonResponseLastLog = null;
 
     @Inject
     public DBService(UMManager UMManager, UserService userService, StMManager stageModelManager,
@@ -661,7 +662,7 @@ public class DBService {
     }
 
     public Boolean checkLastLog(Integer idSystem, Integer idTypeChange)   {
-        jsonObject = null;
+        jsonResponseLastLog = null;
         Boolean result = false;
         List<Date> datesLastLogs = new ArrayList<>();
         List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
@@ -699,32 +700,32 @@ public class DBService {
             }
 
             if (maxDateLogsDelivery != null && maxDateLogsDelivery.equals(maxDate) && logsDeliveryMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
-                if (jsonObject == null) {
-                    jsonObject = new JSONObject();
+                if (jsonResponseLastLog == null) {
+                    jsonResponseLastLog = new JSONObject();
                 }
-                jsonObject.put("delivery", String.valueOf(logsDeliveryMaxDate.get(0).getOldDelivery().getID()));
+                jsonResponseLastLog.put("delivery", String.valueOf(logsDeliveryMaxDate.get(0).getOldDelivery().getID()));
                 result = true;
             }
 
             if (maxDateLogsActiveSystem != null && maxDateLogsActiveSystem.equals(maxDate) && logsMaxDateActiveSystem.get(0).getUser().getID()== getCurrentUser().getID()) {
-                if (jsonObject == null) {
-                    jsonObject = new JSONObject();
+                if (jsonResponseLastLog == null) {
+                    jsonResponseLastLog = new JSONObject();
                 }
-                jsonObject.put("active", !logsMaxDateActiveSystem.get(0).getNewValue());
+                jsonResponseLastLog.put("active", !logsMaxDateActiveSystem.get(0).getNewValue());
                 result = true;
             }
         }
         if (!result)    {
-            jsonObject = null;
+            jsonResponseLastLog = null;
         }
         return result;
     }
 
     public JSONObject getLastLogs(Integer idSystem, Integer idTypeChange)   {
-        if (jsonObject == null)    {
+        if (jsonResponseLastLog == null)    {
             checkLastLog(idSystem, idTypeChange);
         }
-        return jsonObject;
+        return jsonResponseLastLog;
     }
 
     private List<String> getListAssignee(List<Log> logs)    {
@@ -737,12 +738,38 @@ public class DBService {
     }
 
     private void prepareJSON(String nameStage, List<Log> logs) {
-        if (jsonObject == null) {
-            jsonObject = new JSONObject();
+        if (jsonResponseLastLog == null) {
+            jsonResponseLastLog = new JSONObject();
         }
         List<Log> filterLogs = logs.stream().filter(l -> l.getStage().getName().equals(nameStage)).collect(Collectors.toList());
         if (filterLogs.size() != 0) {
-            jsonObject.put(nameStage, getListAssignee(filterLogs));
+            jsonResponseLastLog.put(nameStage, getListAssignee(filterLogs));
         }
+    }
+
+    public JSONArray getSystemsOfUser(Boolean isAdmin, Boolean isDelivery)    {
+        JSONArray systemsJSON = new JSONArray();
+        if (isAdmin)    {
+            List<System> systems = Arrays.asList(systemModelManager.getAllSystems());
+            systems.forEach(s -> {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("id", s.getID());
+                jsonObject.put("name", s.getName());
+                jsonObject.put("active", s.getActive());
+                systemsJSON.add(jsonObject);
+            });
+
+        }
+        if (isDelivery && !isAdmin) {
+            List<Delivery> systemsDelivery = Arrays.asList(dmManager.getSystemsByDelivery(getCurrentUser()));
+            systemsDelivery.forEach(s -> {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("id", s.getID());
+                jsonObject.put("name", s.getSystem().getName());
+                jsonObject.put("active", s.getSystem().getActive());
+                systemsJSON.add(jsonObject);
+            });
+        }
+        return  systemsJSON;
     }
 }
