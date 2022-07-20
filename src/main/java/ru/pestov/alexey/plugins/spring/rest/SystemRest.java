@@ -265,9 +265,9 @@ public class SystemRest {
     @GET
     @Path("/getmysystems")
     public Response getMySystems()  {
-        Boolean isAdmin = permissionService.isCurrentUserAdminJira() == Role.JIRA_ADMIN;
+        Boolean isSuperUser = permissionService.isCurrentUserSuperUser();
         Boolean isDelivery = permissionService.isCurrentUserDelivery();
-        return Response.ok(dbService.getSystemsOfUser(isAdmin, isDelivery).toString()).build();
+        return Response.ok(dbService.getSystemsOfUser(isSuperUser, isDelivery).toString()).build();
     }
 
 

@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('#typechange').empty()
     $('#typechangeMulti').empty()
     $('#typechange').append(new Option("Select", "0"))
-    $('#typechangeMulti').append(new Option("Select", "0"))
     var jiraURL = $(location).attr("href").split("secure")[0]
     var jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
     $.get(jiraRestAddress + 'getlisttypechanges', function (response) {

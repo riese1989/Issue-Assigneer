@@ -24,7 +24,7 @@
         <resource type="download" name="hide-show-table.js" location="/js/hide-show-table.js"/>
         <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
         <resource type="download" name="enable-bulk.js" location="/js/enable-bulk.js"/>
-        <resource type="download" name="bulk-mode.js" location="/js/bulk-mode.js"/>
+        <resource type="download" name="bulk-mode.js" location="/js/bulk-mode.js"/>-->
         <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
         <resource type="download" name="get-inactive-assignees.js" location="/js/get-inactive-assignees.js"/>
         <resource type="download" name="get-actual-links.js" location="/js/get-actual-links.js"/>
@@ -45,6 +45,7 @@
         <resource type="download" name="check-last-log.js" location="/js/check-last-log.js"/>
         <resource type="download" name="get-last-log.js" location="/js/get-last-log.js"/>
         <resource type="download" name="hide-show-export-link.js" location="/js/hide-show-export-link.js"/>
+<!--        <resource type="download" name="get-systems-bulk.js" location="/js/get-systems-bulk.js.js"/>-->
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="images/" location="/images"/>
         <context>selects</context>

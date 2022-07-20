@@ -747,9 +747,9 @@ public class DBService {
         }
     }
 
-    public JSONArray getSystemsOfUser(Boolean isAdmin, Boolean isDelivery)    {
+    public JSONArray getSystemsOfUser(Boolean isSuperUser, Boolean isDelivery)    {
         JSONArray systemsJSON = new JSONArray();
-        if (isAdmin)    {
+        if (isSuperUser)    {
             List<System> systems = Arrays.asList(systemModelManager.getAllSystems());
             systems.forEach(s -> {
                 JSONObject jsonObject = new JSONObject();
@@ -760,7 +760,7 @@ public class DBService {
             });
 
         }
-        if (isDelivery && !isAdmin) {
+        if (isDelivery && !isSuperUser) {
             List<Delivery> systemsDelivery = Arrays.asList(dmManager.getSystemsByDelivery(getCurrentUser()));
             systemsDelivery.forEach(s -> {
                 JSONObject jsonObject = new JSONObject();
