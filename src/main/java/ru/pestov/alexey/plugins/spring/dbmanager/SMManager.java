@@ -7,6 +7,7 @@ import ru.pestov.alexey.plugins.spring.model.System;
 import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class SMManager extends ModelManager{
@@ -81,6 +82,16 @@ public class SMManager extends ModelManager{
                 System[] systems =ao.find(System.class);
                 ao.delete(systems);
                 return null;
+            }
+        });
+    }
+
+    public System[] getSystems(List<String> idSystems)  {
+        return ao.executeInTransaction(new TransactionCallback<System[]>() {
+            @Override
+            public System[] doInTransaction() {
+                //return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (?) AND TYPE_CHANGE_ID IN (?)",systems.toArray(), typeChanges.toArray()));
+                return ao.find(System.class, Query.select().where("ID IN (" + idSystems.toString().replaceAll("\\[|\\]","") + ")"));
             }
         });
     }

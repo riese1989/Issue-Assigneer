@@ -7,6 +7,7 @@ import ru.pestov.alexey.plugins.spring.model.*;
 import ru.pestov.alexey.plugins.spring.model.System;
 
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class SAManager extends ModelManager {
@@ -56,6 +57,8 @@ public class SAManager extends ModelManager {
             @Override
             public SystemAssignees[] doInTransaction() {
                 SystemAssignees[] systems = ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
+                 systems = ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ?", idSystem, idTypeChange));
+
                 ao.delete(systems);
                 return systems;
             }
@@ -97,6 +100,16 @@ public class SAManager extends ModelManager {
                 SystemAssignees[] systemAssignees =ao.find(SystemAssignees.class);
                 ao.delete(systemAssignees);
                 return null;
+            }
+        });
+    }
+
+    public SystemAssignees[] getSystemAssigneesMulti(List<String> idSystems, List<String> idTypeChanges)    {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
+                //return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (?) AND TYPE_CHANGE_ID IN (?)",systems.toArray(), typeChanges.toArray()));
+                return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (" + idSystems.toString().replaceAll("\\[|\\]","") + ") AND TYPE_CHANGE_ID IN (" + idTypeChanges.toString().replaceAll("\\[|\\]","") +")"));
             }
         });
     }

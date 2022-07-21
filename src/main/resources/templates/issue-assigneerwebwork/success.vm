@@ -93,7 +93,7 @@
             </div>
             <div class="field-group">
                 <label for="active" id = "activeLabel"></label>
-                <select class="select" id="active" name="active" disabled>
+                <select class="selectdown" id="active" name="active" disabled>
                     <option value="true">Да</option>
                     <option value="false">Нет</option>
                 </select>

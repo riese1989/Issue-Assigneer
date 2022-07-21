@@ -8,6 +8,9 @@ import ru.pestov.alexey.plugins.spring.model.SystemAssignees;
 import ru.pestov.alexey.plugins.spring.model.User;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -72,5 +75,10 @@ public class UserService {
             return true;
         }
         return user1.getName().equals(user2.getName());
+    }
+
+    public <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(keyExtractor.apply(t));
     }
 }

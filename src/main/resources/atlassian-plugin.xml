@@ -45,6 +45,8 @@
         <resource type="download" name="check-last-log.js" location="/js/check-last-log.js"/>
         <resource type="download" name="get-last-log.js" location="/js/get-last-log.js"/>
         <resource type="download" name="hide-show-export-link.js" location="/js/hide-show-export-link.js"/>
+        <resource type="download" name="enable-save-bulk-edit.js" location="/js/enable-save-bulk-edit.js"/>
+        <resource type="download" name="get-multi-assignees.js" location="/js/get-multi-assignees.js"/>
 <!--        <resource type="download" name="get-systems-bulk.js" location="/js/get-systems-bulk.js.js"/>-->
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="images/" location="/images"/>

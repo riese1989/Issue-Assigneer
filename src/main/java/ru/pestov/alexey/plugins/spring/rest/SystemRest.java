@@ -18,6 +18,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Date;
 import java.util.List;
 
 @Named
@@ -157,7 +158,8 @@ public class SystemRest {
         Param param = new Param(idSystem, idTypeChange,
                 stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
         param = paramService.convert(param);
-        dbService.updateDB(param);
+        Date date = new Date();
+        dbService.updateDB(param, date);
         jsonService.updateJsonObject(param);
         issueAssigneerWebworkAction.setParams(param);
         new IssueAssigneerWebworkAction(pluginSettingsFactory, jsonService, systemService, typeChangeService).doExecute();
@@ -271,5 +273,37 @@ public class SystemRest {
     }
 
 
+    @GET
+    @Path("/getassigneesmulti")
+    public Response getAssigneesMulti(@QueryParam("idSystems") List<String> idSystems,
+                                 @QueryParam("idTypeChanges") List<String> idTypeChanges)  {
+        return Response.ok(dbService.getAssigneesMulti(idSystems, idSystems).toString()).build();
+    }
 
+    @POST
+    @Path("/postmulti")
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
+    @Produces({MediaType.APPLICATION_JSON})
+    public void postmulti(@FormParam("systemCab") List<String> idSystems,
+                     @FormParam("typechangeMulti") List<String> idTypeChanges,
+                     @FormParam("stage1") List<String> stage1,
+                     @FormParam("stage21") List<String> stage21,
+                     @FormParam("stage22") List<String> stage22,
+                     @FormParam("stage23") List<String> stage23,
+                     @FormParam("stage3") List<String> stage3,
+                     @FormParam("authorize") List<String> authorize,
+                     @FormParam("active") Boolean active,
+                     @FormParam("delivery") String delivery) throws Exception {
+        Date date = new Date();
+        for (String idSystem : idSystems) {
+            for (String idTypeChange : idTypeChanges) {
+                Param param = new Param(Integer.parseInt(idSystem), Integer.parseInt(idTypeChange),
+                        stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
+                param = paramService.convert(param);
+                dbService.updateDB(param, date);
+                jsonService.updateJsonObject(param);
+                issueAssigneerWebworkAction.setParams(param);
+            }
+        }
+    }
 }

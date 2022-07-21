@@ -19,7 +19,7 @@ public class ParamService {
         param.setStage23(getNameUsers(param.getStage23()));
         param.setStage3(getNameUsers(param.getStage3()));
         param.setAuthorize(getNameUsers(param.getAuthorize()));
-        if (param.getDelivery()!=null && !param.getDelivery().equals("0")) {
+        if (param.getDelivery()!=null && !param.getDelivery().equals("0") && !param.getDelivery().equals("-1")) {
             param.setDelivery(dbService.getUserById(Integer.parseInt(param.getDelivery())).split("=")[0]);
         }
         return param;
@@ -27,9 +27,13 @@ public class ParamService {
 
     private List<String> getNameUsers(List<String> idList) {
         List<String> result = new ArrayList<>();
-        for (String id : idList)    {
-            String nameUser = dbService.getUserById(Integer.parseInt(id)).split("=")[0];
-            result.add(nameUser);
+        if (idList.size() == 1 && idList.get(0).equals("-1"))   {
+            result.add("-1");
+        }   else {
+            for (String id : idList) {
+                String nameUser = dbService.getUserById(Integer.parseInt(id)).split("=")[0];
+                result.add(nameUser);
+            }
         }
         return result;
     }

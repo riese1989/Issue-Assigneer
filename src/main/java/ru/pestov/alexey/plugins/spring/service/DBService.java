@@ -216,12 +216,11 @@ public class DBService {
         }
     }
 
-    private User getCurrentUser()   {
+    private User getCurrentUser() {
         return userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
     }
 
-    public List<SystemAssignees> updateDB(Param param) {
-        Date date = new Date();
+    public List<SystemAssignees> updateDB(Param param, Date date) {
         List<SystemAssignees> result = new ArrayList<>();
         Integer idSystem = param.getSystemId();
         System system = systemModelManager.getSystemById(idSystem);
@@ -231,7 +230,7 @@ public class DBService {
         List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
         User currentUser = getCurrentUser();
         List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
-        if (isActive != system.getActive()) {
+        if (isActive != system.getActive() && isActive != null) {
             logActiveSystemManager.create(date, system, isActive, currentUser);
         }
         system = systemModelManager.setActive(idSystem, isActive);
@@ -242,11 +241,13 @@ public class DBService {
             }
             List<String> nameUsers = param.getRequiredStage(stage.getName());
             for (String nameUser : nameUsers) {
-                User user = userModelManager.getUserByName(nameUser);
-                if (user != null) {
-                    SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
-                    newSystemAssignees.add(systemAssigneeNew);
-                    result.add(systemAssigneeNew);
+                if (!nameUser.equals("-1")) {
+                    User user = userModelManager.getUserByName(nameUser);
+                    if (user != null) {
+                        SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                        newSystemAssignees.add(systemAssigneeNew);
+                        result.add(systemAssigneeNew);
+                    }
                 }
             }
         }
@@ -284,7 +285,7 @@ public class DBService {
             nameAddedUsers.forEach(u -> emailService.sendNotification(u + "@x5.ru", TypeEmailNotifications.ADDED,
                     nameSystem, nameTypeChange, stage.getLabel()));
             List<String> nameDeletedUsers = userService.removeUsers(oldUsers, newUsers);
-           nameDeletedUsers.forEach (u -> emailService.sendNotification(u + "@x5.ru", TypeEmailNotifications.DELETE,
+            nameDeletedUsers.forEach(u -> emailService.sendNotification(u + "@x5.ru", TypeEmailNotifications.DELETE,
                     nameSystem, nameTypeChange, stage.getLabel()));
         }
     }
@@ -305,11 +306,11 @@ public class DBService {
                 }
             }
             logDeliveryManager.create(date, system, oldDeliveryUser, newDeliveryUser, currentUser);
-            if (oldDeliveryUser != null)    {
+            if (oldDeliveryUser != null) {
                 emailService.sendNotification(oldDeliveryUser.getName() + "@x5.ru", TypeEmailNotifications.DELETE_DELIVERY,
                         system.getName(), null, null);
             }
-            if (newDeliveryUser != null)    {
+            if (newDeliveryUser != null) {
                 emailService.sendNotification(newDeliveryUser.getName() + "@x5.ru", TypeEmailNotifications.ADDED_DELIVERY,
                         system.getName(), null, null);
             }
@@ -407,11 +408,11 @@ public class DBService {
         return systems;
     }
 
-    public  List<SystemAssignees> getListSystemsUserDelivery()  {
+    public List<SystemAssignees> getListSystemsUserDelivery() {
         List<SystemAssignees> result = new ArrayList<>();
         User currentUser = getCurrentUser();
         List<Delivery> deliveries = Arrays.asList(dmManager.getSystemsByDelivery(currentUser));
-        for (Delivery delivery : deliveries)    {
+        for (Delivery delivery : deliveries) {
             System system = delivery.getSystem();
             result.addAll(Arrays.asList(system.getSystemAssignees()));
         }
@@ -462,7 +463,7 @@ public class DBService {
         List<User> users = Arrays.asList(userModelManager.getAllUsers());
         users.forEach(u -> {
             resultStringBuffer.append(u.getName());
-            if (!u.getActive())    {
+            if (!u.getActive()) {
                 resultStringBuffer.append(markInactiveUser);
             }
             resultStringBuffer.append("=").append(u.getID()).append(", ");
@@ -653,7 +654,7 @@ public class DBService {
         return stage.getTitle();
     }
 
-    public List<Stage> getAllStages()   {
+    public List<Stage> getAllStages() {
         return Arrays.asList(stageModelManager.getAllStages());
     }
 
@@ -661,15 +662,16 @@ public class DBService {
         return getHashMapSystems("4").size();
     }
 
-    public Boolean checkLastLog(Integer idSystem, Integer idTypeChange)   {
+    public Boolean checkLastLog(Integer idSystem, Integer idTypeChange) {
         jsonResponseLastLog = null;
         Boolean result = false;
         List<Date> datesLastLogs = new ArrayList<>();
         List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
         Comparator<Log> comparatorLog = Comparator.comparing(Log::getDate);
-        Date maxDateLogs = logs.size() != 0 ? logs.stream().max(comparatorLog).get().getDate() : null;;
+        Date maxDateLogs = logs.size() != 0 ? logs.stream().max(comparatorLog).get().getDate() : null;
+        ;
         List<Log> logsMaxDate = logs.stream().filter(l -> l.getDate().equals(maxDateLogs)).collect(Collectors.toList());
-        if(logsMaxDate.size() != 0) {
+        if (logsMaxDate.size() != 0) {
             datesLastLogs.add(maxDateLogs);
         }
 
@@ -677,21 +679,21 @@ public class DBService {
         Comparator<LogDelivery> comparatorLogDelivery = Comparator.comparing(LogDelivery::getDate);
         Date maxDateLogsDelivery = logDeliveries.size() != 0 ? logDeliveries.stream().max(comparatorLogDelivery).get().getDate() : null;
         List<LogDelivery> logsDeliveryMaxDate = logDeliveries.stream().filter(l -> l.getDate().equals(maxDateLogsDelivery)).collect(Collectors.toList());
-        if(logsDeliveryMaxDate.size() != 0) {
+        if (logsDeliveryMaxDate.size() != 0) {
             datesLastLogs.add(maxDateLogsDelivery);
         }
 
         List<LogActiveSystem> logsActiveSystem = Arrays.asList(logActiveSystemManager.getLogs(idSystem));
         Comparator<LogActiveSystem> comparatorLogActiveSystem = Comparator.comparing(LogActiveSystem::getDate);
-        Date maxDateLogsActiveSystem = logsActiveSystem.size() != 0 ? logsActiveSystem.stream().max(comparatorLogActiveSystem).get().getDate(): null;
+        Date maxDateLogsActiveSystem = logsActiveSystem.size() != 0 ? logsActiveSystem.stream().max(comparatorLogActiveSystem).get().getDate() : null;
         List<LogActiveSystem> logsMaxDateActiveSystem = logsActiveSystem.stream().filter(l -> l.getDate().equals(maxDateLogsActiveSystem)).collect(Collectors.toList());
-        if(logsMaxDateActiveSystem.size() != 0) {
+        if (logsMaxDateActiveSystem.size() != 0) {
             datesLastLogs.add(maxDateLogsActiveSystem);
         }
         if (datesLastLogs.size() != 0) {
             Date maxDate = Collections.max(datesLastLogs);
 
-            if (maxDateLogs != null && maxDateLogs.equals(maxDate) && logsMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
+            if (maxDateLogs != null && maxDateLogs.equals(maxDate) && logsMaxDate.get(0).getUser().getID() == getCurrentUser().getID()) {
                 List<String> nameStages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3", "authorize");
                 for (String nameStage : nameStages) {
                     prepareJSON(nameStage, logsMaxDate);
@@ -699,7 +701,7 @@ public class DBService {
                 result = true;
             }
 
-            if (maxDateLogsDelivery != null && maxDateLogsDelivery.equals(maxDate) && logsDeliveryMaxDate.get(0).getUser().getID()== getCurrentUser().getID()) {
+            if (maxDateLogsDelivery != null && maxDateLogsDelivery.equals(maxDate) && logsDeliveryMaxDate.get(0).getUser().getID() == getCurrentUser().getID()) {
                 if (jsonResponseLastLog == null) {
                     jsonResponseLastLog = new JSONObject();
                 }
@@ -707,7 +709,7 @@ public class DBService {
                 result = true;
             }
 
-            if (maxDateLogsActiveSystem != null && maxDateLogsActiveSystem.equals(maxDate) && logsMaxDateActiveSystem.get(0).getUser().getID()== getCurrentUser().getID()) {
+            if (maxDateLogsActiveSystem != null && maxDateLogsActiveSystem.equals(maxDate) && logsMaxDateActiveSystem.get(0).getUser().getID() == getCurrentUser().getID()) {
                 if (jsonResponseLastLog == null) {
                     jsonResponseLastLog = new JSONObject();
                 }
@@ -715,23 +717,23 @@ public class DBService {
                 result = true;
             }
         }
-        if (!result)    {
+        if (!result) {
             jsonResponseLastLog = null;
         }
         return result;
     }
 
-    public JSONObject getLastLogs(Integer idSystem, Integer idTypeChange)   {
-        if (jsonResponseLastLog == null)    {
+    public JSONObject getLastLogs(Integer idSystem, Integer idTypeChange) {
+        if (jsonResponseLastLog == null) {
             checkLastLog(idSystem, idTypeChange);
         }
         return jsonResponseLastLog;
     }
 
-    private List<String> getListAssignee(List<Log> logs)    {
+    private List<String> getListAssignee(List<Log> logs) {
         List<Log> deletedLogs = logs.stream().filter(l -> l.getTypeChangeAssignee().getName().equals("Delete")).collect(Collectors.toList());
         List<String> result = new ArrayList<>();
-        for (Log log : deletedLogs)    {
+        for (Log log : deletedLogs) {
             result.add(String.valueOf(log.getAssignee().getID()));
         }
         return result;
@@ -747,9 +749,9 @@ public class DBService {
         }
     }
 
-    public JSONArray getSystemsOfUser(Boolean isSuperUser, Boolean isDelivery)    {
+    public JSONArray getSystemsOfUser(Boolean isSuperUser, Boolean isDelivery) {
         JSONArray systemsJSON = new JSONArray();
-        if (isSuperUser)    {
+        if (isSuperUser) {
             List<System> systems = Arrays.asList(systemModelManager.getAllSystems());
             systems.forEach(s -> {
                 JSONObject jsonObject = new JSONObject();
@@ -770,6 +772,38 @@ public class DBService {
                 systemsJSON.add(jsonObject);
             });
         }
-        return  systemsJSON;
+        return systemsJSON;
+    }
+
+    public JSONObject getAssigneesMulti(List<String> idSystems, List<String> idTypeChanges) {
+        JSONObject jsonObject = new JSONObject();
+        Stage[] stages = stageModelManager.getAllStages();
+        List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesMulti(idSystems, idTypeChanges));
+        for (Stage stage : stages) {
+            List<Integer> idUsers = new ArrayList<>();
+            systemAssignees.stream()
+                    .filter(sa -> sa.getStage().getID() == stage.getID())
+                    .filter(userService.distinctByKey(SystemAssignees::getUser))
+                    .forEach(sa -> idUsers.add(sa.getUser().getID()));
+            jsonObject.put(stage.getName(), idUsers);
+        }
+        List<System> systems = Arrays.asList(systemModelManager.getSystems(idSystems));
+        List<Boolean> listActive = new ArrayList<>();
+        List<Integer> listDelivery = new ArrayList<>();
+        systems.forEach(s -> {
+            listActive.add(s.getActive());
+            listDelivery.add(s.getDelivery().getUser().getID());
+        });
+
+        jsonObject.put("active", getUniqueValues(listActive));
+        jsonObject.put("delivery", getUniqueValues(listDelivery));
+        return jsonObject;
+    }
+
+    private List getUniqueValues(List list) {
+        Set set = new HashSet<>(list);
+        list.clear();
+        list.addAll(set);
+        return list;
     }
 }
