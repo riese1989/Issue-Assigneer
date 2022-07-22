@@ -86,12 +86,12 @@ public class SMManager extends ModelManager{
         });
     }
 
-    public System[] getSystems(List<String> idSystems)  {
+    public System[] getSystems(String idSystems)  {
         return ao.executeInTransaction(new TransactionCallback<System[]>() {
             @Override
             public System[] doInTransaction() {
                 //return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (?) AND TYPE_CHANGE_ID IN (?)",systems.toArray(), typeChanges.toArray()));
-                return ao.find(System.class, Query.select().where("ID IN (" + idSystems.toString().replaceAll("\\[|\\]","") + ")"));
+                return ao.find(System.class, Query.select().where("ID IN (" + idSystems + ")"));
             }
         });
     }

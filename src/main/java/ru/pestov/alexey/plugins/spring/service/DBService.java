@@ -775,7 +775,7 @@ public class DBService {
         return systemsJSON;
     }
 
-    public JSONObject getAssigneesMulti(List<String> idSystems, List<String> idTypeChanges) {
+    public JSONObject getAssigneesMulti(String idSystems, String idTypeChanges) {
         JSONObject jsonObject = new JSONObject();
         Stage[] stages = stageModelManager.getAllStages();
         List<SystemAssignees> systemAssignees = Arrays.asList(SAManager.getSystemAssigneesMulti(idSystems, idTypeChanges));
@@ -792,9 +792,12 @@ public class DBService {
         List<Integer> listDelivery = new ArrayList<>();
         systems.forEach(s -> {
             listActive.add(s.getActive());
-            listDelivery.add(s.getDelivery().getUser().getID());
+            Delivery delivery = s.getDelivery();
+            if (delivery != null) {
+                listDelivery.add(s.getDelivery().getUser().getID());
+            }
         });
-
+        jsonObject.put("systems", Arrays.stream(idSystems.split(",")).map(Integer::parseInt).collect(Collectors.toList()));
         jsonObject.put("active", getUniqueValues(listActive));
         jsonObject.put("delivery", getUniqueValues(listDelivery));
         return jsonObject;

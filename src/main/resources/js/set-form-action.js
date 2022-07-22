@@ -3,4 +3,16 @@ $(document).ready(function () {
     var jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
     var method = "post"
     $('#form').attr('action', jiraRestAddress + method)
+    console.log($('#form').attr("action"))
+    $(document.body).on("click", "#bulk-edit", function () {
+        var toggle = document.getElementById('bulk-edit')
+        if (toggle.checked === true)    {
+            $('#form').attr('action', jiraRestAddress + "postmulti")
+            console.log($('#form').attr("action"))
+        }
+        else    {
+            $('#form').attr('action', jiraRestAddress + method)
+            console.log($('#form').attr("action"))
+        }
+    })
 })

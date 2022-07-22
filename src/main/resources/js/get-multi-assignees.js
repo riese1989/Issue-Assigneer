@@ -9,6 +9,7 @@ $(function () {
             var url = jiraRestAddress + 'getassigneesmulti?idSystems=' + systemValue +
                 '&idTypeChanges=' + typeChangeValue
             $.get(url, function (response) {
+                $(".multiselect").prop("disabled", false)
                 var obj = jQuery.parseJSON(response);
                 if (obj.stage1 !== undefined) {
                     $('#stage1').val(obj.stage1).trigger('change')
@@ -27,6 +28,17 @@ $(function () {
                 }
                 if (obj.authorize !== undefined) {
                     $('#authorize').val(obj.authorize).trigger('change')
+                }
+                if (obj.delivery !== undefined && obj.delivery.length === obj.systems.length && obj.delivery.length === 1)  {
+                    $('#delivery').val(obj.delivery[0]).trigger('change')
+                }   else {
+                    $('#delivery').val("0").trigger('change')
+                }
+                if (obj.active !== undefined && obj.active.length === 1)    {
+                    $('#active').val(obj.active[0]).trigger('change')
+                }
+                else {
+                    $('#active').val("-1").trigger('change')
                 }
             })
         }

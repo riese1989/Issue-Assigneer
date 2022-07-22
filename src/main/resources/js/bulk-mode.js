@@ -24,7 +24,6 @@ $(function () {
             $('#systemCabMulti').empty()
             $('#active').prop('disabled', true)
             $('#active').append(new Option("Empty", "-1"))
-            $("#active").append(new Option("Empty", "-1"));
             var jiraURL = $(location).attr("href").split("secure")[0]
             var jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
             $.get(jiraRestAddress + 'getmysystems', function (response) {
@@ -43,10 +42,12 @@ $(function () {
             $('#divTypeChangeSingle').removeAttr("hidden")
             $('#divTypeChangeMulti').attr("hidden","hidden")
             $(".checkbox").removeAttr("hidden")
-            $('.multiselect').empty()
+            $(".multiselect").val("").trigger('change')
             $("#link-hide-table").removeAttr("hidden")
             $("#table-history").removeAttr("hidden")
             $('#save').prop('disabled', false)
+            $(".multiselect").prop("disabled", true)
+            $(".select").val("0").change();
             $(':checkbox').each(function() {
                 this.checked = false
             })

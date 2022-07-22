@@ -8,5 +8,4 @@ src/main/resources/logs
 /src/main/resources/supportFiles/
 /src/main/resources/js/test2.js
 /src/main/resources/js/test.js
-src/main/resources/supportFiles/CAB_approval.json
-src/main/resources/supportFiles/CAB_delivery.json
+/src/main/resources/supportFiles/

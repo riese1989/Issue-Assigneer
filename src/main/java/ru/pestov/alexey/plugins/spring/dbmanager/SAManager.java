@@ -104,12 +104,12 @@ public class SAManager extends ModelManager {
         });
     }
 
-    public SystemAssignees[] getSystemAssigneesMulti(List<String> idSystems, List<String> idTypeChanges)    {
+    public SystemAssignees[] getSystemAssigneesMulti(String idSystems, String idTypeChanges)    {
         return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
             @Override
             public SystemAssignees[] doInTransaction() {
                 //return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (?) AND TYPE_CHANGE_ID IN (?)",systems.toArray(), typeChanges.toArray()));
-                return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (" + idSystems.toString().replaceAll("\\[|\\]","") + ") AND TYPE_CHANGE_ID IN (" + idTypeChanges.toString().replaceAll("\\[|\\]","") +")"));
+                return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID IN (" + idSystems + ") AND TYPE_CHANGE_ID IN (" + idTypeChanges +")"));
             }
         });
     }

@@ -275,16 +275,16 @@ public class SystemRest {
 
     @GET
     @Path("/getassigneesmulti")
-    public Response getAssigneesMulti(@QueryParam("idSystems") List<String> idSystems,
-                                 @QueryParam("idTypeChanges") List<String> idTypeChanges)  {
-        return Response.ok(dbService.getAssigneesMulti(idSystems, idSystems).toString()).build();
+    public Response getAssigneesMulti(@QueryParam("idSystems") String idSystems,
+                                 @QueryParam("idTypeChanges") String idTypeChanges)  {
+        return Response.ok(dbService.getAssigneesMulti(idSystems, idTypeChanges).toString()).build();
     }
 
     @POST
     @Path("/postmulti")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public void postmulti(@FormParam("systemCab") List<String> idSystems,
+    public void postmulti(@FormParam("systemCabMulti") List<String> idSystems,
                      @FormParam("typechangeMulti") List<String> idTypeChanges,
                      @FormParam("stage1") List<String> stage1,
                      @FormParam("stage21") List<String> stage21,
