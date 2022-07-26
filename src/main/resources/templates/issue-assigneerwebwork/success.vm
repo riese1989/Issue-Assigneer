@@ -53,43 +53,72 @@
             <div class="field-group" id = "divTypeChangeSingle">
                 <label for="typechange">Тип изменения</label>
                 <select class="select" id="typechange" name="typechange">
+                    <option value="0">Select</option>
                 </select>
             </div>
             <div class="field-group">
                 <label for="stage1" id="stage1Label"></label>
                 <select class="multiselect" id="stage1" name="stage1" multiple disabled>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="stage1CheckMulti" value="1">
+                    <label for="stage1CheckMulti" id="stage1LabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="stage21" id="stage21Label"></label>
                 <select class="multiselect" id="stage21" name="stage21" multiple disabled>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="stage21CheckMulti" value="2">
+                    <label for="stage21CheckMulti" id="stage21LabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="stage22" id="stage22Label"></label>
                 <select class="multiselect" id="stage22" name="stage22" multiple disabled>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="stage22CheckMulti" value="3">
+                    <label for="stage22CheckMulti" id="stage22LabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="stage23" id="stage23Label"></label>
                 <select class="multiselect" id="stage23" name="stage23" multiple disabled>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="stage23CheckMulti" value="4">
+                    <label for="stage23CheckMulti" id="stage23LabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="stage3" id="stage3Label"></label>
                 <select class="multiselect" id="stage3" name="stage3" multiple disabled>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="stage3CheckMulti" value="5">
+                    <label for="stage3CheckMulti" id="stage3LabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="authorize" id="authorizeLabel"></label>
                 <select class="multiselect" id="authorize" name="authorize" multiple disabled>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="authorizeCheckMulti" value="6">
+                    <label for="authorizeCheckMulti" id="authorizeLabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="delivery" id = "deliveryLabel"></label>
                 <select class="multiselect" id="delivery" name="delivery" disabled>
                     <option value="0">Empty</option>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="deliveryCheckMulti" value="7">
+                    <label for="deliveryCheckMulti" id="deliveryLabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label for="active" id = "activeLabel"></label>
@@ -97,6 +126,10 @@
                     <option value="true">Да</option>
                     <option value="false">Нет</option>
                 </select>
+                <div class = "checkMultiDiv" hidden>
+                    <input class="checkboxMulti" type="checkbox" name="checkbox" id="activeCheckMulti" value="8">
+                    <label for="activeCheckMulti" id="activeLabelMulti"></label>
+                </div>
             </div>
             <div class="field-group">
                 <label id = "bulk-edit-label" for="bulk-edit" hidden>Bulk edit</label>

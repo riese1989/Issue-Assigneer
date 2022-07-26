@@ -6,6 +6,7 @@ $(function () {
         var systemValue = $("#systemCabMulti").val()
         var typeChangeValue = $("#typechangeMulti").val()
         if (systemValue !== null && typeChangeValue !== null) {
+            $('.checkMultiDiv').removeAttr("hidden")
             var url = jiraRestAddress + 'getassigneesmulti?idSystems=' + systemValue +
                 '&idTypeChanges=' + typeChangeValue
             $.get(url, function (response) {

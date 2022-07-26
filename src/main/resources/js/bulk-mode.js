@@ -20,7 +20,6 @@ $(function () {
             $("#stage3").prop("disabled", true)
             $("#authorize").prop("disabled", true)
             $("#systemCab").val(0).trigger('change')
-            $("#typechange").val(0).trigger('change')
             $('#systemCabMulti').empty()
             $('#active').prop('disabled', true)
             $('#active').append(new Option("Empty", "-1"))
@@ -35,6 +34,7 @@ $(function () {
                 }
             })
         }   else    {
+            $('.checkMultiDiv').attr("hidden","hidden")
             $("#active option[value='-1']").remove()
             $('#systemCab').empty()
             $('#divSystemCabSingle').removeAttr("hidden")
@@ -48,9 +48,6 @@ $(function () {
             $('#save').prop('disabled', false)
             $(".multiselect").prop("disabled", true)
             $(".select").val("0").change();
-            $(':checkbox').each(function() {
-                this.checked = false
-            })
         }
     })
 })

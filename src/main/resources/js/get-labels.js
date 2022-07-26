@@ -8,6 +8,7 @@ $(function () {
         $.get(jiraRestAddressLabel + n, function (response) {
             $('#' + n + 'Label').text(response)
         })
+        $('#' + n + 'LabelMulti').text("Не учитывать")
         $.get(jiraRestAddressTitle + n, function (response) {
             $('#' + n + 'Label').attr('title', response)
         })

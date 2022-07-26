@@ -1,9 +1,13 @@
 package ru.pestov.alexey.plugins.spring.rest;
 
+import com.atlassian.jira.util.json.JSONException;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.apache.http.protocol.HTTP;
 import org.json.simple.JSONObject;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.pestov.alexey.plugins.spring.entity.Param;
 import ru.pestov.alexey.plugins.spring.enums.Role;
 import ru.pestov.alexey.plugins.spring.jira.webwork.IssueAssigneerWebworkAction;
@@ -18,6 +22,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -112,16 +118,16 @@ public class SystemRest {
     @GET
     @Path("/getIa")
     public Response getInactiveAssignees(@Context HttpServletRequest httpServletRequest,
-                              @QueryParam("namesystem") Integer idSystem,
-                              @QueryParam("typechange") Integer idTypeChange,
-                              @QueryParam("stage") String nameStage) {
+                                         @QueryParam("namesystem") Integer idSystem,
+                                         @QueryParam("typechange") Integer idTypeChange,
+                                         @QueryParam("stage") String nameStage) {
         String inactiveSystemAssigneesIds = systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage);
         return Response.ok(dbService.getInactiveUsersById(inactiveSystemAssigneesIds)).build();
     }
 
     @GET
     @Path(("/synch"))
-    public Response runSynch()  {
+    public Response runSynch() {
         //dbService.synchronize();
         return Response.ok().build();
     }
@@ -202,7 +208,7 @@ public class SystemRest {
     @GET
     @Path("/isenable")
     public Response checkEnable(@QueryParam("idsystem") Integer idSystem,
-                                @QueryParam("idtypechange") Integer idTypeChange)   {
+                                @QueryParam("idtypechange") Integer idTypeChange) {
         return Response.ok(permissionService.isEnable(idSystem, idTypeChange).toString()).build();
     }
 
@@ -227,7 +233,7 @@ public class SystemRest {
 
     @GET
     @Path("/getuser")
-    public Response getUserById (@QueryParam("id") Integer idUser)   {
+    public Response getUserById(@QueryParam("id") Integer idUser) {
         return Response.ok(dbService.getUserById(idUser)).build();
     }
 
@@ -241,32 +247,33 @@ public class SystemRest {
 
     @GET
     @Path("/countmysystems")
-    public Response countMySystems()    {
+    public Response countMySystems() {
         return Response.ok(dbService.getCountSystemDelivery().toString()).build();
     }
 
     @GET
     @Path("/checklastlog")
     public Response checkLastLog(@QueryParam("idsystem") Integer idSystem,
-                                 @QueryParam("idtypechange") Integer idTypeChange)  {
+                                 @QueryParam("idtypechange") Integer idTypeChange) {
         return Response.ok(dbService.checkLastLog(idSystem, idTypeChange).toString()).build();
     }
+
     @GET
     @Path("/getlastlogs")
     public Response getLastLog(@QueryParam("idsystem") Integer idSystem,
-                                 @QueryParam("idtypechange") Integer idTypeChange)  {
+                               @QueryParam("idtypechange") Integer idTypeChange) {
         return Response.ok(dbService.getLastLogs(idSystem, idTypeChange).toString()).build();
     }
 
     @GET
     @Path("/isenablebulk")
-    public Response checkEnableBulk()   {
+    public Response checkEnableBulk() {
         return Response.ok(permissionService.isEnableBulk().toString()).build();
     }
 
     @GET
     @Path("/getmysystems")
-    public Response getMySystems()  {
+    public Response getMySystems() {
         Boolean isSuperUser = permissionService.isCurrentUserSuperUser();
         Boolean isDelivery = permissionService.isCurrentUserDelivery();
         return Response.ok(dbService.getSystemsOfUser(isSuperUser, isDelivery).toString()).build();
@@ -276,34 +283,14 @@ public class SystemRest {
     @GET
     @Path("/getassigneesmulti")
     public Response getAssigneesMulti(@QueryParam("idSystems") String idSystems,
-                                 @QueryParam("idTypeChanges") String idTypeChanges)  {
+                                      @QueryParam("idTypeChanges") String idTypeChanges) {
         return Response.ok(dbService.getAssigneesMulti(idSystems, idTypeChanges).toString()).build();
     }
 
     @POST
     @Path("/postmulti")
-    @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
-    @Produces({MediaType.APPLICATION_JSON})
-    public void postmulti(@FormParam("systemCabMulti") List<String> idSystems,
-                     @FormParam("typechangeMulti") List<String> idTypeChanges,
-                     @FormParam("stage1") List<String> stage1,
-                     @FormParam("stage21") List<String> stage21,
-                     @FormParam("stage22") List<String> stage22,
-                     @FormParam("stage23") List<String> stage23,
-                     @FormParam("stage3") List<String> stage3,
-                     @FormParam("authorize") List<String> authorize,
-                     @FormParam("active") Boolean active,
-                     @FormParam("delivery") String delivery) throws Exception {
-        Date date = new Date();
-        for (String idSystem : idSystems) {
-            for (String idTypeChange : idTypeChanges) {
-                Param param = new Param(Integer.parseInt(idSystem), Integer.parseInt(idTypeChange),
-                        stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
-                param = paramService.convert(param);
-                dbService.updateDB(param, date);
-                jsonService.updateJsonObject(param);
-                issueAssigneerWebworkAction.setParams(param);
-            }
-        }
+    public void postmulti(@Context HttpServletRequest request) throws Exception {
+        JSONObject jsonObject = new JSONObject(request.getParameterMap());
+        System.out.println(jsonObject);
     }
 }

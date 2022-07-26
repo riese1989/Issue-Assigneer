@@ -8,11 +8,9 @@ $(document).ready(function () {
         var toggle = document.getElementById('bulk-edit')
         if (toggle.checked === true)    {
             $('#form').attr('action', jiraRestAddress + "postmulti")
-            console.log($('#form').attr("action"))
         }
         else    {
-            $('#form').attr('action', jiraRestAddress + method)
-            console.log($('#form').attr("action"))
+            $('#form').removeAttr('action')
         }
     })
 })
