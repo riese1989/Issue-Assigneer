@@ -220,44 +220,62 @@ public class DBService {
         return userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
     }
 
-    public List<SystemAssignees> updateDB(Param param, Date date) {
-        List<SystemAssignees> result = new ArrayList<>();
-        Integer idSystem = param.getSystemId();
-        System system = systemModelManager.getSystemById(idSystem);
-        Integer idTypeChange = param.getTypeChangeId();
-        TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
-        Boolean isActive = param.getActive();
-        List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
+    public List<SystemAssignees> updateDB(JSONObject jsonObject) {
+        Date date = new Date();
         User currentUser = getCurrentUser();
-        List<SystemAssignees> oldSystemAssignees = Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange));
-        if (isActive != system.getActive() && isActive != null) {
-            logActiveSystemManager.create(date, system, isActive, currentUser);
-        }
-        system = systemModelManager.setActive(idSystem, isActive);
-        List<SystemAssignees> newSystemAssignees = new ArrayList<>();
-        for (Stage stage : stages) {
-            if (stage.getName().equals("delivery") || stage.getName().equals("active")) {
-                continue;
-            }
-            List<String> nameUsers = param.getRequiredStage(stage.getName());
-            for (String nameUser : nameUsers) {
-                if (!nameUser.equals("-1")) {
-                    User user = userModelManager.getUserByName(nameUser);
-                    if (user != null) {
-                        SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
-                        newSystemAssignees.add(systemAssigneeNew);
-                        result.add(systemAssigneeNew);
+        List<SystemAssignees> result = new ArrayList<>();
+        Object systems = jsonObject.get("systems");
+        if (systems != null) {
+            List<Integer> idSystems = convertListObjectToInteger(jsonObject.get("systems"));
+            for (Integer idSystem : idSystems) {
+                System system = systemModelManager.getSystemById(idSystem);
+                Boolean isActive = false, isActiveEnable = false;
+                if (!jsonObject.get("active_id").toString().equals("-1")) {
+                    isActive = convertObjectToBoolean(jsonObject.get("active_id"));
+                    isActiveEnable = convertObjectToBoolean(jsonObject.get("active_enable"));
+                }
+                if (isActive != system.getActive() && !jsonObject.get("active_id").toString().equals("-1") && isActiveEnable) {
+                    system = systemModelManager.setActive(idSystem, isActive);
+                    logActiveSystemManager.create(date, system, isActive, currentUser);
+                }
+                List<Integer> idTypeChanges = convertListObjectToInteger(jsonObject.get("typeChanges"));
+                for (Integer idTypeChange : idTypeChanges) {
+                    TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
+                    List<SystemAssignees> oldSystemAssignees = new ArrayList<>();
+                    List<SystemAssignees> newSystemAssignees = new ArrayList<>();
+                    List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
+                    for (Stage stage : stages) {
+                        String stageName = stage.getName();
+                        Boolean isEnable = convertObjectToBoolean(jsonObject.get(stageName + "_enable"));
+                        if (stageName.equals("delivery") || stageName.equals("active") || !isEnable) {
+                            continue;
+                        }
+                        oldSystemAssignees.addAll(Arrays.asList(SAManager.getAssignees(idSystem, idTypeChange, stage)));
+                        List<Integer> idUsers = convertListObjectToInteger(jsonObject.get(stageName + "_id"));
+                        for (Integer idUser : idUsers) {
+                            User user = userModelManager.getUserById(idUser);
+                            if (user != null) {
+                                SystemAssignees systemAssigneeNew = SAManager.createSystemAssignee(system, typeChangeDB, stage, user);
+                                newSystemAssignees.add(systemAssigneeNew);
+                                result.add(systemAssigneeNew);
+                            }
+                        }
                     }
+                    if (!oldSystemAssignees.equals(newSystemAssignees)) {
+                        updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser, system, typeChangeDB, date);
+                    }
+                    SAManager.deleteObjects(oldSystemAssignees.toArray(new SystemAssignees[0]));
+                }
+                Integer deliveryId = convertListObjectToInteger(jsonObject.get("delivery_id")).get(0);
+                Boolean isEnableDelivery = convertObjectToBoolean(jsonObject.get("delivery_enable"));
+                if (deliveryId == 0 && isEnableDelivery) {
+                    continue;
+                }
+                if (isEnableDelivery) {
+                    updateDeliveryDB(date, idSystem, deliveryId, currentUser);
                 }
             }
         }
-        if (!oldSystemAssignees.equals(newSystemAssignees)) {
-            updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser, system, typeChangeDB, date);
-        }
-        if (param.getDelivery() != null) {
-            updateDeliveryDB(date, param, currentUser);
-        }
-        SAManager.deleteObjects(oldSystemAssignees.toArray(new SystemAssignees[0]));
         return result;
     }
 
@@ -290,11 +308,11 @@ public class DBService {
         }
     }
 
-    private void updateDeliveryDB(Date date, Param param, User currentUser) {
-        System system = systemModelManager.getSystemById(param.getSystemId());
+    private void updateDeliveryDB(Date date, Integer systemId, Integer deliveryId, User currentUser) {
+        System system = systemModelManager.getSystemById(systemId);
         Delivery oldDelivery = dmManager.getDelivery(system);
         User oldDeliveryUser = oldDelivery == null ? null : oldDelivery.getUser();
-        User newDeliveryUser = userModelManager.getUserByName(param.getDelivery());
+        User newDeliveryUser = userModelManager.getUserById(deliveryId);
         if (!userService.compare(oldDeliveryUser, newDeliveryUser)) {
             if (oldDeliveryUser == null) {
                 dmManager.createDelivery(system, newDeliveryUser);
@@ -808,5 +826,42 @@ public class DBService {
         list.clear();
         list.addAll(set);
         return list;
+    }
+
+    public void multiUpdateDB(JSONObject jsonObject) {
+        Set<String> keys = jsonObject.keySet();
+        List<Integer> idSystemsString = convertListObjectToInteger(jsonObject.get("systems"));
+        List<Integer> idTypeChangesString = convertListObjectToInteger(jsonObject.get("typeChanges"));
+        for (String key : keys) {
+
+        }
+    }
+
+    private List<Integer> convertListObjectToInteger(Object objects) {
+        List<Integer> result = new ArrayList<>();
+            if (objects.getClass().isArray()) {
+                Object[] list = (Object[]) objects;
+                for (Object object : list) {
+                    result.add(Integer.valueOf(object.toString()));
+                }
+            }
+            if (objects instanceof ArrayList) {
+                List list = (List) objects;
+                for (Object object : list) {
+                    result.add(Integer.valueOf(object.toString()));
+                }
+            }
+        return result;
+    }
+
+    private Boolean convertObjectToBoolean(Object object)   {
+        try {
+            Object[] objectArray = (Object[]) object;
+            return Boolean.valueOf(objectArray[0].toString());
+        }
+        catch (ClassCastException ex)   {
+            return Boolean.valueOf(object.toString());
+        }
+
     }
 }

@@ -52,6 +52,15 @@ public class SAManager extends ModelManager {
         });
     }
 
+    public SystemAssignees[] getAssignees(Integer idSystem, Integer idTypeChange, Stage stage) {
+        return ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
+            @Override
+            public SystemAssignees[] doInTransaction() {
+                return ao.find(SystemAssignees.class, Query.select().where("SYSTEM_ID = ? AND TYPE_CHANGE_ID = ? AND STAGE_ID = ?", idSystem, idTypeChange, stage));
+            }
+        });
+    }
+
     public void deleteObjects(Integer idSystem, Integer idTypeChange) {
         ao.executeInTransaction(new TransactionCallback<SystemAssignees[]>() {
             @Override

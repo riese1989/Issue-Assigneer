@@ -24,7 +24,7 @@
         <resource type="download" name="hide-show-table.js" location="/js/hide-show-table.js"/>
         <resource type="download" name="enable-select2.js" location="/js/enable-select2.js"/>
         <resource type="download" name="enable-bulk.js" location="/js/enable-bulk.js"/>
-        <resource type="download" name="bulk-mode.js" location="/js/bulk-mode.js"/>-->
+        <resource type="download" name="bulk-mode.js" location="/js/bulk-mode.js"/>
         <resource type="download" name="enable-stages.js" location="/js/enable-stages.js"/>
         <resource type="download" name="get-inactive-assignees.js" location="/js/get-inactive-assignees.js"/>
         <resource type="download" name="get-actual-links.js" location="/js/get-actual-links.js"/>
@@ -48,7 +48,7 @@
         <resource type="download" name="enable-save-bulk-edit.js" location="/js/enable-save-bulk-edit.js"/>
         <resource type="download" name="get-multi-assignees.js" location="/js/get-multi-assignees.js"/>
         <resource type="download" name="enable-fields-multi.js" location="/js/enable-fields-multi.js"/>
-        <!--        <resource type="download" name="get-systems-bulk.js" location="/js/get-systems-bulk.js.js"/>-->
+        <resource type="download" name="post-request-multi.js" location="/js/post-request-multi.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="images/" location="/images"/>
         <context>selects</context>

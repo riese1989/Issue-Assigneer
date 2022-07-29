@@ -26,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Named
 @Path("/systems")
@@ -151,24 +152,37 @@ public class SystemRest {
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
-    public void post(@FormParam("systemCab") Integer idSystem,
-                     @FormParam("typechange") Integer idTypeChange,
-                     @FormParam("stage1") List<String> stage1,
-                     @FormParam("stage21") List<String> stage21,
-                     @FormParam("stage22") List<String> stage22,
-                     @FormParam("stage23") List<String> stage23,
-                     @FormParam("stage3") List<String> stage3,
-                     @FormParam("authorize") List<String> authorize,
+    public void post(@FormParam("systemCab") List<Integer> idSystems,
+                     @FormParam("typechange") List<Integer> idTypeChanges,
+                     @FormParam("stage1") List<Integer> stage1,
+                     @FormParam("stage21") List<Integer> stage21,
+                     @FormParam("stage22") List<Integer> stage22,
+                     @FormParam("stage23") List<Integer> stage23,
+                     @FormParam("stage3") List<Integer> stage3,
+                     @FormParam("authorize") List<Integer> authorize,
                      @FormParam("active") Boolean active,
-                     @FormParam("delivery") String delivery) throws Exception {
-        Param param = new Param(idSystem, idTypeChange,
-                stage1, stage21, stage22, stage23, stage3, authorize, delivery, active);
-        param = paramService.convert(param);
-        Date date = new Date();
-        dbService.updateDB(param, date);
-        jsonService.updateJsonObject(param);
-        issueAssigneerWebworkAction.setParams(param);
-        new IssueAssigneerWebworkAction(pluginSettingsFactory, jsonService, systemService, typeChangeService).doExecute();
+                     @FormParam("delivery") Integer delivery) throws Exception {
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("systems", idSystems);
+        jsonObject.put("typeChanges", idTypeChanges);
+        jsonObject.put("stage1_id", stage1);
+        jsonObject.put("stage21_id", stage21);
+        jsonObject.put("stage22_id", stage22);
+        jsonObject.put("stage23_id", stage23);
+        jsonObject.put("stage3_id", stage3);
+        jsonObject.put("authorize_id", authorize);
+        jsonObject.put("delivery_id", delivery);
+        jsonObject.put("active_id", active);
+        jsonObject.put("stage1_enable", true);
+        jsonObject.put("stage21_enable", true);
+        jsonObject.put("stage22_enable", true);
+        jsonObject.put("stage23_enable", true);
+        jsonObject.put("stage3_enable", true);
+        jsonObject.put("authorize_enable", true);
+        jsonObject.put("delivery_enable", true);
+        jsonObject.put("active_enable", true);
+        dbService.updateDB(jsonObject);
     }
 
     @POST
@@ -291,6 +305,6 @@ public class SystemRest {
     @Path("/postmulti")
     public void postmulti(@Context HttpServletRequest request) throws Exception {
         JSONObject jsonObject = new JSONObject(request.getParameterMap());
-        System.out.println(jsonObject);
+        dbService.updateDB(jsonObject);
     }
 }

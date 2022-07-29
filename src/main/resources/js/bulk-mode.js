@@ -4,14 +4,15 @@ $(function () {
         if (toggle.checked === true)    {
             $('#divSystemCabSingle').attr("hidden","hidden")
             $('#divSystemCabMulti').removeAttr("hidden")
-            $('#divTypeChangeSingle').attr("hidden","hidden")
             $('#divTypeChangeMulti').removeAttr("hidden")
+            $('#systemCabMulti').prop("disabled", false)
+            $('#typechangeMulti').prop("disabled", false)
+            $('#divTypeChangeSingle').attr("hidden","hidden")
             $(".checkbox").attr("hidden","hidden")
             $("#link-hide-table").attr("hidden","hidden")
             $("#link-return-values").attr("hidden","hidden")
             $("#table-history").attr("hidden","hidden")
             $('.multiselect').val(null).trigger('change')
-            $('#delivery').val(0).trigger('change')
             $('#save').prop('disabled', true)
             $("#stage1").prop("disabled", true)
             $("#stage21").prop("disabled", true)
@@ -19,7 +20,6 @@ $(function () {
             $("#stage23").prop("disabled", true)
             $("#stage3").prop("disabled", true)
             $("#authorize").prop("disabled", true)
-            $("#systemCab").val(0).trigger('change')
             $('#systemCabMulti').empty()
             $('#active').prop('disabled', true)
             $('#active').append(new Option("Empty", "-1"))
@@ -36,7 +36,6 @@ $(function () {
         }   else    {
             $('.checkMultiDiv').attr("hidden","hidden")
             $("#active option[value='-1']").remove()
-            $('#systemCab').empty()
             $('#divSystemCabSingle').removeAttr("hidden")
             $('#divSystemCabMulti').attr("hidden","hidden")
             $('#divTypeChangeSingle').removeAttr("hidden")
@@ -47,7 +46,7 @@ $(function () {
             $("#table-history").removeAttr("hidden")
             $('#save').prop('disabled', false)
             $(".multiselect").prop("disabled", true)
-            $(".select").val("0").change();
+            $(".select").trigger("change")
         }
     })
 })

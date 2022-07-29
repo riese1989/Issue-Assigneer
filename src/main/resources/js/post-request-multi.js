@@ -6,21 +6,14 @@ $(function () {
             var currentURL = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search
             var jiraURL = currentURL.split("secure")[0]
             const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/postmulti'
-            var json = []
-            var item = {}
-            item['systems'] = $('#systemCabMulti').val()
-            item['typechanges'] = $('#typechangeMulti').val()
+            var json = {systems: $('#systemCabMulti').val(),
+                       typeChanges: $('#typechangeMulti').val()}
             $.each(nameElems, function (i, n) {
                 var elem = $("#" + n)
-                var jsonNested = []
-                var itemNested = {}
-                itemNested['ids'] = $(n).val()
-                itemNested['enable'] = elem.is(':disabled')
-                jsonNested.push(itemNested)
-                item[n] = jsonNested
+                var enabledVar = elem.is(':disabled')
+                json[n + "_id"] = elem.val()
+                json[n + "_enable"] = !enabledVar
             })
-            json.push(item)
-            console.log(json)
             $.post( jiraRestAddress, json);
         }
     });

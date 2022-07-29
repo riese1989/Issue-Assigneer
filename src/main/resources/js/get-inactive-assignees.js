@@ -1,9 +1,10 @@
 $(function () {
     $(document.body).on("change", ".select", function () {
+        var toggle = document.getElementById('bulk-edit')
         var currentURL = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search
         var jiraURL = currentURL.split("secure")[0]
         const jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
-        const system = document.getElementById("systemCab")
+        var system = document.getElementById("systemCab")
         const typechange = document.getElementById("typechange")
         if (system.value !== "0" && typechange.value !== "0" && system.value !== "" && typechange.value !== "") {
             const stages = ["stage1", "stage21", "stage22", "stage23", "stage3", "authorize", "delivery"]
@@ -19,7 +20,7 @@ $(function () {
                 })
             });
         }
-        if (system.value !== "0" && typechange.value === "0")   {
+        if (system.value !== "0" && typechange.value === "0" && toggle.checked === false && system.value !== '')   {
             $.get(jiraRestAddress + "delivery?idsystem=" + system.value, function (deliveryIdResponse){
                 $.get(jiraRestAddress + "getuser?id=" + deliveryIdResponse, function (user){
                     var dataUser = user.split("=")
