@@ -119,6 +119,7 @@
                     <input class="checkboxMulti" type="checkbox" name="checkbox" id="deliveryCheckMulti" value="7">
                     <label for="deliveryCheckMulti" id="deliveryLabelMulti"></label>
                 </div>
+                <div class="description" id = "descriptionDelivery" hidden></div>
             </div>
             <div class="field-group">
                 <label for="active" id = "activeLabel"></label>
@@ -130,6 +131,7 @@
                     <input class="checkboxMulti" type="checkbox" name="checkbox" id="activeCheckMulti" value="8">
                     <label for="activeCheckMulti" id="activeLabelMulti"></label>
                 </div>
+                <div class="description" id = "descriptionActive" hidden></div>
             </div>
             <div class="field-group">
                 <label id = "bulk-edit-label" for="bulk-edit" hidden>Bulk edit</label>

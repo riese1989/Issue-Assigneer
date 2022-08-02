@@ -11,8 +11,8 @@ $(function () {
             $(".checkbox").attr("hidden","hidden")
             $("#link-hide-table").attr("hidden","hidden")
             $("#link-return-values").attr("hidden","hidden")
-            $("#table-history").attr("hidden","hidden")
             $('.multiselect').val(null).trigger('change')
+            $(".multiselect").prop("disabled", false)
             $('#save').prop('disabled', true)
             $("#stage1").prop("disabled", true)
             $("#stage21").prop("disabled", true)
@@ -33,20 +33,25 @@ $(function () {
                     $('#systemCabMulti').append(new Option(name, id))
                 }
             })
+            if($('.table-history').is(":visible"))  {
+                $('.table-history').attr('hidden','');
+                $("#link-hide-table").text("Показать историю")
+            }
+            $('.checkboxMulti').change()
         }   else    {
             $('.checkMultiDiv').attr("hidden","hidden")
+            $('.description').attr("hidden","hidden")
             $("#active option[value='-1']").remove()
             $('#divSystemCabSingle').removeAttr("hidden")
             $('#divSystemCabMulti').attr("hidden","hidden")
             $('#divTypeChangeSingle').removeAttr("hidden")
             $('#divTypeChangeMulti').attr("hidden","hidden")
+            $(".select").trigger("change")
             $(".checkbox").removeAttr("hidden")
             $(".multiselect").val("").trigger('change')
             $("#link-hide-table").removeAttr("hidden")
-            $("#table-history").removeAttr("hidden")
             $('#save').prop('disabled', false)
             $(".multiselect").prop("disabled", true)
-            $(".select").trigger("change")
         }
     })
 })

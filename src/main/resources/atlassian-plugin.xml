@@ -30,7 +30,6 @@
         <resource type="download" name="get-actual-links.js" location="/js/get-actual-links.js"/>
         <resource type="download" name="get-assignees.js" location="/js/get-assignees.js"/>
         <resource type="download" name="get-status.js" location="/js/get-status.js"/>
-<!--        <resource type="download" name="hide-inactive-users.js" location="/js/hide-inactive-users.js"/>&ndash;&gt;-->
         <resource type="download" name="multiselect.js" location="/js/multiselect.js"/>
         <resource type="download" name="show-message.js" location="/js/show-message.js"/>
         <resource type="download" name="get-systems.js" location="/js/get-systems.js"/>
@@ -49,6 +48,7 @@
         <resource type="download" name="get-multi-assignees.js" location="/js/get-multi-assignees.js"/>
         <resource type="download" name="enable-fields-multi.js" location="/js/enable-fields-multi.js"/>
         <resource type="download" name="post-request-multi.js" location="/js/post-request-multi.js"/>
+        <resource type="download" name="get-description.js" location="/js/get-description.js"/>
         <resource type="download" name="issue-assigneer.css" location="/css/issue-assigneer.css"/>
         <resource type="download" name="images/" location="/images"/>
         <context>selects</context>

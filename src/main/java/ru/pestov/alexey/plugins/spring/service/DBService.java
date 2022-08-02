@@ -851,6 +851,9 @@ public class DBService {
                     result.add(Integer.valueOf(object.toString()));
                 }
             }
+            if (objects instanceof  Integer)    {
+                result.add(Integer.valueOf(objects.toString()));
+            }
         return result;
     }
 
@@ -863,5 +866,25 @@ public class DBService {
             return Boolean.valueOf(object.toString());
         }
 
+    }
+
+    public JSONObject getCountActiveDelivery(String idSystemsString)    {
+        JSONObject jsonObject = new JSONObject();
+        List<System> listSystems = Arrays.asList(systemModelManager.getSystems(idSystemsString));
+        List<Boolean> listActiveSystems = new ArrayList<>();
+        listSystems.forEach(s -> listActiveSystems.add(s.getActive()));
+        List<Integer> listIdDelivery = new ArrayList<>();
+        listSystems.forEach(s -> {
+            if (s.getDelivery() != null) {
+                listIdDelivery.add(s.getDelivery().getUser().getID());
+            }
+            else    {
+                listIdDelivery.add(-1);
+            }
+        });
+
+        jsonObject.put("countActive", getUniqueValues(listActiveSystems).size());
+        jsonObject.put("countDelivery", getUniqueValues(listIdDelivery).size());
+        return jsonObject;
     }
 }

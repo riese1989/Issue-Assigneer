@@ -307,4 +307,10 @@ public class SystemRest {
         JSONObject jsonObject = new JSONObject(request.getParameterMap());
         dbService.updateDB(jsonObject);
     }
+
+    @GET
+    @Path("/getcad")
+    public Response getCountActiveDelivery(@QueryParam("idSystems") String idSystemsString)  {
+        return Response.ok(dbService.getCountActiveDelivery(idSystemsString).toString()).build();
+    }
 }

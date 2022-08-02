@@ -10,7 +10,6 @@ $(function () {
             var url = jiraRestAddress + 'getassigneesmulti?idSystems=' + systemValue +
                 '&idTypeChanges=' + typeChangeValue
             $.get(url, function (response) {
-                $(".multiselect").prop("disabled", false)
                 var obj = jQuery.parseJSON(response);
                 if (obj.stage1 !== undefined) {
                     $('#stage1').val(obj.stage1).trigger('change')
