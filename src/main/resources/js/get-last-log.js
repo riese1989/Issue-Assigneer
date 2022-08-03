@@ -28,7 +28,10 @@ $(function () {
                     $('#authorize').val(obj.authorize).trigger('change')
                 }
                 if (obj.delivery !== undefined)   {
-                    $('#authorize').val(obj.delivery).trigger('change')
+                    $('#delivery').val(obj.delivery).trigger('change')
+                }
+                if (obj.active !== undefined)   {
+                    $('#active').val(obj.active.toString()).trigger('change')
                 }
             })
             $('#link-return-values').attr("hidden","hidden");

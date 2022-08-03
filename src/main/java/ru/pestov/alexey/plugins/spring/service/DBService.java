@@ -784,7 +784,7 @@ public class DBService {
             List<Delivery> systemsDelivery = Arrays.asList(dmManager.getSystemsByDelivery(getCurrentUser()));
             systemsDelivery.forEach(s -> {
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("id", s.getID());
+                jsonObject.put("id", s.getSystem().getID());
                 jsonObject.put("name", s.getSystem().getName());
                 jsonObject.put("active", s.getSystem().getActive());
                 systemsJSON.add(jsonObject);
@@ -808,13 +808,20 @@ public class DBService {
         List<System> systems = Arrays.asList(systemModelManager.getSystems(idSystems));
         List<Boolean> listActive = new ArrayList<>();
         List<Integer> listDelivery = new ArrayList<>();
-        systems.forEach(s -> {
-            listActive.add(s.getActive());
-            Delivery delivery = s.getDelivery();
+//        systems.forEach(s -> {
+//            listActive.add(s.getActive());
+//            Delivery delivery = s.getDelivery();
+//            if (delivery != null) {
+//                listDelivery.add(s.getDelivery().getUser().getID());
+//            }
+//        });
+        for (System system : systems)   {
+            listActive.add(system.getActive());
+            Delivery delivery = dmManager.getDelivery(system.getID());
             if (delivery != null) {
-                listDelivery.add(s.getDelivery().getUser().getID());
+                listDelivery.add(system.getDelivery().getUser().getID());
             }
-        });
+        }
         jsonObject.put("systems", Arrays.stream(idSystems.split(",")).map(Integer::parseInt).collect(Collectors.toList()));
         jsonObject.put("active", getUniqueValues(listActive));
         jsonObject.put("delivery", getUniqueValues(listDelivery));
@@ -841,8 +848,13 @@ public class DBService {
         List<Integer> result = new ArrayList<>();
             if (objects.getClass().isArray()) {
                 Object[] list = (Object[]) objects;
-                for (Object object : list) {
-                    result.add(Integer.valueOf(object.toString()));
+                if (!list[0].equals("")) {
+                    for (Object object : list) {
+                        result.add(Integer.valueOf(object.toString()));
+                    }
+                }
+                else    {
+                    result.add(0);
                 }
             }
             if (objects instanceof ArrayList) {

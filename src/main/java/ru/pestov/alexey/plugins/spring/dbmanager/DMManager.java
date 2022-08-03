@@ -26,6 +26,19 @@ public class DMManager extends ModelManager{
             }
         });
     }
+
+    public Delivery getDelivery(Integer idSystem)  {
+        return ao.executeInTransaction(new TransactionCallback<Delivery>() {
+            @Override
+            public Delivery doInTransaction() {
+                Delivery[] deliveries = ao.find(Delivery.class, Query.select().where("SYSTEM_ID = ?", idSystem));
+                if(deliveries.length != 0)  {
+                    return deliveries[0];
+                }
+                return null;
+            }
+        });
+    }
     public Delivery createDelivery(System system, User user)    {
         return ao.executeInTransaction(new TransactionCallback<Delivery>() {
             @Override
