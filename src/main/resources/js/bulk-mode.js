@@ -1,6 +1,7 @@
 $(function () {
     $(document.body).on("click", "#bulk-edit", function () {
         var toggle = document.getElementById('bulk-edit')
+        $('#delivery').val("0").trigger('change')
         if (toggle.checked === true)    {
             $('#divSystemCabSingle').attr("hidden","hidden")
             $('#divSystemCabMulti').removeAttr("hidden")
@@ -13,6 +14,7 @@ $(function () {
             $("#link-return-values").attr("hidden","hidden")
             $('.multiselect').val(null).trigger('change')
             $(".multiselect").prop("disabled", false)
+            $(".multiselect").trigger('change')
             $('#save').prop('disabled', true)
             $("#stage1").prop("disabled", true)
             $("#stage21").prop("disabled", true)
@@ -22,7 +24,6 @@ $(function () {
             $("#authorize").prop("disabled", true)
             $('#systemCabMulti').empty()
             $('#active').prop('disabled', true)
-            $('#active').append(new Option("Empty", "-1"))
             var jiraURL = $(location).attr("href").split("secure")[0]
             var jiraRestAddress = jiraURL + 'rest/cab/1.0/systems/'
             $.get(jiraRestAddress + 'getmysystems', function (response) {
@@ -39,16 +40,15 @@ $(function () {
             }
             $('.checkboxMulti').change()
         }   else    {
+            $("#active option[value='-1']").remove()
             $('.checkMultiDiv').attr("hidden","hidden")
             $('.description').attr("hidden","hidden")
-            $("#active option[value='-1']").remove()
             $('#divSystemCabSingle').removeAttr("hidden")
             $('#divSystemCabMulti').attr("hidden","hidden")
             $('#divTypeChangeSingle').removeAttr("hidden")
             $('#divTypeChangeMulti').attr("hidden","hidden")
             $(".select").trigger("change")
             $(".checkbox").removeAttr("hidden")
-            $(".multiselect").val("").trigger('change')
             $("#link-hide-table").removeAttr("hidden")
             $('#save').prop('disabled', false)
             $(".multiselect").prop("disabled", true)

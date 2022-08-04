@@ -35,9 +35,11 @@ $(function () {
                     $('#delivery').val("0").trigger('change')
                 }
                 if (obj.active !== undefined && obj.active.length === 1)    {
+                    $("#active option[value='-1']").remove()
                     $('#active').val(obj.active).trigger('change')
                 }
                 else {
+                    $('#active').append(new Option("Empty", "-1"))
                     $('#active').val("-1").trigger('change')
                 }
             })

@@ -42,6 +42,7 @@ public class DBService {
     private final String markInactiveUser = "[X]";
     private final EmailService emailService;
     private Param paramForLastLog = null;
+    private Integer countDelivery = 0;
     JSONObject jsonResponseLastLog = null;
 
     @Inject
@@ -894,9 +895,9 @@ public class DBService {
                 listIdDelivery.add(-1);
             }
         });
-
+        countDelivery = getUniqueValues(listIdDelivery).size();
         jsonObject.put("countActive", getUniqueValues(listActiveSystems).size());
-        jsonObject.put("countDelivery", getUniqueValues(listIdDelivery).size());
+        jsonObject.put("countDelivery", countDelivery);
         return jsonObject;
     }
 }
