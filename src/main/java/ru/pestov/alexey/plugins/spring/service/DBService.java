@@ -71,8 +71,10 @@ public class DBService {
     }
 
     public Integer recoverDB() {
+        //clear all tables in database
         clearDB();
         jsonService.createJSONObject(Mode.FILE);
+        //filling needing tables
         recoverUser();
         recoverStage();
         recoverSystems();
@@ -181,6 +183,7 @@ public class DBService {
         }
     }
 
+    //create list with issues User, where each User - assignee on current system
     private List<User> getAssignees(String key, JSONObject jsonObject) {
         List<User> users = new ArrayList();
         try {
@@ -221,6 +224,7 @@ public class DBService {
         return userModelManager.getUserByName(ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser().getName());
     }
 
+    //add records to tables
     public List<SystemAssignees> updateDB(JSONObject jsonObject) {
         Date date = new Date();
         User currentUser = getCurrentUser();
@@ -228,6 +232,7 @@ public class DBService {
         Object systems = jsonObject.get("systems");
         if (systems != null) {
             List<Integer> idSystems = convertListObjectToInteger(jsonObject.get("systems"));
+            //iterate list systems
             for (Integer idSystem : idSystems) {
                 System system = systemModelManager.getSystemById(idSystem);
                 Boolean isActive = false, isActiveEnable = false;
@@ -240,14 +245,17 @@ public class DBService {
                     logActiveSystemManager.create(date, system, isActive, currentUser);
                 }
                 List<Integer> idTypeChanges = convertListObjectToInteger(jsonObject.get("typeChanges"));
+                //iterate list type changes
                 for (Integer idTypeChange : idTypeChanges) {
                     TypeChangeDB typeChangeDB = typeChangeModelManager.getTypeChangeById(idTypeChange);
                     List<SystemAssignees> oldSystemAssignees = new ArrayList<>();
                     List<SystemAssignees> newSystemAssignees = new ArrayList<>();
                     List<Stage> stages = Arrays.asList(stageModelManager.getAllStages());
+                    //iterate list type stages
                     for (Stage stage : stages) {
                         String stageName = stage.getName();
                         Boolean isEnable = convertObjectToBoolean(jsonObject.get(stageName + "_enable"));
+                        //check needing of update data of this tage (for multi mode)
                         if (stageName.equals("delivery") || stageName.equals("active") || !isEnable) {
                             continue;
                         }
@@ -263,8 +271,10 @@ public class DBService {
                         }
                     }
                     if (!oldSystemAssignees.equals(newSystemAssignees)) {
+                        //create record to log
                         updateLog(oldSystemAssignees, newSystemAssignees, stages, currentUser, system, typeChangeDB, date);
                     }
+                    //delete old records of system assignees
                     SAManager.deleteObjects(oldSystemAssignees.toArray(new SystemAssignees[0]));
                 }
                 Integer deliveryId = convertListObjectToInteger(jsonObject.get("delivery_id")).get(0);
@@ -273,6 +283,7 @@ public class DBService {
                     continue;
                 }
                 if (isEnableDelivery) {
+                    //create record to deliveries logs
                     updateDeliveryDB(date, idSystem, deliveryId, currentUser);
                 }
             }
@@ -280,6 +291,7 @@ public class DBService {
         return result;
     }
 
+    //adding new records to table Logs
     private void updateLog(List<SystemAssignees> oldSystemAssignees, List<SystemAssignees> newSystemAssignees,
                            List<Stage> stages, User currentUser,
                            System system, TypeChangeDB typeChangeDB, Date date) {
@@ -373,7 +385,6 @@ public class DBService {
         User user = userModelManager.getUserByName(applicationUser.getUsername());
         String[] valuesFilter = valueFilter.split(",");
         if (user != null) {
-            //todo заменить 1 2 3 4  на что-то осмысленное
             for (String value : valuesFilter) {
                 if (value.equals("1")) {
                     systems = Arrays.asList(systemModelManager.getAllSystems());
@@ -619,8 +630,7 @@ public class DBService {
         return result;
     }
 
-    //todo че-то осмысленное arg
-
+    //return HTML code for front
     private String getHTMLFromPattern(String when, String who, String typeChangeName, String stageLabel, String change) {
         return "<tr><td>" + when + "</td><td>" + who + "</td><td>" + typeChangeName + "</td><td>" + stageLabel + "</td><td>" + change + "</td></tr>";
     }
@@ -688,7 +698,7 @@ public class DBService {
         List<Log> logs = Arrays.asList(logModelManager.getLogs(idSystem, idTypeChange));
         Comparator<Log> comparatorLog = Comparator.comparing(Log::getDate);
         Date maxDateLogs = logs.size() != 0 ? logs.stream().max(comparatorLog).get().getDate() : null;
-        ;
+        //get last records from logs
         List<Log> logsMaxDate = logs.stream().filter(l -> l.getDate().equals(maxDateLogs)).collect(Collectors.toList());
         if (logsMaxDate.size() != 0) {
             datesLastLogs.add(maxDateLogs);
@@ -698,6 +708,7 @@ public class DBService {
         Comparator<LogDelivery> comparatorLogDelivery = Comparator.comparing(LogDelivery::getDate);
         Date maxDateLogsDelivery = logDeliveries.size() != 0 ? logDeliveries.stream().max(comparatorLogDelivery).get().getDate() : null;
         List<LogDelivery> logsDeliveryMaxDate = logDeliveries.stream().filter(l -> l.getDate().equals(maxDateLogsDelivery)).collect(Collectors.toList());
+        //get last records from logs of delivery
         if (logsDeliveryMaxDate.size() != 0) {
             datesLastLogs.add(maxDateLogsDelivery);
         }
@@ -706,12 +717,13 @@ public class DBService {
         Comparator<LogActiveSystem> comparatorLogActiveSystem = Comparator.comparing(LogActiveSystem::getDate);
         Date maxDateLogsActiveSystem = logsActiveSystem.size() != 0 ? logsActiveSystem.stream().max(comparatorLogActiveSystem).get().getDate() : null;
         List<LogActiveSystem> logsMaxDateActiveSystem = logsActiveSystem.stream().filter(l -> l.getDate().equals(maxDateLogsActiveSystem)).collect(Collectors.toList());
+        //get last records from logs of active system
         if (logsMaxDateActiveSystem.size() != 0) {
             datesLastLogs.add(maxDateLogsActiveSystem);
         }
         if (datesLastLogs.size() != 0) {
+            //find date of last log from all tables with logs and check if current user is author of last log
             Date maxDate = Collections.max(datesLastLogs);
-
             if (maxDateLogs != null && maxDateLogs.equals(maxDate) && logsMaxDate.get(0).getUser().getID() == getCurrentUser().getID()) {
                 List<String> nameStages = Arrays.asList("stage1", "stage21", "stage22", "stage23", "stage3", "authorize");
                 for (String nameStage : nameStages) {

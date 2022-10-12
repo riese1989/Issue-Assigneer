@@ -65,6 +65,7 @@ public class HService {
         return result;
     }
 
+    //iterate json-file and create users on localhost
     public String createUsers() {
         String result = "";
         String forWrite = "";

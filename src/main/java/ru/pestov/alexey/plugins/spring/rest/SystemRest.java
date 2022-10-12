@@ -73,6 +73,7 @@ public class SystemRest {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    //create users from json-file (for launch on localhost)
     @GET
     @Path("/cr")
     public Response createUsers() {
@@ -80,6 +81,7 @@ public class SystemRest {
         return Response.ok(result).build();
     }
 
+    //check availability of files CAB_delivery and CAB_approval
     @GET
     @Path("/check")
     public Response checkFiles() {
@@ -87,6 +89,7 @@ public class SystemRest {
         return Response.ok(result).build();
     }
 
+    //filling database on first launch
     @GET
     @Path("/recover")
     public Response recoverDB() {
@@ -94,19 +97,26 @@ public class SystemRest {
         return Response.ok().build();
     }
 
+    //get list systems for filling element select on front
+    //valuefilter - it's parameter from front with view "1,2,3,4"
+    //1 - return all systems
+    //2 - get systems, where current user is assignee
+    //3 - get systems, where current user is authorize
+    //4 - get systems, where current user is delivery
     @GET
     @Path("/getlistsystems")
     public Response getListSystems(@QueryParam("valuefilter") String valueFilter) {
         return Response.ok(dbService.getHashMapSystems(valueFilter).toString()).build();
     }
 
+    //get list possible type changes
     @GET
     @Path("/getlisttypechanges")
     public Response getListSystems() {
         return Response.ok(dbService.getHashMapTypeChanges().toString()).build();
     }
 
-    //done
+    //get assignees of current system on current stage and type change
     @GET
     @Path("/getassignees")
     public Response getSystem(@Context HttpServletRequest httpServletRequest,
@@ -115,7 +125,7 @@ public class SystemRest {
                               @QueryParam("stage") String nameStage) {
         return Response.ok(systemService.getAssigneesStageSystem(idSystem, idTypeChange, nameStage)).build();
     }
-
+    //get list inactive assignees (like as /getassignees)
     @GET
     @Path("/getIa")
     public Response getInactiveAssignees(@Context HttpServletRequest httpServletRequest,
@@ -133,7 +143,7 @@ public class SystemRest {
         return Response.ok().build();
     }
 
-    // done
+    // get status system
     @GET
     @Path("/isactive")
     public Response isActive(@Context HttpServletRequest httpServletRequest,
@@ -141,13 +151,14 @@ public class SystemRest {
         return Response.ok(systemService.isSystemActive(idSystem).toString()).build();
     }
 
+    //check administrator permission of user
     @GET
     @Path("/isuseradmin")
     public Response isUserAdmin(@Context HttpServletRequest httpServletRequest) {
         return Response.ok(permissionService.isCurrentUserAdminJira().toString()).build();
     }
 
-    //done
+    //get data from form and put in database
     @POST
     @Path("/post")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
@@ -193,6 +204,7 @@ public class SystemRest {
         return Response.ok(stage1).build();
     }
 
+    //get list active users
     @GET
     @Path("/getusers")
     public Response getActiveUsers() {
@@ -201,24 +213,28 @@ public class SystemRest {
         return Response.ok(activeUsers).build();
     }
 
+    //check permission of current user as superuser
     @GET
     @Path("/issuperuser")
     public Response isSuperuser() {
         return Response.ok(permissionService.isCurrentUserSuperUser().toString()).build();
     }
 
+    //get delivery of system
     @GET
     @Path("/delivery")
     public Response getDelivery(@QueryParam("idsystem") Integer idSystem) {
         return Response.ok(dbService.getDelivery(idSystem)).build();
     }
 
+    //check is user delivery of current system
     @GET
     @Path("/isdelivery")
     public Response checkUserDelivery(@QueryParam("idsystem") Integer idSystem) {
         return Response.ok(permissionService.isCurrentUserDelivery(idSystem).toString()).build();
     }
 
+    //check if this system enable for editing of current user
     @GET
     @Path("/isenable")
     public Response checkEnable(@QueryParam("idsystem") Integer idSystem,
@@ -226,6 +242,7 @@ public class SystemRest {
         return Response.ok(permissionService.isEnable(idSystem, idTypeChange).toString()).build();
     }
 
+    //get change logs current system
     @GET
     @Path("/getlogs")
     public Response getLogs(@QueryParam("idsystem") Integer idSystem,
@@ -233,24 +250,28 @@ public class SystemRest {
         return Response.ok(dbService.getLogs(idSystem, idTypeChange)).build();
     }
 
+    //get title stage for view on front
     @GET
     @Path("/stage/title")
     public Response getTitle(@QueryParam("namestage") String nameStage) {
         return Response.ok(dbService.getTitleStage(nameStage)).build();
     }
 
+    //get label stage for view on front
     @GET
     @Path("/stage/label")
     public Response getLabel(@QueryParam("namestage") String nameStage) {
         return Response.ok(dbService.getLabelStage(nameStage)).build();
     }
 
+    //get user by id
     @GET
     @Path("/getuser")
     public Response getUserById(@QueryParam("id") Integer idUser) {
         return Response.ok(dbService.getUserById(idUser)).build();
     }
 
+    //export data to csv
     @GET
     @Path("/export")
     public Response exportCSV() {
@@ -259,12 +280,14 @@ public class SystemRest {
         return Response.ok(fileService.createFile(systemAssigneesList, stages)).build();
     }
 
+    //get count systems, where current user is delivery
     @GET
     @Path("/countmysystems")
     public Response countMySystems() {
         return Response.ok(dbService.getCountSystemDelivery().toString()).build();
     }
 
+    //Was current user author of last change?
     @GET
     @Path("/checklastlog")
     public Response checkLastLog(@QueryParam("idsystem") Integer idSystem,
@@ -272,6 +295,7 @@ public class SystemRest {
         return Response.ok(dbService.checkLastLog(idSystem, idTypeChange).toString()).build();
     }
 
+    //get list of last logs
     @GET
     @Path("/getlastlogs")
     public Response getLastLog(@QueryParam("idsystem") Integer idSystem,
@@ -279,6 +303,7 @@ public class SystemRest {
         return Response.ok(dbService.getLastLogs(idSystem, idTypeChange).toString()).build();
     }
 
+    //check permission for bulk edit
     @GET
     @Path("/isenablebulk")
     public Response checkEnableBulk() {
@@ -293,7 +318,7 @@ public class SystemRest {
         return Response.ok(dbService.getSystemsOfUser(isSuperUser, isDelivery).toString()).build();
     }
 
-
+    //get assignees in multi edit
     @GET
     @Path("/getassigneesmulti")
     public Response getAssigneesMulti(@QueryParam("idSystems") String idSystems,
@@ -301,6 +326,7 @@ public class SystemRest {
         return Response.ok(dbService.getAssigneesMulti(idSystems, idTypeChanges).toString()).build();
     }
 
+    //post changes in multi edit
     @POST
     @Path("/postmulti")
     public void postmulti(@Context HttpServletRequest request) throws Exception {
